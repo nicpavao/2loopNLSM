@@ -1,0 +1,491 @@
+
+\providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
+
+\bibitem{BCJreview}
+Z.~Bern, J.J.~Carrasco, M.~Chiodaroli, H.~Johansson and R.~Roiban, \emph{{The
+  Duality Between Color and Kinematics and its Applications}},
+  \href{https://arxiv.org/abs/1909.01358}{{\ttfamily 1909.01358}}.
+
+\bibitem{Bern:2022wqg}
+Z.~Bern, J.J.~Carrasco, M.~Chiodaroli, H.~Johansson and R.~Roiban, \emph{{The
+  SAGEX Review on Scattering Amplitudes, Chapter 2: An Invitation to
+  Color-Kinematics Duality and the Double Copy}},
+  \href{https://arxiv.org/abs/2203.13013}{{\ttfamily 2203.13013}}.
+
+\bibitem{Adamo:2022dcm}
+T.~Adamo, J.J.M.~Carrasco, M.~Carrillo-Gonz\'alez, M.~Chiodaroli, H.~Elvang,
+  H.~Johansson et~al., \emph{{Snowmass White Paper: the Double Copy and its
+  Applications}},  in \emph{{2022 Snowmass Summer Study}}, 4, 2022
+  [\href{https://arxiv.org/abs/2204.06547}{{\ttfamily 2204.06547}}].
+
+\bibitem{Bern:2012uf}
+Z.~Bern, J.J.M.~Carrasco, L.J.~Dixon, H.~Johansson and R.~Roiban,
+  \emph{{Simplifying Multiloop Integrands and Ultraviolet Divergences of Gauge
+  Theory and Gravity Amplitudes}},
+  \href{https://doi.org/10.1103/PhysRevD.85.105014}{\emph{Phys. Rev. D}
+  {\bfseries 85} (2012) 105014}
+  [\href{https://arxiv.org/abs/1201.5366}{{\ttfamily 1201.5366}}].
+
+\bibitem{Neq44np}
+Z.~Bern, J.J.M.~Carrasco, L.J.~Dixon, H.~Johansson and R.~Roiban, \emph{{The
+  complete four-loop four-point amplitude in ${\cal N}=4$ super-Yang-Mills
+  theory}}, \href{https://doi.org/10.1103/PhysRevD.82.125040}{\emph{Phys. Rev.}
+  {\bfseries D82} (2010) 125040}
+  [\href{https://arxiv.org/abs/1008.3327}{{\ttfamily 1008.3327}}].
+
+\bibitem{GravityFour}
+Z.~Bern, J.J.~Carrasco, L.J.~Dixon, H.~Johansson and R.~Roiban, \emph{{The
+  ultraviolet behavior of ${\cal N}=8$ supergravity at four loops}},
+  \href{https://doi.org/10.1103/PhysRevLett.103.081301}{\emph{Phys. Rev. Lett.}
+  {\bfseries 103} (2009) 081301}
+  [\href{https://arxiv.org/abs/0905.2326}{{\ttfamily 0905.2326}}].
+
+\bibitem{Bjerrum-Bohr:2013iza}
+N.E.J.~Bjerrum-Bohr, T.~Dennen, R.~Monteiro and D.~O'Connell, \emph{{Integrand
+  Oxidation and one-loop colour-dual numerators in ${\cal N}=4$ gauge theory}},
+  \href{https://doi.org/10.1007/JHEP07(2013)092}{\emph{JHEP} {\bfseries 07}
+  (2013) 092} [\href{https://arxiv.org/abs/1303.2913}{{\ttfamily 1303.2913}}].
+
+\bibitem{Edison:2020uzf}
+A.~Edison, S.~He, O.~Schlotterer and F.~Teng, \emph{{One-loop Correlators and
+  BCJ Numerators from Forward Limits}},
+  \href{https://doi.org/10.1007/JHEP09(2020)079}{\emph{JHEP} {\bfseries 09}
+  (2020) 079} [\href{https://arxiv.org/abs/2005.03639}{{\ttfamily
+  2005.03639}}].
+
+\bibitem{Edison:2022jln}
+A.~Edison, S.~He, H.~Johansson, O.~Schlotterer, F.~Teng and Y.~Zhang,
+  \emph{{Perfecting one-loop BCJ numerators in SYM and supergravity}},
+  \href{https://doi.org/10.1007/JHEP02(2023)164}{\emph{JHEP} {\bfseries 02}
+  (2023) 164} [\href{https://arxiv.org/abs/2211.00638}{{\ttfamily
+  2211.00638}}].
+
+\bibitem{Cheung2016prv}
+C.~Cheung and C.-H.~Shen, \emph{{Symmetry for flavor-kinematics duality from an
+  action}}, \href{https://doi.org/10.1103/PhysRevLett.118.121601}{\emph{Phys.
+  Rev. Lett.} {\bfseries 118} (2017) 121601}
+  [\href{https://arxiv.org/abs/1612.00868}{{\ttfamily 1612.00868}}].
+
+\bibitem{He:2017spx}
+S.~He, O.~Schlotterer and Y.~Zhang, \emph{{New BCJ representations for one-loop
+  amplitudes in gauge theories and gravity}},
+  \href{https://doi.org/10.1016/j.nuclphysb.2018.03.003}{\emph{Nucl. Phys. B}
+  {\bfseries 930} (2018) 328}
+  [\href{https://arxiv.org/abs/1706.00640}{{\ttfamily 1706.00640}}].
+
+\bibitem{OneTwoLoopPureYMBCJ}
+Z.~Bern, S.~Davies, T.~Dennen, Y.-t.~Huang and J.~Nohle,
+  \emph{{Color-kinematics duality for pure Yang-Mills and gravity at one and
+  two Loops}}, \href{https://doi.org/10.1103/PhysRevD.92.045041}{\emph{Phys.
+  Rev.} {\bfseries D92} (2015) 045041}
+  [\href{https://arxiv.org/abs/1303.6605}{{\ttfamily 1303.6605}}].
+
+\bibitem{Mogull:2015adi}
+G.~Mogull and D.~O'Connell, \emph{{Overcoming Obstacles to Colour-Kinematics
+  Duality at Two Loops}},
+  \href{https://doi.org/10.1007/JHEP12(2015)135}{\emph{JHEP} {\bfseries 12}
+  (2015) 135} [\href{https://arxiv.org/abs/1511.06652}{{\ttfamily
+  1511.06652}}].
+
+\bibitem{Bern:2015ooa}
+Z.~Bern, S.~Davies and J.~Nohle, \emph{{Double-Copy Constructions and Unitarity
+  Cuts}}, \href{https://doi.org/10.1103/PhysRevD.93.105015}{\emph{Phys. Rev. D}
+  {\bfseries 93} (2016) 105015}
+  [\href{https://arxiv.org/abs/1510.03448}{{\ttfamily 1510.03448}}].
+
+\bibitem{Geyer:2019hnn}
+Y.~Geyer, R.~Monteiro and R.~Stark-Much\~ao, \emph{{Two-Loop Scattering
+  Amplitudes: Double-Forward Limit and Colour-Kinematics Duality}},
+  \href{https://doi.org/10.1007/JHEP12(2019)049}{\emph{JHEP} {\bfseries 12}
+  (2019) 049} [\href{https://arxiv.org/abs/1908.05221}{{\ttfamily
+  1908.05221}}].
+
+\bibitem{Johansson:2017bfl}
+H.~Johansson, G.~K\"alin and G.~Mogull, \emph{{Two-loop supersymmetric QCD and
+  half-maximal supergravity amplitudes}},
+  \href{https://doi.org/10.1007/JHEP09(2017)019}{\emph{JHEP} {\bfseries 09}
+  (2017) 019} [\href{https://arxiv.org/abs/1706.09381}{{\ttfamily
+  1706.09381}}].
+
+\bibitem{Chen:2019ywi}
+G.~Chen, H.~Johansson, F.~Teng and T.~Wang, \emph{{On the kinematic algebra for
+  BCJ numerators beyond the MHV sector}},
+  \href{https://doi.org/10.1007/JHEP11(2019)055}{\emph{JHEP} {\bfseries 11}
+  (2019) 055} [\href{https://arxiv.org/abs/1906.10683}{{\ttfamily
+  1906.10683}}].
+
+\bibitem{Chen:2021chy}
+G.~Chen, H.~Johansson, F.~Teng and T.~Wang, \emph{{Next-to-MHV Yang-Mills
+  kinematic algebra}},
+  \href{https://doi.org/10.1007/JHEP10(2021)042}{\emph{JHEP} {\bfseries 10}
+  (2021) 042} [\href{https://arxiv.org/abs/2104.12726}{{\ttfamily
+  2104.12726}}].
+
+\bibitem{Brandhuber:2021bsf}
+A.~Brandhuber, G.~Chen, H.~Johansson, G.~Travaglini and C.~Wen,
+  \emph{{Kinematic Hopf Algebra for Bern-Carrasco-Johansson Numerators in
+  Heavy-Mass Effective Field Theory and Yang-Mills Theory}},
+  \href{https://doi.org/10.1103/PhysRevLett.128.121601}{\emph{Phys. Rev. Lett.}
+  {\bfseries 128} (2022) 121601}
+  [\href{https://arxiv.org/abs/2111.15649}{{\ttfamily 2111.15649}}].
+
+\bibitem{Cheung:2021zvb}
+C.~Cheung and J.~Mangan, \emph{{Covariant color-kinematics duality}},
+  \href{https://doi.org/10.1007/JHEP11(2021)069}{\emph{JHEP} {\bfseries 11}
+  (2021) 069} [\href{https://arxiv.org/abs/2108.02276}{{\ttfamily
+  2108.02276}}].
+
+\bibitem{Ben-Shahar:2021zww}
+M.~Ben-Shahar and H.~Johansson, \emph{{Off-shell color-kinematics duality for
+  Chern-Simons}}, \href{https://doi.org/10.1007/JHEP08(2022)035}{\emph{JHEP}
+  {\bfseries 08} (2022) 035}
+  [\href{https://arxiv.org/abs/2112.11452}{{\ttfamily 2112.11452}}].
+
+\bibitem{Cheung:2022mix}
+C.~Cheung, J.~Mangan, J.~Parra-Martinez and N.~Shah, \emph{{Non-perturbative
+  Double Copy in Flatland}},
+  \href{https://doi.org/10.1103/PhysRevLett.129.221602}{\emph{Phys. Rev. Lett.}
+  {\bfseries 129} (2022) 221602}
+  [\href{https://arxiv.org/abs/2204.07130}{{\ttfamily 2204.07130}}].
+
+\bibitem{Ben-Shahar:2022ixa}
+M.~Ben-Shahar, L.~Garozzo and H.~Johansson, \emph{{Lagrangians Manifesting
+  Color-Kinematics Duality in the NMHV Sector of Yang-Mills}},
+  \href{https://arxiv.org/abs/2301.00233}{{\ttfamily 2301.00233}}.
+
+\bibitem{Cachazo:2014xea}
+F.~Cachazo, S.~He and E.Y.~Yuan, \emph{{Scattering Equations and Matrices: From
+  Einstein To Yang-Mills, DBI and NLSM}},
+  \href{https://doi.org/10.1007/JHEP07(2015)149}{\emph{JHEP} {\bfseries 07}
+  (2015) 149} [\href{https://arxiv.org/abs/1412.3479}{{\ttfamily 1412.3479}}].
+
+\bibitem{Carrasco:2016ldy}
+J.J.M.~Carrasco, C.R.~Mafra and O.~Schlotterer, \emph{{Abelian Z-theory: NLSM
+  amplitudes and $\alpha$'-corrections from the open string}},
+  \href{https://doi.org/10.1007/JHEP06(2017)093}{\emph{JHEP} {\bfseries 06}
+  (2017) 093} [\href{https://arxiv.org/abs/1608.02569}{{\ttfamily
+  1608.02569}}].
+
+\bibitem{Elvang:2020kuj}
+H.~Elvang, M.~Hadjiantonis, C.R.T.~Jones and S.~Paranjape,
+  \emph{{Electromagnetic Duality and D3-Brane Scattering Amplitudes Beyond
+  Leading Order}}, \href{https://doi.org/10.1007/JHEP04(2021)173}{\emph{JHEP}
+  {\bfseries 04} (2021) 173}
+  [\href{https://arxiv.org/abs/2006.08928}{{\ttfamily 2006.08928}}].
+
+\bibitem{Bern:2007xj}
+Z.~Bern, J.J.~Carrasco, D.~Forde, H.~Ita and H.~Johansson, \emph{{Unexpected
+  Cancellations in Gravity Theories}},
+  \href{https://doi.org/10.1103/PhysRevD.77.025010}{\emph{Phys. Rev. D}
+  {\bfseries 77} (2008) 025010}
+  [\href{https://arxiv.org/abs/0707.1035}{{\ttfamily 0707.1035}}].
+
+\bibitem{Carrasco:2013ypa}
+J.J.M.~Carrasco, R.~Kallosh, R.~Roiban and A.A.~Tseytlin, \emph{{On the U(1)
+  duality anomaly and the S-matrix of N=4 supergravity}},
+  \href{https://doi.org/10.1007/JHEP07(2013)029}{\emph{JHEP} {\bfseries 07}
+  (2013) 029} [\href{https://arxiv.org/abs/1303.6219}{{\ttfamily 1303.6219}}].
+
+\bibitem{Craig:2019zkf}
+N.~Craig, I.~Garcia~Garcia and G.D.~Kribs, \emph{{The UV fate of anomalous
+  U(1)s and the Swampland}},
+  \href{https://doi.org/10.1007/JHEP11(2020)063}{\emph{JHEP} {\bfseries 11}
+  (2020) 063} [\href{https://arxiv.org/abs/1912.10054}{{\ttfamily
+  1912.10054}}].
+
+\bibitem{Monteiro:2022nqt}
+R.~Monteiro, R.~Stark-Much\~ao and S.~Wikeley, \emph{{Anomaly and double copy
+  in quantum self-dual Yang-Mills and gravity}},
+  \href{https://arxiv.org/abs/2211.12407}{{\ttfamily 2211.12407}}.
+
+\bibitem{Bern:2017tuc}
+Z.~Bern, A.~Edison, D.~Kosower and J.~Parra-Martinez, \emph{{Curvature-squared
+  multiplets, evanescent effects, and the U(1) anomaly in $N=4$ supergravity}},
+  \href{https://doi.org/10.1103/PhysRevD.96.066004}{\emph{Phys. Rev. D}
+  {\bfseries 96} (2017) 066004}
+  [\href{https://arxiv.org/abs/1706.01486}{{\ttfamily 1706.01486}}].
+
+\bibitem{Bern:2017rjw}
+Z.~Bern, J.~Parra-Martinez and R.~Roiban, \emph{{Canceling the U(1) Anomaly in
+  the $S$ Matrix of $N$=4 Supergravity}},
+  \href{https://doi.org/10.1103/PhysRevLett.121.101604}{\emph{Phys. Rev. Lett.}
+  {\bfseries 121} (2018) 101604}
+  [\href{https://arxiv.org/abs/1712.03928}{{\ttfamily 1712.03928}}].
+
+\bibitem{Bern:2019isl}
+Z.~Bern, D.~Kosower and J.~Parra-Martinez, \emph{{Two-loop n-point anomalous
+  amplitudes in N=4 supergravity}},
+  \href{https://doi.org/10.1098/rspa.2019.0722}{\emph{Proc. Roy. Soc. Lond. A}
+  {\bfseries 476} (2020) 20190722}
+  [\href{https://arxiv.org/abs/1905.05151}{{\ttfamily 1905.05151}}].
+
+\bibitem{Goroff:1985sz}
+M.H.~Goroff and A.~Sagnotti, \emph{{QUANTUM GRAVITY AT TWO LOOPS}},
+  \href{https://doi.org/10.1016/0370-2693(85)91470-4}{\emph{Phys. Lett. B}
+  {\bfseries 160} (1985) 81}.
+
+\bibitem{Bern:2013uka}
+Z.~Bern, S.~Davies, T.~Dennen, A.V.~Smirnov and V.A.~Smirnov,
+  \emph{{Ultraviolet Properties of N=4 Supergravity at Four Loops}},
+  \href{https://doi.org/10.1103/PhysRevLett.111.231302}{\emph{Phys. Rev. Lett.}
+  {\bfseries 111} (2013) 231302}
+  [\href{https://arxiv.org/abs/1309.2498}{{\ttfamily 1309.2498}}].
+
+\bibitem{Alishahiha:2004eh}
+M.~Alishahiha, E.~Silverstein and D.~Tong, \emph{{DBI in the sky}},
+  \href{https://doi.org/10.1103/PhysRevD.70.123505}{\emph{Phys. Rev. D}
+  {\bfseries 70} (2004) 123505}
+  [\href{https://arxiv.org/abs/hep-th/0404084}{{\ttfamily hep-th/0404084}}].
+
+\bibitem{Creminelli:2005hu}
+P.~Creminelli, A.~Nicolis, L.~Senatore, M.~Tegmark and M.~Zaldarriaga,
+  \emph{{Limits on non-gaussianities from wmap data}},
+  \href{https://doi.org/10.1088/1475-7516/2006/05/004}{\emph{JCAP} {\bfseries
+  05} (2006) 004} [\href{https://arxiv.org/abs/astro-ph/0509029}{{\ttfamily
+  astro-ph/0509029}}].
+
+\bibitem{Fergusson:2008ra}
+J.R.~Fergusson and E.P.S.~Shellard, \emph{{The shape of primordial
+  non-Gaussianity and the CMB bispectrum}},
+  \href{https://doi.org/10.1103/PhysRevD.80.043510}{\emph{Phys. Rev. D}
+  {\bfseries 80} (2009) 043510}
+  [\href{https://arxiv.org/abs/0812.3413}{{\ttfamily 0812.3413}}].
+
+\bibitem{Carrasco:2015pla}
+J.J.M.~Carrasco, R.~Kallosh and A.~Linde, \emph{{$\alpha $-Attractors: Planck,
+  LHC and Dark Energy}},
+  \href{https://doi.org/10.1007/JHEP10(2015)147}{\emph{JHEP} {\bfseries 10}
+  (2015) 147} [\href{https://arxiv.org/abs/1506.01708}{{\ttfamily
+  1506.01708}}].
+
+\bibitem{Carrasco:2015rva}
+J.J.M.~Carrasco, R.~Kallosh and A.~Linde, \emph{{Cosmological Attractors and
+  Initial Conditions for Inflation}},
+  \href{https://doi.org/10.1103/PhysRevD.92.063519}{\emph{Phys. Rev. D}
+  {\bfseries 92} (2015) 063519}
+  [\href{https://arxiv.org/abs/1506.00936}{{\ttfamily 1506.00936}}].
+
+\bibitem{Carrasco:2015uma}
+J.J.M.~Carrasco, R.~Kallosh, A.~Linde and D.~Roest, \emph{{Hyperbolic geometry
+  of cosmological attractors}},
+  \href{https://doi.org/10.1103/PhysRevD.92.041301}{\emph{Phys. Rev. D}
+  {\bfseries 92} (2015) 041301}
+  [\href{https://arxiv.org/abs/1504.05557}{{\ttfamily 1504.05557}}].
+
+\bibitem{BICEP:2021xfz}
+{\scshape BICEP, Keck} collaboration, \emph{{Improved Constraints on Primordial
+  Gravitational Waves using Planck, WMAP, and BICEP/Keck Observations through
+  the 2018 Observing Season}},
+  \href{https://doi.org/10.1103/PhysRevLett.127.151301}{\emph{Phys. Rev. Lett.}
+  {\bfseries 127} (2021) 151301}
+  [\href{https://arxiv.org/abs/2110.00483}{{\ttfamily 2110.00483}}].
+
+\bibitem{Kallosh:2021mnu}
+R.~Kallosh and A.~Linde, \emph{{BICEP/Keck and cosmological attractors}},
+  \href{https://doi.org/10.1088/1475-7516/2021/12/008}{\emph{JCAP} {\bfseries
+  12} (2021) 008} [\href{https://arxiv.org/abs/2110.10902}{{\ttfamily
+  2110.10902}}].
+
+\bibitem{Green:1982sw}
+M.B.~Green, J.H.~Schwarz and L.~Brink, \emph{{N=4 Yang-Mills and N=8
+  Supergravity as Limits of String Theories}},
+  \href{https://doi.org/10.1016/0550-3213(82)90336-4}{\emph{Nucl. Phys. B}
+  {\bfseries 198} (1982) 474}.
+
+\bibitem{Mafra:2016mcc}
+C.R.~Mafra and O.~Schlotterer, \emph{{Non-abelian $Z$-theory: Berends-Giele
+  recursion for the $\alpha'$-expansion of disk integrals}},
+  \href{https://doi.org/10.1007/JHEP01(2017)031}{\emph{JHEP} {\bfseries 01}
+  (2017) 031} [\href{https://arxiv.org/abs/1609.07078}{{\ttfamily
+  1609.07078}}].
+
+\bibitem{Broedel:2013tta}
+J.~Broedel, O.~Schlotterer and S.~Stieberger, \emph{{Polylogarithms, Multiple
+  Zeta Values and Superstring Amplitudes}},
+  \href{https://doi.org/10.1002/prop.201300019}{\emph{Fortsch. Phys.}
+  {\bfseries 61} (2013) 812} [\href{https://arxiv.org/abs/1304.7267}{{\ttfamily
+  1304.7267}}].
+
+\bibitem{Carrasco:2016ygv}
+J.J.M.~Carrasco, C.R.~Mafra and O.~Schlotterer, \emph{{Semi-abelian Z-theory:
+  NLSM$+\phi^{3}$ from the open string}},
+  \href{https://doi.org/10.1007/JHEP08(2017)135}{\emph{JHEP} {\bfseries 08}
+  (2017) 135} [\href{https://arxiv.org/abs/1612.06446}{{\ttfamily
+  1612.06446}}].
+
+\bibitem{Azevedo:2018dgo}
+T.~Azevedo, M.~Chiodaroli, H.~Johansson and O.~Schlotterer, \emph{{Heterotic
+  and bosonic string amplitudes via field theory}},
+  \href{https://doi.org/10.1007/JHEP10(2018)012}{\emph{JHEP} {\bfseries 10}
+  (2018) 012} [\href{https://arxiv.org/abs/1803.05452}{{\ttfamily
+  1803.05452}}].
+
+\bibitem{Anastasiou:2004vj}
+C.~Anastasiou and A.~Lazopoulos, \emph{{Automatic integral reduction for higher
+  order perturbative calculations}},
+  \href{https://doi.org/10.1088/1126-6708/2004/07/046}{\emph{JHEP} {\bfseries
+  07} (2004) 046} [\href{https://arxiv.org/abs/hep-ph/0404258}{{\ttfamily
+  hep-ph/0404258}}].
+
+\bibitem{vonManteuffel:2012np}
+A.~von Manteuffel and C.~Studerus, \emph{{Reduze 2 - Distributed Feynman
+  Integral Reduction}},  \href{https://arxiv.org/abs/1201.4330}{{\ttfamily
+  1201.4330}}.
+
+\bibitem{Smirnov:2014hma}
+A.V.~Smirnov, \emph{{FIRE5: a C++ implementation of Feynman Integral
+  REduction}}, \href{https://doi.org/10.1016/j.cpc.2014.11.024}{\emph{Comput.
+  Phys. Commun.} {\bfseries 189} (2015) 182}
+  [\href{https://arxiv.org/abs/1408.2372}{{\ttfamily 1408.2372}}].
+
+\bibitem{vonManteuffel:2014ixa}
+A.~von Manteuffel and R.M.~Schabinger, \emph{{A novel approach to integration
+  by parts reduction}},
+  \href{https://doi.org/10.1016/j.physletb.2015.03.029}{\emph{Phys. Lett. B}
+  {\bfseries 744} (2015) 101}
+  [\href{https://arxiv.org/abs/1406.4513}{{\ttfamily 1406.4513}}].
+
+\bibitem{Smirnov:2019qkx}
+A.V.~Smirnov and F.S.~Chuharev, \emph{{FIRE6: Feynman Integral REduction with
+  Modular Arithmetic}},
+  \href{https://doi.org/10.1016/j.cpc.2019.106877}{\emph{Comput. Phys. Commun.}
+  {\bfseries 247} (2020) 106877}
+  [\href{https://arxiv.org/abs/1901.07808}{{\ttfamily 1901.07808}}].
+
+\bibitem{Smirnov:2020quc}
+A.V.~Smirnov and V.A.~Smirnov, \emph{{How to choose master integrals}},
+  \href{https://doi.org/10.1016/j.nuclphysb.2020.115213}{\emph{Nucl. Phys. B}
+  {\bfseries 960} (2020) 115213}
+  [\href{https://arxiv.org/abs/2002.08042}{{\ttfamily 2002.08042}}].
+
+\bibitem{Usovitsch:2020jrk}
+J.~Usovitsch, \emph{{Factorization of denominators in integration-by-parts
+  reductions}},  \href{https://arxiv.org/abs/2002.08173}{{\ttfamily
+  2002.08173}}.
+
+\bibitem{Maierhofer:2018gpa}
+P.~Maierh\"ofer and J.~Usovitsch, \emph{{Kira 1.2 Release Notes}},
+  \href{https://arxiv.org/abs/1812.01491}{{\ttfamily 1812.01491}}.
+
+\bibitem{Carrasco:2019yyn}
+J.J.M.~Carrasco, L.~Rodina, Z.~Yin and S.~Zekioglu, \emph{{Simple encoding of
+  higher derivative gauge and gravity counterterms}},
+  \href{https://doi.org/10.1103/PhysRevLett.125.251602}{\emph{Phys. Rev. Lett.}
+  {\bfseries 125} (2020) 251602}
+  [\href{https://arxiv.org/abs/1910.12850}{{\ttfamily 1910.12850}}].
+
+\bibitem{Carrasco:2021ptp}
+J.J.M.~Carrasco, L.~Rodina and S.~Zekioglu, \emph{{Composing effective
+  prediction at five points}},
+  \href{https://doi.org/10.1007/JHEP06(2021)169}{\emph{JHEP} {\bfseries 06}
+  (2021) 169} [\href{https://arxiv.org/abs/2104.08370}{{\ttfamily
+  2104.08370}}].
+
+\bibitem{Chi:2021mio}
+H.-H.~Chi, H.~Elvang, A.~Herderschee, C.R.T.~Jones and S.~Paranjape,
+  \emph{{Generalizations of the double-copy: the KLT bootstrap}},
+  \href{https://doi.org/10.1007/JHEP03(2022)077}{\emph{JHEP} {\bfseries 03}
+  (2022) 077} [\href{https://arxiv.org/abs/2106.12600}{{\ttfamily
+  2106.12600}}].
+
+\bibitem{Bonnefoy:2021qgu}
+Q.~Bonnefoy, G.~Durieux, C.~Grojean, C.S.~Machado and J.~Roosmale~Nepveu,
+  \emph{{The seeds of EFT double copy}},
+  \href{https://doi.org/10.1007/JHEP05(2022)042}{\emph{JHEP} {\bfseries 05}
+  (2022) 042} [\href{https://arxiv.org/abs/2112.11453}{{\ttfamily
+  2112.11453}}].
+
+\bibitem{Carrasco:2022lbm}
+J.J.M.~Carrasco, M.~Lewandowski and N.H.~Pavao, \emph{{The color-dual fates of
+  $F^3$, $R^3$, and $\mathcal{N}=4$ supergravity}},
+  \href{https://arxiv.org/abs/2203.03592}{{\ttfamily 2203.03592}}.
+
+\bibitem{Carrasco:2022sck}
+J.J.M.~Carrasco, M.~Lewandowski and N.H.~Pavao, \emph{{Double-copy towards
+  supergravity inflation with \ensuremath{\alpha}-attractor models}},
+  \href{https://doi.org/10.1007/JHEP02(2023)015}{\emph{JHEP} {\bfseries 02}
+  (2023) 015} [\href{https://arxiv.org/abs/2211.04441}{{\ttfamily
+  2211.04441}}].
+
+\bibitem{Pavao:2022kog}
+N.H.~Pavao, \emph{{Effective observables for electromagnetic duality from novel
+  amplitude decomposition}},
+  \href{https://doi.org/10.1103/PhysRevD.107.065020}{\emph{Phys. Rev. D}
+  {\bfseries 107} (2023) 065020}
+  [\href{https://arxiv.org/abs/2210.12800}{{\ttfamily 2210.12800}}].
+
+\bibitem{Chen:2022shl}
+A.S.-K.~Chen, H.~Elvang and A.~Herderschee, \emph{{Emergence of String
+  Monodromy in Effective Field Theory}},
+  \href{https://arxiv.org/abs/2212.13998}{{\ttfamily 2212.13998}}.
+
+\bibitem{Chen:2023dcx}
+A.S.-K.~Chen, H.~Elvang and A.~Herderschee, \emph{{Bootstrapping the String KLT
+  Kernel}},  \href{https://arxiv.org/abs/2302.04895}{{\ttfamily 2302.04895}}.
+
+\bibitem{Brown:2023srz}
+T.V.~Brown, K.~Kampf, U.~Oktem, S.~Paranjape and J.~Trnka, \emph{{Scalar BCJ
+  Bootstrap}},  \href{https://arxiv.org/abs/2305.05688}{{\ttfamily
+  2305.05688}}.
+
+\bibitem{Carrasco:2022jxn}
+J.J.M.~Carrasco and N.H.~Pavao, \emph{{Virtues of a symmetric-structure double
+  copy}}, \href{https://doi.org/10.1103/PhysRevD.107.065005}{\emph{Phys. Rev.
+  D} {\bfseries 107} (2023) 065005}
+  [\href{https://arxiv.org/abs/2211.04431}{{\ttfamily 2211.04431}}].
+
+\bibitem{Caron-Huot:2016icg}
+S.~Caron-Huot, Z.~Komargodski, A.~Sever and A.~Zhiboedov, \emph{{Strings from
+  Massive Higher Spins: The Asymptotic Uniqueness of the Veneziano Amplitude}},
+  \href{https://doi.org/10.1007/JHEP10(2017)026}{\emph{JHEP} {\bfseries 10}
+  (2017) 026} [\href{https://arxiv.org/abs/1607.04253}{{\ttfamily
+  1607.04253}}].
+
+\bibitem{Chiodaroli:2021eug}
+M.~Chiodaroli, H.~Johansson and P.~Pichini, \emph{{Compton black-hole
+  scattering for s \ensuremath{\leq} 5/2}},
+  \href{https://doi.org/10.1007/JHEP02(2022)156}{\emph{JHEP} {\bfseries 02}
+  (2022) 156} [\href{https://arxiv.org/abs/2107.14779}{{\ttfamily
+  2107.14779}}].
+
+\bibitem{Cangemi:2022abk}
+L.~Cangemi and P.~Pichini, \emph{{Classical Limit of Higher-Spin String
+  Amplitudes}},  \href{https://arxiv.org/abs/2207.03947}{{\ttfamily
+  2207.03947}}.
+
+\bibitem{Cangemi:2022bew}
+L.~Cangemi, M.~Chiodaroli, H.~Johansson, A.~Ochirov, P.~Pichini and
+  E.~Skvortsov, \emph{{Kerr Black Holes Enjoy Massive Higher-Spin Gauge
+  Symmetry}},  \href{https://arxiv.org/abs/2212.06120}{{\ttfamily 2212.06120}}.
+
+\bibitem{Geiser:2022exp}
+N.~Geiser and L.W.~Lindwasser, \emph{{Generalized Veneziano and Virasoro
+  amplitudes}}, \href{https://doi.org/10.1007/JHEP04(2023)031}{\emph{JHEP}
+  {\bfseries 04} (2023) 031}
+  [\href{https://arxiv.org/abs/2210.14920}{{\ttfamily 2210.14920}}].
+
+\bibitem{Cheung:2022mkw}
+C.~Cheung and G.N.~Remmen, \emph{{Veneziano variations: how unique are string
+  amplitudes?}}, \href{https://doi.org/10.1007/JHEP01(2023)122}{\emph{JHEP}
+  {\bfseries 01} (2023) 122}
+  [\href{https://arxiv.org/abs/2210.12163}{{\ttfamily 2210.12163}}].
+
+\bibitem{Fonseca:2019yya}
+R.M.~Fonseca, \emph{{Enumerating the operators of an effective field theory}},
+  \href{https://doi.org/10.1103/PhysRevD.101.035040}{\emph{Phys. Rev. D}
+  {\bfseries 101} (2020) 035040}
+  [\href{https://arxiv.org/abs/1907.12584}{{\ttfamily 1907.12584}}].
+
+\bibitem{Hays:2018zze}
+C.~Hays, A.~Martin, V.~Sanz and J.~Setford, \emph{{On the impact of
+  dimension-eight SMEFT operators on Higgs measurements}},
+  \href{https://doi.org/10.1007/JHEP02(2019)123}{\emph{JHEP} {\bfseries 02}
+  (2019) 123} [\href{https://arxiv.org/abs/1808.00442}{{\ttfamily
+  1808.00442}}].
+
+\bibitem{Alioli:2022fng}
+S.~Alioli et~al., \emph{{Theoretical developments in the SMEFT at dimension-8
+  and beyond}},  in \emph{{Snowmass 2021}}, 3, 2022
+  [\href{https://arxiv.org/abs/2203.06771}{{\ttfamily 2203.06771}}].
+
+\end{thebibliography}\endgroup
