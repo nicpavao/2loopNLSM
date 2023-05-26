@@ -1,0 +1,10 @@
+*.aux
+*.auxloc
+*.bbl
+*.glb
+*.log
+*.out
+*.synctex
+*.toc
+2loopNLSM.pdf
+#~
