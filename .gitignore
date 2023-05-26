@@ -7,4 +7,5 @@
 *.synctex
 *.toc
 2loopNLSM.pdf
-#~
+*~
+.DS_Store
