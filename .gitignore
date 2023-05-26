@@ -1,10 +1,10 @@
 *.aux
-*.auxloc
+*.auxlock
 *.bbl
-*.glb
+*.blg
 *.log
 *.out
-*.synctex
+*.synctex.gz
 *.toc
 2loopNLSM.pdf
 *~
