@@ -5,7 +5,7 @@ NLSM::usage="NLSM[{p1,p2...pN}] returns the Npt NLSM tree amplitude";
 
 Begin["`Private`"]
 
-SumMomenta[p_,c_,n_,i_,j_]:=d2[Sum[p[[Mod[k+c,n,1]]],{k,i,j}]];
+SumMomenta[p_,c_,n_,i_,j_]:=Module[{k},d[Sum[p[[Mod[k+c,n,1]]],{k,i,j}]]];
 
 NLSM4pt[p_]:=Module[{sm,c,n}, n=4; sm[i_,j_]:=SumMomenta[p,c,n,i,j];1/2 Sum[1/2*sm[1,2],{c,0,n-1}] ];
 
