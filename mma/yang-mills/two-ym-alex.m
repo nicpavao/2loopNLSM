@@ -31,7 +31,7 @@ loadNPointAnalytics[4];
 (*Build the two-loop rep -- Similar setup to explorations of N=2/1*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Setup*)
 
 
@@ -218,7 +218,7 @@ pcMax = 16;
 (*This is more-or-less equivalent to what BDN used*)
 (*pc = Association[#->powerCountOwnBase[mcDiags[[#]],0]&/@Range[2]]*)
 (*A more-lenient power counting choice*)
-pc = Association[#->powerCountOwnBase[mcDiags[[#]],-5]&/@Range[2]]
+pc = Association[#->powerCountOwnBase[mcDiags[[#]],0]&/@Range[2]]
 
 
 AbsoluteTiming[contAns = makeContAnsatzViaDioph[mcDiags[[1]],6,pc[1],pcMax,{1,1,1,1}];
@@ -226,7 +226,10 @@ mcAns = makeMCAnsatzViaDioph[mcDiags[[1]],6,pc[1],pcMax,{1,1,1,1}];
 (Length@@contAns) + (Length@@mcAns)]
 
 
-DeleteCases[(Identity@@contAns)/.{Z[1]->0,Z[2]->0},0]//Length
+Length@@DeleteCases[(contAns)/.{Z[i_]:>0},0,Infinity]
+
+
+STU = Z[1]Z[2](Z[1]+Z[2])
 
 
 Dynamic[diagNum]
@@ -234,7 +237,13 @@ ckBasisAnsData = Table[
 {mcDiags[[diagNum]],
 contAns = makeContAnsatzViaDioph[mcDiags[[diagNum]],5,pc[diagNum],pcMax,{1,1,1,1}];
 mcAns = makeMCAnsatzViaDioph[mcDiags[[diagNum]],5,pc[diagNum],pcMax,{1,1,1,1}];
-Print[(Length@@contAns) + (Length@@mcAns)];
+nlPurePropAns = Identity@@DeleteCases[makeContAnsatzViaDioph[mcDiags[[diagNum]],6,pc[1],pcMax,{1,1,1,1}]/.Z[i_]:>0,0,Infinity];
+Print[(Length@@contAns) + (Length@@mcAns) + 3*Length@nlPurePropAns];
+
+(*Modify the ansatz by multiplying through by (-)s*t*u *)
+mcAns = IdealAns[STU(Identity@@mcAns)];
+contAns = IdealAns[Join[STU(Identity@@contAns),Z[1]Z[2] * nlPurePropAns,Z[1](Z[1]+Z[2]) nlPurePropAns,Z[2](Z[1]+Z[2])nlPurePropAns]];
+
 giIdealMC = findGIandSymIdeal[mcDiags[[diagNum]],mcAns];
 giIdealCont = findGIandSymIdeal[mcDiags[[diagNum]],contAns];
 makeZBasis[mcDiags[[diagNum]],
@@ -242,6 +251,9 @@ Array[a[diagNum,#]&,Length[#]] . #&@Join[Identity@@giIdealMC,Identity@@giIdealCo
 ,ColorSignsQ->True,Polarizations->True]
 }
 ,{diagNum,{1,2}}];
+
+
+bdnBasisSTU = newBasis[bdnGraph,a[1000,0]STU bdnNumeratorsSimp,ColorSignsQ->True,Polarizations->True];
 
 
 ckBasis = newBasis[ckBasisAnsData[[All,1]],ckBasisAnsData[[All,2]],ColorSignsQ->True,Polarizations->True];
@@ -263,7 +275,7 @@ notDangerousDiags = Select[twoLbcjBasis,!zeroPropQ[#[[1]]](*&&!dangTreeQ[#[[1]]]
 graphPlot/@Values[notDangerousDiags[[All,1]]]
 
 
-allMaxCuts = dressedCompareCuts[#,ckBasisFull,bdnBasis]["local"]&/@Values[notDangerousDiags[[All,1]]];
+allMaxCuts = dressedCompareCuts[#,ckBasisFull,bdnBasisSTU]["local"]&/@Values[notDangerousDiags[[All,1]]];
 
 
 maxCutSols = spasmSolveNP[coefEqs[allMaxCuts,{Z,EP,EE}]];
@@ -290,7 +302,7 @@ n1MC = Select[generateCutDiagrams[notDangerousDiags[[All,1]]//Values,1,False],!t
 graphPlot/@n1MC
 
 
-allN1MCEvals = assocTogetherNum[dressedCompareCuts[#,ckBasisMC,bdnBasis]]&/@conservativeN1MC;
+allN1MCEvals = assocTogetherNum[dressedCompareCuts[#,ckBasisMC,bdnBasisSTU]]&/@conservativeN1MC;
 allN1MCEqs = coefEqs[#,{Z,EP,EE,DDM}]&/@allN1MCEvals;
 
 
@@ -328,7 +340,7 @@ graphPlot/@(conservativeN2MC = conservativeN2MC[[{1,2,3,4,6,7,10}]])
 
 
 allN2Eqs = Table[
-theN2Eqs = coefEqs[assocTogetherNum[dressedCompareCuts[conservativeN2MC[[i]],ckBasisN1C,bdnBasis]],{Z,EP,EE,DDM}];
+theN2Eqs = coefEqs[assocTogetherNum[dressedCompareCuts[conservativeN2MC[[i]],ckBasisN1C,bdnBasisSTU]],{Z,EP,EE,DDM}];
 Put[theN2Eqs,"n2_eqs_"<>ToString[i]<>".gen"];
 Print[i];
 theN2Eqs
@@ -361,14 +373,20 @@ graphPlot/@(conservativeN3MC = generateCutDiagrams[conservativeN2MC,1][[{2,4,8}]
 
 
 allN3Eqs = Table[
-theN3Eqs = coefEqs[assocTogetherNum[dressedCompareCuts[conservativeN3MC[[i]],ckBasisN2C,bdnBasis]],{Z,EP,EE,DDM}];
+theN3Eqs = coefEqs[assocTogetherNum[dressedCompareCuts[conservativeN3MC[[i]],ckBasisN2C,bdnBasisSTU]],{Z,EP,EE,DDM}];
 Put[theN3Eqs,"n3_eqs_"<>ToString[i]<>".gen"];
 Print[i];
 theN3Eqs
 ,{i,Length[conservativeN3MC]}];
 
 
-n3mcJointSol = spasmSolveNP[Flatten[allN3Eqs]];
+allFoundN3Eqs = Get/@FileNames["n3_eqs_*.gen"];
+
+
+n3mcJointSol = spasmSolveNP[Flatten[allFoundN3Eqs]];
+
+
+Put[n3mcJointSol,"n3mcJointSol.gen"]
 
 
 (*ckBasisN3C = replaceInAns[ckBasisN1C,n3mcJointSol];*)
