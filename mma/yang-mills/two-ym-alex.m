@@ -31,7 +31,7 @@ loadNPointAnalytics[4];
 (*Build the two-loop rep -- Similar setup to explorations of N=2/1*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Setup*)
 
 
@@ -194,7 +194,7 @@ mcNumersV = {0,0,0,0};
 mcNumersH = {0,0,0,0};
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Truth from Bern Davies Nohle [1510.03448]*)
 
 
@@ -333,36 +333,29 @@ conservativeN2MC = Select[generateCutDiagrams[conservativeN1MC,1,False],!tadpole
 !((!multiPropQ[#])&&Or@@(multiPropQ[#]&/@blowUpGraph[#]))*)
 &
 ];
-graphPlot/@conservativeN2MC
 
 
 graphPlot/@(conservativeN2MC = conservativeN2MC[[{1,2,3,4,6,7,10}]])
 
 
-allN2Eqs = Table[
+(*allN2Eqs = Table[
 theN2Eqs = coefEqs[assocTogetherNum[dressedCompareCuts[conservativeN2MC[[i]],ckBasisN1C,bdnBasisSTU]],{Z,EP,EE,DDM}];
 Put[theN2Eqs,"n2_eqs_"<>ToString[i]<>".gen"];
 Print[i];
 theN2Eqs
-,{i,{1,2,4,5,6,7}}];
+,{i,{1,2,4,5,6,7}}];*)
 
 
-FileNames["n2_eqs_*.gen"]
+(*allFoundN2Eqs = Get/@FileNames["n2_eqs_*.gen"];*)
 
 
-allFoundN2Eqs = Get/@FileNames["n2_eqs_*.gen"];
-
-
-n2mcSepSols = spasmSolveNP/@allFoundN2Eqs;
-
-
+(*n2mcSepSols = spasmSolveNP/@allFoundN2Eqs;
 Length/@n2mcSepSols
-
-
 n2mcJointSol = spasmSolveNP[Flatten[allFoundN2Eqs[[;;-2]]]];
+ckBasisN2C = replaceInAns[ckBasisN1C,n2mcJointSol];*)
 
 
-ckBasisN2C = replaceInAns[ckBasisN1C,n2mcJointSol];
+ckBasisN2C = ckBasisN1C;
 
 
 (* ::Subsubsection:: *)
@@ -372,21 +365,26 @@ ckBasisN2C = replaceInAns[ckBasisN1C,n2mcJointSol];
 graphPlot/@(conservativeN3MC = generateCutDiagrams[conservativeN2MC,1][[{2,4,8}]])
 
 
-allN3Eqs = Table[
-theN3Eqs = coefEqs[assocTogetherNum[dressedCompareCuts[conservativeN3MC[[i]],ckBasisN2C,bdnBasisSTU]],{Z,EP,EE,DDM}];
+cutToDo = Environment["TO_DO"];
+If[FailureQ[cutToDo],cutToDo = 3,cutToDo = ToExpression[cutToDo]];
+
+
+n3Cut = orderedCompareCuts[conservativeN3MC[[cutToDo]],ckBasisN2C,bdnBasisSTU];
+n3Eqs = coefEqs[assocTogetherNum[n3Cut],{Z,EE,EP,DDM}];//AbsoluteTiming
+n3Sols = spasmSolveNP[n3Eqs];
+Put[n3Sols,"n3_ordered_sol_"<>ToString[cutToDo]<>".gen"];
+
+
+(*allN3Eqs = Table[
+theN3Eqs = 
+coefEqs[assocTogetherNum[dressedCompareCuts[conservativeN3MC[[i]],ckBasisN2C,bdnBasisSTU]],{Z,EP,EE,DDM}];
 Put[theN3Eqs,"n3_eqs_"<>ToString[i]<>".gen"];
 Print[i];
 theN3Eqs
 ,{i,Length[conservativeN3MC]}];
-
-
 allFoundN3Eqs = Get/@FileNames["n3_eqs_*.gen"];
-
-
 n3mcJointSol = spasmSolveNP[Flatten[allFoundN3Eqs]];
-
-
-Put[n3mcJointSol,"n3mcJointSol.gen"]
+Put[n3mcJointSol,"n3mcJointSol.gen"]*)
 
 
 (*ckBasisN3C = replaceInAns[ckBasisN1C,n3mcJointSol];*)
