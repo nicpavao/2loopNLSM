@@ -505,6 +505,32 @@ The kinematic expressions obtained for the remainder functions are provided belo
 \Delta_{LR}&= [1]^2[4]^2[7]^2
 \end{align}
 While these numerators are not functionally automorphic like the one-loop $n$-gon numerators, they do obey color-kinematics when evaluated on-shell and thus should be valid representations for double copy construction. 
+
+\section{Notes}\label{sec:Notes}
+
+\begin{itemize}
+\item ZM and 2D NLSM (PCM) are the same classically but not quantum mechanically.
+This observation is due to other people but an easy way to see it.
+ZM and 2D NLSM have the same EOM after a field redefinition.
+This means that the classical physics is the same but of course the Lagrangians aren't the same and the field redefinition can change the path integral measure.
+\item Forcing pions to match ZM in 2D does funny things.
+The pion coupling constant is dropped but is implicitly set by the ordered 4pt amplitude which is normalized to be $-k_1 \cdot k_3$ in the package.
+I've tabulated what happens when you take a general D NLSM answer and force it to match ZM in 2D.
+Let's say that $n_\text{NLSM} = z n_\text{ZM}$ in 2D where I'm matching basis/master numerators.
+For 4pt tree, $z=2/3$ (I matched the half ladder).
+For 4pt 1-loop, $z$ is free/pure generalized gauge (I matched the box).
+For 4pt 2-loop (when you impose certain $\ell$ power counting) $z$ is $216/565=\tfrac{2^3 3^3}{5 \cdot 113}$ (I matched the double box and penta-triangle).
+For 6pt tree, $z$ is 12/35 (I matched the half ladder).
+So you can match kinematic structure (the combination of Mandelstams) of NLSM to ZM in 2D but you can't get the coupling constant right at loop level, that is, ZM is a different theory quantum mechanically.
+Actually these numbers make it look like you can't even match the theories classically but I guess for the theories to match classically you only need the amplitudes to agree and I matched numerators.
+\item At 4pt 1-loop $\prod p_L^2 -p_R^2$ agrees with the ZM answer $\prod p_L \eps p_R$ up to some number.
+At 6pt 1-loop this is not true and the two answers differ by alternating signs depending on the kinematic configuration.
+\item You cannot lift ZM to general D NLSM in the democratic way that Nic described because it fails at 6pt tree.
+\item To clean up the NLSM 4pt 2-loop answer I forced the answer to match ZM in 2D.
+The ZM answer also only has certain powers of loop momenta $\ell^5$...$\ell^8$ where $\ell$ represents any combination of $\ell_1$ and $\ell_2$.
+I enforce this $\ell^5$...$\ell^8$ behavior on the NLSM ansatz too.
+\end{itemize}
+
 \section{Discussion}\label{sec:Discussion}
 
 
