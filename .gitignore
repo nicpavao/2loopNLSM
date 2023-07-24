@@ -1,0 +1,11 @@
+*.aux
+*.auxlock
+*.bbl
+*.blg
+*.log
+*.out
+*.synctex.gz
+*.toc
+2loopNLSM.pdf
+*~
+.DS_Store
