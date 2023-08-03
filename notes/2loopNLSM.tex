@@ -1,4 +1,4 @@
-\documentclass[12pt,letter]{article}
+\documentclass[11pt,letter]{article}
 \usepackage{jheppub}
 \usepackage{amsmath,amssymb}
 \usepackage[dvipsnames]{xcolor}
@@ -21,10 +21,36 @@
 \usepackage{xcolor}
 \hypersetup{
     colorlinks,
-    linkcolor={hred},
-    citecolor={hgreen},
-    urlcolor={hblue}
+    linkcolor={nhpRed},
+    citecolor={nhpBlue},
+    urlcolor={nhpBlue}
 }
+
+\definecolor{nhpRed}{RGB}{161,0,0}
+\definecolor{nhp4}{RGB}{203, 4, 31}
+\definecolor{nhp3}{RGB}{244,99,30}
+\definecolor{nhp2}{RGB}{255,159,0}
+\definecolor{nhp1}{RGB}{48,152,152}
+\definecolor{nhpBlue}{RGB}{0,100,144}
+\definecolor{cutred}{RGB}{219,56,49}
+\definecolor{hgreen}{RGB}{25,176,146}
+\definecolor{hgreen1}{RGB}{175,230,175}
+\definecolor{hblue}{RGB}{52,152,219}
+\definecolor{hbluedark}{RGB}{36, 106, 160}
+\definecolor{hblue1}{RGB}{255,255,166}
+\definecolor{hred}{RGB}{216,83,117}
+\definecolor{hreddark}{RGB}{151, 58, 81}
+\definecolor{hred1}{RGB}{255,155,155}
+\definecolor{cutred}{RGB}{219,56,49}
+\definecolor{hgrey4}{RGB}{75,75,75}
+\definecolor{hgrey5}{RGB}{50,50,50}
+\definecolor{hgrey3}{RGB}{100,100,100}
+\definecolor{hgrey}{RGB}{125,125,125}
+\definecolor{hgrey2}{RGB}{125,125,125}
+\definecolor{hgrey1}{RGB}{150,150,150}
+\definecolor{hgrey0}{RGB}{175,175,175}
+\definecolor{darkgreen}{RGB}{59,126,108}
+
 \tikzset{graviton/.style={decorate, decoration={snake, amplitude=.4mm, segment length=1.5mm, pre length=.5mm, post length=.5mm}, double}}
 \tikzfeynmanset{compat=1.1.0}
 \immediate\write18{mkdir -p images}  %% Create `pgf-img` directory
@@ -37,8 +63,19 @@
     pdflatex \tikzexternalcheckshellescape -halt-on-error -shell-escape -interaction=batchmode -jobname="\image" "\texsource" || rm "\image.pdf"
   },
 ]
-
-
+\tikzfeynmanset{
+  fermion2/.style={
+    /tikz/postaction={
+      /tikz/decoration={
+        markings,
+        mark=at position 0.7 with {
+          \arrow{>[length=6pt, width=7pt]};
+        },
+      },
+      /tikz/decorate=true,
+    },
+  },
+}
 
 
 \definecolor{jaxoblue}{HTML}{0086FF}
@@ -59,25 +96,6 @@
 \def\bartaua{{{\bar {\rm t}}}}
 
 
-\definecolor{cutred}{RGB}{219,56,49}
-\definecolor{hgreen}{RGB}{25,176,146}
-\definecolor{hgreen1}{RGB}{175,230,175}
-\definecolor{hblue}{RGB}{52,152,219}
-\definecolor{hbluedark}{RGB}{36, 106, 160}
-\definecolor{hblue1}{RGB}{255,255,166}
-\definecolor{hred}{RGB}{216,83,117}
-\definecolor{hreddark}{RGB}{151, 58, 81}
-\definecolor{hred1}{RGB}{255,155,155}
-\definecolor{cutred}{RGB}{219,56,49}
-\definecolor{hgrey4}{RGB}{75,75,75}
-\definecolor{hgrey5}{RGB}{50,50,50}
-\definecolor{hgrey3}{RGB}{100,100,100}
-\definecolor{hgrey}{RGB}{125,125,125}
-\definecolor{hgrey2}{RGB}{125,125,125}
-\definecolor{hgrey1}{RGB}{150,150,150}
-\definecolor{hgrey0}{RGB}{175,175,175}
-\definecolor{darkgreen}{RGB}{59,126,108}
-
 
 \newcommand{\simplebox}{ {
 \begin{tikzpicture}[baseline=(current  bounding  box.center)]
@@ -86,52 +104,56 @@
 \vertex (a2) at (1,-1){4};
 \vertex (a3) at (1,1){3};
 \vertex (a4) at (-1,-1){1};
-\vertex (mid3) at (.5,.5);
-\vertex (mid4) at (.5,-.5);
-\vertex (mid5) at (-.5,.5);
-\vertex (mid6) at (-.5,-.5);
-\diagram{
-(a4) --[ultra thick,](mid6),
-(a3) --[ultra thick,](mid3),
-(a2) --[ultra thick,](mid4),
-(a1) --[ultra thick,](mid5),
-(mid3) --[ultra thick,](mid4),
-(mid5) --[ultra thick,](mid6),
-(mid5) --[ultra thick,](mid3),
-(mid4) --[ultra thick,](mid6),
+\vertex (mid3) at (.35,.35);
+\vertex (mid4) at (.35,-.35);
+\vertex (mid5) at (-.35,.35);
+\vertex (mid6) at (-.35,-.35);
+\diagram{(mid4) --[ultra thick,nhpRed,quarter right](mid3),
+(mid5) --[ultra thick,nhpRed,quarter right](mid6),
+(mid3) --[ultra thick,nhpRed,quarter right](mid5),
+(mid6) --[ultra thick,nhpRed,quarter right](mid4),
+(mid6) --[ultra thick,fermion2](a4),
+(mid3) --[ultra thick,fermion2](a3),
+(mid4) --[ultra thick,fermion2](a2),
+(mid5) --[ultra thick,fermion2](a1),
 };
 \end{feynman}
 \end{tikzpicture}
 }
 }
 
-\newcommand{\xBox}{ {
+\newcommand{\cubic}[7]{ {
 \begin{tikzpicture}[baseline=(current  bounding  box.center)]
 \begin{feynman}
-\vertex (a1) at (-1.5,1){2};
-\vertex (a2) at (1.5,-1){4};
-\vertex (a3) at (1.5,1){3};
-\vertex (a4) at (-1.5,-1){1};
-\vertex (mid1) at (0,-.5);
-\vertex (mid2) at (0,.5);
-\vertex (mid3) at (1,.5);
-\vertex (mid4) at (1,-.5);
-\vertex (mid5) at (-1,.5);
-\vertex (mid6) at (-1,-.5);
-\vertex (mid7) at (-.5,0) {};
+\vertex [dot, scale=2.6](mid1) at (0,0){};
+\vertex [dot, scale=2.6](mid2) at (0,0){};
+\vertex [dot, scale=2,#1](mid3) at (0,0){};
+\vertex (a1) at (0,1){3};
+\vertex (a2) at (.85,-.55){2};
+\vertex (a3) at (-.85,-.55){1};
 \diagram{
-(a4) --[ultra thick,](mid6),
-(a3) --[ultra thick,](mid3),
-(a2) --[ultra thick,](mid4),
-(a1) --[ultra thick,](mid5),
-(mid1) --[ultra thick,](mid6),
-(mid3) --[ultra thick,](mid2),
-(mid1) --[ultra thick,](mid4),
-(mid5) --[ultra thick,](mid7),
-(mid7) --[ultra thick,](mid1),
-(mid2) --[ultra thick,](mid6),
-(mid5) --[ultra thick,](mid2),
-(mid3) --[ultra thick,](mid4),
+(mid1) --[ultra thick,#2,#3](a3),
+(mid1) --[ultra thick,#4,#5](a2),
+(a1) --[ultra thick,#6,#7](mid1),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\Acubic}[7]{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (0,1){3};
+\vertex (a2) at (.85,-.55){2};
+\vertex (a3) at (-.85,-.55){1};
+\vertex [dot, scale=2.6](mid1) at (0,0){};
+\vertex [dot, scale=2.6](mid2) at (0,0){};
+\vertex [dot, scale=2,#1](mid3) at (0,0){};
+\diagram{
+(a3) --[ultra thick,#2,#3](mid1),
+(a2) --[ultra thick,#4,#5](mid1),
+(mid1) --[ultra thick,#6,#7](a1),
 };
 \end{feynman}
 \end{tikzpicture}
@@ -235,6 +257,7 @@
 
 
 
+
 \DeclareMathOperator{\cut}{\mathcal{C}}
 
  \def\draftnote#1{{\color{red}\it #1}} 
@@ -335,7 +358,7 @@
   University, Evanston, Illinois 60208, USA}
 
   
-\title{Color-dual NLSM multi-loop integrands}
+\title{Towards Globally Color-Dual All-Loop Integrands}
 
 \abstract{ For now, let's put the things we need to check/compute here in the abstract. 
 \begin{itemize}
@@ -363,12 +386,42 @@
 
 \label{sec:intro} Some refs. \cite{BCJreview, Bern:2022wqg, Adamo:2022dcm,Bern:2012uf, Neq44np, GravityFour,Bjerrum-Bohr:2013iza,Edison:2020uzf,Edison:2022jln,Cheung2016prv,He:2017spx,OneTwoLoopPureYMBCJ, Mogull:2015adi, Bern:2015ooa, Geyer:2019hnn,Johansson:2017bfl,Chen:2019ywi,Chen:2021chy,Brandhuber:2021bsf,Cheung:2021zvb,Ben-Shahar:2021zww,Cheung:2022mix, Ben-Shahar:2022ixa,Cachazo:2014xea,Carrasco:2016ldy,Elvang:2020kuj,Bern:2007xj,Carrasco:2013ypa,Craig:2019zkf,Monteiro:2022nqt,Bern:2017tuc,Bern:2017rjw,Bern:2019isl,Goroff:1985sz,Bern:2013uka,Alishahiha:2004eh,Creminelli:2005hu,Fergusson:2008ra,Carrasco:2015pla,Carrasco:2015rva,Carrasco:2015uma,BICEP:2021xfz,Kallosh:2021mnu,Green:1982sw,Mafra:2016mcc,Broedel:2013tta,Carrasco:2016ygv,Azevedo:2018dgo,Anastasiou:2004vj,vonManteuffel:2012np,Smirnov:2014hma,vonManteuffel:2014ixa,Smirnov:2019qkx,Smirnov:2020quc,Usovitsch:2020jrk,Maierhofer:2018gpa,Carrasco:2019yyn,Carrasco:2021ptp,Chi:2021mio,Bonnefoy:2021qgu,Carrasco:2022lbm,Carrasco:2022sck,Pavao:2022kog,Chen:2022shl,Chen:2023dcx,Brown:2023srz,Carrasco:2022jxn,Caron-Huot:2016icg, Chiodaroli:2021eug,Cangemi:2022abk,Cangemi:2022bew,Geiser:2022exp,Cheung:2022mkw,Fonseca:2019yya,Hays:2018zze,Alioli:2022fng}
 
-\section{Tree-level}
+\section{Review}
+The goal is this paper is to compute $D$-dimensional color-dual numerators beyond one-loop. To this end compute two-loop color-dual numerators for NLSM that globally satisfy the duality between color and kinematics and elucidate the color-dual structure expected of Yang-Mills at all-loop order. To set the stage, it is worth distinguishing between the algebraic properties of functionally symmetric kinematics that satisfy color-kinematics globally, and some of the other constructions that appear in the literature. 
 
-\subsection{YZ, j-theory, and ZM -- Nic and James}
+In this work, we will consider three different types of cubic representations, that we define below: 
+\be
+\stackrel{\Acubic{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{}}{\text{Fundamental}}\qquad\qquad \stackrel{\cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{}}{\text{Bifundamental}}\qquad\qquad \stackrel{\Acubic{hgrey0}{}{nhpBlue}{}{nhpBlue}{}{nhpBlue}}{\text{Adjoint}}
+\ee
+In this review, we will present examples of this distinct kinematic representations that have appeared in the literature. Though from the get go, we stress that in this work we are interested in identifying the analog of adjoint representations of the kinematic numerators; those for which all legs are equally preferrenced by the functional dressing. The only non-trivial $S$-matrix in the literature that exhibits this property to all-loop order, is that of Zakharov-Mikhailov theory \cite{}. We will briefly review the perturbative construction of this theory below. 
+\subsection{ZM-theory} The Lagrangian for Zakharov-Mikhailov (ZM) theory is a simple $SU(N)$ scalar theory defined in two spacetime dimensions:
+\be
+\mathcal{L}^{\text{ZM}} = \frac{1}{2}(\partial \varphi)^2 + g f^{abc} \varphi^a (\partial^\mu \varphi^b)( \tilde{\partial}_\mu \varphi^c) 
+\ee
+where $\tilde{\partial}_\mu = \epsilon_{\mu\nu}\partial^\nu $ and $\epsilon_{\mu\nu}$ is the two-dimensional Levi-Civita symbol. Expanded out into spacetime components, the momentum space Feynman rule for this theory is simply:
+\be
+\langle ab\rangle \equiv p_a^0 p_b^1 - p_a^1 p_b^0 = -\langle ba \rangle 
+\ee
+ From the interaction part of the Lagrangian, we can see that the three-point vertex is (1) functionally symmetric and (2) the kinematics are completely anti-symmetric: 
+\be
+\cubic{hgrey0}{}{nhpBlue}{}{nhpBlue}{}{nhpBlue} = \langle 12\rangle = \langle 23\rangle = \langle 31\rangle = -\langle 21\rangle
+\ee
+This important property is due to momentum conservation alone and does not need any additional kinematic constraints to satisfy the duality. In addition to anti-symmetry, the cubic graphs will satisfy jacobi off-shell on any internal edge due to the delta function identity of 2D Levi-Civita symbols:
+\be
+\langle ab \rangle \langle cd\rangle +\langle ac \rangle \langle db\rangle +\langle ad \rangle \langle bc\rangle = \delta^{[a}_c\delta^{b]}_d + \delta^{[a}_d\delta^{c]}_b+ \delta^{[a}_b\delta^{d]}_c=0
+\ee
+Theories with this property are the creme de la creme of color-dual gauge theories as they trivially satisfy color-kinematic algebraic relations off-shell. This allows one to trivially promote the duality from tree-level to all-loop order by dressing each cubic vertex with its own kinematic structure constant. 
 
-\subsection{Attempts in literature -- Nic}
+Later in this section we will show that the interaction vertex is precisely that belonging to self-dual Yang-Mills (SDYM) theory in light-cone gauge. However, as we'll see, the kinetic term for these two theories differ -- the SDYM kinetic term transmutes between the holomorphic field $\Phi$, and the anti-holomorphic field, $\bar{\Phi}$, while the ZM scalar leaves the kinematic sector untouched. this is a critical distinction between the two theories that has important consequences for their color-dual constructions at loop-level.
 
+While the color-dual nature of ZM theory is rather elegant, the loop-level construction introduces complications when applying dimensional regularization. Similar to the difficulties of renormalizing chiral fermions \cite{ 'tHooft}, there is ambiguity in promoting the integrands to formal $D$-dimensional expressions. 
+\subsection{YZ-Theory}
+\be
+\mathcal{L}^{\text{YZ}} =\frac{1}{2} (\partial Y)^2 + (\partial Z)(\partial \bar{Z}) - g f^{abc} \left( \bar{Z}_{\mu\nu}Z^{\mu} Z^\nu + [Y,\partial_\mu Y] Z^\mu \right)
+\ee
+\be
+\Acubic{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{} = i \varepsilon_3 (p_1-p_2)\qquad \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} =i(\varepsilon_1 p_{2})(\varepsilon_2\bar{\varepsilon}_3) - i(\varepsilon_2 p_{1})(\varepsilon_1\bar{\varepsilon}_3)
+\ee
 We begin with a review of the construction of NLSM numerators at tree-level. For this work we extend the tree-level construction of $Y\!Z$ model of Cheung and Hsien \cite{Cheung2016prv}. In this construction, the generators of the kinematic algebra can be expressed as follows
 \be\label{eq:FeynmanRuleYYZ}
 T^a_{ij}= i \varepsilon_a(p_i-p_j)
@@ -433,6 +486,25 @@ A(...,Y,...,Y,...) &\rightarrow A(...,Y,...,Y)A(Y,...,Y,...)
 \\
 &\rightarrow A(...,Y,...,Y,...,Z)A(\bar{Z},...)
 \end{align}
+\subsection{J-theory}
+\be
+\mathcal{L}^{\text{J}} = \frac{1}{2}(\partial J)(\partial \bar{J}) +g f^{abc} \bar{J}_{\mu\nu}J^\mu J^\nu
+\ee
+where as above, $\bar{J}_{\mu\nu} = \partial_\mu J_\nu - \partial_\nu J_\mu$. Subject to the Lorenz gauge condition, $\partial_\mu J^\mu =0$, this Lagrangian produces precisely the EOM for J-theory needed for Berends-Giele recursion at tree-level: 
+\be
+\partial^2 J^\mu - gf^{abc} J^\nu \partial_\nu J^\mu = 0 
+\ee
+As such, the single vertex in this theory is the same as for YZ theory: 
+\be
+\cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} =i(\varepsilon_1 p_{2})(\varepsilon_2\bar{\varepsilon}_3) - i(\varepsilon_2 p_{1})(\varepsilon_1\bar{\varepsilon}_3)
+\ee
+
+\be
+\mathcal{L}^{\text{SDYM}} = \frac{1}{2}(\partial \bar{\Phi} )^a(\partial  \Phi)^a +g f^{abc} \bar{\Phi} ^a (\partial_u \Phi)^b (\partial_v \Phi)^c
+\ee
+\be
+(\varepsilon^+_1 k_2) - (\varepsilon^+_2 k_1) = [12]\left(\frac{\langle 2 q\rangle}{\langle 1 q\rangle} + \frac{\langle 1 q\rangle}{\langle 2 q\rangle} \right) \sim [12]
+\ee
 Now we are prepared to discuss the one-loop case. 
 
 \section{One-loop}
@@ -440,7 +512,14 @@ Now we are prepared to discuss the one-loop case.
 \subsection{NLSM -- Nic}
 
 Note from James:  I've explicitly checked the nice form of the 1-loop numerators at 4pt, 6pt, and 8pt.
-
+\be
+\simplebox = (2 f_\pi^{-1})^4 (l_1 k_1)(l_2 k_2)(l_3 k_3)(l_4 k_4)
+\ee
+where we define sequential loop momenta on the $n$-gon as $l_{i+1}= l_i+k_i$. Given this, the $n$-gon permits a equivalent expression in terms of inverse propagators:
+\be
+\simplebox =f_\pi^{-4} [12][23][34][41]
+\ee
+Where we have define the antisymmetric kinematic variable, $[LR] = l_i^L - l_R^2$
 \subsection{BELs and integration zeros -- Nic}
 
 At one-loop, weight counting tells us that the $n$-gon master numerator must have $n$ on-shell $Z$-particles. Unitarity requires that there are three distinct contributions from $Y\!Z$ theory -- the first from an off-shell $Y$-loop particle and then two more from different orientations of a $\bar{Z}Z$-loop.  Thus, $Y\!Z$ theory gives us the following one-loop $n$-gon numerator:
