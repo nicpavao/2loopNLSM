@@ -390,6 +390,38 @@ In this work, we will consider three different types of cubic representations, t
 \stackrel{\Acubic{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{}}{\text{Fundamental}}\qquad\qquad \stackrel{\cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{}}{\text{Bifundamental}}\qquad\qquad \stackrel{\Acubic{hgrey0}{}{nhpBlue}{}{nhpBlue}{}{nhpBlue}}{\text{Adjoint}}
 \ee
 In this review, we will present examples of this distinct kinematic representations that have appeared in the literature. Though from the get go, we stress that in this work we are interested in identifying the analog of adjoint representations of the kinematic numerators; those for which all legs are equally preferrenced by the functional dressing. The only non-trivial $S$-matrix in the literature that exhibits this property to all-loop order, is that of Zakharov-Mikhailov theory \cite{}. We will briefly review the perturbative construction of this theory below. 
+\subsection{Self-dual Yang-Mills}
+\be
+\mathcal{L}^{\text{YM}} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
+\ee
+To obtain the Lagrangian for self-dual Yang-Mills, we applyy the self-dual condition that equates the field strength to its dual 2-form:
+\be\label{SDcon}
+F_{\mu\nu} = \frac{1}{2} \epsilon_{\mu\nu\rho\sigma}F^{\rho\sigma}
+\ee
+where $F_{\mu\nu} = \partial_\mu A_\nu -\partial_\nu A_\mu + g[A_\mu ,A_\nu]$ is the non-abelian $SU(N)$ field strength. Transforming from Cartesian coordinates to light cone coordinantes, $(t,x,y,z) \rightarrow (u,v,w,\bar{w})$, which take the following definition:
+\be
+u = t+x,\quad v=t-x, \quad w = y+iz
+\ee
+which gives the following expression for the invariant line element:
+\be
+ds^2 = 2(dudv - dwd\bar{w}) = dt^2 - d\vec{x}\cdot d\vec{x}
+\ee
+Applying this coordinate transformation to the self-dual condition of \eqn{SDcon}, in light-cone gauge, $A_u=0$, we obtain the follow set of equations that are one-to-one with the 4D self-dual condition:
+\be
+A_w = 0\,, \qquad \partial_u A_v = \partial_w A_{\bar{w}}\,.
+\ee
+The second equation implies the following that $A_v$ and $A_{\bar{w}}$ depend on a single degree of freedom, which we call $\Psi$. This constraint is immediately satisfied with the following definition of the gauge field:
+\be
+A_v = \frac{1}{2} \partial_w \Psi, \qquad A_{\bar{w}} = \frac{1}{2} \partial_u \Psi,
+\ee
+Expanding out the equations of motion for the Yang-Mills Lagrangian, yields the following expression in terms of the gauge fields:
+\be
+D^\mu F^{\mu\nu} =0\qquad  \Rightarrow\qquad \Box \Psi + ig [\partial_u \Psi, \partial_w \Psi ]=0
+\ee
+Adding back in the anti-holomorphic field $\bar{\Psi}$ as a Lagrange multiplier, we obtain the following interaction Lagrangian for self-dual Yang-Mills theory:
+\be
+\mathcal{L}^{\text{SDYM}} = \frac{1}{2}(\partial \bar{\Psi})(\partial \Psi) -i g \bar{\Psi} [\partial_u \Psi, \partial_w \Psi ]
+\ee
 \subsection{ZM-theory} The Lagrangian for Zakharov-Mikhailov (ZM) theory is a simple $SU(N)$ scalar theory defined in two spacetime dimensions:
 \be
 \mathcal{L}^{\text{ZM}} = \frac{1}{2}(\partial \varphi)^2 + g f^{abc} \varphi^a (\partial^\mu \varphi^b)( \tilde{\partial}_\mu \varphi^c) 
