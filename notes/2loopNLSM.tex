@@ -298,6 +298,170 @@
 
 %%% Jacobi 2 end %%%
 
+%%% Graph sym start %%%
+
+\newcommand{\CrossedBoxGraphSym}{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (-1.5,1){};
+\vertex (a2) at (1.5,-1){};
+\vertex (a3) at (1.5,1){};
+\vertex (a4) at (-1.5,-1){};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (1,.5);
+\vertex (mid4) at (1,-.5);
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5);
+\vertex (mid7) at (-.5,0) {};
+\vertex (x1) at (-1.5,0);
+\vertex (x2) at (1.5,0);
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid4),
+(mid5) --[ultra thick,](mid7),
+(mid7) --[ultra thick,](mid1),
+(mid2) --[ultra thick,](mid6),
+(mid5) --[ultra thick,](mid2),
+(mid3) --[ultra thick,](mid4),
+(x1) --[ultra thick,dashed,blue](x2),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+%%% Graph sym end %%%
+
+%%% Unitarity cuts begin %%%
+
+\newcommand{\PhysicalCutOne}[4]{ {
+\begin{tikzpicture}[baseline=6]
+\begin{feynman}
+\vertex (a1) at (-1, 1) {#1};
+\vertex (a2) at (1, 1) {#2};
+\vertex [dot,scale=2](mid1) at (0.5,0.5){};
+\vertex [dot,scale=1.5,hgrey0](mid2) at (0.5,0.5){};
+\vertex [dot,scale=2](mid3) at (-0.5,0.5){};
+\vertex [dot,scale=1.5,hgrey0](mid4) at (-0.5,0.5){};
+\vertex [dot,scale=2](mid5) at (0,0){};
+\vertex [dot,scale=1.5,hgrey0](mid6) at (0,0){};
+\vertex (a3) at (-.5, -.5) {#3};
+\vertex (a4) at (.5, -.5) {#4};
+\diagram{
+(mid3) --[ ultra thick](a1),
+(mid1) --[ ultra thick](a2),
+(mid1) --[ ultra thick,out=120,in=60,min distance=0.1cm](mid3),
+(mid1) --[ ultra thick](mid3),
+
+(mid1) --[ ultra thick](mid5),
+(mid3) --[ ultra thick](mid5),
+
+(mid5) --[ ultra thick](a4),
+(mid5) --[ ultra thick,](a3)
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\PhysicalCutTwo}[4]{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (-.6, -0.6) {#1};
+\vertex (a2) at (-.6, 0.6) {#2};
+\vertex [dot,scale=2](mid1) at (0,0){};
+\vertex [dot,scale=1.5,hgrey0](mid2) at (0,0){};
+\vertex [dot,scale=2](mid3) at (.8,0){};
+\vertex [dot,scale=1.5,hgrey0](mid4) at (.8,0){};
+\vertex [dot,scale=2](mid5) at (1.6,0){};
+\vertex [dot,scale=1.5,hgrey0](mid6) at (1.6,0){};
+\vertex (a3) at (2.2, .6) {#3};
+\vertex (a4) at (2.2, -.6) {#4};
+\diagram{
+(mid1) --[ ultra thick,](a1),
+(mid1) --[ ultra thick,](a2),
+(mid1) --[ ultra thick,out=60,in=120,min distance=0.4cm](mid3),
+(mid1) --[ ultra thick,out=-60,in=-120,min distance=0.4cm](mid3),
+(mid3) --[ ultra thick,out=60,in=120,min distance=0.4cm](mid5),
+(mid3) --[ ultra thick,out=-60,in=-120,min distance=0.4cm](mid5),
+(mid5) --[ ultra thick](a4),
+(mid5) --[ ultra thick,](a3)
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\MaxCut}{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (-1.2,0.8){};
+\vertex (a2) at (1.2,-0.8){};
+\vertex (a3) at (1.2,0.8){};
+\vertex (a4) at (-1.2,-0.8){};
+\vertex [dot,scale=2] (mid1) at (0,-.4){};
+\vertex [dot,scale=1.5,hgrey0](mid1x) at (0,-.4){};
+\vertex [dot,scale=2] (mid2) at (0,.4){};
+\vertex [dot,scale=1.5,hgrey0] (mid2x) at (0,.4){};
+\vertex [dot,scale=2] (mid3) at (0.8,.4){};
+\vertex [dot,scale=1.5,hgrey0] (mid3x) at (0.8,.4){};
+\vertex [dot,scale=2] (mid4) at (0.8,-.4){};
+\vertex [dot,scale=1.5,hgrey0] (mid4x) at (0.8,-.4){};
+\vertex [dot,scale=2] (mid5) at (-0.8,.4){};
+\vertex [dot,scale=1.5,hgrey0] (mid5x) at (-0.8,.4){};
+\vertex [dot,scale=2] (mid6) at (-0.8,-.4){};
+\vertex [dot,scale=1.5,hgrey0] (mid6x) at (-0.8,-.4){};
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,](mid2),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid6),
+(mid1) --[ultra thick,](mid4),
+(mid5) --[ultra thick,](mid2),
+(mid5) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\SubtleCut}{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (-.8, -0.6) {};
+\vertex (a2) at (-.8, 0.6) {};
+\vertex (a3) at (-1, 0) {};
+\vertex [dot, scale=2](mid1) at (0,0){};
+\vertex [dot, scale=1.5,hgrey0](mid2) at (0,0){};
+\vertex [dot, scale=2](mid3) at (1,0){};
+\vertex [dot, scale=1.5,hgrey0](mid4) at (1,0){};
+\vertex (a4) at (1.8, 0) {};
+\diagram{
+(mid1) --[ultra thick,](a1),
+(mid1) --[ultra thick,](a2),
+(mid1) --[ultra thick,](a3),
+(mid1) --[ultra thick,](mid3),
+(mid1) --[ultra thick,out=60,in=120,min distance=0.4cm](mid3),
+(mid1) --[ultra thick,out=-60,in=-120,min distance=0.4cm](mid3),
+(mid3) --[ultra thick](a4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+%%% Unitarity cuts end %%%
+
 \newcommand{\simplebox}{ {
 \begin{tikzpicture}[baseline=(current  bounding  box.center)]
 \begin{feynman}
@@ -818,11 +982,13 @@ Can't do that or else it becomes subtle.
 Only well defined object is numerator.
 \item At 4pt 1-loop $\prod p_L^2 -p_R^2$ agrees with the ZM answer $\prod p_L \eps p_R$ up to some number.
 At 6pt 1-loop this is not true and the two answers differ by alternating signs depending on the kinematic configuration.
-\item You cannot lift ZM to general D NLSM in the democratic way that Nic described because it fails at 6pt tree.
+\item You cannot lift ZM to general D NLSM in the democratic way that Nic described because it fails at 6pt tree.  So you take the ZM answer that looks like $\langle 1 2\rangle \langle 3 4\rangle...$ you can convert every pair of angles to dot products using 2D $\epsilon$ identities.  Make an ansatz where you do every pairing of $\epsilon$'s.  This doesn't work.
 \item To clean up the NLSM 4pt 2-loop answer I forced the answer to match ZM in 2D.
 The ZM answer also only has certain powers of loop momenta $\ell^5$...$\ell^8$ where $\ell$ represents any combination of $\ell_1$ and $\ell_2$.
 I enforce this $\ell^5$...$\ell^8$ behavior on the NLSM ansatz too.
 \item Describe Jacobi:  s,t,u channel color factors sum to zero so you want numerators to do the same
+\item Remember that I've explicitly checked the nice form of the 1-loop NLSM numerators at 4pt, 6pt, and 8pt.
+\item Should probably give the 4pt pion amplitude somewhere to show my conventions.
 \end{itemize}
 
 \subsection{Pions -- James}
@@ -899,7 +1065,10 @@ While it is very convenient to impose graph symmetries, it is not completely nec
 At tree level, finding manifestly color dual numerators is often achieved at the expense of manifest Bose symmetry (see YZ theory, j-theory, Alex numerators from CHY, Henrik numerators).
 Nonetheless, for a pure ansatz construction it is very reasonable to impose graph symmetries.
 Note that the graph symmetry constraint is imposed on \emph{every} graph, not just the basis graphs.
-For example, the crossed box, as shown in \eqref{eq:TwoLoopJacobiTwo}, is unchanged upon reflection across the horizontal axis.
+For example, the crossed box, \be
+\CrossedBoxGraphSym
+\ee
+is unchanged upon reflection across the horizontal axis (shown as a blue dashed line).
 Since the crossed box can be written in terms of the double box and penta-triangle, this imposes non-trivial constraints on the ansatz.
 
 Imposing graph symmetries on the ansatz further reduces the DOF to ...
@@ -907,39 +1076,72 @@ Imposing graph symmetries on the ansatz further reduces the DOF to ...
 \subsubsection{Unitarity}
 
 The last key constraint is that the ansatz have the correct unitarity cuts, that is, that the integrand corresponds to the correct theory.
+Generalized unitarity has been reviewed in many places (cite...) so we will not belabor the details here, in particular see (emu) for a recent treatment of unitarity methods for even multiplicity theories like NLSM.
 The essence of generalized unitarity is that when internal lines are placed on-shell, the integrand should factorize into a product of on-shell tree amplitudes.
-Generalized unitarity has been reviewed in many places (cite...) so we will not belabor the details here.
+The cut to be performed can, itself, be encoded in a graph.
+For example, potential 4pt 2-loop cuts include
+\be
+\label{eq:PotentialCuts}
+\text{(a)} \SubtleCut ~~~~ \text{(b)} \PhysicalCutOne{}{}{}{} ~~~~ \text{(c)} \PhysicalCutTwo{}{}{}{} ~~~~ \text{(d)}  \MaxCut
+\ee
+as well as many more.
+In these graphs, all exposed propagators are understood to be cut/on-shell.
+As an equation, a unitarity cut this looks schematically like
+\be
+\label{eq:SchematicCutEquation}
+\sum \limits_\text{topologies} \frac{n \vert_\text{cut}}{\prod \limits_\text{uncut} k^2} = \sum \limits_\text{states} \prod \limits_\text{blobs} A_\text{tree} .
+\ee
+The right hand side of the equation is a product of on-shell tree amplitudes, represented graphically in \eqref{eq:PotentialCuts} by grey blobs.
+States crossing (or propagating across) the cut must be summed over.
+For scalars this sum is trivial but for spinning particles this is no longer the case and the physical state projector must be inserted (see Dimitrius paper for simplifying this operation).
+The graph topologies appearing in the left hand side of \eqref{eq:SchematicCutEquation} come from blowing up the grey blobs into cubic tree graphs in every conceivable way.
+For each of these topologies, the numerator of the associated graph is subjected to the cut constraints and is then divided by the uncut propagators.
+The right hand side is assumed to be known, which places a constraint on the numerator ansatze in the left hand side.
 
-Could mention that it is certainly enough to check $(n-2)!$ color-ordered cuts but you could maybe get away with 
+It is possible to work with either color-dressed cuts or color-ordered cuts.
+For color-dressed cuts the grey blobs are blown up into all possible channels and all color factors $f^{abc}$ are explicitly retained (both in the integrand numerators and in the tree amplitudes).
+For color-ordered cuts the grey blobs are only blown up in color ordered channels, the color factors can be suppressed, and the product of on-shell amplitudes only extends over color-ordered trees.
+We elect to use color-ordered cuts.
+Since these cuts do not contain the full color information of the theory, it is necessary to do multiple color-ordered cuts -- over different orderings of the blob labels -- in order to fully capture all of the cut information.
+For a color dual theory such as NLSM it is enough to do $(n-2)!$ labelings of each blob due to the Kleiss-Kuijf and $U(1)$ decoupling identities (cite KK).
+In this sense color-dressed cuts contain extraneous information that is bypassed when using color-ordered cuts.
 
-
-Finally we have to impose unitarity.
-We only do physical cuts, no aesthetic cuts.
-The two most important cuts for pions (or any EMU) are ...
-These cuts are the only non-zero cuts.
-However there are other cuts that must be imposed as well like the max cut.
-
-Show the two interesting cuts, mention a max cut
+In our construction, only well-defined cuts are imposed so, for example, cut (a) of \eqref{eq:PotentialCuts} is not enforced since it is possible to blow up the left blob into a tree amplitude with an on-shell internal propagator.
+Cuts (b) and (c) are the only non-vanishing 4pt 2-loop physical cuts for an even multiplicity theory.
+This means that even at two loops, unitarity cuts are still only probing the on-shell 4pt NLSM amplitude.
+Even though (b) and (c) are the only non-zero cuts, other cuts, for example the maximal cut (d), must also be imposed in order to correctly reproduce NLSM.
+The maximal cut vanishes because only 3pt amplitudes contribute and these amplitudes vanish in any scalar theory.
+It is possible to automatically enforce (or ``bake in'') the double box and penta-triangle max cuts on the ansatz by writing the ansatz in terms of inverse propagators (and remaining irreducible scalar products) and then only keeping terms that involve at least one inverse propagator since those terms will vanish on those max cuts, just as the product of 3pt scalar amplitudes will.
+However, for the sake of simplicity we do not take this route.
 
 How many DOF left after imposing cuts
 
-Could bake in max cuts to slightly reduce ansatz size.
-
 References for Jacobi, unitarity, etc.
 
-After you've imposed all of the essential stuff you get X free parameters...
-There is lots of generalized gauge freedom, clearly there's room to impose extra constraints.
-For N=4 the extra conditions are things like no triangles, strip off a factor of stAtree (which fails at 5-loops), manifest power counting, etc.
-The obvious choice here is to match to ZM.
-There's one known theory that has manifest color-kinematics, manifest Bose sym, and NLSM power counting and that's ZM theory.
+Why aren't the two physical cuts spanning?  I know from experience that they're not but I can't easily explain why.
 
-\subsubsection{Matching to ZM and loop power counting -- James}
+\subsubsection{Matching to ZM -- James}
 
-Can simplify the garbage
+After imposing all of the three key constraints (Jacobi, graph symmetries, and unitarity), there still remains a plethora of generalized gauge freedom in the X unconstrained ansatz parameters.
+At this point color kinematics duality has been satisfied so the double copy will proceed without issue, but it is possible to enforce additional, more aesthetic, constraints as desired.
+$\mathcal{N}=4$ SYM provides several hints for further conditions to impose on the ansatz.
+For example, for maximally supersymmetric gauge theory it is possible to enforce the no triangle hypothesis, manifest loop power counting, and, at least for 4pt and up to four loops, strip off a factor of $st A_\text{tree}$ from the integrand (I'm not sure I know all of the papers to cite here).
+For the NLSM integrand it is desirable to make color-kinematics duality as manifest as possible.
+One hope would be to factor out some piece of the 1-loop numerator since this at least manifests antisymmetry on some of the legs.
+However, a more fruitful direction is to match onto the one known theory with pion power counting that manifests color-kinematics duality to all loop order, namely, ZM theory.
+
 
 ZM plagued by (suffers from) IR regulation issues.
 Only one of the two physical/meaningful cuts can be done in a non-subtle way.
 We're using ZM more as a tool to... -- We know ZM has the right kinematic structure to give CK in 2D so we're just matching onto that because we can.  ZM and NLSM can be different at quantum level.
+
+Can't match to ZM on all of the physical cuts (one of them is always subtle).  Matching to ZM should be interpreted as just a way to simplify things, not really physical.
+
+Cut (b) is always subtle
+
+Match the $\ell$ structure of ZM
+
+This is the object we include in the ancillary files, maybe with the remaining variables set to zero
 
 \subsection{Double-copy -- Alex }
 \subsection{YM revisit -- Alex}
@@ -948,6 +1150,8 @@ We're using ZM more as a tool to... -- We know ZM has the right kinematic struct
 
 
 \paragraph{Acknowledgments} The authors would like to thank ... for insightful conversations, related collaboration, and encouragement throughout the completion of this work. This work was supported by the DOE under contract DE-SC0015910 and by the Alfred P. Sloan Foundation. N.H.P. additionally acknowledges the Northwestern University Amplitudes and Insight group, the Department of Physics and Astronomy, and Weinberg College for their generous support. 
+
+Figures made with TikZ-Feynman [1601.05437]
 
 \bibliographystyle{JHEP}
 \bibliography{Refs_2loopNLSM}
