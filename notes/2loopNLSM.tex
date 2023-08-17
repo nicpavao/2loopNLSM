@@ -881,8 +881,12 @@ As we will show in \sect{}, the color-dual nature of SDYM can be understood as a
 
 Next we will briefly describe a 2D scalar theory, Zakharov-Mikhailov (ZM) theory, whose equations of motion bear a striking resemblance to the SDYM equatioi of motion given above in \eqn{SDEOM}.
 
-\paragraph{YZ-Theory} Thus far, the two color-dual Lagrangians we have discussed make explicit reference to the spacetime dimension ($D=4$ for SDYM, and $D=2$ for ZM theory). This makes them poorly suited for constructing dimensionally regulated integrals in loop-level amplitudes. Here we briefly review YZ-theory, which is a honest $D$-dimensional theory first proposed by Cheung and Hsien \cite{Cheung2016prv} for the purpose of describing nonlinear sigma model (NLSM) scattering. One can understand YZ-theory as a particular dimensional reduction of Yang-Mills in $D=2d+1$ dimensions, down to $d$ dimensions. 
+\paragraph{YZ-Theory}
+SDYM makes explicit reference to the spacetime dimension and Zakharov-Mikhailov theory, to be discussed in \sect{sec:ZMTheory}, does as well.
+This makes both theories poorly suited for constructing dimensionally-regulated loop-level amplitudes.
+On the other hand, YZ-theory is an honest $D$-dimensional theory that captures the classical physics of the nonlinear sigma model (NLSM) while manifest the duality between color and kinematics \cite{Cheung2016prv}.
 
+One can understand YZ-theory as a particular dimensional reduction of Yang-Mills in $D=2d+1$ dimensions, down to $d$ dimensions. 
 Starting with the Yang-Mills Lagrangian, one can redefine the gauge fields, $A_M$, in terms of $X$, $Y$ and $Z$ fields:
 \begin{align}
 X_M &= (X_\mu,0,-iX_\mu) 
@@ -985,6 +989,7 @@ The second condition is that the chiral current should be in Lorenz gauge
 which then yields the NLSM equation of motion $\partial_\mu (U \partial^\mu U^{-1})=0$.
 Taking a linear combination of \eqref{eq:FieldStrengthJ} and \eqref{eq:LorenzGaugeJ} yields
 \be
+\label{eq:JTheoryEOM}
 \Box J^\mu +g f^{abc} J^\nu \partial_\nu J^\mu = 0.
 \ee
 Integrating in an auxiliary field $\bar{J}^\mu$ as a Lagrange multiplier trivially produces the Lagrangian
@@ -1002,37 +1007,57 @@ This theory is one-to-one with the observables amplitudes of YZ-theory when only
 \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} =i(\varepsilon_1 p_{2})(\varepsilon_2\bar{\varepsilon}_3) - i(\varepsilon_2 p_{1})(\varepsilon_1\bar{\varepsilon}_3)
 \ee
 
+\draftnoteJM{Put comment about the fact that you can use funny propagators without affecting CK earlier.  Mention NANS as modification of J-theory.}
+
 \paragraph{ZM-theory}
+\label{sec:ZMTheory}
 While J-theory manifests color-kinematics duality, it only does so at tree level because J-theory breaks manifest Bose symmetry.
-Manifest color-kinematics duality can be achieved at all loop orders by restricting J-theory to two spacetime dimensions where the chiral current can be dualized to a scalar $J^\mu = \epsilon^{\mu\nu} \partial_\nu \varphi$.
-This trivially enforces Lorenz gauge while the vanishing field strength condition...
-
-
-The Lagrangian for Zakharov-Mikhailov (ZM) theory is a simple $SU(N)$ scalar theory defined in two spacetime dimensions:
+Manifest color-kinematics duality can be achieved at all loop orders by restricting J-theory to two spacetime dimensions where the chiral current can be dualized to a scalar $J^\mu = \epsilon^{\mu\nu} \partial_\nu \varphi$, which trivially enforces Lorenz gauge.
+After plugging $\varphi$ into \eqref{eq:JTheoryEOM} and rearranging, another copy of $\varphi$ (rather than some new field) can be integrated in to obtain the Zakharov-Mikhailov (ZM) Lagrangian
 \begin{eBox}
 \be
 \mathcal{L}^{\text{ZM}} = \frac{1}{2}(\partial \varphi)^2 + g f^{abc} \varphi^a (\partial^\mu \varphi^b)( \tilde{\partial}_\mu \varphi^c) =  \text{tr}\left[\frac{1}{2}(\partial \varphi)^2-i g \varphi [\partial_t \varphi, \partial_z \varphi ]\right]
 \ee
 \end{eBox}
-where $\tilde{\partial}_\mu = \epsilon_{\mu\nu}\partial^\nu $ and $\epsilon_{\mu\nu}$ is the two-dimensional Levi-Civita symbol. Expanded out into spacetime components, the momentum space Feynman rule for this theory is simply:
+where $\tilde{\partial}_\mu = \epsilon_{\mu\nu}\partial^\nu $.
+This procedure makes it clear that ZM and NLSM encode the same classical physics, that is, their equations of motion are dual to each other.
+The color-stripped Feynman rule for the three-point vertex can be read off from the Lagrangian, giving
 \be
-\langle ab\rangle \equiv p_a^0 p_b^1 - p_a^1 p_b^0 = -\langle ba \rangle 
+\langle ab\rangle \equiv p_a^\mu \epsilon_{\mu\nu} p_b^\nu =p_a^0 p_b^1 - p_a^1 p_b^0 = -\langle ba \rangle .
 \ee
- From the interaction part of the Lagrangian, we can see that the three-point vertex is (1) functionally symmetric and (2) the kinematics are completely anti-symmetric: 
+The vertex is (1) functionally symmetric and (2) the kinematic portion of the vertex is completely anti-symmetric: 
 \be
 \cubic{hgrey0}{}{nhpBlue}{}{nhpBlue}{}{nhpBlue} = \langle 12\rangle = \langle 23\rangle = \langle 31\rangle = -\langle 21\rangle
 \ee
-This important property is due to momentum conservation alone and does not need any additional kinematic constraints to satisfy the duality. In addition to anti-symmetry, the cubic graphs will satisfy jacobi off-shell on any internal edge due to the delta function identity of 2D Levi-Civita symbols (TODO:  show the identity, say that the following is Schouten, cite Schouten?, comment on addition of masses):
+This important property is due to momentum conservation alone and does not need any additional kinematic constraints to satisfy the duality.
+To prove off-shell color kinematics duality for any multiplicity and loop order it is enough to observe that the sum of the off-shell $s$-, $t$-, and $u$-channel numerators sum to zero
 \be
-\langle ab \rangle \langle cd\rangle +\langle ac \rangle \langle db\rangle +\langle ad \rangle \langle bc\rangle = \delta^{[a}_c\delta^{b]}_d + \delta^{[a}_d\delta^{c]}_b+ \delta^{[a}_b\delta^{d]}_c=0
+\label{eq:ZMJacobi}
+\langle ab \rangle \langle cd\rangle +\langle ac \rangle \langle db\rangle +\langle ad \rangle \langle bc\rangle =0 % \delta^{[a}_c\delta^{b]}_d + \delta^{[a}_d\delta^{c]}_b+ \delta^{[a}_b\delta^{d]}_c
 \ee
-Theories with this property are the creme de la creme of color-dual gauge theories as they trivially satisfy color-kinematic algebraic relations off-shell. This allows one to trivially promote the duality from tree-level to all-loop order by dressing each cubic vertex with its own kinematic structure constant. 
+by virtue of the 2D Levi-Civita identity $\epsilon_{\mu\nu}\epsilon_{\rho\sigma} = \eta_{\mu\rho}\eta_{\nu\sigma}-\eta_{\mu\sigma}\eta_{\nu\rho}$.
+Amusingly, \eqref{eq:ZMJacobi} is simply a manifestation of the Schouten identity.
+
+Since ZM theory manifested color-kinematics duality without any reference to the on-shell condition, a mass term can be added to ZM theory without spoiling color-kinematics duality.
+In fact, the kinetic term could be dramatically altered.
+In general, if the on-shell conditions are not used, color-kinematics duality admits any kinetic term but the choice of propagator might spoil locality in the double-coppied theory.
+
 
 Later in this section we will show that the interaction vertex is precisely that belonging to self-dual Yang-Mills (SDYM) theory in light-cone gauge. However, as we'll see, the kinetic term for these two theories differ -- the SDYM kinetic term transmutes between the holomorphic field $\Phi$, and the anti-holomorphic field, $\bar{\Phi}$, while the ZM scalar leaves the kinematic sector untouched. this is a critical distinction between the two theories that has important consequences for their color-dual constructions at loop-level.
 
 While the color-dual nature of ZM theory is rather elegant, the loop-level construction introduces complications when applying dimensional regularization. Similar to the difficulties of renormalizing chiral fermions \cite{ 'tHooft}, there is ambiguity in promoting the integrands to formal $D$-dimensional expressions. As such, in our two-loop bootstrap of NLSM we will only use the ZM integrands as a mechanism for reducing the residual gauge freedom in our final solution -- rather than a full $D$-dimensional integrand to which we match off-shell in dim reg. 
 
 Now we are prepared to discuss the one-loop case. 
+
+\paragraph{Generalities of known color-dual theories -- James (I'll come back to this later)}
+\begin{itemize}
+\item There's also CS but the amplitudes are all zero (and marginally 10D N=1 SYM)
+\item All of the theories described above have diff as kinematic algebra
+\item All of the theories choose a simple gauge like Lorenz or lightcone
+\item All of the theories place some constraint on the field strength directly and get their equations of motion directly from that constraint, not the YM EOM.
+\item (Almost all of the theories (aside from NLSM) have trivial amplitudes at least at tree level)
+\item This means that almost all of the theories only have CK at the classical level, which can sometimes be fudged into 1-loop as we'll now discuss.
+\end{itemize}
 
 \subsection{Color-dual Bootstrap}
 Some background here on how we approach color-dual bootstrap. Building an ansatz from irreducible lorentz products (ISPs). Comments about:
@@ -1115,7 +1140,6 @@ Where we have define the antisymmetric kinematic variable, $[LR] = l_i^L - l_R^2
 \item Mention NANS after j theory.  Color kinematics duality doesn't care about the propagator but using a funny one might mess up locality in the double copied theory.
 \item We should comment on 1-loop YM.  Can you easily write down the $n$-gon numerator?  I have some memory that someone has some complicated YM numerator.
 \item Are you sure that the SDYM EOM doesn't come from just $F=\epsilon F$?  If $A=\partial \Phi$ then $F$ has the right number of derivatives to give the SDYM EOM but $DF$ has too many.
-\item I believe the j-theory Lagrangian does not lead to the correct EOM as currently written.
 \item Write Lagrangian for j-theory and reiterate the argument about why you know it's pions.  Reiterate connection to ZM (dualize j and integrate in phi).  Should probably mention CS somewhere.  Point out that all of the theories that come from have CK are really some version of YM where you (1) impose some condition like F=0 or some other condition on the field strength and (2) you impose Lorenz gauge.  Point out that the kinematic algebra is always diffs.
 \item Cite papers arguing about whether NLSM in 2D is non-trivial or not.
 \item Explain why you need to take a certain portion of the YZ numerator to get the right answer.  Basically you can't have a vector particle circle the loop -- NLSM is a scalar theory so only scalar DOF should actually live in cuts.  If you have a tree then you plug in longitudinal modes but if you have a loop then you really need to remove vector modes so that only scalars circle the loop.
