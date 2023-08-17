@@ -1,4 +1,5 @@
 \documentclass[11pt,letter]{article}
+\pdfoutput=1
 \usepackage{jheppub}
 \usepackage{amsmath,amssymb}
 \usepackage[dvipsnames]{xcolor}
@@ -7,6 +8,9 @@
 \usepackage{ifdraft}
 \usepackage{epstopdf}
 \usepackage{slashed}
+\usepackage{tocloft}
+\renewcommand{\cftdot}{.}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
 \usepackage{diagbox}
 \usepackage{colortbl}
 \usepackage{bbold}
@@ -25,6 +29,7 @@
     citecolor={nhpBlue},
     urlcolor={nhpBlue}
 }
+
 
 \definecolor{nhpRed}{RGB}{161,0,0}
 \definecolor{nhp4}{RGB}{203, 4, 31}
@@ -56,18 +61,35 @@
 \newcommand{\ace}[1]{\textcolor{darkgreen}{\textbf{AE:}{#1}}}
 
 
+\usepackage[framemethod=default]{mdframed}
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+rightline=false,
+leftline=false,
+topline=false,
+bottomline=false,
+backgroundcolor=gray!15,
+linecolor=gray,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+innerbottommargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=4pt]{eBox}
+
 \tikzset{graviton/.style={decorate, decoration={snake, amplitude=.4mm, segment length=1.5mm, pre length=.5mm, post length=.5mm}, double}}
 \tikzfeynmanset{compat=1.1.0}
-%\immediate\write18{mkdir -p images}  %% Create `pgf-img` directory
-%\usetikzlibrary{external}  
-%          %% Load the `external` library
-%\immediate\write18{mkdir -p images}  %% Create `pgf-img` directory
-%\tikzexternalize[                     %% Activate externalization
-%  prefix=images/,                    %% Avoid cluttering the directory
-% system call={                       %% Use lualatex in system call
-%    pdflatex \tikzexternalcheckshellescape -halt-on-error -shell-escape -interaction=batchmode -jobname="\image" "\texsource" || rm "\image.pdf"
-%  },
-%]
+\immediate\write18{mkdir -p images}  %% Create `pgf-img` directory
+\usetikzlibrary{external}  
+          %% Load the `external` library
+\immediate\write18{mkdir -p images}  %% Create `pgf-img` directory
+\tikzexternalize[                     %% Activate externalization
+  prefix=images/,                    %% Avoid cluttering the directory
+ system call={                       %% Use lualatex in system call
+    pdflatex \tikzexternalcheckshellescape -halt-on-error -shell-escape -interaction=batchmode -jobname="\image" "\texsource" || rm "\image.pdf"
+  },
+]
 \tikzfeynmanset{
   fermion2/.style={
     /tikz/postaction={
@@ -478,15 +500,23 @@
 \vertex (mid4) at (.35,-.35);
 \vertex (mid5) at (-.35,.35);
 \vertex (mid6) at (-.35,-.35);
-\diagram{(mid4) --[ultra thick,nhpRed,quarter right](mid3),
-(mid5) --[ultra thick,nhpRed,quarter right](mid6),
-(mid3) --[ultra thick,nhpRed,quarter right](mid5),
-(mid6) --[ultra thick,nhpRed,quarter right](mid4),
+\diagram{(mid4) --[ultra thick,nhpRed](mid3),
+(mid5) --[ultra thick,nhpRed](mid6),
+(mid3) --[ultra thick,nhpRed](mid5),
+(mid6) --[ultra thick,nhpRed](mid4),
 (mid6) --[ultra thick,fermion2](a4),
 (mid3) --[ultra thick,fermion2](a3),
 (mid4) --[ultra thick,fermion2](a2),
 (mid5) --[ultra thick,fermion2](a1),
 };
+\vertex [dot, scale=1.6](mid3a) at (.35,.35){};
+\vertex [dot, scale=1.1,hgrey0](mid3b) at (.35,.35){};
+\vertex [dot, scale=1.6](mid4a) at (-.35,.35){};
+\vertex [dot, scale=1.1,hgrey0](mid4b) at (-.35,.35){};
+\vertex [dot, scale=1.6](mid5a) at (.35,-.35){};
+\vertex [dot, scale=1.1,hgrey0](mid5b) at (.35,-.35){};
+\vertex [dot, scale=1.6](mid6a) at (-.35,-.35){};
+\vertex [dot, scale=1.1,hgrey0](mid6b) at (-.35,-.35){};
 \end{feynman}
 \end{tikzpicture}
 }
@@ -505,6 +535,33 @@
 (mid1) --[ultra thick,#2,#3](a3),
 (mid1) --[ultra thick,#4,#5](a2),
 (a1) --[ultra thick,#6,#7](mid1),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\AcubicB}[9]{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (0,0){};
+\vertex (a2) at (-1.55,.85){2};
+\vertex (a3) at (-1.55,-.85){1};
+\vertex [dot, scale=2.6](mid1) at (-.85,0){};
+\vertex [dot, scale=2.6](mid2) at (-.85,0){};
+\vertex [dot, scale=2,#1](mid3) at (-.85,0){};
+\vertex (a4) at (1.55,.85){3};
+\vertex (a5) at (1.55,-.85){4};
+\vertex [dot, scale=2.6](mid4) at (.85,0){};
+\vertex [dot, scale=2.6](mid5) at (.85,0){};
+\vertex [dot, scale=2,#1](mid6) at (.85,0){};
+\diagram{
+(mid1) --[ultra thick,#2,#3](a3),
+(mid1) --[ultra thick,#4,#5](a2),
+(mid4) --[ultra thick,#8,#9](a4),
+(mid4) --[ultra thick,#8,#9](a5),
+(mid1) --[ultra thick,#6,#7](a1),
+(a1) --[ultra thick,#6,#7](mid4),
 };
 \end{feynman}
 \end{tikzpicture}
@@ -673,7 +730,7 @@
 \def\SYM{MSYM}
 \def\nn{\nonumber}
 \def\sec#1{section~\ref{#1}}
-\def\eqn#1{eq.~(\ref{#1})}
+\def\eqn#1{(\ref{#1})}
 \def\Eqn#1{Equation~(\ref{#1})}
 \def\eqns#1#2{eqs.~(\ref{#1}) and~(\ref{#2})}
 \def\Eqns#1#2{Eqs.~(\ref{#1}) and~(\ref{#2})}
@@ -716,21 +773,20 @@
 \newcommand{\afour}{\ensuremath{A_4^{\text{tree}}}}
 \definecolor{NUpurple}{RGB}{078,042,132}
 
-\def\dj#1{{\color{NUpurple}\it \bf JJ: #1}} 
-
 \newcommand{\draftnoteJM}[1]{\textbf{\color{blue}[#1]}}
 
 
 
-\author[1]{Alex Edison,}
-\author[1]{James Mangan,}
-\author[1]{Nicolas H. Pavao}
+\author{Alex Edison,}
+\author{James Mangan,}
+\author{and Nicolas H. Pavao}
 
-\affiliation[1]{Department of Physics and Astronomy, Northwestern
+\affiliation{Department of Physics and Astronomy, Northwestern
   University, Evanston, Illinois 60208, USA}
 
+\emailAdd{alexander.edison@northwestern.edu, james.mangan@northwestern.edu, pavao@u.northwestern.edu}
   
-\title{Towards Globally Color-Dual All-Loop Integrands}
+\title{\center Towards Globally Color-Dual All-Loop Integrands}
 
 \abstract{ For now, let's put the things we need to check/compute here in the abstract. 
 \begin{enumerate}
@@ -740,8 +796,8 @@
 \end{enumerate}
 }
 
-  \newpage
-
+\makeatletter
+\gdef\@fpheader{\,}
 
 \begin{document}
 \maketitle
@@ -751,18 +807,18 @@
 \setstackgap{L}{7pt}
 
 \section{Introduction}
-
-\label{sec:intro} Some refs. \cite{BCJreview, Bern:2022wqg, Adamo:2022dcm,Bern:2012uf, Neq44np, GravityFour,Bjerrum-Bohr:2013iza,Edison:2020uzf,Edison:2022jln,Cheung2016prv,He:2017spx,OneTwoLoopPureYMBCJ, Mogull:2015adi, Bern:2015ooa, Geyer:2019hnn,Johansson:2017bfl,Chen:2019ywi,Chen:2021chy,Brandhuber:2021bsf,Cheung:2021zvb,Ben-Shahar:2021zww,Cheung:2022mix, Ben-Shahar:2022ixa,Cachazo:2014xea,Carrasco:2016ldy,Elvang:2020kuj,Bern:2007xj,Carrasco:2013ypa,Craig:2019zkf,Monteiro:2022nqt,Bern:2017tuc,Bern:2017rjw,Bern:2019isl,Goroff:1985sz,Bern:2013uka,Alishahiha:2004eh,Creminelli:2005hu,Fergusson:2008ra,Carrasco:2015pla,Carrasco:2015rva,Carrasco:2015uma,BICEP:2021xfz,Kallosh:2021mnu,Green:1982sw,Mafra:2016mcc,Broedel:2013tta,Carrasco:2016ygv,Azevedo:2018dgo,Anastasiou:2004vj,vonManteuffel:2012np,Smirnov:2014hma,vonManteuffel:2014ixa,Smirnov:2019qkx,Smirnov:2020quc,Usovitsch:2020jrk,Maierhofer:2018gpa,Carrasco:2019yyn,Carrasco:2021ptp,Chi:2021mio,Bonnefoy:2021qgu,Carrasco:2022lbm,Carrasco:2022sck,Pavao:2022kog,Chen:2022shl,Chen:2023dcx,Brown:2023srz,Carrasco:2022jxn,Caron-Huot:2016icg, Chiodaroli:2021eug,Cangemi:2022abk,Cangemi:2022bew,Geiser:2022exp,Cheung:2022mkw,Fonseca:2019yya,Hays:2018zze,Alioli:2022fng}
-
 \section{Review}
-The goal is this paper is to compute $D$-dimensional color-dual numerators beyond one-loop. To this end compute two-loop color-dual numerators for NLSM that globally satisfy the duality between color and kinematics and elucidate the color-dual structure expected of Yang-Mills at all-loop order. To set the stage, it is worth distinguishing between the algebraic properties of functionally symmetric kinematics that satisfy color-kinematics globally, and some of the other constructions that appear in the literature. 
+ To set the stage, it is worth distinguishing between the algebraic properties of functionally symmetric kinematics that satisfy color-kinematics globally, and some of the other constructions that appear in the literature. 
 
 In this work, we will consider three different types of cubic representations, that we define below: 
 \be
 \stackrel{\Acubic{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{}}{\text{Fundamental}}\qquad\qquad \stackrel{\cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{}}{\text{Bifundamental}}\qquad\qquad \stackrel{\Acubic{hgrey0}{}{nhpBlue}{}{nhpBlue}{}{nhpBlue}}{\text{Adjoint}}
 \ee
 In this review, we will present examples of this distinct kinematic representations that have appeared in the literature. Though from the get go, we stress that in this work we are interested in identifying the analog of adjoint representations of the kinematic numerators; those for which all legs are equally preferrenced by the functional dressing. The only non-trivial $S$-matrix in the literature that exhibits this property to all-loop order, is that of Zakharov-Mikhailov theory \cite{}. We will briefly review the perturbative construction of this theory below. 
-\subsection{Self-dual Yang-Mills}
+\subsection{Color-dual Amplitudes}
+Review of BCJ relations and Jacobi relations off-shell. Justify kinematic algebra in an off-shell framework by talking about on-shell construction. yada yada yada
+\subsection{Color-dual Lagrangians} In the next section we will construct one-loop color-dual numerators using Lagrangian descriptions that are manifestly color-dual. As we will show, taking forward limits of tree-level numerators works as long as one can construct an off-shell description with a Lagrangian. Here we briefly review the off-shell examples of the kinematic algebra that will be relevant in this paper.  
+\paragraph{Self-Dual Yang-Mills} The first example in the literature \cite{} of color-dual Feynman rules is that of Yang-Mills theory in the self-dual sector (SDYM):
 \be
 \mathcal{L}^{\text{YM}} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
 \ee
@@ -770,7 +826,11 @@ To obtain the Lagrangian for self-dual Yang-Mills, we applyy the self-dual condi
 \be\label{SDcon}
 F_{\mu\nu} = \frac{1}{2} \epsilon_{\mu\nu\rho\sigma}F^{\rho\sigma}
 \ee
-where $F_{\mu\nu} = \partial_\mu A_\nu -\partial_\nu A_\mu + g[A_\mu ,A_\nu]$ is the non-abelian $SU(N)$ field strength. Transforming from Cartesian coordinates to light cone coordinantes, $(t,x,y,z) \rightarrow (u,v,w,\bar{w})$, which take the following definition:
+where $F_{\mu\nu} = \partial_\mu A_\nu -\partial_\nu A_\mu + g[A_\mu ,A_\nu]$ is the non-abelian $SU(N)$ field strength. Solutions to the self-dual condition automatically satisfy the Yang-Mills equation of motion due to the Bianchi identity:
+\be
+D^\mu F^{\mu\nu} = \frac{1}{2} \epsilon_{\mu\nu\rho\sigma}D^\mu F^{\rho\sigma} = 0
+\ee
+Solutions to \eqn{SDcon} correspond to instanton configurations that are probed by the gauge field path integral in the full non-perturbative description of Yang-Mills. In this paper, we will focus on the perturbative aspects of this constraint. Transforming from Cartesian coordinates to light cone coordinantes, $(t,x,y,z) \rightarrow (u,v,w,\bar{w})$, which take the following definition:
 \be
 u = t+x,\quad v=t-x, \quad w = y+iz
 \ee
@@ -778,26 +838,53 @@ which gives the following expression for the invariant line element:
 \be
 ds^2 = 2(dudv - dwd\bar{w}) = dt^2 - d\vec{x}\cdot d\vec{x}
 \ee
-Applying this coordinate transformation to the self-dual condition of \eqn{SDcon}, in light-cone gauge, $A_u=0$, we obtain the follow set of equations that are one-to-one with the 4D self-dual condition:
+Applying this coordinate transformation to the self-dual condition of \eqn{SDcon}, we obtain the following three constraint equations from the original three cartesian coordinate expressions:
+\begin{align} \label{SDLightCone1}
+F_{uw} &=0\,,
+\\
+ \label{SDLightCone2}
+ F_{uv} &= F_{w\bar{w}}\,,
+\\
+ \label{SDLightCone3}
+ F_{v\bar{w}} &= 0\,,
+\end{align}
+Thus, in light-cone gauge, $A_u=0$, we obtain the follow set of equations that are one-to-one with the self-dual condition:
 \be
-A_w = 0\,, \qquad \partial_u A_v = \partial_w A_{\bar{w}}\,.
+A_u=0 \text{ and } \eqn{SDLightCone1} \quad\Rightarrow \quad A_w=0
 \ee
-The second equation implies the following that $A_v$ and $A_{\bar{w}}$ depend on a single degree of freedom, which we call $\Psi$. This constraint is immediately satisfied with the following definition of the gauge field:
+The second equation \eqn{SDLightCone2}  then implies the following that $A_v$ and $A_{\bar{w}}$ depend on a single degree of freedom
 \be
+A_w=0\,,\,A_u=0 \text{ and }\eqn{SDLightCone2} \quad\Rightarrow \quad \partial_u A_v = \partial_w A_{\bar{w}}
+\ee
+This constraint is  satisfied with the following definition of the gauge field in terms of a single scalar degree of freedom which we call $\Psi$:
+\be\label{SDDef}
 A_v = \frac{1}{2} \partial_w \Psi, \qquad A_{\bar{w}} = \frac{1}{2} \partial_u \Psi,
 \ee
-Expanding out the equations of motion for the Yang-Mills Lagrangian, yields the following expression in terms of the gauge fields:
-\be
-D^\mu F^{\mu\nu} =0\qquad  \Rightarrow\qquad \Box \Psi + ig [\partial_u \Psi, \partial_w \Psi ]=0
+Using this definition on the final self-dual constraint equation thus yields the following equation of motion for the dynamical scalar field:
+\be\label{SDEOM}
+\eqn{SDLightCone1} \text{ and } \eqn{SDDef} \quad  \Rightarrow\quad \Box \Psi + ig [\partial_u \Psi, \partial_w \Psi ]=0
 \ee
 Adding back in the anti-holomorphic field $\bar{\Psi}$ as a Lagrange multiplier, we obtain the following interaction Lagrangian for self-dual Yang-Mills theory:
+\begin{eBox}
 \be
 \mathcal{L}^{\text{SDYM}} = \frac{1}{2}(\partial \bar{\Psi})(\partial \Psi) -i g \bar{\Psi} [\partial_u \Psi, \partial_w \Psi ]
 \ee
-\subsection{ZM-theory} The Lagrangian for Zakharov-Mikhailov (ZM) theory is a simple $SU(N)$ scalar theory defined in two spacetime dimensions:
+\end{eBox}
+The color-ordered ordered cubic Feynman rule for this theory can be immediately read off as follows:
 \be
-\mathcal{L}^{\text{ZM}} = \frac{1}{2}(\partial \varphi)^2 + g f^{abc} \varphi^a (\partial^\mu \varphi^b)( \tilde{\partial}_\mu \varphi^c) 
+\cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} =X(k_1,k_2) \equiv k_{u,1}k_{w,2} - k_{w,1}k_{u,2}
 \ee
+In this form, the Lagrangian and Feynman rules are manifestly color-dual \textit{off-shell}. In this form, we can see the effect \eqn{SDcon} had on the Feynman rules of the full Yang-Mills Lagrangian: it simply decoupled the anti-MHV three-point vertex from the theory, leaving only the MHV three-point vertex. Before proceeding, it is important to note that the mass-dimension of the theory appears to differ from that of Yang-Mills -- we comment on this in detail in our appendix on spinor-helicity variables and conventions. 
+
+As we will show in \sect{}, the color-dual nature of SDYM can be understood as a direct consequence of isolating the \textit{cubic-sector} of the full Yang-Mills amplitudes by projecting along particular on-shell states. For this reason, the color-dual nature depends critically on the loop order of the amplitude and does not hold generically beyond one-loop. 
+
+Next we will briefly describe a 2D scalar theory, Zakharov-Mikhailov (ZM) theory, whose equations of motion bear a striking resemblance to the SDYM equatioi of motion given above in \eqn{SDEOM}.
+\paragraph{ZM-theory} The Lagrangian for Zakharov-Mikhailov (ZM) theory is a simple $SU(N)$ scalar theory defined in two spacetime dimensions:
+\begin{eBox}
+\be
+\mathcal{L}^{\text{ZM}} = \frac{1}{2}(\partial \varphi)^2 + g f^{abc} \varphi^a (\partial^\mu \varphi^b)( \tilde{\partial}_\mu \varphi^c) =  \text{tr}\left[\frac{1}{2}(\partial \varphi)^2-i g \varphi [\partial_t \varphi, \partial_z \varphi ]\right]
+\ee
+\end{eBox}
 where $\tilde{\partial}_\mu = \epsilon_{\mu\nu}\partial^\nu $ and $\epsilon_{\mu\nu}$ is the two-dimensional Levi-Civita symbol. Expanded out into spacetime components, the momentum space Feynman rule for this theory is simply:
 \be
 \langle ab\rangle \equiv p_a^0 p_b^1 - p_a^1 p_b^0 = -\langle ba \rangle 
@@ -814,15 +901,28 @@ Theories with this property are the creme de la creme of color-dual gauge theori
 
 Later in this section we will show that the interaction vertex is precisely that belonging to self-dual Yang-Mills (SDYM) theory in light-cone gauge. However, as we'll see, the kinetic term for these two theories differ -- the SDYM kinetic term transmutes between the holomorphic field $\Phi$, and the anti-holomorphic field, $\bar{\Phi}$, while the ZM scalar leaves the kinematic sector untouched. this is a critical distinction between the two theories that has important consequences for their color-dual constructions at loop-level.
 
-While the color-dual nature of ZM theory is rather elegant, the loop-level construction introduces complications when applying dimensional regularization. Similar to the difficulties of renormalizing chiral fermions \cite{ 'tHooft}, there is ambiguity in promoting the integrands to formal $D$-dimensional expressions. 
-\subsection{YZ-Theory}
+While the color-dual nature of ZM theory is rather elegant, the loop-level construction introduces complications when applying dimensional regularization. Similar to the difficulties of renormalizing chiral fermions \cite{ 'tHooft}, there is ambiguity in promoting the integrands to formal $D$-dimensional expressions. As such, in our two-loop bootstrap of NLSM we will only use the ZM integrands as a mechanism for reducing the residual gauge freedom in our final solution -- rather than a full $D$-dimensional integrand to which we match off-shell in dim reg. 
+\paragraph{YZ-Theory} Thus far, the two color-dual Lagrangians we have discussed make explicit reference to the spacetime dimension ($D=4$ for SDYM, and $D=2$ for ZM theory). This makes them poorly suited for constructing dimensionally regulated integrals in loop-level amplitudes. Here we briefly review YZ-theory, which is a honest $D$-dimensional theory first proposed by Cheung and Hsien \cite{Cheung2016prv} for the purpose of describing nonlinear sigma model (NLSM) scattering. One can understand YZ-theory as a particular dimensional reduction of Yang-Mills in $D=2d+1$ dimensions, down to $d$ dimensions. 
+
+Starting with the Yang-Mills Lagrangian, one can redefine the gauge fields, $A_M$, in terms of $X$, $Y$ and $Z$ fields:
+\begin{align}
+X_M &= (X_\mu,0,-iX_\mu) 
+\\
+Y_M &= (0,Y,0) 
+\\
+Z_M &= (Z_\mu,0,iZ_\mu) 
+\end{align}
+where $X$ and $Z$ are $d$-vectors and $Y$ is a scalar field. Considering the conjugate nature of the X-Z propagator, in this work we will make the replacement $X\rightarrow \bar{Z}$. Plugging this redefinition of the gauge fields in, upto cubic order, we thus obtain the following Lagrangian:
+\begin{eBox}
 \be
 \mathcal{L}^{\text{YZ}} =\frac{1}{2} (\partial Y)^2 + (\partial Z)(\partial \bar{Z}) - g f^{abc} \left( \bar{Z}_{\mu\nu}Z^{\mu} Z^\nu + [Y,\partial_\mu Y] Z^\mu \right)
 \ee
+\end{eBox}
+The Feynman rules for this Lagrangian are simply:
 \be
 \Acubic{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{} = i \varepsilon_3 (p_1-p_2)\qquad \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} =i(\varepsilon_1 p_{2})(\varepsilon_2\bar{\varepsilon}_3) - i(\varepsilon_2 p_{1})(\varepsilon_1\bar{\varepsilon}_3)
 \ee
-We begin with a review of the construction of NLSM numerators at tree-level. For this work we extend the tree-level construction of $Y\!Z$ model of Cheung and Hsien \cite{Cheung2016prv}. In this construction, the generators of the kinematic algebra can be expressed as follows
+Now we review of the construction of NLSM numerators at tree-level. In this construction, we can define generators of the kinematic algebra can be expressed as follows
 \be\label{eq:FeynmanRuleYYZ}
 T^a_{ij}= i \varepsilon_a(p_i-p_j)
 \ee
@@ -880,39 +980,96 @@ Similarly, we find the following ordered amplitude when plugging in these numera
 \be
 A^{\bar{Z}Z}_{(s,t)} = \frac{n^{\bar{Z}Z}_s}{s_{12}}+\frac{ n^{\bar{Z}Z}_t }{s_{14}} = -s_{13}(p_2+p_3+p_4)^{\mu_1} = s_{13} \,p_1^{\mu_1}
 \ee
-Plugging in the on-shell polarizatoin of the conjugate field in \eqn{eq:onShellZStates} produces precisely the desired result of \eqn{eq:NLSMYZ4point}. Indeed, this construction is valid to all orders at tree-level. There are only two possible factorization channels the contribute the each of these amplitudes, the $YY$ cut and the $\bar{Z}Z$ cut :
+Plugging in the on-shell polarizatoin of the conjugate field in \eqn{eq:onShellZStates} produces precisely the desired result of \eqn{eq:NLSMYZ4point}. Indeed, this construction is valid to all orders at tree-level. One can see this by considering the only two possible factorization channels the contribute the each of these amplitudes, the $YY$ cut and the $\bar{Z}Z$ cut:
 \begin{align}
 A(...,Y,...,Y,...) &\rightarrow A(...,Y,...,Y)A(Y,...,Y,...)
 \\
 &\rightarrow A(...,Y,...,Y,...,Z)A(\bar{Z},...)
 \end{align}
-\subsection{J-theory}
+Both factorization channels are valid descriptions of NLSM amplitudes when plugging in the $Z$ and $\bar{Z}$ on-shell states. As constructed, the $Y$ and $\bar{Z}$ particles may be off-shell, while the $Z$ particles must be placed on shell, $\varepsilon^Z_\mu(k)\rightarrow k_\mu$ in order for these numerators to produce NLSM ordered amplitudes. Given this special property of YZ-theory (namely that the $Z\bar{Z}$ and $YY$ constrctions are equivalent), the $Y$ particle need not be considered when constructing NLSM amplitudes on shell. This is essentially what $J$-theory does, as we will show below.
+\paragraph{J-theory} There is an alternative Lagrangian formulation of NLSM constructed by Chueng and one of the authors, that instead starts from the chiral current description of NLSM:
 \be
-\mathcal{L}^{\text{J}} = \frac{1}{2}\partial_\mu J_\nu \bar{J}^{\mu\nu} +g f^{abc} \bar{J}_{\mu\nu}J^\mu J^\nu
-\ee
-where as above, $\bar{J}_{\mu\nu} = \partial_\mu J_\nu - \partial_\nu J_\mu$. Subject to the Lorenz gauge condition, $\partial_\mu J^\mu =0$, this Lagrangian produces precisely the EOM for J-theory needed for Berends-Giele recursion at tree-level: 
+\mathcal{L} = \text{tr}[\partial U \partial U^{-1}] \equiv \text{tr}[J^\mu J_\mu]
+\ee 
+where $J_\mu = U\partial_\mu U^{-1}$. To build the J-theory Lagnraigna, we can think of the chiral current $J^\mu$ as a \textit{pure gauge} vector field. Thus, the field strength for $J_\mu$ must vanish, this yielding an equivalent on-shell formulation of the EOM:
 \be
-\partial^2 J^\mu - gf^{abc} J^\nu \partial_\nu J^\mu = 0 
+\Box J^\mu +g f^{abc} J^\nu J^{\mu\nu} = 0
 \ee
-As such, the single vertex in this theory is the same as for YZ theory: 
+where we have applied the gauge condition $\partial_\mu J^\mu = 0$. Adding back in a $\bar{J}^\mu$ auxiliary field as a Lagrange multiplier, we obtain the following Lagrangian that is manifestly color-dual:
+\begin{eBox}
+\be
+\mathcal{L}^{\text{J}} = \frac{1}{2}(\partial J)(\partial \bar{J}) +g f^{abc} \bar{J}_{\mu\nu}J^\mu J^\nu
+\ee
+\end{eBox}
+where as above, $\bar{J}_{\mu\nu} = \partial_\mu J_\nu - \partial_\nu J_\mu$. Subject to the Lorenz gauge condition, $\partial_\mu J^\mu =0$. This theory is one-to-one with the observables amplitudes of YZ-theory when only considering $Z-\bar{Z}$ on-shell states. As such, the single vertex in this theory is the same as for YZ theory: 
 \be
 \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} =i(\varepsilon_1 p_{2})(\varepsilon_2\bar{\varepsilon}_3) - i(\varepsilon_2 p_{1})(\varepsilon_1\bar{\varepsilon}_3)
 \ee
-
-\be
-\mathcal{L}^{\text{SDYM}} = \frac{1}{2}(\partial \bar{\Phi} )^a(\partial  \Phi)^a +g f^{abc} \bar{\Phi} ^a (\partial_u \Phi)^b (\partial_v \Phi)^c
-\ee
-\be
-(\varepsilon^+_1 k_2) - (\varepsilon^+_2 k_1) = [12]\left(\frac{\langle 2 q\rangle}{\langle 1 q\rangle} + \frac{\langle 1 q\rangle}{\langle 2 q\rangle} \right) \sim [12]
-\ee
 Now we are prepared to discuss the one-loop case. 
+\subsection{Color-dual Bootstrap}
+Some background here on how we approach color-dual bootstrap. Building an ansatz from irreducible lorentz products (ISPs). Comments about:
+\begin{itemize}
+\item loop momenta weight counting 
+\item polynomial vector spaces 
+\item generalized gauge freedom
+\item functional jacobi constraints and cuts
+\end{itemize} 
+\section{Isolating the cubic sector}
+Here we'll describe the why constructing the full Yang-Mills kinematic algebra (outside self-dual sector) is generically hard, and why the same reason makes NLSM beyond one-loop hard as well. It has to do with out the vector state sum mixes with the four-point contact. In terms of our previously defined Feynman rules, the three-point YM vertex takes the form:
+\be
+\cubic{hgrey0}{gluon}{}{gluon}{}{gluon}{}  =  \cubic{hgrey0}{fermion2}{}{}{nhpRed}{}{nhpRed} + \cubic{hgrey0}{}{nhpRed}{fermion2}{}{}{nhpRed} + \Acubic{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{} +\text{h.c.}
+\ee
+The state-sum between two three-point gluon vertex yields the following expansion in terms of YZ-theory vertices:
+\be
+ \AcubicB{hgrey0}{gluon}{}{gluon}{}{gluon}{}{gluon}{} =  \AcubicB{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{}{fermion2}{} + 5 \text{ perms} + \AcubicB{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{}{}{nhpRed}
+\ee
+All the $(\epsilon\epsilon)^1$ diagram permutations are isolated to the cubic sector and together manifest color-kinematics duality. However, the exception of the last diagram which introduces a $(\epsilon\epsilon)^2$ factor, must conspire with the Yang-Mills contact to preserve the duality off-shell
 
-\section{One-loop}
+\be
+\AcubicB{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{}{}{nhpRed} = (s_{13}-s_{12}) \epsilon_{(12)} \epsilon_{(34)}
+\ee
+One was to resolve this is to introduce higher spin modes in order to accomodate the internal index contractions needed to recover the s-channal contract:
+\be
+\AcubicB{hgrey0}{}{nhpRed}{}{nhpRed}{graviton}{nhpRed}{}{nhpRed} = s_{12 }(\epsilon_{(13)} \epsilon_{(24)} - \epsilon_{(14)} \epsilon_{(23)})
+\ee
+While introducing succesively higher spiin states to the NMHV lagrangian constructed in \cite{} could in principle work at tree level, we will see that it is not consiisntent with what we find at general loop order. We will comment on this in \sect{}. For now, we will study how to construct one-loop integrands consistent with the color-kinematics by isolating the cubic sector of the state sum above. This is easily understood in terms of a polarization decomposition introduced by one of the authors \cite{} that decomposes vector amplitudes in terms of building blocks that preserve partial amplitude relations. 
+\subsection{Block Decomposition of Yang-Mills}
+Describe how different orders in $\varepsilon_i\varepsilon_j$ in pure Yang-Mills captures different cubic and contact sectors of the theory. All the $D$-dimensional Lagnrangians above can be understood as selecting specific on shell states to isolate the cubic sector of Yang-Mills at a given loop order. Start with reducible amplitude block decomp from Ref. \cite:
+\begin{eBox}
+\begin{equation}\label{eq:pureVecRABD}
+A_{(\sigma)}^{\text{YM}} = \sum_{k=0}^{\lfloor |\sigma|/2\rfloor}\sum_{\rho \in S^{2|k}_{\sigma}}\epsilon_{(\rho)} \Delta_{(\sigma)}^{(\rho)}\,.
+\end{equation}
+\end{eBox}
+By a simple mass-dimensioin argument, we know the tree-level cubic sector is simply:
+\be
+A_{(\text{tree})}^{\text{cubic}} = \sum_{\rho \in S^{2|1}_{\sigma}}\epsilon_{(\rho)} \Delta_{(\sigma)}^{(\rho)}\,.
+\ee
+and likewise at one-loop:
+\be
+A_{(\text{1-loop})}^{\text{cubic}} = \sum_{\rho \in S^{2|0}_{\sigma}}\epsilon_{(\rho)} \Delta_{(\sigma)}^{(\rho)}\,.
+\ee
+We can select out both of these manifestly cubic sectors by selecting only $\epsilon^+\epsilon^+$ in light-cone gauge (i.e. SDYM) and one-minus at tree-level OR what $J$-theory and $YZ$-theory select with their on-shell states. Indeed, the $D$-dimensional description of $J$ theory is just the following blocks in the RABD expansion of Yang-Mills:
+\be
+A(...,\bar{J}_k,...)_{\text{tree}} = \sum_{j\neq k}\Delta^{(jk)}_{\text{tree}}
+\ee
+and similarly so at one-loop:
+\be
+A(...)_{\text{1-loop}} \equiv \Delta^{(\varnothing)}_{\text{1-loop}}
+\ee
+To recover NLSM at one-loop, we need to extract out the $D$-dependent part that corresponds to an internal $YY$-loop from extra-dimensional scalars:
+\begin{eBox}
+\be
+A^{\text{NLSM}}_{\text{1-loop}} \equiv \partial_D \Delta^{(\varnothing)}_{\text{1-loop}}\big|_{\epsilon\rightarrow k}
+\ee
+\end{eBox}
+Why must we take the derivative with respect to $D$? After all, $J$-theory and $YZ$-theory both have well defined propagators for internal $\bar{J}J$ and $\bar{Z}Z$ propagators. However, as we noted in the previous section, all the $J$ and $Z$ states must be on-shell in order to produce NLSM amplitudes. Thus, the unitarity cuts of $J$ theory at one-loop will not produce NLSM amplitudes. However, the internal $YY$-loop is a valid forward limit, since as constructed YZ theory is valid for off-shell Y-particles, and thus they serve as a valid forward limit. We will construct these one-loop integrands below in the next section. 
+\subsection{One-loop SDYM Integrands}
+\be
+\simplebox = g_{\text{YM}}^4 X(k_1,l_1)X(k_2,l_2)X(k_3,l_3)X(k_4,l_4)
+\ee
+\subsection{One-loop NLSM Integrands}
 
-\subsection{NLSM -- Nic}
-
-\draftnoteJM{I've explicitly checked the nice form of the 1-loop numerators at 4pt, 6pt, and 8pt.}
-
+Note from James:  I've explicitly checked the nice form of the 1-loop numerators at 4pt, 6pt, and 8pt.
 \be
 \simplebox = (2 f_\pi^{-1})^4 (l_1 k_1)(l_2 k_2)(l_3 k_3)(l_4 k_4)
 \ee
@@ -921,43 +1078,9 @@ where we define sequential loop momenta on the $n$-gon as $l_{i+1}= l_i+k_i$. Gi
 \simplebox =f_\pi^{-4} [12][23][34][41]
 \ee
 Where we have define the antisymmetric kinematic variable, $[LR] = l_i^L - l_R^2$
-\subsection{BELs and integration zeros -- Nic}
+\subsection{Two-loop Obstruction}
 
-At one-loop, weight counting tells us that the $n$-gon master numerator must have $n$ on-shell $Z$-particles. Unitarity requires that there are three distinct contributions from $Y\!Z$ theory -- the first from an off-shell $Y$-loop particle and then two more from different orientations of a $\bar{Z}Z$-loop.  Thus, $Y\!Z$ theory gives us the following one-loop $n$-gon numerator:
-\be
-N^{n\text{-gon},YZ}_{(12...n)} = (T^{1}T^{2}\cdots T^{n})+2\, (F^1F^2\cdots F^n)
-\ee
-where $(\,\cdots)$ indicates an internal contraction over the $YY$ and $\bar{Z}Z$ loops. Plugging in the Feynman rule of \eqn{eq:FeynmanRuleYYZ} and \eqn{eq:FeynmanRuleXZZ}, we can readily obtain expressions in terms of the internal loop factors $l_i$ and the external momenta $k_i$ (we define the $l_i$ loop momentum as that flowing into $k_i$ and out of $k_{i-1}$):
-\be
-N_{(12...n)}^{\text{NLSM}}=(T^{1}T^{2}\cdots T^{n}) = (l_1 k_1)(l_2 k_2) \cdots (l_n k_n)
-\ee
-and similarly so for the internal vector contribution:
-\be
- (F^1F^2\cdots F^n) = (D-4)(l_1 k_1)(l_2 k_2) \cdots (l_n k_n) + \mathcal{O}(D^0)
-\ee
-The dimension dependent factor essentially counts that number of internal vector states. While this $n$-gon is manifestly color-dual, it does not produce the right cuts for NLSM. However, the scalar contribution, that comes dressed with an overall factor $(D-4)$ \textit{does} manifest the duality globally, and satisfies all the desired pion cuts. In order for the Feynman rules for $Y\!Z$ theory compute one-loop color-dual numerators consistent with NLSM cuts, we must add some additional states to cancel off he spurious poles, while preserving color-kinematics duality. We leave this as a direction of future work. 
-
-While the $\bar{Z}Z$ vector loop spoils color-kinematics off-shell, the $Y\!Z$ loop alone gives us a desired expression for the $n$-gon. The important takeaway is that we now have a guess for the form of the off-shell three-point vertex that has a chance of manifesting the duality off-shell. The $n$-gon numerator above has scalar insertions of the following kinematic vertex:
-\be
-T^{a}_{LR} = k_a(l_L-l_{R}) = (l_L+l_{R}) (l_L-l_{R})  = l_L^2-l_{R}^2 
-\ee
-Given this structure, in the next section we will attempt to construct two-loop basis diagrams from these cubic vertex assignments and try to reverse engineer the particle content that produces these master numerators.
-
-Before proceeding, we note a strange property of the $n$-gon numerator for the pions. In this form, Jacobi relations produce \textit{non-vanishing} values for bubbles on external legs (BELs). However, it is easy to see that the contribution integrates to zero after applying IBP relations/tensor reduction on the bubble. The BEL diagram can be reconstructed from the $n$-gon as follows:
-\be
-N^{\text{BEL}}_{1|2,34} = N^{\text{NLSM}}_{(1234,l)}-N^{\text{NLSM}}_{(1243,l)}-N^{\text{NLSM}}_{(1342,l)}+N^{\text{NLSM}}_{(1432,l)}
-\ee
-where we define the loop momentum to be in between the left most and right most leg on the box. Plugging in particular values for $l_i$, we obtain the following expression for the BEL
-\be
-N^{\text{BEL}}_{1|2,34} = s_{12} (l+k_1)^2 l^{\mu} k_1^{\nu} k_2^{[\mu} k_{[34]}^{\nu]} 
-\ee
-Notice there is an overall factor that cancels one of the propagators. Plugging this in, produces an integral of the following form
-\be
-\mathcal{I}^{\text{BEL}}_{1|2,34} = s_{12} k_1^{\nu} k_2^{[\mu} k_{[34]}^{\nu]} \int \frac{d^D l}{i\pi^{D/2}} \frac{l^\mu }{l^2-\mu^2} \sim   s_{12}(s_{13}-s_{14}) (\mu^2)^{D/2}
-\ee
-where we have introduced a mass regulator that will be proportional the the on-shell momentum inside the BEL, $\mu^2 \equiv k_1^2$. Thus, in large enough dimension, this integral suppresses the $\mu^{-2}$ divergence appearing in the denominator of the BEL diagram. 
-
-\section{Two-loop}
+\section{Bootstrapping two-loop...}
 
 \subsection{Notes to self}
 \begin{itemize}
@@ -1225,15 +1348,108 @@ causes a discrepancy with the N$^2$-max cuts show in [].
   ansatz.  Compare post-(sym+GI) on BCJ basis.
 \item Discuss which cuts still fail.  Double check these statements
   \item Attempt at non-local.  Still have problems with cuts+syms+jacobi
-\end{itemize}
+  \end{itemize}
 
+  
 \section{Discussion}\label{sec:Discussion}
-
+\section{... and Beyond}
+This could be a section about our expectations for all-loop construction requiring non-local color-dual integrands. Lay out contrafactual proof, i,e. define the following statement:
+\be
+ Q_L=\textit{``the $L$-loop numerator is polynomial and color-dual"}. 
+\ee
+Then it is clear that if the kinematic numerator is polynomial and color-dual, evaluating it in kinematic regions where the internal legs are on-shell won't disrupt the kinematic algrebraic relations, and it must still be polynomial. Thus we find:
+\be
+Q_L \Rightarrow Q_{L-1}
+\ee
+Or equivalently,
+\be
+\text{not }Q_{L-1}\Rightarrow \text{not }Q_L
+\ee
+We have found that the two-loop integrand for Yang-Mills cannot be constructed from a color-dual polynomial kinematic numerator. Thus, if a color-dual representation exists at all-loop order for Yang-Mills it must be a rational function of kinematics. 
 
 \paragraph{Acknowledgments} The authors would like to thank ... for insightful conversations, related collaboration, and encouragement throughout the completion of this work. This work was supported by the DOE under contract DE-SC0015910 and by the Alfred P. Sloan Foundation. N.H.P. additionally acknowledges the Northwestern University Amplitudes and Insight group, the Department of Physics and Astronomy, and Weinberg College for their generous support. 
 
 Figures made with TikZ-Feynman [1601.05437]
 
+\appendix
+\section{Spinor-Helicity Variables and Conventions}
+Dimensions will generically be away from four, in $D=4-2\epsilon$, with $\epsilon$ arbitrary. As noted, it will be convenient to take $D\rightarrow 4$ in certain circumstances after integration.  In such cases we will employ appropriate spinor-helicity variables.  Here we apply the same conventions of Ref.~\cite{jjmcTASI2014}, which we quote now. For massless momenta, $k_a$ and $k_b$, we have 
+\begin{equation}
+s_{ab} = (k_a+k_b)^2= \langle ab \rangle[ba]\,,
+\end{equation}
+the component definition of our spinor bracket that are consistent with the conventions above,
+\begin{align}
+\langle ab \rangle &= \frac{(a_1 + i a_2)(b_0+b_3)-(b_1 + i b_2)(a_0+a_3)}{\sqrt{(a_0+a_3)(b_0+b_3)}}\,,
+\\
+[ab] &= \frac{(b_1 - i b_2)(a_0+a_3)-(a_1 - i a_2)(b_0+b_3)}{\sqrt{(a_0+a_3)(b_0+b_3)}}\,,
+\end{align}
+where the $a_i$ are component values of the four-vector, $k^\mu_a = (a_0,a_1,a_2,a_3)$. Four-dimensional polarization dot products with fixed helicity states can be mapped as follows:
+\begin{equation}\label{eqn:4DPols}
+\begin{aligned}
+k_a \cdot \varepsilon_b^{(+)} &= \frac{\langle q a \rangle[ab]}{\sqrt{2}\langle q b\rangle}\,,
+\qquad\quad \qquad
+k_a \cdot \varepsilon_b^{(-)} = -\frac{[qa]\langle ab\rangle}{\sqrt{2}[qb]}\,,
+\\
+\varepsilon_a^{(-)}\cdot \varepsilon_b^{(+)} &= - \frac{\langle q a\rangle [qb]}{ [qa]\langle q b\rangle} \,,
+\qquad \qquad
+\varepsilon_a^{(\pm)}\cdot \varepsilon_b^{(\pm)} = 0 \,,
+\end{aligned}
+\end{equation}
+Note that given the above definition, the spinor helicity variables carry the same mass dimension for both the angle and square brackets. In terms of light-cone coordinates that we employed in the text, the angles and squares can be rewritten as follows:
+\begin{align}
+\langle ab \rangle &= \frac{a_w b_u-a_u b_w}{\sqrt{a_ub_u}}\,,
+\\
+[ab] &= \frac{b_{\bar{w}}a_u-a_{\bar{w}}b_u}{\sqrt{a_ub_u}}\,,
+\end{align}
+The conventions we use in the text where the holomorphic spinor cares extra mass dimension essentially amounts to shifting the bracket by the following:
+\begin{align}
+\langle ab \rangle &\rightarrow a_w b_u-a_u b_w \equiv X(a,b)\,,
+\\
+[ab] &\rightarrow \frac{b_{\bar{w}}a_u-a_{\bar{w}}b_u}{a_ub_u}\equiv Q(a,b)\,,
+\end{align}
+With this, we still obtain the same completeness relation for the SDYM spinors:
+\be
+X(a,b)Q(b,a) = \frac{1}{2}s_{ab}
+\ee
+\section{Regulating BEL integrals}
+At one-loop, weight counting tells us that the $n$-gon master numerator must have $n$ on-shell $Z$-particles. Unitarity requires that there are three distinct contributions from $Y\!Z$ theory -- the first from an off-shell $Y$-loop particle and then two more from different orientations of a $\bar{Z}Z$-loop.  Thus, $Y\!Z$ theory gives us the following one-loop $n$-gon numerator:
+\be
+N^{n\text{-gon},YZ}_{(12...n)} = (T^{1}T^{2}\cdots T^{n})+2\, (F^1F^2\cdots F^n)
+\ee
+where $(\,\cdots)$ indicates an internal contraction over the $YY$ and $\bar{Z}Z$ loops. Plugging in the Feynman rule of \eqn{eq:FeynmanRuleYYZ} and \eqn{eq:FeynmanRuleXZZ}, we can readily obtain expressions in terms of the internal loop factors $l_i$ and the external momenta $k_i$ (we define the $l_i$ loop momentum as that flowing into $k_i$ and out of $k_{i-1}$):
+\be
+N_{(12...n)}^{\text{NLSM}}=(T^{1}T^{2}\cdots T^{n}) = (l_1 k_1)(l_2 k_2) \cdots (l_n k_n)
+\ee
+and similarly so for the internal vector contribution:
+\be
+ (F^1F^2\cdots F^n) = (D-4)(l_1 k_1)(l_2 k_2) \cdots (l_n k_n) + \mathcal{O}(D^0)
+\ee
+The dimension dependent factor essentially counts that number of internal vector states. While this $n$-gon is manifestly color-dual, it does not produce the right cuts for NLSM. However, the scalar contribution, that comes dressed with an overall factor $(D-4)$ \textit{does} manifest the duality globally, and satisfies all the desired pion cuts. In order for the Feynman rules for $Y\!Z$ theory compute one-loop color-dual numerators consistent with NLSM cuts, we must add some additional states to cancel off he spurious poles, while preserving color-kinematics duality. We leave this as a direction of future work. 
+
+While the $\bar{Z}Z$ vector loop spoils color-kinematics off-shell, the $Y\!Z$ loop alone gives us a desired expression for the $n$-gon. The important takeaway is that we now have a guess for the form of the off-shell three-point vertex that has a chance of manifesting the duality off-shell. The $n$-gon numerator above has scalar insertions of the following kinematic vertex:
+\be
+T^{a}_{LR} = k_a(l_L-l_{R}) = (l_L+l_{R}) (l_L-l_{R})  = l_L^2-l_{R}^2 
+\ee
+Given this structure, in the next section we will attempt to construct two-loop basis diagrams from these cubic vertex assignments and try to reverse engineer the particle content that produces these master numerators.
+
+Before proceeding, we note a strange property of the $n$-gon numerator for the pions. In this form, Jacobi relations produce \textit{non-vanishing} values for bubbles on external legs (BELs). However, it is easy to see that the contribution integrates to zero after applying IBP relations/tensor reduction on the bubble. The BEL diagram can be reconstructed from the $n$-gon as follows:
+\be
+N^{\text{BEL}}_{1|2,34} = N^{\text{NLSM}}_{(1234,l)}-N^{\text{NLSM}}_{(1243,l)}-N^{\text{NLSM}}_{(1342,l)}+N^{\text{NLSM}}_{(1432,l)}
+\ee
+where we define the loop momentum to be in between the left most and right most leg on the box. Plugging in particular values for $l_i$, we obtain the following expression for the BEL
+\be
+N^{\text{BEL}}_{1|2,34} = s_{12} (l+k_1)^2 l^{\mu} k_1^{\nu} k_2^{[\mu} k_{[34]}^{\nu]} 
+\ee
+Notice there is an overall factor that cancels one of the propagators. Plugging this in, produces an integral of the following form
+\be
+\mathcal{I}^{\text{BEL}}_{1|2,34} = s_{12} k_1^{\nu} k_2^{[\mu} k_{[34]}^{\nu]} \int \frac{d^D l}{i\pi^{D/2}} \frac{l^\mu }{l^2-\mu^2} \sim   s_{12}(s_{13}-s_{14}) (\mu^2)^{D/2}
+\ee
+where we have introduced a mass regulator that will be proportional the the on-shell momentum inside the BEL, $\mu^2 \equiv k_1^2$. Thus, in large enough dimension, this integral suppresses the $\mu^{-2}$ divergence appearing in the denominator of the BEL diagram. 
 \bibliographystyle{JHEP}
 \bibliography{Refs_2loopNLSM}
 \end{document}
+
+
+%%% Local Variables: 
+%%% TeX-command-extra-options: "-shell-escape"
+%%% End:
