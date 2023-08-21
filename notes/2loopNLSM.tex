@@ -822,7 +822,10 @@ In this work, we will consider three different types of cubic representations, t
 In this review, we will present examples of this distinct kinematic representations that have appeared in the literature. Though from the get go, we stress that in this work we are interested in identifying the analog of adjoint representations of the kinematic numerators; those for which all legs are equally preferrenced by the functional dressing. The only non-trivial $S$-matrix in the literature that exhibits this property to all-loop order, is that of Zakharov-Mikhailov theory \cite{}. We will briefly review the perturbative construction of this theory below. 
 \subsection{Color-dual Amplitudes}
 Review of BCJ relations and Jacobi relations off-shell. Justify kinematic algebra in an off-shell framework by talking about on-shell construction. yada yada yada
-\subsection{Color-dual Lagrangians} In the next section we will construct one-loop color-dual numerators using Lagrangian descriptions that are manifestly color-dual. As we will show, taking forward limits of tree-level numerators works as long as one can construct an off-shell description with a Lagrangian. Here we briefly review the off-shell examples of the kinematic algebra that will be relevant in this paper. 
+
+\subsection{Color-dual Lagrangians}
+\label{sec:CKLagrangians}
+In the next section we will construct one-loop color-dual numerators using Lagrangian descriptions that are manifestly color-dual. As we will show, taking forward limits of tree-level numerators works as long as one can construct an off-shell description with a Lagrangian. Here we briefly review the off-shell examples of the kinematic algebra that will be relevant in this paper. 
 \be
 \mathcal{L}^{\text{semi-YM}} = - \frac{1}{2} G_{\mu\nu} F^{\mu\nu} = - \frac{1}{2} G_{\mu\nu} F^{\mu\nu} - \frac{g}{2} G_{\mu\nu} [A_\mu, A_\nu]
 \ee
@@ -1068,6 +1071,10 @@ While the color-dual nature of ZM theory is rather elegant, the loop-level const
 \subsubsection{Wess-Zumino-Witten theory -- James}
 I want to write this down or I'm going to completely forget it
 
+Should probably also mention that BAS has CK at Lagrangian level (duh).
+
+Cubic 2-form theory also has trivial CK.
+
 \subsubsection{Chern-Simons theory -- James}
 We won't use this but it's useful to treat all of the CK theories in one place
 Cite Henrik Maor
@@ -1078,7 +1085,7 @@ Should this section maybe go first?
 
 \begin{itemize}
 \item There's also CS but the amplitudes are all zero (and marginally 10D N=1 SYM)
-\item All of the theories described above have diff as kinematic algebra
+\item All of the theories described above have diff as kinematic algebra, SU(N) for BAS, or rigid/spin Lorenz for cubic 2-form theory
 \item All of the theories choose a simple gauge like Lorenz or lightcone
 \item All of the theories place some constraint on the field strength directly and get their equations of motion directly from that constraint, not the YM EOM.
 \item (Almost all of the theories (aside from NLSM) have trivial amplitudes at least at tree level)
@@ -1096,7 +1103,128 @@ Some background here on how we approach color-dual bootstrap (as we will utilize
 \item generalized gauge freedom
 \item functional jacobi constraints and cuts
 \end{itemize} 
-I suggest we put this all here in the intro/review so that people who know can skip, and then people who don't can read it and then be prepared to understand our approach before getting to the two-loop section.
+
+References for Jacobi, unitarity, etc.
+
+Aside from the few special theories mentioned in \sect{sec:CKLagrangians}, color-dual integrands are constructed from an ansatz.
+
+Different kinds of CK.
+We want global.
+Global is the simplest option, it is also the option that you would automatically get if you had a color-dual Lagrangian.
+By ``global'' we mean that color-kinematics duality is satisfied in any kinematic configuration of the integrand.
+This is a much more stringent condition than absolutely necessary.
+There is reason to believe (cite Zvi et al) that global numerators cannot always be found.
+One resolution to the issue is to only demand color-kinematics duality on the unitarity cuts of the integrand, i.e., in specific kinematic limits.
+Enforcing Jacobi on the cuts is enough to ensure that the squared integrand will correctly cut to gravity (or whatever the squared theory might be).
+When a globally color-dual numerator cannot be found, another alternative explored in the literature is to increase the size of the numerator ansatz by enlarging the numerator from a polynomial to a rational function with spurious singularities (cite Donal et al).
+When global color-kinematics fails, the hope is that it can be restored by enlarging the size of the ansatz, either by giving the numerator of each graph its own ansatz (first option described) or by promoting the numerator to a non-local function (second option described).
+Note that a theory whose Lagrangian has color-kinematics duality would naturally produce a globally color-dual integrand so the quest for a global numerator is closely related to the existence of a Lagrangian exhibiting color-kinematics duality.
+Section X is devoted to color-dual representations of the 4pt 2-loop NLSM integrand and the analogous integrand for YM is treated in section Y.
+Two-loop color-dual integrands for pure YM have been investigated before but only for a limited ansatz that manifests locality (cite Zvi et al paper).
+All of the N=4 SYM constructions below 5-loop are local.
+Mention generalized double copy.
+
+Color-kinematics duality is stated in terms of cubic graphs so the first step is to express in the integrand in terms of such graphs.
+As an example we will focus on the 4pt 2-loop integrand of some color-dual theory like NLSM or YM.
+The 4pt 1-loop integrand is not a sufficiently illustrative example because, for instance, it lacks any self Jacobi like \eqref{eq:TwoLoopJacobiTwo} to be discussed shortly.
+Naively there are 14 cubic 4pt 2-loop topologies ignoring tadpoles and bubble on external leg (BEL) graphs.
+It is always possible to express an integrand in terms of cubic graphs, even for an even valency theory like NLSM, by multiplying and dividing the integrand by factors of inverse propagators.
+Next, the ansatz must have the correct power counting and external states, \emph{e.g.}, polarization vectors for YM.
+The numerator is assumed to be manifestly local but one approach to finding color-dual numerators is to relax manifest locality, see (...) for more details.
+After zeroth order considerations like power counting, there are three conditions that are imposed on the ansatz: (1) Jacobi relations amongst graphs must be satisfied, (2) numerators must respect graph symmetries, and (3) the integrand must have the correct unitarity cuts.
+
+(These three constraints can be solved in any order and my guess is that Alex and I did solve them in different orders.)
+
+\subsubsection{Jacobi relations}
+
+Jacobi relations are the heart of color-kinematics duality.
+The color factors in an integrand obey a set of Jacobi identities.
+Color-kinematics duality states that there exists a way of writing the kinematic numerators of the integrand so that they obey the same set of Jacobi identities.
+(Can trivially read off the adjoint color factors from a cubic graph.)
+So if any triplet of graphs is related by a Jacobi identity, so too must their numerators.
+Broadly speaking there are two kinds of Jacobi identities.
+The first kind relate graphs to a basis.
+For example, the double box, crossed box, and penta-triangle are related to each other as follows
+\be % [[11]]
+\label{eq:TwoLoopJacobiOne}
+\JacobiOneDoubleBox +  \JacobiOneCrossedBox + \JacobiOnePentaTriangle =0.
+\ee
+where the shared propagator is shown in red.
+Using this relation the crossed box can be written in terms of the other two.
+In this way, all of the 14 cubic 4pt 2-loop topologies can be written in terms of a basis of the double box and penta-triangle.
+(Any two of the double box, crossed box, and penta-triangle would suffice for a basis but the planar basis is chosen for simplicity in this work.)
+For global color-kinematics duality each of the two basis graphs receives its own numerator ansatz and the numerator of any other graph can be expressed in terms of these.
+
+The second kind of Jacobi relations relate basis elements to themselves.
+For example, the crossed box numerator is related to itself via the following Jacobi relation
+\be % [[19]]
+\label{eq:TwoLoopJacobiTwo}
+\JacobiTwoCrossedBoxOne + \JacobiTwoCrossedBoxTwo +  \JacobiTwoCrossedBoxThree =0,
+\ee
+where the shared propagator is shown in red as before.
+Each of the crossed box numerators can be represented in terms of the double box and penta-triangle so this Jacobi relation places constraints on the basis numerator ansatze.
+The first kind of Jacobi relations simplifies how many numerators require ansatze whereas the second kind of Jacobi relations place constraints on the remaining numerators.
+In principle there could be Jacobi relations involving tadpoles and BEL graphs, which would be subtle to handle.
+One option is to force the numerators of these graphs to zero.
+However, since these graphs will not contribute to physical unitarity cuts, we take a different approach.
+These graphs are allowed to have non-zero numerators but any Jacobi relations involving them are simply not imposed or solved.
+See (4 loop N=4 paper) for a discussion of BELs in the context of color-kinematics duality.
+
+In total, there are 21 Jacobi relations on the 14 cubic 4pt 2-loop graphs where, again, tadpole and BEL graphs are ignored.
+
+\subsubsection{Graph symmetries}
+
+The second key constraint in an ansatz construction of color-dual numerators comes from graph symmetries.
+Every numerator is required to respect all of the symmetries (or automorphisms) of its associated graph.
+While it is very convenient to impose graph symmetries, it is not completely necessary in order to perform the double copy.
+At tree level, finding manifestly color dual numerators is often achieved at the expense of manifest Bose symmetry (see YZ theory, j-theory, Alex numerators from CHY, Henrik numerators).
+Nonetheless, for a pure ansatz construction it is very reasonable to impose graph symmetries.
+Note that the graph symmetry constraint is imposed on \emph{every} graph, not just the basis graphs.
+For example, the crossed box,
+\be
+\CrossedBoxGraphSym ,
+\ee
+is unchanged upon reflection across the horizontal axis (shown as a red dashed line).
+Since the crossed box can be written in terms of the double box and penta-triangle, this imposes non-trivial constraints on the ansatz.
+
+\subsubsection{Unitarity}
+
+The last key constraint is that the ansatz have the correct unitarity cuts, that is, that the integrand corresponds to the correct theory.
+Generalized unitarity has been reviewed in many places (cite...) so we will not belabor the details here, in particular see (emu) for a recent treatment of unitarity methods for even multiplicity theories like NLSM.
+The essence of generalized unitarity is that when internal lines are placed on-shell, the integrand should factorize into a product of on-shell tree amplitudes.
+The cut to be performed can, itself, be encoded in a graph.
+For example, potential 4pt 2-loop cuts include
+\be
+\label{eq:PotentialCuts}
+\text{(a)} \SubtleCut ~~~~ \text{(b)} \PhysicalCutOne{}{}{}{} ~~~~ \text{(c)} \PhysicalCutTwo{}{}{}{} ~~~~ \text{(d)}  \MaxCut
+\ee
+as well as many more.
+In these graphs, all exposed propagators are understood to be cut/on-shell.
+As an equation, a unitarity cut this looks schematically like
+\be
+\label{eq:SchematicCutEquation}
+\sum \limits_\text{topologies} \frac{n \vert_\text{cut}}{\prod \limits_\text{uncut} k^2} = \sum \limits_\text{states} \prod \limits_\text{blobs} A_\text{tree} .
+\ee
+The right hand side of the equation is a product of on-shell tree amplitudes, represented graphically in \eqref{eq:PotentialCuts} by grey blobs.
+States crossing (or propagating across) the cut must be summed over.
+For scalars this sum is trivial but for spinning particles this is no longer the case and the physical state projector must be inserted (see Dimitrius paper for simplifying this operation).
+The graph topologies appearing in the left hand side of \eqref{eq:SchematicCutEquation} come from blowing up the grey blobs into cubic tree graphs in every conceivable way.
+For each of these topologies, the numerator of the associated graph is subjected to the cut constraints and is then divided by the uncut propagators.
+The right hand side is assumed to be known, which places a constraint on the numerator ansatz in the left hand side.
+
+It is possible to work with either color-dressed cuts or color-ordered cuts.
+For color-dressed cuts the grey blobs are blown up into all possible channels and all color factors $f^{abc}$ are explicitly retained on both sides of the unitarity equation \eqref{eq:SchematicCutEquation}.
+For color-ordered cuts the grey blobs are only blown up in color ordered channels, all color factors in \eqref{eq:SchematicCutEquation} are suppressed, and the product of on-shell amplitudes only extends over color-ordered trees.
+Since color-ordered cuts do not contain the full color information of the theory, it is necessary to do multiple color-ordered cuts -- over different orderings of the blob labels -- in order to fully capture all of the cut information.
+For a color dual theory such as NLSM or YM it is enough to do $(n-2)!$ labelings of each blob due to the Kleiss-Kuijf and $U(1)$ decoupling identities (cite KK).
+In this sense color-dressed cuts contain extraneous information that is bypassed when using color-ordered cuts.
+
+In our construction, only well-defined cuts are imposed so, for example, cut (a) of \eqref{eq:PotentialCuts} is not enforced since it is possible to blow up the left blob into a tree amplitude with an on-shell internal propagator.
+Cuts (b), (c), and (d) represent physical cuts where (d) is known as a maximal cut since the maximal number of propagators have been put on shell.
+
+After imposing all of the conditions above, any remaining free parameters represent ``generalized gauge freedom'' meaning that the freedom does not affect the physical integrand or its double copy.
+
+
 \section{Isolating the cubic sector}
 Here we'll describe the why constructing the full Yang-Mills kinematic algebra (outside self-dual sector) is generically hard, and why the same reason makes NLSM beyond one-loop hard as well. It has to do with out the vector state sum mixes with the four-point contact. In terms of our previously defined Feynman rules, the three-point YM vertex takes the form:
 \be
@@ -1165,7 +1293,7 @@ Where we have define the antisymmetric kinematic variable, $[LR] = l_i^L - l_R^2
 
 \section{Bootstrapping two-loop...}
 
-\subsection{Notes to self}
+\subsection{Notes to self -- James}
 \begin{itemize}
 \item We should comment on 1-loop YM.  Can you easily write down the $n$-gon numerator?  I have some memory that someone has some complicated YM numerator.
 \item Cite papers arguing about whether NLSM in 2D is non-trivial or not.
@@ -1204,118 +1332,18 @@ I enforce this $\ell^5$...$\ell^8$ behavior on the NLSM ansatz too.
 
 As we have seen, it is possible to coerce tree numerators into 1-loop numerators at any multiplicity for pions.
 However, these methods cannot be reapplied to generate 2-loop numerators, which begs the question ``is it possible to find globally color-dual numerators beyond 1-loop''.
-By ``global'' we mean that color-kinematics duality is satisfied in any kinematic configuration of the integrand.
-This is a much more stringent condition than absolutely necessary.
-There is reason to believe (cite Zvi et al) that global numerators cannot always be found.
-One resolution to the issue is to only demand color-kinematics duality on the unitarity cuts of the integrand, i.e., in specific kinematic limits.
-Enforcing Jacobi on the cuts is enough to ensure that the squared integrand will correctly cut to gravity (or whatever the squared theory might be).
-When a globally color-dual numerator cannot be found, another alternative explored in the literature is to increase the size of the numerator ansatz by enlarging the numerator from a polynomial to a rational function with spurious singularities (cite Donal et al).
-When global color-kinematics fails, the hope is that it can be restored by enlarging the size of the ansatz, either by giving the numerator of each graph its own ansatz (first option described) or by promoting the numerator to a non-local function (second option described).
-Note that a theory whose Lagrangian has color-kinematics duality would naturally produce a globally color-dual integrand so the quest for a global numerator is closely related to the existence of a Lagrangian exhibiting color-kinematics duality.
-We will begin by tackling the issue of a global 4pt 2-loop numerator for NLSM before moving on to YM.
-Two-loop color-dual integrands for pure YM have been investigated before but only for a limited ansatz that manifests locality (cite Zvi et al paper).
+We will tackle this question for NLSM before moving on to YM
 
-Aside from a few special theories (cite blah), color-dual integrands are constructed from an ansatz.
-Color-kinematics duality is stated in terms of cubic graphs so the first step is to express in the integrand in terms of such graphs.
-Naively there are 14 cubic 4pt 2-loop topologies ignoring tadpoles and bubble on external leg (BEL) graphs.
-It is always possible to express an integrand in terms of cubic graphs, even for an even valency theory like NLSM, by multiplying and dividing the integrand by factors of inverse propagators.
-Next, the ansatz must have the correct power counting and external states.
-Since pions are scalars the numerators will not carry any spinors or polarization vectors.
 Every vertex in NLSM scales as $k^2$ so, for example, the numerator of a cubic 4pt 2-loop diagram scales as $k^{12}$ so there are 8,008 independent dot products of momenta at this mass dimension.
-The numerator is assumed to be manifestly local but one approach to finding color-dual numerators is to relax manifest locality, see (...) for more details.
-After zeroth order considerations like power counting, there are three conditions that are imposed on the ansatz: (1) Jacobi relations amongst graphs must be satisfied, (2) numerators must respect graph symmetries, and (3) the integrand must have the correct unitarity cuts.
 
-\subsubsection{Jacobi relations}
+NLSM scalar theory, no external state information stuff.
 
-Jacobi relations are the heart of color-kinematics duality.
-The color factors in an integrand obey a set of Jacobi identities.
-Color-kinematics duality states that there exists a way of writing the kinematic numerators of the integrand so that they obey the same set of Jacobi identities.
-(Can trivially read off the adjoint color factors from a cubic graph.)
-So if any triplet of graphs is related by a Jacobi identity, so too must their numerators.
-Broadly speaking there are two kinds of Jacobi identities.
-The first kind relate graphs to a basis.
-For example, the double box, crossed box, and penta-triangle are related to each other as follows
-\be % [[11]]
-\label{eq:TwoLoopJacobiOne}
-\JacobiOneDoubleBox +  \JacobiOneCrossedBox + \JacobiOnePentaTriangle =0.
-\ee
-where the shared propagator is shown in red.
-Using this relation the crossed box can be written in terms of the other two.
-In this way, all of the 14 cubic 4pt 2-loop topologies can be written in terms of a basis of the double box and penta-triangle.
-(Any two of the double box, crossed box, and penta-triangle would have sufficed for a basis but the planar basis was chosen for simplicity.)
-Each of the two basis graphs receives its own numerator ansatz and the numerator of any other graph can be expressed in terms of these.
 As mentioned before, there are 8,008 linearly independent dot products of momenta of the required mass dimension so the total number of free parameters in the system is 16,016.
 As this is too many parameters for \texttt{Mathematica} to reasonably handle, we employ a custom solver suitable for the moderately dense systems appearing in this context.
 (Scalars might generate denser systems since ever dot product can interfere with every other unlike gauge theories which separate based on polarization structure, can cite Nic. \nhp{ distinguish between NLSM and YM ansatz -- i.e. why is 10,010 per diagram solvable for YM, but 8,008 per diagram runs into issues for NLSM. As you said, emphasize the density of NLSM matrix inversion due to generalized gauge freedom vs. independent polarization structures for YM.})
 
-The second kind of Jacobi relations relate basis elements to themselves.
-For example, the crossed box numerator is related to itself via the following Jacobi relation
-\be % [[19]]
-\label{eq:TwoLoopJacobiTwo}
-\JacobiTwoCrossedBoxOne + \JacobiTwoCrossedBoxTwo +  \JacobiTwoCrossedBoxThree =0,
-\ee
-where the shared propagator is shown in red as before.
-Each of the crossed box numerators can be represented in terms of the double box and penta-triangle so this Jacobi relation places constraints on the basis numerator ansatze.
-The first kind of Jacobi relations simplifies how many numerators require ansatze whereas the second kind of Jacobi relations place constraints on the remaining numerators.
-In principle there could be Jacobi relations involving tadpoles and BEL graphs, which would be subtle to handle.
-One option is to force the numerators of these graphs to zero.
-However, since these graphs will not contribute to physical unitarity cuts, we take a different approach.
-These graphs are allowed to have non-zero numerators but any Jacobi relations involving them are simply not imposed or solved.
-See (4 loop N=4 paper) for a discussion of BELs in the context of color-kinematics duality.
+How many constraints fixed by Jacobi, then graph sym, then cuts
 
-In total, there are 21 Jacobi relations on the 14 cubic 4pt 2-loop graphs where, again, tadpole and BEL graphs are ignored.
-How many constraints fixed.
-
-\subsubsection{Graph symmetries}
-
-The second key constraint in an ansatz construction of color-dual numerators comes from graph symmetries.
-Every numerator is required to respect all of the symmetries (or automorphisms) of its associated graph.
-While it is very convenient to impose graph symmetries, it is not completely necessary in order to perform the double copy.
-At tree level, finding manifestly color dual numerators is often achieved at the expense of manifest Bose symmetry (see YZ theory, j-theory, Alex numerators from CHY, Henrik numerators).
-Nonetheless, for a pure ansatz construction it is very reasonable to impose graph symmetries.
-Note that the graph symmetry constraint is imposed on \emph{every} graph, not just the basis graphs.
-For example, the crossed box, \be
-\CrossedBoxGraphSym
-\ee
-is unchanged upon reflection across the horizontal axis (shown as a blue dashed line).
-Since the crossed box can be written in terms of the double box and penta-triangle, this imposes non-trivial constraints on the ansatz.
-
-Imposing graph symmetries on the ansatz further reduces the DOF to ...
-
-\subsubsection{Unitarity}
-
-The last key constraint is that the ansatz have the correct unitarity cuts, that is, that the integrand corresponds to the correct theory.
-Generalized unitarity has been reviewed in many places (cite...) so we will not belabor the details here, in particular see (emu) for a recent treatment of unitarity methods for even multiplicity theories like NLSM.
-The essence of generalized unitarity is that when internal lines are placed on-shell, the integrand should factorize into a product of on-shell tree amplitudes.
-The cut to be performed can, itself, be encoded in a graph.
-For example, potential 4pt 2-loop cuts include
-\be
-\label{eq:PotentialCuts}
-\text{(a)} \SubtleCut ~~~~ \text{(b)} \PhysicalCutOne{}{}{}{} ~~~~ \text{(c)} \PhysicalCutTwo{}{}{}{} ~~~~ \text{(d)}  \MaxCut
-\ee
-as well as many more.
-In these graphs, all exposed propagators are understood to be cut/on-shell.
-As an equation, a unitarity cut this looks schematically like
-\be
-\label{eq:SchematicCutEquation}
-\sum \limits_\text{topologies} \frac{n \vert_\text{cut}}{\prod \limits_\text{uncut} k^2} = \sum \limits_\text{states} \prod \limits_\text{blobs} A_\text{tree} .
-\ee
-The right hand side of the equation is a product of on-shell tree amplitudes, represented graphically in \eqref{eq:PotentialCuts} by grey blobs.
-States crossing (or propagating across) the cut must be summed over.
-For scalars this sum is trivial but for spinning particles this is no longer the case and the physical state projector must be inserted (see Dimitrius paper for simplifying this operation).
-The graph topologies appearing in the left hand side of \eqref{eq:SchematicCutEquation} come from blowing up the grey blobs into cubic tree graphs in every conceivable way.
-For each of these topologies, the numerator of the associated graph is subjected to the cut constraints and is then divided by the uncut propagators.
-The right hand side is assumed to be known, which places a constraint on the numerator ansatze in the left hand side.
-
-It is possible to work with either color-dressed cuts or color-ordered cuts.
-For color-dressed cuts the grey blobs are blown up into all possible channels and all color factors $f^{abc}$ are explicitly retained (both in the integrand numerators and in the tree amplitudes).
-For color-ordered cuts the grey blobs are only blown up in color ordered channels, the color factors can be suppressed, and the product of on-shell amplitudes only extends over color-ordered trees.
-We elect to use color-ordered cuts.
-Since these cuts do not contain the full color information of the theory, it is necessary to do multiple color-ordered cuts -- over different orderings of the blob labels -- in order to fully capture all of the cut information.
-For a color dual theory such as NLSM it is enough to do $(n-2)!$ labelings of each blob due to the Kleiss-Kuijf and $U(1)$ decoupling identities (cite KK).
-In this sense color-dressed cuts contain extraneous information that is bypassed when using color-ordered cuts.
-
-In our construction, only well-defined cuts are imposed so, for example, cut (a) of \eqref{eq:PotentialCuts} is not enforced since it is possible to blow up the left blob into a tree amplitude with an on-shell internal propagator.
 Cuts (b) and (c) are the only non-vanishing 4pt 2-loop physical cuts for an even multiplicity theory.
 This means that even at two loops, unitarity cuts are still only probing the on-shell 4pt NLSM amplitude.
 Even though (b) and (c) are the only non-zero cuts, other cuts, for example the maximal cut (d), must also be imposed in order to correctly reproduce NLSM.
@@ -1325,11 +1353,7 @@ However, for the sake of simplicity we do not take this route.
 
 How many DOF left after imposing cuts
 
-References for Jacobi, unitarity, etc.
-
 Why aren't the two physical cuts spanning?  I know from experience that they're not but I can't easily explain why.
-
-\subsubsection{Matching to ZM -- James}
 
 After imposing all of the three key constraints (Jacobi, graph symmetries, and unitarity), there still remains a plethora of generalized gauge freedom in the X unconstrained ansatz parameters.
 At this point color kinematics duality has been satisfied so the double copy will proceed without issue, but it is possible to enforce additional, more aesthetic, constraints as desired.
