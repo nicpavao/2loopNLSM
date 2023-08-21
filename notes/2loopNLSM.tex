@@ -8,6 +8,7 @@
 \usepackage{ifdraft}
 \usepackage{epstopdf}
 \usepackage{slashed}
+\usepackage{anyfontsize}
 \usepackage{tocloft}
 \renewcommand{\cftdot}{.}
 \renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
@@ -59,6 +60,7 @@
 
 %Comment commands
 \newcommand{\ace}[1]{\textcolor{darkgreen}{\textbf{AE:}{#1}}}
+\newcommand{\nhp}[1]{\textcolor{nhpRed}{\textbf{NHP:}{#1}}}
 
 
 \usepackage[framemethod=default]{mdframed}
@@ -78,7 +80,9 @@ leftmargin=0cm,
 rightmargin=0cm,
 linewidth=4pt]{eBox}
 
-\tikzset{graviton/.style={decorate, decoration={snake, amplitude=.4mm, segment length=1.5mm, pre length=.5mm, post length=.5mm}, double}}
+\tikzset{Bfield/.style={decorate, double}}
+
+\iffalse
 \tikzfeynmanset{compat=1.1.0}
 \immediate\write18{mkdir -p images}  %% Create `pgf-img` directory
 \usetikzlibrary{external}  
@@ -90,6 +94,7 @@ linewidth=4pt]{eBox}
     pdflatex \tikzexternalcheckshellescape -halt-on-error -shell-escape -interaction=batchmode -jobname="\image" "\texsource" || rm "\image.pdf"
   },
 ]
+\fi
 \tikzfeynmanset{
   fermion2/.style={
     /tikz/postaction={
@@ -146,7 +151,7 @@ linewidth=4pt]{eBox}
 (mid3) --[ultra thick,](mid2),
 (mid1) --[ultra thick,](mid6),
 (mid1) --[ultra thick,](mid4),
-(mid5) --[ultra thick,red](mid2),
+(mid5) --[ultra thick,nhp4](mid2),
 (mid5) --[ultra thick,](mid6),
 (mid3) --[ultra thick,](mid4),
 };
@@ -180,7 +185,7 @@ linewidth=4pt]{eBox}
 (mid5) --[ultra thick,](mid7),
 (mid7) --[ultra thick,](mid1),
 (mid2) --[ultra thick,](mid6),
-(mid5) --[ultra thick,red](mid2),
+(mid5) --[ultra thick,nhp4](mid2),
 (mid3) --[ultra thick,](mid4),
 };
 \end{feynman}
@@ -211,7 +216,7 @@ linewidth=4pt]{eBox}
 (mid1) --[ultra thick,](mid6),
 (mid1) --[ultra thick,](mid4),
 (mid5) --[ultra thick,](mid3),
-(mid5) --[ultra thick,red](mid2),
+(mid5) --[ultra thick,nhp4](mid2),
 (mid3) --[ultra thick,](mid4),
 };
 \end{feynman}
@@ -244,7 +249,7 @@ linewidth=4pt]{eBox}
 (a1) --[ultra thick,](mid5),
 (mid1) --[ultra thick,](mid6),
 (mid3) --[ultra thick,](mid2),
-(mid1) --[ultra thick,red](mid4),
+(mid1) --[ultra thick,nhp4](mid4),
 (mid5) --[ultra thick,](mid7),
 (mid7) --[ultra thick,](mid1),
 (mid2) --[ultra thick,](mid6),
@@ -277,7 +282,7 @@ linewidth=4pt]{eBox}
 (a1) --[ultra thick,](mid5),
 (mid1) --[ultra thick,](mid6),
 (mid3) --[ultra thick,](mid2),
-(mid1) --[ultra thick,red](mid4),
+(mid1) --[ultra thick,nhp4](mid4),
 (mid5) --[ultra thick,](mid7),
 (mid7) --[ultra thick,](mid1),
 (mid2) --[ultra thick,](mid6),
@@ -310,7 +315,7 @@ linewidth=4pt]{eBox}
 (a1) --[ultra thick,](mid5),
 (mid1) --[ultra thick,](mid6),
 (mid3) --[ultra thick,](mid2),
-(mid1) --[ultra thick,red](mid4),
+(mid1) --[ultra thick,nhp4](mid4),
 (mid5) --[ultra thick,](mid7),
 (mid7) --[ultra thick,](mid1),
 (mid2) --[ultra thick,](mid6),
@@ -356,7 +361,7 @@ linewidth=4pt]{eBox}
 (mid2) --[ultra thick,](mid6),
 (mid5) --[ultra thick,](mid2),
 (mid3) --[ultra thick,](mid4),
-(x1) --[ultra thick,dashed,blue](x2),
+(x1) --[ultra thick,dashed,nhp4](x2),
 };
 \end{feynman}
 \end{tikzpicture}
@@ -777,16 +782,16 @@ linewidth=4pt]{eBox}
 
 
 
-\author{Alex Edison,}
-\author{James Mangan,}
-\author{and Nicolas H. Pavao}
+\author{\large Alex Edison,}
+\author{\large James Mangan,}
+\author{\large and Nicolas H. Pavao}
 
 \affiliation{Department of Physics and Astronomy, Northwestern
   University, Evanston, Illinois 60208, USA}
 
 \emailAdd{alexander.edison@northwestern.edu, james.mangan@northwestern.edu, pavao@u.northwestern.edu}
   
-\title{\center Towards Globally Color-Dual All-Loop Integrands}
+\title{\center  \fontsize{18.8}{20} \selectfont  Towards Globally Color-Dual All-Loop Integrands}
 
 \abstract{ For now, let's put the things we need to check/compute here in the abstract. 
 \begin{enumerate}
@@ -817,7 +822,10 @@ In this work, we will consider three different types of cubic representations, t
 In this review, we will present examples of this distinct kinematic representations that have appeared in the literature. Though from the get go, we stress that in this work we are interested in identifying the analog of adjoint representations of the kinematic numerators; those for which all legs are equally preferrenced by the functional dressing. The only non-trivial $S$-matrix in the literature that exhibits this property to all-loop order, is that of Zakharov-Mikhailov theory \cite{}. We will briefly review the perturbative construction of this theory below. 
 \subsection{Color-dual Amplitudes}
 Review of BCJ relations and Jacobi relations off-shell. Justify kinematic algebra in an off-shell framework by talking about on-shell construction. yada yada yada
-\subsection{Color-dual Lagrangians} In the next section we will construct one-loop color-dual numerators using Lagrangian descriptions that are manifestly color-dual. As we will show, taking forward limits of tree-level numerators works as long as one can construct an off-shell description with a Lagrangian. Here we briefly review the off-shell examples of the kinematic algebra that will be relevant in this paper.  
+\subsection{Color-dual Lagrangians} In the next section we will construct one-loop color-dual numerators using Lagrangian descriptions that are manifestly color-dual. As we will show, taking forward limits of tree-level numerators works as long as one can construct an off-shell description with a Lagrangian. Here we briefly review the off-shell examples of the kinematic algebra that will be relevant in this paper. 
+\be
+\mathcal{L}^{\text{semi-YM}} = - \frac{1}{2} G_{\mu\nu} F^{\mu\nu} = - \frac{1}{2} G_{\mu\nu} F^{\mu\nu} - \frac{g}{2} G_{\mu\nu} [A_\mu, A_\nu]
+\ee
 \paragraph{Self-Dual Yang-Mills} The first example in the literature \cite{} of color-dual Feynman rules is that of Yang-Mills theory in the self-dual sector (SDYM):
 \be
 \mathcal{L}^{\text{YM}} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
@@ -867,10 +875,9 @@ Using this definition on the final self-dual constraint equation thus yields the
 Adding back in the anti-holomorphic field $\bar{\Psi}$ as a Lagrange multiplier, we obtain the following interaction Lagrangian for self-dual Yang-Mills theory:
 \begin{eBox}
 \be
-\mathcal{L}^{\text{SDYM}} = \frac{1}{2}(\partial \bar{\Psi})(\partial \Psi) -i g \bar{\Psi} [\partial_u \Psi, \partial_w \Psi ]
+\mathcal{L}^{\text{SDYM}} = (\partial \bar{\Psi})(\partial \Psi) -i g \bar{\Psi} [\partial_u \Psi, \partial_w \Psi ]
 \ee
 \end{eBox}
-\draftnoteJM{I don't think there should be a factor of 1/2 in the kinetic term.}
 The color-ordered ordered cubic Feynman rule for this theory can be immediately read off as follows:
 \be
 \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} =X(k_1,k_2) \equiv k_{u,1}k_{w,2} - k_{w,1}k_{u,2}
@@ -1060,13 +1067,14 @@ Now we are prepared to discuss the one-loop case.
 \end{itemize}
 
 \subsection{Color-dual Bootstrap}
-Some background here on how we approach color-dual bootstrap. Building an ansatz from irreducible lorentz products (ISPs). Comments about:
+Some background here on how we approach color-dual bootstrap (as we will utilize in our two-loop construction). Building an ansatz from irreducible lorentz products (ISPs). Comments about:
 \begin{itemize}
 \item loop momenta weight counting 
 \item polynomial vector spaces 
 \item generalized gauge freedom
 \item functional jacobi constraints and cuts
 \end{itemize} 
+I suggest we put this all here in the intro/review so that people who know can skip, and then people who don't can read it and then be prepared to understand our approach before getting to the two-loop section.
 \section{Isolating the cubic sector}
 Here we'll describe the why constructing the full Yang-Mills kinematic algebra (outside self-dual sector) is generically hard, and why the same reason makes NLSM beyond one-loop hard as well. It has to do with out the vector state sum mixes with the four-point contact. In terms of our previously defined Feynman rules, the three-point YM vertex takes the form:
 \be
@@ -1083,7 +1091,7 @@ All the $(\epsilon\epsilon)^1$ diagram permutations are isolated to the cubic se
 \ee
 One was to resolve this is to introduce higher spin modes in order to accomodate the internal index contractions needed to recover the s-channal contract:
 \be
-\AcubicB{hgrey0}{}{nhpRed}{}{nhpRed}{graviton}{nhpRed}{}{nhpRed} = s_{12 }(\epsilon_{(13)} \epsilon_{(24)} - \epsilon_{(14)} \epsilon_{(23)})
+\AcubicB{hgrey0}{}{nhpRed}{}{nhpRed}{Bfield}{nhpRed}{}{nhpRed} = s_{12 }(\epsilon_{(13)} \epsilon_{(24)} - \epsilon_{(14)} \epsilon_{(23)})
 \ee
 While introducing succesively higher spiin states to the NMHV lagrangian constructed in \cite{} could in principle work at tree level, we will see that it is not consiisntent with what we find at general loop order. We will comment on this in \sect{}. For now, we will study how to construct one-loop integrands consistent with the color-kinematics by isolating the cubic sector of the state sum above. This is easily understood in terms of a polarization decomposition introduced by one of the authors \cite{} that decomposes vector amplitudes in terms of building blocks that preserve partial amplitude relations. 
 \subsection{Block Decomposition of Yang-Mills}
@@ -1219,7 +1227,7 @@ In this way, all of the 14 cubic 4pt 2-loop topologies can be written in terms o
 Each of the two basis graphs receives its own numerator ansatz and the numerator of any other graph can be expressed in terms of these.
 As mentioned before, there are 8,008 linearly independent dot products of momenta of the required mass dimension so the total number of free parameters in the system is 16,016.
 As this is too many parameters for \texttt{Mathematica} to reasonably handle, we employ a custom solver suitable for the moderately dense systems appearing in this context.
-(Scalars might generate denser systems since ever dot product can interfere with every other unlike gauge theories which separate based on polarization structure, can cite Nic.)
+(Scalars might generate denser systems since ever dot product can interfere with every other unlike gauge theories which separate based on polarization structure, can cite Nic. \nhp{ distinguish between NLSM and YM ansatz -- i.e. why is 10,010 per diagram solvable for YM, but 8,008 per diagram runs into issues for NLSM. As you said, emphasize the density of NLSM matrix inversion due to generalized gauge freedom vs. independent polarization structures for YM.})
 
 The second kind of Jacobi relations relate basis elements to themselves.
 For example, the crossed box numerator is related to itself via the following Jacobi relation
@@ -1336,7 +1344,7 @@ For 4pt on-shell ZM, the LRLR configuration is zero and for every other configur
   \item Whip up a non-jacobi N=0 or $\pi$ to highlight double copy success?
 \end{itemize}
 
-\subsection{YM revisit -- Alex}
+\subsection{Yang-Mills revisited -- Alex}
 Transition paragraph.....
 
 As part of attemtping to construct a color-kinematics dual
@@ -1406,8 +1414,6 @@ causes a discrepancy with the N$^2$-max cuts show in [].
   \item Attempt at non-local.  Still have problems with cuts+syms+jacobi
   \end{itemize}
 
-  
-\section{Discussion}\label{sec:Discussion}
 \section{... and Beyond}
 This could be a section about our expectations for all-loop construction requiring non-local color-dual integrands. Lay out contrafactual proof, i,e. define the following statement:
 \be
@@ -1422,13 +1428,14 @@ Or equivalently,
 \text{not }Q_{L-1}\Rightarrow \text{not }Q_L
 \ee
 We have found that the two-loop integrand for Yang-Mills cannot be constructed from a color-dual polynomial kinematic numerator. Thus, if a color-dual representation exists at all-loop order for Yang-Mills it must be a rational function of kinematics. 
-
+  
+\section{Discussion}\label{sec:Discussion}
 \paragraph{Acknowledgments} The authors would like to thank ... for insightful conversations, related collaboration, and encouragement throughout the completion of this work. This work was supported by the DOE under contract DE-SC0015910 and by the Alfred P. Sloan Foundation. N.H.P. additionally acknowledges the Northwestern University Amplitudes and Insight group, the Department of Physics and Astronomy, and Weinberg College for their generous support. 
 
 Figures made with TikZ-Feynman [1601.05437]
 
 \appendix
-\section{Spinor-Helicity Variables and Conventions}
+\section{Spinor-Helicity and Conventions}
 Dimensions will generically be away from four, in $D=4-2\epsilon$, with $\epsilon$ arbitrary. As noted, it will be convenient to take $D\rightarrow 4$ in certain circumstances after integration.  In such cases we will employ appropriate spinor-helicity variables.  Here we apply the same conventions of Ref.~\cite{jjmcTASI2014}, which we quote now. For massless momenta, $k_a$ and $k_b$, we have 
 \begin{equation}
 s_{ab} = (k_a+k_b)^2= \langle ab \rangle[ba]\,,
