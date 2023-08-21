@@ -1,0 +1,592 @@
+%TIKZ preamble and setup for external runs
+\tikzset{Bfield/.style={decorate, double}}
+
+\iffalse
+\tikzfeynmanset{compat=1.1.0}
+\immediate\write18{mkdir -p images}  %% Create `pgf-img` directory
+\usetikzlibrary{external}  
+          %% Load the `external` library
+\immediate\write18{mkdir -p images}  %% Create `pgf-img` directory
+\tikzexternalize[                     %% Activate externalization
+  prefix=images/,                    %% Avoid cluttering the directory
+ system call={                       %% Use lualatex in system call
+    pdflatex \tikzexternalcheckshellescape -halt-on-error -shell-escape -interaction=batchmode -jobname="\image" "\texsource" || rm "\image.pdf"
+  },
+]
+\fi
+\tikzfeynmanset{
+  fermion2/.style={
+    /tikz/postaction={
+      /tikz/decoration={
+        markings,
+        mark=at position 0.7 with {
+          \arrow{>[length=6pt, width=7pt]};
+        },
+      },
+      /tikz/decorate=true,
+    },
+  },
+}
+
+% Diagram definitions
+
+
+%%% Jacobi 1 %%%
+
+\newcommand{\JacobiOneDoubleBox}{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (-1.5,1){4};
+\vertex (a2) at (1.5,-1){2};
+\vertex (a3) at (1.5,1){3};
+\vertex (a4) at (-1.5,-1){1};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (1,.5) ;
+\vertex (mid4) at (1,-.5) ;
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5) ;
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,](mid2),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid6),
+(mid1) --[ultra thick,](mid4),
+(mid5) --[ultra thick,nhp4](mid2),
+(mid5) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\JacobiOneCrossedBox}{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (-1.5,1){4};
+\vertex (a2) at (1.5,-1){2};
+\vertex (a3) at (1.5,1){3};
+\vertex (a4) at (-1.5,-1){1};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (1,.5);
+\vertex (mid4) at (1,-.5);
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5);
+\vertex (mid7) at (-.5,0) {};
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid4),
+(mid5) --[ultra thick,](mid7),
+(mid7) --[ultra thick,](mid1),
+(mid2) --[ultra thick,](mid6),
+(mid5) --[ultra thick,nhp4](mid2),
+(mid3) --[ultra thick,](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\JacobiOnePentaTriangle}{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (-1.5,1){4};
+\vertex (a2) at (.5,-1){2};
+\vertex (a3) at (.5,1){3};
+\vertex (a4) at (-1.5,-1){1};
+\vertex (mid1) at (-.5,-.5);
+\vertex (mid2) at (-1,0);
+\vertex (mid3) at (0,.5) ;
+\vertex (mid4) at (0,-.5) ;
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5) ;
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,](mid2),
+(mid6) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid6),
+(mid1) --[ultra thick,](mid4),
+(mid5) --[ultra thick,](mid3),
+(mid5) --[ultra thick,nhp4](mid2),
+(mid3) --[ultra thick,](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+%%% Jacobi 1 end %%%
+
+%%% Jacobi 2 start %%%
+
+\newcommand{\JacobiTwoCrossedBoxOne}{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (-1.5,1){2};
+\vertex (a2) at (1.5,-1){4};
+\vertex (a3) at (1.5,1){3};
+\vertex (a4) at (-1.5,-1){1};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (1,.5);
+\vertex (mid4) at (1,-.5);
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5);
+\vertex (mid7) at (-.5,0) {};
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,nhp4](mid4),
+(mid5) --[ultra thick,](mid7),
+(mid7) --[ultra thick,](mid1),
+(mid2) --[ultra thick,](mid6),
+(mid5) --[ultra thick,](mid2),
+(mid3) --[ultra thick,](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\JacobiTwoCrossedBoxTwo}{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (-1.5,1){3};
+\vertex (a2) at (1.5,-1){4};
+\vertex (a3) at (1.5,1){1};
+\vertex (a4) at (-1.5,-1){2};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (1,.5);
+\vertex (mid4) at (1,-.5);
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5);
+\vertex (mid7) at (-.5,0) {};
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,nhp4](mid4),
+(mid5) --[ultra thick,](mid7),
+(mid7) --[ultra thick,](mid1),
+(mid2) --[ultra thick,](mid6),
+(mid5) --[ultra thick,](mid2),
+(mid3) --[ultra thick,](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\JacobiTwoCrossedBoxThree}{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (-1.5,1){1};
+\vertex (a2) at (1.5,-1){4};
+\vertex (a3) at (1.5,1){2};
+\vertex (a4) at (-1.5,-1){3};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (1,.5);
+\vertex (mid4) at (1,-.5);
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5);
+\vertex (mid7) at (-.5,0) {};
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,nhp4](mid4),
+(mid5) --[ultra thick,](mid7),
+(mid7) --[ultra thick,](mid1),
+(mid2) --[ultra thick,](mid6),
+(mid5) --[ultra thick,](mid2),
+(mid3) --[ultra thick,](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+
+%%% Jacobi 2 end %%%
+
+%%% Graph sym start %%%
+
+\newcommand{\CrossedBoxGraphSym}{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (-1.5,1){};
+\vertex (a2) at (1.5,-1){};
+\vertex (a3) at (1.5,1){};
+\vertex (a4) at (-1.5,-1){};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (1,.5);
+\vertex (mid4) at (1,-.5);
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5);
+\vertex (mid7) at (-.5,0) {};
+\vertex (x1) at (-1.5,0);
+\vertex (x2) at (1.5,0);
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid4),
+(mid5) --[ultra thick,](mid7),
+(mid7) --[ultra thick,](mid1),
+(mid2) --[ultra thick,](mid6),
+(mid5) --[ultra thick,](mid2),
+(mid3) --[ultra thick,](mid4),
+(x1) --[ultra thick,dashed,nhp4](x2),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+%%% Graph sym end %%%
+
+%%% Unitarity cuts begin %%%
+
+\newcommand{\PhysicalCutOne}[4]{ {
+\begin{tikzpicture}[baseline=6]
+\begin{feynman}
+\vertex (a1) at (-1, 1) {#1};
+\vertex (a2) at (1, 1) {#2};
+\vertex [dot,scale=2](mid1) at (0.5,0.5){};
+\vertex [dot,scale=1.5,hgrey0](mid2) at (0.5,0.5){};
+\vertex [dot,scale=2](mid3) at (-0.5,0.5){};
+\vertex [dot,scale=1.5,hgrey0](mid4) at (-0.5,0.5){};
+\vertex [dot,scale=2](mid5) at (0,0){};
+\vertex [dot,scale=1.5,hgrey0](mid6) at (0,0){};
+\vertex (a3) at (-.5, -.5) {#3};
+\vertex (a4) at (.5, -.5) {#4};
+\diagram{
+(mid3) --[ ultra thick](a1),
+(mid1) --[ ultra thick](a2),
+(mid1) --[ ultra thick,out=120,in=60,min distance=0.1cm](mid3),
+(mid1) --[ ultra thick](mid3),
+
+(mid1) --[ ultra thick](mid5),
+(mid3) --[ ultra thick](mid5),
+
+(mid5) --[ ultra thick](a4),
+(mid5) --[ ultra thick,](a3)
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\PhysicalCutTwo}[4]{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (-.6, -0.6) {#1};
+\vertex (a2) at (-.6, 0.6) {#2};
+\vertex [dot,scale=2](mid1) at (0,0){};
+\vertex [dot,scale=1.5,hgrey0](mid2) at (0,0){};
+\vertex [dot,scale=2](mid3) at (.8,0){};
+\vertex [dot,scale=1.5,hgrey0](mid4) at (.8,0){};
+\vertex [dot,scale=2](mid5) at (1.6,0){};
+\vertex [dot,scale=1.5,hgrey0](mid6) at (1.6,0){};
+\vertex (a3) at (2.2, .6) {#3};
+\vertex (a4) at (2.2, -.6) {#4};
+\diagram{
+(mid1) --[ ultra thick,](a1),
+(mid1) --[ ultra thick,](a2),
+(mid1) --[ ultra thick,out=60,in=120,min distance=0.4cm](mid3),
+(mid1) --[ ultra thick,out=-60,in=-120,min distance=0.4cm](mid3),
+(mid3) --[ ultra thick,out=60,in=120,min distance=0.4cm](mid5),
+(mid3) --[ ultra thick,out=-60,in=-120,min distance=0.4cm](mid5),
+(mid5) --[ ultra thick](a4),
+(mid5) --[ ultra thick,](a3)
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\MaxCut}{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (-1.2,0.8){};
+\vertex (a2) at (1.2,-0.8){};
+\vertex (a3) at (1.2,0.8){};
+\vertex (a4) at (-1.2,-0.8){};
+\vertex [dot,scale=2] (mid1) at (0,-.4){};
+\vertex [dot,scale=1.5,hgrey0](mid1x) at (0,-.4){};
+\vertex [dot,scale=2] (mid2) at (0,.4){};
+\vertex [dot,scale=1.5,hgrey0] (mid2x) at (0,.4){};
+\vertex [dot,scale=2] (mid3) at (0.8,.4){};
+\vertex [dot,scale=1.5,hgrey0] (mid3x) at (0.8,.4){};
+\vertex [dot,scale=2] (mid4) at (0.8,-.4){};
+\vertex [dot,scale=1.5,hgrey0] (mid4x) at (0.8,-.4){};
+\vertex [dot,scale=2] (mid5) at (-0.8,.4){};
+\vertex [dot,scale=1.5,hgrey0] (mid5x) at (-0.8,.4){};
+\vertex [dot,scale=2] (mid6) at (-0.8,-.4){};
+\vertex [dot,scale=1.5,hgrey0] (mid6x) at (-0.8,-.4){};
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,](mid2),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid6),
+(mid1) --[ultra thick,](mid4),
+(mid5) --[ultra thick,](mid2),
+(mid5) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\SubtleCut}{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (-.8, -0.6) {};
+\vertex (a2) at (-.8, 0.6) {};
+\vertex (a3) at (-1, 0) {};
+\vertex [dot, scale=2](mid1) at (0,0){};
+\vertex [dot, scale=1.5,hgrey0](mid2) at (0,0){};
+\vertex [dot, scale=2](mid3) at (1,0){};
+\vertex [dot, scale=1.5,hgrey0](mid4) at (1,0){};
+\vertex (a4) at (1.8, 0) {};
+\diagram{
+(mid1) --[ultra thick,](a1),
+(mid1) --[ultra thick,](a2),
+(mid1) --[ultra thick,](a3),
+(mid1) --[ultra thick,](mid3),
+(mid1) --[ultra thick,out=60,in=120,min distance=0.4cm](mid3),
+(mid1) --[ultra thick,out=-60,in=-120,min distance=0.4cm](mid3),
+(mid3) --[ultra thick](a4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+%%% Unitarity cuts end %%%
+
+\newcommand{\simplebox}{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (-1,1){2};
+\vertex (a2) at (1,-1){4};
+\vertex (a3) at (1,1){3};
+\vertex (a4) at (-1,-1){1};
+\vertex (mid3) at (.35,.35);
+\vertex (mid4) at (.35,-.35);
+\vertex (mid5) at (-.35,.35);
+\vertex (mid6) at (-.35,-.35);
+\diagram{(mid4) --[ultra thick,nhpRed](mid3),
+(mid5) --[ultra thick,nhpRed](mid6),
+(mid3) --[ultra thick,nhpRed](mid5),
+(mid6) --[ultra thick,nhpRed](mid4),
+(mid6) --[ultra thick,fermion2](a4),
+(mid3) --[ultra thick,fermion2](a3),
+(mid4) --[ultra thick,fermion2](a2),
+(mid5) --[ultra thick,fermion2](a1),
+};
+\vertex [dot, scale=1.6](mid3a) at (.35,.35){};
+\vertex [dot, scale=1.1,hgrey0](mid3b) at (.35,.35){};
+\vertex [dot, scale=1.6](mid4a) at (-.35,.35){};
+\vertex [dot, scale=1.1,hgrey0](mid4b) at (-.35,.35){};
+\vertex [dot, scale=1.6](mid5a) at (.35,-.35){};
+\vertex [dot, scale=1.1,hgrey0](mid5b) at (.35,-.35){};
+\vertex [dot, scale=1.6](mid6a) at (-.35,-.35){};
+\vertex [dot, scale=1.1,hgrey0](mid6b) at (-.35,-.35){};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\cubic}[7]{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex [dot, scale=2.6](mid1) at (0,0){};
+\vertex [dot, scale=2.6](mid2) at (0,0){};
+\vertex [dot, scale=2,#1](mid3) at (0,0){};
+\vertex (a1) at (0,1){3};
+\vertex (a2) at (.85,-.55){2};
+\vertex (a3) at (-.85,-.55){1};
+\diagram{
+(mid1) --[ultra thick,#2,#3](a3),
+(mid1) --[ultra thick,#4,#5](a2),
+(a1) --[ultra thick,#6,#7](mid1),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\AcubicB}[9]{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (0,0){};
+\vertex (a2) at (-1.55,.85){2};
+\vertex (a3) at (-1.55,-.85){1};
+\vertex [dot, scale=2.6](mid1) at (-.85,0){};
+\vertex [dot, scale=2.6](mid2) at (-.85,0){};
+\vertex [dot, scale=2,#1](mid3) at (-.85,0){};
+\vertex (a4) at (1.55,.85){3};
+\vertex (a5) at (1.55,-.85){4};
+\vertex [dot, scale=2.6](mid4) at (.85,0){};
+\vertex [dot, scale=2.6](mid5) at (.85,0){};
+\vertex [dot, scale=2,#1](mid6) at (.85,0){};
+\diagram{
+(mid1) --[ultra thick,#2,#3](a3),
+(mid1) --[ultra thick,#4,#5](a2),
+(mid4) --[ultra thick,#8,#9](a4),
+(mid4) --[ultra thick,#8,#9](a5),
+(mid1) --[ultra thick,#6,#7](a1),
+(a1) --[ultra thick,#6,#7](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\Acubic}[7]{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (0,1){3};
+\vertex (a2) at (.85,-.55){2};
+\vertex (a3) at (-.85,-.55){1};
+\vertex [dot, scale=2.6](mid1) at (0,0){};
+\vertex [dot, scale=2.6](mid2) at (0,0){};
+\vertex [dot, scale=2,#1](mid3) at (0,0){};
+\diagram{
+(a3) --[ultra thick,#2,#3](mid1),
+(a2) --[ultra thick,#4,#5](mid1),
+(mid1) --[ultra thick,#6,#7](a1),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+
+\newcommand{\dBox}[7]{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (-1.5,1){2};
+\vertex (a2) at (1.5,-1){4};
+\vertex (a3) at (1.5,1){3};
+\vertex (a4) at (-1.5,-1){1};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (1,.5) ;
+\vertex (mid4) at (1,-.5) ;
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5) ;
+\diagram{
+(a4) --[ultra thick](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,#1](mid2),
+(mid3) --[ultra thick,#2](mid2),
+(mid1) --[ultra thick,#3](mid6),
+(mid1) --[ultra thick,#4](mid4),
+(mid5) --[ultra thick,#5](mid2),
+(mid5) --[ultra thick,#6](mid6),
+(mid3) --[ultra thick,#7](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+
+\newcommand{\dBoxR}[7]{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (-1.5,1){2};
+\vertex (a2) at (1.5,-1){4};
+\vertex (a3) at (1.5,1){3};
+\vertex (a4) at (-1.5,-1){1};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (1,.5) ;
+\vertex (mid4) at (1,-.5) ;
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5) ;
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,hred](mid3),
+(a2) --[ultra thick,hred](mid4),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,#1](mid2),
+(mid3) --[ultra thick,#2](mid2),
+(mid1) --[ultra thick,#3](mid6),
+(mid1) --[ultra thick,#4](mid4),
+(mid5) --[ultra thick,#5](mid2),
+(mid5) --[ultra thick,#6](mid6),
+(mid3) --[ultra thick,#7](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\dBoxL}[7]{ {
+\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\begin{feynman}
+\vertex (a1) at (-1.5,1){2};
+\vertex (a2) at (1.5,-1){4};
+\vertex (a3) at (1.5,1){3};
+\vertex (a4) at (-1.5,-1){1};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (1,.5) ;
+\vertex (mid4) at (1,-.5) ;
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5) ;
+\diagram{
+(a4) --[ultra thick,hred](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,hred](mid5),
+(mid1) --[ultra thick,#1](mid2),
+(mid3) --[ultra thick,#2](mid2),
+(mid1) --[ultra thick,#3](mid6),
+(mid1) --[ultra thick,#4](mid4),
+(mid5) --[ultra thick,#5](mid2),
+(mid5) --[ultra thick,#6](mid6),
+(mid3) --[ultra thick,#7](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}

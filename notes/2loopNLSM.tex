@@ -18,6 +18,8 @@
 \usepackage{tabularx}
 \usepackage{graphicx}
 \usepackage{stackengine}
+\usepackage{cleveref}
+
 \def\RA{\rlap{\scalebox{1.6}{$\leftrightarrow$}}}
 \def\DA{\smash{\bclap{\scalebox{1.6}{$\downarrow$}}}}
 \def\mystrut{\rule[-2ex]{0ex}{6ex}}
@@ -62,6 +64,7 @@
 %Comment commands
 \newcommand{\ace}[1]{\textcolor{darkgreen}{\textbf{AE:}{#1}}}
 \newcommand{\nhp}[1]{\textcolor{nhpRed}{\textbf{NHP:}{#1}}}
+\newcommand{\draftnoteJM}[1]{\textbf{\textcolor{blue}{#1}}}
 
 
 \usepackage[framemethod=default]{mdframed}
@@ -81,37 +84,8 @@ leftmargin=0cm,
 rightmargin=0cm,
 linewidth=4pt]{eBox}
 
-\tikzset{Bfield/.style={decorate, double}}
 
-\iffalse
-\tikzfeynmanset{compat=1.1.0}
-\immediate\write18{mkdir -p images}  %% Create `pgf-img` directory
-\usetikzlibrary{external}  
-          %% Load the `external` library
-\immediate\write18{mkdir -p images}  %% Create `pgf-img` directory
-\tikzexternalize[                     %% Activate externalization
-  prefix=images/,                    %% Avoid cluttering the directory
- system call={                       %% Use lualatex in system call
-    pdflatex \tikzexternalcheckshellescape -halt-on-error -shell-escape -interaction=batchmode -jobname="\image" "\texsource" || rm "\image.pdf"
-  },
-]
-\fi
-\tikzfeynmanset{
-  fermion2/.style={
-    /tikz/postaction={
-      /tikz/decoration={
-        markings,
-        mark=at position 0.7 with {
-          \arrow{>[length=6pt, width=7pt]};
-        },
-      },
-      /tikz/decorate=true,
-    },
-  },
-}
-
-
-\definecolor{jaxoblue}{HTML}{0086FF}
+\input{tikz_nonsense.tex}
 
 \newcommand{\cP}{\rm{cov.}\pi}
 
@@ -120,592 +94,17 @@ linewidth=4pt]{eBox}
 \usepackage{xspace}
 \newcommand{\Poincare}{Poincar\'e\xspace}
 
-\newcommand{\cC}{g} % -- Crossing Count symbol.
-
 
 \newcommand{\nkmc}[1][k]{N$^{#1}$MC\xspace}
 
 \def\taua{{{\rm t}}}
 \def\bartaua{{{\bar {\rm t}}}}
 
-%%% Jacobi 1 %%%
-
-\newcommand{\JacobiOneDoubleBox}{ {
-\begin{tikzpicture}[baseline=(current  bounding  box.center)]
-\begin{feynman}
-\vertex (a1) at (-1.5,1){4};
-\vertex (a2) at (1.5,-1){2};
-\vertex (a3) at (1.5,1){3};
-\vertex (a4) at (-1.5,-1){1};
-\vertex (mid1) at (0,-.5);
-\vertex (mid2) at (0,.5);
-\vertex (mid3) at (1,.5) ;
-\vertex (mid4) at (1,-.5) ;
-\vertex (mid5) at (-1,.5);
-\vertex (mid6) at (-1,-.5) ;
-\diagram{
-(a4) --[ultra thick,](mid6),
-(a3) --[ultra thick,](mid3),
-(a2) --[ultra thick,](mid4),
-(a1) --[ultra thick,](mid5),
-(mid1) --[ultra thick,](mid2),
-(mid3) --[ultra thick,](mid2),
-(mid1) --[ultra thick,](mid6),
-(mid1) --[ultra thick,](mid4),
-(mid5) --[ultra thick,nhp4](mid2),
-(mid5) --[ultra thick,](mid6),
-(mid3) --[ultra thick,](mid4),
-};
-\end{feynman}
-\end{tikzpicture}
-}
-}
-
-\newcommand{\JacobiOneCrossedBox}{ {
-\begin{tikzpicture}[baseline=(current  bounding  box.center)]
-\begin{feynman}
-\vertex (a1) at (-1.5,1){4};
-\vertex (a2) at (1.5,-1){2};
-\vertex (a3) at (1.5,1){3};
-\vertex (a4) at (-1.5,-1){1};
-\vertex (mid1) at (0,-.5);
-\vertex (mid2) at (0,.5);
-\vertex (mid3) at (1,.5);
-\vertex (mid4) at (1,-.5);
-\vertex (mid5) at (-1,.5);
-\vertex (mid6) at (-1,-.5);
-\vertex (mid7) at (-.5,0) {};
-\diagram{
-(a4) --[ultra thick,](mid6),
-(a3) --[ultra thick,](mid3),
-(a2) --[ultra thick,](mid4),
-(a1) --[ultra thick,](mid5),
-(mid1) --[ultra thick,](mid6),
-(mid3) --[ultra thick,](mid2),
-(mid1) --[ultra thick,](mid4),
-(mid5) --[ultra thick,](mid7),
-(mid7) --[ultra thick,](mid1),
-(mid2) --[ultra thick,](mid6),
-(mid5) --[ultra thick,nhp4](mid2),
-(mid3) --[ultra thick,](mid4),
-};
-\end{feynman}
-\end{tikzpicture}
-}
-}
-
-\newcommand{\JacobiOnePentaTriangle}{ {
-\begin{tikzpicture}[baseline=(current  bounding  box.center)]
-\begin{feynman}
-\vertex (a1) at (-1.5,1){4};
-\vertex (a2) at (.5,-1){2};
-\vertex (a3) at (.5,1){3};
-\vertex (a4) at (-1.5,-1){1};
-\vertex (mid1) at (-.5,-.5);
-\vertex (mid2) at (-1,0);
-\vertex (mid3) at (0,.5) ;
-\vertex (mid4) at (0,-.5) ;
-\vertex (mid5) at (-1,.5);
-\vertex (mid6) at (-1,-.5) ;
-\diagram{
-(a4) --[ultra thick,](mid6),
-(a3) --[ultra thick,](mid3),
-(a2) --[ultra thick,](mid4),
-(a1) --[ultra thick,](mid5),
-(mid1) --[ultra thick,](mid2),
-(mid6) --[ultra thick,](mid2),
-(mid1) --[ultra thick,](mid6),
-(mid1) --[ultra thick,](mid4),
-(mid5) --[ultra thick,](mid3),
-(mid5) --[ultra thick,nhp4](mid2),
-(mid3) --[ultra thick,](mid4),
-};
-\end{feynman}
-\end{tikzpicture}
-}
-}
-
-%%% Jacobi 1 end %%%
-
-%%% Jacobi 2 start %%%
-
-\newcommand{\JacobiTwoCrossedBoxOne}{ {
-\begin{tikzpicture}[baseline=(current  bounding  box.center)]
-\begin{feynman}
-\vertex (a1) at (-1.5,1){2};
-\vertex (a2) at (1.5,-1){4};
-\vertex (a3) at (1.5,1){3};
-\vertex (a4) at (-1.5,-1){1};
-\vertex (mid1) at (0,-.5);
-\vertex (mid2) at (0,.5);
-\vertex (mid3) at (1,.5);
-\vertex (mid4) at (1,-.5);
-\vertex (mid5) at (-1,.5);
-\vertex (mid6) at (-1,-.5);
-\vertex (mid7) at (-.5,0) {};
-\diagram{
-(a4) --[ultra thick,](mid6),
-(a3) --[ultra thick,](mid3),
-(a2) --[ultra thick,](mid4),
-(a1) --[ultra thick,](mid5),
-(mid1) --[ultra thick,](mid6),
-(mid3) --[ultra thick,](mid2),
-(mid1) --[ultra thick,nhp4](mid4),
-(mid5) --[ultra thick,](mid7),
-(mid7) --[ultra thick,](mid1),
-(mid2) --[ultra thick,](mid6),
-(mid5) --[ultra thick,](mid2),
-(mid3) --[ultra thick,](mid4),
-};
-\end{feynman}
-\end{tikzpicture}
-}
-}
-
-\newcommand{\JacobiTwoCrossedBoxTwo}{ {
-\begin{tikzpicture}[baseline=(current  bounding  box.center)]
-\begin{feynman}
-\vertex (a1) at (-1.5,1){3};
-\vertex (a2) at (1.5,-1){4};
-\vertex (a3) at (1.5,1){1};
-\vertex (a4) at (-1.5,-1){2};
-\vertex (mid1) at (0,-.5);
-\vertex (mid2) at (0,.5);
-\vertex (mid3) at (1,.5);
-\vertex (mid4) at (1,-.5);
-\vertex (mid5) at (-1,.5);
-\vertex (mid6) at (-1,-.5);
-\vertex (mid7) at (-.5,0) {};
-\diagram{
-(a4) --[ultra thick,](mid6),
-(a3) --[ultra thick,](mid3),
-(a2) --[ultra thick,](mid4),
-(a1) --[ultra thick,](mid5),
-(mid1) --[ultra thick,](mid6),
-(mid3) --[ultra thick,](mid2),
-(mid1) --[ultra thick,nhp4](mid4),
-(mid5) --[ultra thick,](mid7),
-(mid7) --[ultra thick,](mid1),
-(mid2) --[ultra thick,](mid6),
-(mid5) --[ultra thick,](mid2),
-(mid3) --[ultra thick,](mid4),
-};
-\end{feynman}
-\end{tikzpicture}
-}
-}
-
-\newcommand{\JacobiTwoCrossedBoxThree}{ {
-\begin{tikzpicture}[baseline=(current  bounding  box.center)]
-\begin{feynman}
-\vertex (a1) at (-1.5,1){1};
-\vertex (a2) at (1.5,-1){4};
-\vertex (a3) at (1.5,1){2};
-\vertex (a4) at (-1.5,-1){3};
-\vertex (mid1) at (0,-.5);
-\vertex (mid2) at (0,.5);
-\vertex (mid3) at (1,.5);
-\vertex (mid4) at (1,-.5);
-\vertex (mid5) at (-1,.5);
-\vertex (mid6) at (-1,-.5);
-\vertex (mid7) at (-.5,0) {};
-\diagram{
-(a4) --[ultra thick,](mid6),
-(a3) --[ultra thick,](mid3),
-(a2) --[ultra thick,](mid4),
-(a1) --[ultra thick,](mid5),
-(mid1) --[ultra thick,](mid6),
-(mid3) --[ultra thick,](mid2),
-(mid1) --[ultra thick,nhp4](mid4),
-(mid5) --[ultra thick,](mid7),
-(mid7) --[ultra thick,](mid1),
-(mid2) --[ultra thick,](mid6),
-(mid5) --[ultra thick,](mid2),
-(mid3) --[ultra thick,](mid4),
-};
-\end{feynman}
-\end{tikzpicture}
-}
-}
-
-
-%%% Jacobi 2 end %%%
-
-%%% Graph sym start %%%
-
-\newcommand{\CrossedBoxGraphSym}{ {
-\begin{tikzpicture}[baseline=(current  bounding  box.center)]
-\begin{feynman}
-\vertex (a1) at (-1.5,1){};
-\vertex (a2) at (1.5,-1){};
-\vertex (a3) at (1.5,1){};
-\vertex (a4) at (-1.5,-1){};
-\vertex (mid1) at (0,-.5);
-\vertex (mid2) at (0,.5);
-\vertex (mid3) at (1,.5);
-\vertex (mid4) at (1,-.5);
-\vertex (mid5) at (-1,.5);
-\vertex (mid6) at (-1,-.5);
-\vertex (mid7) at (-.5,0) {};
-\vertex (x1) at (-1.5,0);
-\vertex (x2) at (1.5,0);
-\diagram{
-(a4) --[ultra thick,](mid6),
-(a3) --[ultra thick,](mid3),
-(a2) --[ultra thick,](mid4),
-(a1) --[ultra thick,](mid5),
-(mid1) --[ultra thick,](mid6),
-(mid3) --[ultra thick,](mid2),
-(mid1) --[ultra thick,](mid4),
-(mid5) --[ultra thick,](mid7),
-(mid7) --[ultra thick,](mid1),
-(mid2) --[ultra thick,](mid6),
-(mid5) --[ultra thick,](mid2),
-(mid3) --[ultra thick,](mid4),
-(x1) --[ultra thick,dashed,nhp4](x2),
-};
-\end{feynman}
-\end{tikzpicture}
-}
-}
-
-%%% Graph sym end %%%
-
-%%% Unitarity cuts begin %%%
-
-\newcommand{\PhysicalCutOne}[4]{ {
-\begin{tikzpicture}[baseline=6]
-\begin{feynman}
-\vertex (a1) at (-1, 1) {#1};
-\vertex (a2) at (1, 1) {#2};
-\vertex [dot,scale=2](mid1) at (0.5,0.5){};
-\vertex [dot,scale=1.5,hgrey0](mid2) at (0.5,0.5){};
-\vertex [dot,scale=2](mid3) at (-0.5,0.5){};
-\vertex [dot,scale=1.5,hgrey0](mid4) at (-0.5,0.5){};
-\vertex [dot,scale=2](mid5) at (0,0){};
-\vertex [dot,scale=1.5,hgrey0](mid6) at (0,0){};
-\vertex (a3) at (-.5, -.5) {#3};
-\vertex (a4) at (.5, -.5) {#4};
-\diagram{
-(mid3) --[ ultra thick](a1),
-(mid1) --[ ultra thick](a2),
-(mid1) --[ ultra thick,out=120,in=60,min distance=0.1cm](mid3),
-(mid1) --[ ultra thick](mid3),
-
-(mid1) --[ ultra thick](mid5),
-(mid3) --[ ultra thick](mid5),
-
-(mid5) --[ ultra thick](a4),
-(mid5) --[ ultra thick,](a3)
-};
-\end{feynman}
-\end{tikzpicture}
-}
-}
-
-\newcommand{\PhysicalCutTwo}[4]{ {
-\begin{tikzpicture}[baseline=(current  bounding  box.center)]
-\begin{feynman}
-\vertex (a1) at (-.6, -0.6) {#1};
-\vertex (a2) at (-.6, 0.6) {#2};
-\vertex [dot,scale=2](mid1) at (0,0){};
-\vertex [dot,scale=1.5,hgrey0](mid2) at (0,0){};
-\vertex [dot,scale=2](mid3) at (.8,0){};
-\vertex [dot,scale=1.5,hgrey0](mid4) at (.8,0){};
-\vertex [dot,scale=2](mid5) at (1.6,0){};
-\vertex [dot,scale=1.5,hgrey0](mid6) at (1.6,0){};
-\vertex (a3) at (2.2, .6) {#3};
-\vertex (a4) at (2.2, -.6) {#4};
-\diagram{
-(mid1) --[ ultra thick,](a1),
-(mid1) --[ ultra thick,](a2),
-(mid1) --[ ultra thick,out=60,in=120,min distance=0.4cm](mid3),
-(mid1) --[ ultra thick,out=-60,in=-120,min distance=0.4cm](mid3),
-(mid3) --[ ultra thick,out=60,in=120,min distance=0.4cm](mid5),
-(mid3) --[ ultra thick,out=-60,in=-120,min distance=0.4cm](mid5),
-(mid5) --[ ultra thick](a4),
-(mid5) --[ ultra thick,](a3)
-};
-\end{feynman}
-\end{tikzpicture}
-}
-}
-
-\newcommand{\MaxCut}{ {
-\begin{tikzpicture}[baseline=(current  bounding  box.center)]
-\begin{feynman}
-\vertex (a1) at (-1.2,0.8){};
-\vertex (a2) at (1.2,-0.8){};
-\vertex (a3) at (1.2,0.8){};
-\vertex (a4) at (-1.2,-0.8){};
-\vertex [dot,scale=2] (mid1) at (0,-.4){};
-\vertex [dot,scale=1.5,hgrey0](mid1x) at (0,-.4){};
-\vertex [dot,scale=2] (mid2) at (0,.4){};
-\vertex [dot,scale=1.5,hgrey0] (mid2x) at (0,.4){};
-\vertex [dot,scale=2] (mid3) at (0.8,.4){};
-\vertex [dot,scale=1.5,hgrey0] (mid3x) at (0.8,.4){};
-\vertex [dot,scale=2] (mid4) at (0.8,-.4){};
-\vertex [dot,scale=1.5,hgrey0] (mid4x) at (0.8,-.4){};
-\vertex [dot,scale=2] (mid5) at (-0.8,.4){};
-\vertex [dot,scale=1.5,hgrey0] (mid5x) at (-0.8,.4){};
-\vertex [dot,scale=2] (mid6) at (-0.8,-.4){};
-\vertex [dot,scale=1.5,hgrey0] (mid6x) at (-0.8,-.4){};
-\diagram{
-(a4) --[ultra thick,](mid6),
-(a3) --[ultra thick,](mid3),
-(a2) --[ultra thick,](mid4),
-(a1) --[ultra thick,](mid5),
-(mid1) --[ultra thick,](mid2),
-(mid3) --[ultra thick,](mid2),
-(mid1) --[ultra thick,](mid6),
-(mid1) --[ultra thick,](mid4),
-(mid5) --[ultra thick,](mid2),
-(mid5) --[ultra thick,](mid6),
-(mid3) --[ultra thick,](mid4),
-};
-\end{feynman}
-\end{tikzpicture}
-}
-}
-
-\newcommand{\SubtleCut}{ {
-\begin{tikzpicture}[baseline=(current  bounding  box.center)]
-\begin{feynman}
-\vertex (a1) at (-.8, -0.6) {};
-\vertex (a2) at (-.8, 0.6) {};
-\vertex (a3) at (-1, 0) {};
-\vertex [dot, scale=2](mid1) at (0,0){};
-\vertex [dot, scale=1.5,hgrey0](mid2) at (0,0){};
-\vertex [dot, scale=2](mid3) at (1,0){};
-\vertex [dot, scale=1.5,hgrey0](mid4) at (1,0){};
-\vertex (a4) at (1.8, 0) {};
-\diagram{
-(mid1) --[ultra thick,](a1),
-(mid1) --[ultra thick,](a2),
-(mid1) --[ultra thick,](a3),
-(mid1) --[ultra thick,](mid3),
-(mid1) --[ultra thick,out=60,in=120,min distance=0.4cm](mid3),
-(mid1) --[ultra thick,out=-60,in=-120,min distance=0.4cm](mid3),
-(mid3) --[ultra thick](a4),
-};
-\end{feynman}
-\end{tikzpicture}
-}
-}
-
-%%% Unitarity cuts end %%%
-
-\newcommand{\simplebox}{ {
-\begin{tikzpicture}[baseline=(current  bounding  box.center)]
-\begin{feynman}
-\vertex (a1) at (-1,1){2};
-\vertex (a2) at (1,-1){4};
-\vertex (a3) at (1,1){3};
-\vertex (a4) at (-1,-1){1};
-\vertex (mid3) at (.35,.35);
-\vertex (mid4) at (.35,-.35);
-\vertex (mid5) at (-.35,.35);
-\vertex (mid6) at (-.35,-.35);
-\diagram{(mid4) --[ultra thick,nhpRed](mid3),
-(mid5) --[ultra thick,nhpRed](mid6),
-(mid3) --[ultra thick,nhpRed](mid5),
-(mid6) --[ultra thick,nhpRed](mid4),
-(mid6) --[ultra thick,fermion2](a4),
-(mid3) --[ultra thick,fermion2](a3),
-(mid4) --[ultra thick,fermion2](a2),
-(mid5) --[ultra thick,fermion2](a1),
-};
-\vertex [dot, scale=1.6](mid3a) at (.35,.35){};
-\vertex [dot, scale=1.1,hgrey0](mid3b) at (.35,.35){};
-\vertex [dot, scale=1.6](mid4a) at (-.35,.35){};
-\vertex [dot, scale=1.1,hgrey0](mid4b) at (-.35,.35){};
-\vertex [dot, scale=1.6](mid5a) at (.35,-.35){};
-\vertex [dot, scale=1.1,hgrey0](mid5b) at (.35,-.35){};
-\vertex [dot, scale=1.6](mid6a) at (-.35,-.35){};
-\vertex [dot, scale=1.1,hgrey0](mid6b) at (-.35,-.35){};
-\end{feynman}
-\end{tikzpicture}
-}
-}
-
-\newcommand{\cubic}[7]{ {
-\begin{tikzpicture}[baseline=(current  bounding  box.center)]
-\begin{feynman}
-\vertex [dot, scale=2.6](mid1) at (0,0){};
-\vertex [dot, scale=2.6](mid2) at (0,0){};
-\vertex [dot, scale=2,#1](mid3) at (0,0){};
-\vertex (a1) at (0,1){3};
-\vertex (a2) at (.85,-.55){2};
-\vertex (a3) at (-.85,-.55){1};
-\diagram{
-(mid1) --[ultra thick,#2,#3](a3),
-(mid1) --[ultra thick,#4,#5](a2),
-(a1) --[ultra thick,#6,#7](mid1),
-};
-\end{feynman}
-\end{tikzpicture}
-}
-}
-
-\newcommand{\AcubicB}[9]{ {
-\begin{tikzpicture}[baseline=(current  bounding  box.center)]
-\begin{feynman}
-\vertex (a1) at (0,0){};
-\vertex (a2) at (-1.55,.85){2};
-\vertex (a3) at (-1.55,-.85){1};
-\vertex [dot, scale=2.6](mid1) at (-.85,0){};
-\vertex [dot, scale=2.6](mid2) at (-.85,0){};
-\vertex [dot, scale=2,#1](mid3) at (-.85,0){};
-\vertex (a4) at (1.55,.85){3};
-\vertex (a5) at (1.55,-.85){4};
-\vertex [dot, scale=2.6](mid4) at (.85,0){};
-\vertex [dot, scale=2.6](mid5) at (.85,0){};
-\vertex [dot, scale=2,#1](mid6) at (.85,0){};
-\diagram{
-(mid1) --[ultra thick,#2,#3](a3),
-(mid1) --[ultra thick,#4,#5](a2),
-(mid4) --[ultra thick,#8,#9](a4),
-(mid4) --[ultra thick,#8,#9](a5),
-(mid1) --[ultra thick,#6,#7](a1),
-(a1) --[ultra thick,#6,#7](mid4),
-};
-\end{feynman}
-\end{tikzpicture}
-}
-}
-
-\newcommand{\Acubic}[7]{ {
-\begin{tikzpicture}[baseline=(current  bounding  box.center)]
-\begin{feynman}
-\vertex (a1) at (0,1){3};
-\vertex (a2) at (.85,-.55){2};
-\vertex (a3) at (-.85,-.55){1};
-\vertex [dot, scale=2.6](mid1) at (0,0){};
-\vertex [dot, scale=2.6](mid2) at (0,0){};
-\vertex [dot, scale=2,#1](mid3) at (0,0){};
-\diagram{
-(a3) --[ultra thick,#2,#3](mid1),
-(a2) --[ultra thick,#4,#5](mid1),
-(mid1) --[ultra thick,#6,#7](a1),
-};
-\end{feynman}
-\end{tikzpicture}
-}
-}
-
-
-\newcommand{\dBox}[7]{ {
-\begin{tikzpicture}[baseline=(current  bounding  box.center)]
-\begin{feynman}
-\vertex (a1) at (-1.5,1){2};
-\vertex (a2) at (1.5,-1){4};
-\vertex (a3) at (1.5,1){3};
-\vertex (a4) at (-1.5,-1){1};
-\vertex (mid1) at (0,-.5);
-\vertex (mid2) at (0,.5);
-\vertex (mid3) at (1,.5) ;
-\vertex (mid4) at (1,-.5) ;
-\vertex (mid5) at (-1,.5);
-\vertex (mid6) at (-1,-.5) ;
-\diagram{
-(a4) --[ultra thick](mid6),
-(a3) --[ultra thick,](mid3),
-(a2) --[ultra thick,](mid4),
-(a1) --[ultra thick,](mid5),
-(mid1) --[ultra thick,#1](mid2),
-(mid3) --[ultra thick,#2](mid2),
-(mid1) --[ultra thick,#3](mid6),
-(mid1) --[ultra thick,#4](mid4),
-(mid5) --[ultra thick,#5](mid2),
-(mid5) --[ultra thick,#6](mid6),
-(mid3) --[ultra thick,#7](mid4),
-};
-\end{feynman}
-\end{tikzpicture}
-}
-}
-
-
-\newcommand{\dBoxR}[7]{ {
-\begin{tikzpicture}[baseline=(current  bounding  box.center)]
-\begin{feynman}
-\vertex (a1) at (-1.5,1){2};
-\vertex (a2) at (1.5,-1){4};
-\vertex (a3) at (1.5,1){3};
-\vertex (a4) at (-1.5,-1){1};
-\vertex (mid1) at (0,-.5);
-\vertex (mid2) at (0,.5);
-\vertex (mid3) at (1,.5) ;
-\vertex (mid4) at (1,-.5) ;
-\vertex (mid5) at (-1,.5);
-\vertex (mid6) at (-1,-.5) ;
-\diagram{
-(a4) --[ultra thick,](mid6),
-(a3) --[ultra thick,hred](mid3),
-(a2) --[ultra thick,hred](mid4),
-(a1) --[ultra thick,](mid5),
-(mid1) --[ultra thick,#1](mid2),
-(mid3) --[ultra thick,#2](mid2),
-(mid1) --[ultra thick,#3](mid6),
-(mid1) --[ultra thick,#4](mid4),
-(mid5) --[ultra thick,#5](mid2),
-(mid5) --[ultra thick,#6](mid6),
-(mid3) --[ultra thick,#7](mid4),
-};
-\end{feynman}
-\end{tikzpicture}
-}
-}
-
-\newcommand{\dBoxL}[7]{ {
-\begin{tikzpicture}[baseline=(current  bounding  box.center)]
-\begin{feynman}
-\vertex (a1) at (-1.5,1){2};
-\vertex (a2) at (1.5,-1){4};
-\vertex (a3) at (1.5,1){3};
-\vertex (a4) at (-1.5,-1){1};
-\vertex (mid1) at (0,-.5);
-\vertex (mid2) at (0,.5);
-\vertex (mid3) at (1,.5) ;
-\vertex (mid4) at (1,-.5) ;
-\vertex (mid5) at (-1,.5);
-\vertex (mid6) at (-1,-.5) ;
-\diagram{
-(a4) --[ultra thick,hred](mid6),
-(a3) --[ultra thick,](mid3),
-(a2) --[ultra thick,](mid4),
-(a1) --[ultra thick,hred](mid5),
-(mid1) --[ultra thick,#1](mid2),
-(mid3) --[ultra thick,#2](mid2),
-(mid1) --[ultra thick,#3](mid6),
-(mid1) --[ultra thick,#4](mid4),
-(mid5) --[ultra thick,#5](mid2),
-(mid5) --[ultra thick,#6](mid6),
-(mid3) --[ultra thick,#7](mid4),
-};
-\end{feynman}
-\end{tikzpicture}
-}
-}
-
 
 
 
 \DeclareMathOperator{\cut}{\mathcal{C}}
 
- \def\draftnote#1{{\color{red}\it #1}} 
-\iffalse \def\draftnote#1{{\color{red}\it}} \fi
-
-\def\sect#1{section~\ref{#1}}
-\def\Fig#1{fig.~{\ref{#1}}}
-\def\Fig#1{Fig.~{\ref{#1}}}
-\def\Figs#1#2{figs.~{\ref{#1}} and {\ref{#2}}}
-\def\Figs#1#2{Figs.~{\ref{#1}} and {\ref{#2}}}
-
-\def\tab#1{table~{\ref{#1}}}
-\def\Tab#1{Table~{\ref{#1}}}
-\def\tabs#1#2{tables~{\ref{#1}} and {\ref{#2}}}
-\def\Tabs#1#2{TablesnFigs.~{\ref{#1}} and {\ref{#2}}}
 
 \def\spa#1.#2{\left\langle#1\,#2\right\rangle}
 \def\spb#1.#2{\left[#1\,#2\right]}
@@ -735,13 +134,6 @@ linewidth=4pt]{eBox}
 \def\ep{\varepsilon}
 \def\SYM{MSYM}
 \def\nn{\nonumber}
-\def\sec#1{section~\ref{#1}}
-\def\eqn#1{(\ref{#1})}
-\def\Eqn#1{Equation~(\ref{#1})}
-\def\eqns#1#2{eqs.~(\ref{#1}) and~(\ref{#2})}
-\def\Eqns#1#2{Eqs.~(\ref{#1}) and~(\ref{#2})}
-\def\Figref#1{Fig.~\ref{#1}}
-\def\secref#1{section~\ref{#1}}
 \def\Neqfour{{{\cal N}=4}}
 \def\NeqFour{{{\cal N}=4}}
 \def\Neqeight{{{\cal N}=8}}
@@ -774,12 +166,16 @@ linewidth=4pt]{eBox}
 \newcommand{\andd}{\ , \quad \text{and}  \quad}
 \newcommand{\forr}{\ , \quad \text{for}  \quad}
 
+
+
+%TODO-type commands
 \newcommand\citepls{{\bf\color{red}[[Cite Needed]]}}
+\newcommand{\sect}{\textbf{\textcolor{red}{RefSec}}}
 
 \newcommand{\afour}{\ensuremath{A_4^{\text{tree}}}}
 \definecolor{NUpurple}{RGB}{078,042,132}
 
-\newcommand{\draftnoteJM}[1]{\textbf{\color{blue}[#1]}}
+
 
 
 
@@ -843,7 +239,7 @@ where $F_{\mu\nu} = \partial_\mu A_\nu -\partial_\nu A_\mu + g[A_\mu ,A_\nu]$ is
 \be
 D^\mu F^{\mu\nu} = \frac{1}{2} \epsilon_{\mu\nu\rho\sigma}D^\mu F^{\rho\sigma} = 0
 \ee
-Solutions to \eqn{SDcon} correspond to instanton configurations that are probed by the gauge field path integral in the full non-perturbative description of Yang-Mills. In this paper, we will focus on the perturbative aspects of this constraint. Transforming from Cartesian coordinates to light cone coordinantes, $(t,x,y,z) \rightarrow (u,v,w,\bar{w})$, which take the following definition:
+Solutions to \cref{SDcon} correspond to instanton configurations that are probed by the gauge field path integral in the full non-perturbative description of Yang-Mills. In this paper, we will focus on the perturbative aspects of this constraint. Transforming from Cartesian coordinates to light cone coordinantes, $(t,x,y,z) \rightarrow (u,v,w,\bar{w})$, which take the following definition:
 \be
 u = t+x,\quad v=t-x, \quad w = y+iz
 \ee
@@ -851,7 +247,7 @@ which gives the following expression for the invariant line element:
 \be
 ds^2 = 2(dudv - dwd\bar{w}) = dt^2 - d\vec{x}\cdot d\vec{x}
 \ee
-Applying this coordinate transformation to the self-dual condition of \eqn{SDcon}, we obtain the following three constraint equations from the original three cartesian coordinate expressions:
+Applying this coordinate transformation to the self-dual condition of \cref{SDcon}, we obtain the following three constraint equations from the original three cartesian coordinate expressions:
 \begin{align} \label{SDLightCone1}
 F_{uw} &=0\,,
 \\
@@ -863,11 +259,11 @@ F_{uw} &=0\,,
 \end{align}
 Thus, in light-cone gauge, $A_u=0$, we obtain the follow set of equations that are one-to-one with the self-dual condition:
 \be
-A_u=0 \text{ and } \eqn{SDLightCone1} \quad\Rightarrow \quad A_w=0
+A_u=0 \text{ and } (\ref{SDLightCone1}) \quad\Rightarrow \quad A_w=0
 \ee
-The second equation \eqn{SDLightCone2}  then implies the following that $A_v$ and $A_{\bar{w}}$ depend on a single degree of freedom
+The \cref{SDLightCone2} then implies the following that $A_v$ and $A_{\bar{w}}$ depend on a single degree of freedom
 \be
-A_w=0\,,\,A_u=0 \text{ and }\eqn{SDLightCone2} \quad\Rightarrow \quad \partial_u A_v = \partial_w A_{\bar{w}}
+A_w=0\,,\,A_u=0 \text{ and } (\ref{SDLightCone2}) \quad\Rightarrow \quad \partial_u A_v = \partial_w A_{\bar{w}}
 \ee
 This constraint is  satisfied with the following definition of the gauge field in terms of a single scalar degree of freedom which we call $\Psi$:
 \be\label{SDDef}
@@ -875,7 +271,7 @@ A_v = \frac{1}{2} \partial_w \Psi, \qquad A_{\bar{w}} = \frac{1}{2} \partial_u \
 \ee
 Using this definition on the final \draftnoteJM{first?} self-dual constraint equation thus yields the following equation of motion for the dynamical scalar field:
 \be\label{SDEOM}
-\eqn{SDLightCone1} \text{ and } \eqn{SDDef} \quad  \Rightarrow\quad \Box \Psi + ig [\partial_u \Psi, \partial_w \Psi ]=0
+(\ref{SDLightCone1}) \text{ and } (\ref{SDDef}) \quad  \Rightarrow\quad \Box \Psi + ig [\partial_u \Psi, \partial_w \Psi ]=0
 \ee
 Adding back in the anti-holomorphic field $\bar{\Psi}$ as a Lagrange multiplier, we obtain the following interaction Lagrangian for self-dual Yang-Mills theory:
 \begin{eBox}
@@ -887,14 +283,14 @@ The color-ordered ordered cubic Feynman rule for this theory can be immediately 
 \be
 \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} =X(k_1,k_2) \equiv k_{u,1}k_{w,2} - k_{w,1}k_{u,2}
 \ee
-In this form, the Lagrangian and Feynman rules are manifestly color-dual \textit{off-shell}. In this form, we can see the effect \eqn{SDcon} had on the Feynman rules of the full Yang-Mills Lagrangian: it simply decoupled the anti-MHV three-point vertex from the theory, leaving only the MHV three-point vertex. Before proceeding, it is important to note that the mass-dimension of the theory appears to differ from that of Yang-Mills -- we comment on this in detail in our appendix on spinor-helicity variables and conventions. 
+In this form, the Lagrangian and Feynman rules are manifestly color-dual \textit{off-shell}. In this form, we can see the effect \cref{SDcon} had on the Feynman rules of the full Yang-Mills Lagrangian: it simply decoupled the anti-MHV three-point vertex from the theory, leaving only the MHV three-point vertex. Before proceeding, it is important to note that the mass-dimension of the theory appears to differ from that of Yang-Mills -- we comment on this in detail in our appendix on spinor-helicity variables and conventions. 
 
 As we will show in \sect{}, the color-dual nature of SDYM can be understood as a direct consequence of isolating the \textit{cubic-sector} of the full Yang-Mills amplitudes by projecting along particular on-shell states. For this reason, the color-dual nature depends critically on the loop order of the amplitude and does not hold generically beyond one-loop. 
 
-Next we will briefly describe a 2D scalar theory, Zakharov-Mikhailov (ZM) theory, whose equations of motion bear a striking resemblance to the SDYM equatioi of motion given above in \eqn{SDEOM}.
+Next we will briefly describe a 2D scalar theory, Zakharov-Mikhailov (ZM) theory, whose equations of motion bear a striking resemblance to the SDYM equatioi of motion given above in \cref{SDEOM}.
 
 \subsubsection{YZ-Theory}
-SDYM makes explicit reference to the spacetime dimension and Zakharov-Mikhailov theory, to be discussed in \sect{sec:ZMTheory}, does as well.
+SDYM makes explicit reference to the spacetime dimension and Zakharov-Mikhailov theory, to be discussed in \cref{sec:ZMTheory}, does as well.
 This makes both theories poorly suited for constructing dimensionally-regulated loop-level amplitudes.
 On the other hand, YZ-theory is an honest $D$-dimensional theory that captures the classical physics of the nonlinear sigma model (NLSM) while manifest the duality between color and kinematics \cite{Cheung2016prv}.
 
@@ -975,7 +371,7 @@ Similarly, we find the following ordered amplitude when plugging in these numera
 \be
 A^{\bar{Z}Z}_{(s,t)} = \frac{n^{\bar{Z}Z}_s}{s_{12}}+\frac{ n^{\bar{Z}Z}_t }{s_{14}} = -s_{13}(p_2+p_3+p_4)^{\mu_1} = s_{13} \,p_1^{\mu_1}
 \ee
-Plugging in the on-shell polarizatoin of the conjugate field in \eqn{eq:onShellZStates} produces precisely the desired result of \eqn{eq:NLSMYZ4point}. Indeed, this construction is valid to all orders at tree-level. One can see this by considering the only two possible factorization channels the contribute the each of these amplitudes, the $YY$ cut and the $\bar{Z}Z$ cut:
+Plugging in the on-shell polarizatoin of the conjugate field in \cref{eq:onShellZStates} produces precisely the desired result of \cref{eq:NLSMYZ4point}. Indeed, this construction is valid to all orders at tree-level. One can see this by considering the only two possible factorization channels the contribute the each of these amplitudes, the $YY$ cut and the $\bar{Z}Z$ cut:
 \begin{align}
 A(...,Y,...,Y,...) &\rightarrow A(...,Y,...,Y)A(Y,...,Y,...)
 \\
@@ -1001,7 +397,7 @@ The second condition is that the chiral current should be in Lorenz gauge
 \partial_\mu J^\mu=0
 \ee
 which then yields the NLSM equation of motion $\partial_\mu (U \partial^\mu U^{-1})=0$.
-Taking a linear combination of \eqref{eq:FieldStrengthJ} and \eqref{eq:LorenzGaugeJ} yields
+Taking a linear combination of \cref{eq:FieldStrengthJ} and \cref{eq:LorenzGaugeJ} yields
 \be
 \label{eq:JTheoryEOM}
 \Box J^\mu +g f^{abc} J^\nu \partial_\nu J^\mu = 0.
@@ -1025,7 +421,7 @@ This theory is one-to-one with the observables amplitudes of YZ-theory when only
 \label{sec:ZMTheory}
 While J-theory manifests color-kinematics duality, it only does so at tree level because J-theory breaks manifest Bose symmetry.
 Manifest color-kinematics duality can be achieved at all loop orders by restricting J-theory to two spacetime dimensions where the chiral current can be dualized to a scalar $J^\mu = \epsilon^{\mu\nu} \partial_\nu \varphi$, which trivially enforces Lorenz gauge.
-After plugging $\varphi$ into \eqref{eq:JTheoryEOM} and rearranging, another copy of $\varphi$ (rather than some new field) can be integrated in to obtain the Zakharov-Mikhailov (ZM) Lagrangian
+After plugging $\varphi$ into \cref{eq:JTheoryEOM} and rearranging, another copy of $\varphi$ (rather than some new field) can be integrated in to obtain the Zakharov-Mikhailov (ZM) Lagrangian
 \begin{eBox}
 \be
 \label{eq:ZMLagrangian}
@@ -1034,13 +430,13 @@ After plugging $\varphi$ into \eqref{eq:JTheoryEOM} and rearranging, another cop
 \end{eBox}
 This procedure makes it clear that ZM and NLSM encode the same classical physics, that is, their equations of motion are dual to each other.
 ZM theory can also be tenuously motivated from SDYM theory.
-The power counting of the interaction term in the SDYM equation of motion \eqref{SDEOM} makes it clear that the theory is critical in 2D.
+The power counting of the interaction term in the SDYM equation of motion \cref{SDEOM} makes it clear that the theory is critical in 2D.
 This suggests that the two lightcone coordinates $u$ and $w$ should be identified as the coordinates of the 2D space.
 The 4D d'Alembertian in lightcone coordinates, $\Box = 4 (\partial_u \partial_v - \partial_w \partial_{\bar{w}})$, cannot be interpreted as the 2D equivalent, so the kinetic term of SDYM must be scrapped and replaced with the correct 2D version.
 This argument should be understood purely as an alternative route to ZM theory.
 While NLSM and ZM are the same theory classically when restricted to 2D, SDYM and ZM are not because, for example, the tree amplitudes of SDYM vanish but those of ZM do not (cite argumentative papers).
 
-The color-stripped Feynman rule for the three-point vertex can be read off from the Lagrangian \eqref{eq:ZMLagrangian}, giving
+The color-stripped Feynman rule for the three-point vertex can be read off from the Lagrangian \cref{eq:ZMLagrangian}, giving
 \be
 \langle ab\rangle \equiv p_a^\mu \epsilon_{\mu\nu} p_b^\nu =p_a^0 p_b^1 - p_a^1 p_b^0 = -\langle ba \rangle .
 \ee
@@ -1055,7 +451,7 @@ To prove off-shell color kinematics duality for any multiplicity and loop order 
 \langle ab \rangle \langle cd\rangle +\langle ac \rangle \langle db\rangle +\langle ad \rangle \langle bc\rangle =0 % \delta^{[a}_c\delta^{b]}_d + \delta^{[a}_d\delta^{c]}_b+ \delta^{[a}_b\delta^{d]}_c
 \ee
 by virtue of the 2D Levi-Civita identity $\epsilon_{\mu\nu}\epsilon_{\rho\sigma} = \eta_{\mu\rho}\eta_{\nu\sigma}-\eta_{\mu\sigma}\eta_{\nu\rho}$.
-Amusingly, \eqref{eq:ZMJacobi} is simply a manifestation of the Schouten identity.
+Amusingly, \cref{eq:ZMJacobi} is simply a manifestation of the Schouten identity.
 
 Since ZM theory manifested color-kinematics duality without any reference to the on-shell condition, a mass term can be added to ZM theory without spoiling color-kinematics duality.
 In fact, the kinetic term could be dramatically altered.
@@ -1111,7 +507,7 @@ Some background here on how we approach color-dual bootstrap (as we will utilize
 
 References for Jacobi, unitarity, etc.
 
-Aside from the few special theories mentioned in \sect{sec:CKLagrangians}, color-dual integrands are constructed from an ansatz.
+Aside from the few special theories mentioned in \cref{sec:CKLagrangians}, color-dual integrands are constructed from an ansatz.
 
 Different kinds of CK.
 We want global.
@@ -1131,7 +527,7 @@ Mention generalized double copy.
 
 Color-kinematics duality is stated in terms of cubic graphs so the first step is to express in the integrand in terms of such graphs.
 As an example we will focus on the 4pt 2-loop integrand of some color-dual theory like NLSM or YM.
-The 4pt 1-loop integrand is not a sufficiently illustrative example because, for instance, it lacks any self Jacobi like \eqref{eq:TwoLoopJacobiTwo} to be discussed shortly.
+The 4pt 1-loop integrand is not a sufficiently illustrative example because, for instance, it lacks any self Jacobi like \cref{eq:TwoLoopJacobiTwo} to be discussed shortly.
 Naively there are 14 cubic 4pt 2-loop topologies ignoring tadpoles and bubble on external leg (BEL) graphs.
 It is always possible to express an integrand in terms of cubic graphs, even for an even valency theory like NLSM, by multiplying and dividing the integrand by factors of inverse propagators.
 Next, the ansatz must have the correct power counting and external states, \emph{e.g.}, polarization vectors for YM.
@@ -1210,21 +606,21 @@ As an equation, a unitarity cut this looks schematically like
 \label{eq:SchematicCutEquation}
 \sum \limits_\text{topologies} \frac{n \vert_\text{cut}}{\prod \limits_\text{uncut} k^2} = \sum \limits_\text{states} \prod \limits_\text{blobs} A_\text{tree} .
 \ee
-The right hand side of the equation is a product of on-shell tree amplitudes, represented graphically in \eqref{eq:PotentialCuts} by grey blobs.
+The right hand side of the equation is a product of on-shell tree amplitudes, represented graphically in \cref{eq:PotentialCuts} by grey blobs.
 States crossing (or propagating across) the cut must be summed over.
 For scalars this sum is trivial but for spinning particles this is no longer the case and the physical state projector must be inserted (see Dimitrius paper for simplifying this operation).
-The graph topologies appearing in the left hand side of \eqref{eq:SchematicCutEquation} come from blowing up the grey blobs into cubic tree graphs in every conceivable way.
+The graph topologies appearing in the left hand side of \cref{eq:SchematicCutEquation} come from blowing up the grey blobs into cubic tree graphs in every conceivable way.
 For each of these topologies, the numerator of the associated graph is subjected to the cut constraints and is then divided by the uncut propagators.
 The right hand side is assumed to be known, which places a constraint on the numerator ansatz in the left hand side.
 
 It is possible to work with either color-dressed cuts or color-ordered cuts.
-For color-dressed cuts the grey blobs are blown up into all possible channels and all color factors $f^{abc}$ are explicitly retained on both sides of the unitarity equation \eqref{eq:SchematicCutEquation}.
-For color-ordered cuts the grey blobs are only blown up in color ordered channels, all color factors in \eqref{eq:SchematicCutEquation} are suppressed, and the product of on-shell amplitudes only extends over color-ordered trees.
+For color-dressed cuts the grey blobs are blown up into all possible channels and all color factors $f^{abc}$ are explicitly retained on both sides of the unitarity equation \cref{eq:SchematicCutEquation}.
+For color-ordered cuts the grey blobs are only blown up in color ordered channels, all color factors in \cref{eq:SchematicCutEquation} are suppressed, and the product of on-shell amplitudes only extends over color-ordered trees.
 Since color-ordered cuts do not contain the full color information of the theory, it is necessary to do multiple color-ordered cuts -- over different orderings of the blob labels -- in order to fully capture all of the cut information.
 For a color dual theory such as NLSM or YM it is enough to do $(n-2)!$ labelings of each blob due to the Kleiss-Kuijf and $U(1)$ decoupling identities (cite KK).
 In this sense color-dressed cuts contain extraneous information that is bypassed when using color-ordered cuts.
 
-In our construction, only well-defined cuts are imposed so, for example, cut (a) of \eqref{eq:PotentialCuts} is not enforced since it is possible to blow up the left blob into a tree amplitude with an on-shell internal propagator.
+In our construction, only well-defined cuts are imposed so, for example, cut (a) of \cref{eq:PotentialCuts} is not enforced since it is possible to blow up the left blob into a tree amplitude with an on-shell internal propagator.
 Cuts (b), (c), and (d) represent physical cuts where (d) is known as a maximal cut since the maximal number of propagators have been put on shell.
 
 After imposing all of the conditions above, any remaining free parameters represent ``generalized gauge freedom'' meaning that the freedom does not affect the physical integrand or its double copy.
@@ -1495,7 +891,7 @@ the component definition of our spinor bracket that are consistent with the conv
 [ab] &= \frac{(b_1 - i b_2)(a_0+a_3)-(a_1 - i a_2)(b_0+b_3)}{\sqrt{(a_0+a_3)(b_0+b_3)}}\,,
 \end{align}
 where the $a_i$ are component values of the four-vector, $k^\mu_a = (a_0,a_1,a_2,a_3)$. Four-dimensional polarization dot products with fixed helicity states can be mapped as follows:
-\begin{equation}\label{eqn:4DPols}
+\begin{equation}\label{eq:4DPols}
 \begin{aligned}
 k_a \cdot \varepsilon_b^{(+)} &= \frac{\langle q a \rangle[ab]}{\sqrt{2}\langle q b\rangle}\,,
 \qquad\quad \qquad
@@ -1527,7 +923,7 @@ At one-loop, weight counting tells us that the $n$-gon master numerator must hav
 \be
 N^{n\text{-gon},YZ}_{(12...n)} = (T^{1}T^{2}\cdots T^{n})+2\, (F^1F^2\cdots F^n)
 \ee
-where $(\,\cdots)$ indicates an internal contraction over the $YY$ and $\bar{Z}Z$ loops. Plugging in the Feynman rule of \eqn{eq:FeynmanRuleYYZ} and \eqn{eq:FeynmanRuleXZZ}, we can readily obtain expressions in terms of the internal loop factors $l_i$ and the external momenta $k_i$ (we define the $l_i$ loop momentum as that flowing into $k_i$ and out of $k_{i-1}$):
+where $(\,\cdots)$ indicates an internal contraction over the $YY$ and $\bar{Z}Z$ loops. Plugging in the Feynman rule of \cref{eq:FeynmanRuleYYZ} and \cref{eq:FeynmanRuleXZZ}, we can readily obtain expressions in terms of the internal loop factors $l_i$ and the external momenta $k_i$ (we define the $l_i$ loop momentum as that flowing into $k_i$ and out of $k_{i-1}$):
 \be
 N_{(12...n)}^{\text{NLSM}}=(T^{1}T^{2}\cdots T^{n}) = (l_1 k_1)(l_2 k_2) \cdots (l_n k_n)
 \ee
