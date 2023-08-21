@@ -497,6 +497,7 @@ Should this section maybe go first?
 Now we are prepared to discuss the one-loop case. 
 
 \subsection{Color-dual Bootstrap}
+\label{sec:bootstrap}
 Some background here on how we approach color-dual bootstrap (as we will utilize in our two-loop construction). Building an ansatz from irreducible lorentz products (ISPs). Comments about:
 \begin{itemize}
 \item loop momenta weight counting 
@@ -509,7 +510,7 @@ Some background here on how we approach color-dual bootstrap (as we will utilize
 As part of attemtping to construct a color-kinematics dual
 representation for $\mathcal{N}=0$ Yang--Mills at two loops, Bern,
 Davies, and Nohle (BDN) \cite{Bern:2015ooa} lay out the following core
-assumptions for integrand numerators (ordered accoring to the
+assumptions in searching for double-copyable integrand numerators (ordered accoring to the
 reference):
 \begin{enumerate}
 \item Locality: Diagram ``numerators'' are polynomials in momenta and
@@ -530,6 +531,23 @@ reference):
 \item Color-kinematics duality: The numerators obey some form of the
   kinematic Jacobi relations.
 \end{enumerate}
+Point 1 is generally a matter of convenience: there are many examples
+in which ``numerators'' with controlled rational contributions have
+been found \citepls{}.  However, without a guiding principle about
+what types of rational terms to use, the size of ans\"{a}tze quickly
+get out of hand.  Point 2 was motivated at the time by the hope that
+color-dual numerators could arise naturally out of a special gauge
+choice.  However, recent work by Ben-Shahar, Garozzo, and Johansson
+\cite{Ben-Shahar:2022ixa} \ace{Are there other good examples?}
+demonstrates that constructing Feynman rules which produce manifestly
+color-dual numerators for the NMHV sector of Yang--Mills requires
+introducing additional auxiliary fields, including higher-spin modes,
+which could shift the expected power counting in non-trivial ways.
+Point 3 is a requirement of the BCJ double-copy: currently there is no
+known way of incorporating non-cubic diagrams into the kinematic
+Jacobi relations.  Points 4 and 5 will be elaborated on in
+\cref{sec:syms}, Point 6 in \cref{sec:unitarity}, and Point 7 in
+\cref{sec:jac-rels}.
 
 
 References for Jacobi, unitarity, etc.
@@ -564,6 +582,7 @@ After zeroth order considerations like power counting, there are three condition
 (These three constraints can be solved in any order and my guess is that Alex and I did solve them in different orders.)
 
 \subsubsection{Jacobi relations}
+\label{sec:jac-rels}
 \ace{I like (and have previously used) the terms \emph{defining} and \emph{boundary} relations for the two types of Jacobi}
 
 Jacobi relations are the heart of color-kinematics duality.
@@ -602,6 +621,7 @@ See (4 loop N=4 paper) for a discussion of BELs in the context of color-kinemati
 In total, there are 21 Jacobi relations on the 14 cubic 4pt 2-loop graphs where, again, tadpole and BEL graphs are ignored.
 
 \subsubsection{Graph symmetries}
+\label{sec:syms}
 
 The second key constraint in an ansatz construction of color-dual numerators comes from graph symmetries.
 Every numerator is required to respect all of the symmetries (or automorphisms) of its associated graph.
@@ -617,6 +637,7 @@ is unchanged upon reflection across the horizontal axis (shown as a red dashed l
 Since the crossed box can be written in terms of the double box and penta-triangle, this imposes non-trivial constraints on the ansatz.
 
 \subsubsection{Unitarity}
+\label{sec:unitarity}
 
 The last key constraint is that the ansatz have the correct unitarity cuts, that is, that the integrand corresponds to the correct theory.
 Generalized unitarity has been reviewed in many places (cite...) so we will not belabor the details here, in particular see (emu) for a recent treatment of unitarity methods for even multiplicity theories like NLSM.
