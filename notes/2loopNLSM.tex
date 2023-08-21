@@ -503,7 +503,34 @@ Some background here on how we approach color-dual bootstrap (as we will utilize
 \item polynomial vector spaces 
 \item generalized gauge freedom
 \item functional jacobi constraints and cuts
-\end{itemize} 
+\end{itemize}
+
+
+As part of attemtping to construct a color-kinematics dual
+representation for $\mathcal{N}=0$ Yang--Mills at two loops, Bern,
+Davies, and Nohle (BDN) \cite{Bern:2015ooa} lay out the following core
+assumptions for integrand numerators (ordered accoring to the
+reference):
+\begin{enumerate}
+\item Locality: Diagram ``numerators'' are polynomials in momenta and
+  polarizations, \eg the diagrams only have poles given by the
+  propagators of the diagrams.
+\item Power-counting: The maximum power of the loop momenta in the
+  numerator is bounded by Feynman-gauge Feynman rules.
+\item Cubic diagrams: The only diagrams with nonzero numerators are
+  those with strictly cubic vertices.  This is generally a requirement
+  to properly define the kinematic Jacobi relations.
+\item Relabeling : The diagram numerators are only a function of the
+  diagram's topology and labeling.
+\item Symmetries: The diagram numerators are invariant under the
+  automorphisms of the diagrams \emph{including signs that compensate
+    for color-factor sign changes}.
+\item Unitarity cuts: The cuts of the ansatz must reproduce the
+  physical unitarity cuts of the theory.
+\item Color-kinematics duality: The numerators obey some form of the
+  kinematic Jacobi relations.
+\end{enumerate}
+
 
 References for Jacobi, unitarity, etc.
 
@@ -537,6 +564,7 @@ After zeroth order considerations like power counting, there are three condition
 (These three constraints can be solved in any order and my guess is that Alex and I did solve them in different orders.)
 
 \subsubsection{Jacobi relations}
+\ace{I like (and have previously used) the terms \emph{defining} and \emph{boundary} relations for the two types of Jacobi}
 
 Jacobi relations are the heart of color-kinematics duality.
 The color factors in an integrand obey a set of Jacobi identities.
