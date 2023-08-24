@@ -62,7 +62,7 @@
 
 
 %Comment commands
-\newcommand{\ace}[1]{\textcolor{darkgreen}{\textbf{AE:}{#1}}}
+\newcommand{\ace}[1]{\textcolor{darkgreen}{\textbf{AE:}{ #1}}}
 \newcommand{\nhp}[1]{\textcolor{nhpRed}{\textbf{NHP:}{#1}}}
 \newcommand{\draftnoteJM}[1]{\textbf{\textcolor{blue}{#1}}}
 
@@ -533,51 +533,78 @@ reference):
 \end{enumerate}
 Point 1 is generally a matter of convenience: there are many examples
 in which ``numerators'' with controlled rational contributions have
-been found \citepls{}.  However, without a guiding principle about
-what types of rational terms to use, the size of ans\"{a}tze quickly
-get out of hand.  Point 2 was motivated at the time by the hope that
-color-dual numerators could arise naturally out of a special gauge
-choice.  However, recent work by Ben-Shahar, Garozzo, and Johansson
-\cite{Ben-Shahar:2022ixa} \ace{Are there other good examples?}
-demonstrates that constructing Feynman rules which produce manifestly
-color-dual numerators for the NMHV sector of Yang--Mills requires
-introducing additional auxiliary fields, including higher-spin modes,
-which could shift the expected power counting in non-trivial ways.
-Point 3 is a requirement of the BCJ double-copy: currently there is no
-known way of incorporating non-cubic diagrams into the kinematic
-Jacobi relations.  Points 4 and 5 will be elaborated on in
-\cref{sec:syms}, Point 6 in \cref{sec:unitarity}, and Point 7 in
-\cref{sec:jac-rels}.
+been found
+\cite{Square,WeinzierlBCJLagrangian,Mogull:2015adi,FivePointN4BCJ,Johansson:2017bfl}.
+However, without a guiding principle about what types of rational
+terms to use, the size of ans\"{a}tze quickly get out of hand.  Point
+2 was motivated at the time by the hope that color-dual numerators
+could arise naturally out of a special gauge choice.  On the other hand, recent
+work by Ben-Shahar, Garozzo, and Johansson \cite{Ben-Shahar:2022ixa}
+\ace{Are there other good examples?}  demonstrates that constructing
+Feynman rules which produce manifestly color-dual numerators for the
+NMHV sector of Yang--Mills requires introducing additional auxiliary
+fields, including higher-spin modes, which could shift the expected
+power counting in non-trivial ways.  Point 3 is a requirement of the
+BCJ double-copy: currently there is no known way of incorporating
+non-cubic diagrams into the kinematic Jacobi relations.  Points 4 and
+5 will be elaborated on in \cref{sec:syms}, Point 6 in
+\cref{sec:unitarity}, and Point 7 in \cref{sec:jac-rels}.
 
 
 References for Jacobi, unitarity, etc.
 
 Aside from the few special theories mentioned in \cref{sec:CKLagrangians}, color-dual integrands are constructed from an ansatz.
 
-Different kinds of CK.
-We want global.
-Global is the simplest option, it is also the option that you would automatically get if you had a color-dual Lagrangian.
-By ``global'' we mean that color-kinematics duality is satisfied in any kinematic configuration of the integrand.
-This is a much more stringent condition than absolutely necessary.
-There is reason to believe (cite Zvi et al) that global numerators cannot always be found.
-One resolution to the issue is to only demand color-kinematics duality on the unitarity cuts of the integrand, i.e., in specific kinematic limits.
-Enforcing Jacobi on the cuts is enough to ensure that the squared integrand will correctly cut to gravity (or whatever the squared theory might be).
-When a globally color-dual numerator cannot be found, another alternative explored in the literature is to increase the size of the numerator ansatz by enlarging the numerator from a polynomial to a rational function with spurious singularities (cite Donal et al).
-When global color-kinematics fails, the hope is that it can be restored by enlarging the size of the ansatz, either by giving the numerator of each graph its own ansatz (first option described) or by promoting the numerator to a non-local function (second option described).
-Note that a theory whose Lagrangian has color-kinematics duality would naturally produce a globally color-dual integrand so the quest for a global numerator is closely related to the existence of a Lagrangian exhibiting color-kinematics duality.
-Section X is devoted to color-dual representations of the 4pt 2-loop NLSM integrand and the analogous integrand for YM is treated in section Y.
-Two-loop color-dual integrands for pure YM have been investigated before but only for a limited ansatz that manifests locality (cite Zvi et al paper).
-All of the N=4 SYM constructions below 5-loop are local.
+Different kinds of CK.  We want global.  Global is the simplest
+option, it is also the option that you would automatically get if you
+had a color-dual Lagrangian.  By ``global'' we mean that
+color-kinematics duality is satisfied in any kinematic configuration
+of the integrand.  This is a much more stringent condition than
+absolutely necessary.  There is reason to believe \cite{Bern:2015ooa}
+\ace{Is this the cite you wanted?}  that global numerators cannot
+always be found.  One resolution to the issue is to only demand
+color-kinematics duality on the unitarity cuts of the integrand, i.e.,
+in specific kinematic limits.  Enforcing Jacobi on the cuts is enough
+to ensure that the squared integrand will correctly cut to gravity (or
+whatever the squared theory might be).  When a globally color-dual
+numerator cannot be found, another alternative explored in the
+literature is to increase the size of the numerator ansatz by
+enlarging the numerator from a polynomial to a rational function with
+spurious singularities (cite Donal et al).  When global
+color-kinematics fails, the hope is that it can be restored by
+enlarging the size of the ansatz, either by giving the numerator of
+each graph its own ansatz (first option described) or by promoting the
+numerator to a non-local function (second option described).  Note
+that a theory whose Lagrangian has color-kinematics duality would
+naturally produce a globally color-dual integrand so the quest for a
+global numerator is closely related to the existence of a Lagrangian
+exhibiting color-kinematics duality.  Section X is devoted to
+color-dual representations of the 4pt 2-loop NLSM integrand and the
+analogous integrand for YM is treated in section Y.  Two-loop
+color-dual integrands for pure YM have been investigated before but
+only for a limited ansatz that manifests locality (cite Zvi et al
+paper).  All of the N=4 SYM constructions below 5-loop are local.
 Mention generalized double copy.
 
-Color-kinematics duality is stated in terms of cubic graphs so the first step is to express in the integrand in terms of such graphs.
-As an example we will focus on the 4pt 2-loop integrand of some color-dual theory like NLSM or YM.
-The 4pt 1-loop integrand is not a sufficiently illustrative example because, for instance, it lacks any self Jacobi like \cref{eq:TwoLoopJacobiTwo} to be discussed shortly.
-Naively there are 14 cubic 4pt 2-loop topologies ignoring tadpoles and bubble on external leg (BEL) graphs.
-It is always possible to express an integrand in terms of cubic graphs, even for an even valency theory like NLSM, by multiplying and dividing the integrand by factors of inverse propagators.
-Next, the ansatz must have the correct power counting and external states, \emph{e.g.}, polarization vectors for YM.
-The numerator is assumed to be manifestly local but one approach to finding color-dual numerators is to relax manifest locality, see (...) for more details.
-After zeroth order considerations like power counting, there are three conditions that are imposed on the ansatz: (1) Jacobi relations amongst graphs must be satisfied, (2) numerators must respect graph symmetries, and (3) the integrand must have the correct unitarity cuts.
+Color-kinematics duality is stated in terms of cubic graphs so the
+first step is to express in the integrand in terms of such graphs.  As
+an example we will focus on the 4pt 2-loop integrand of some
+color-dual theory like NLSM or YM.  The 4pt 1-loop integrand is not a
+sufficiently illustrative example because, for instance, it lacks any
+self Jacobi like \cref{eq:TwoLoopJacobiTwo} to be discussed shortly.
+Naively there are 14 cubic 4pt 2-loop topologies ignoring tadpoles and
+bubble on external leg (BEL) graphs.  It is always possible to express
+an integrand in terms of cubic graphs, even for an even valency theory
+like NLSM, by multiplying and dividing the integrand by factors of
+inverse propagators.  Next, the ansatz must have the correct power
+counting and external states, \emph{e.g.}, polarization vectors for
+YM.  The numerator is assumed to be manifestly local but one approach
+to finding color-dual numerators is to relax manifest locality, see
+(...) for more details.  After zeroth order considerations like power
+counting, there are three conditions that are imposed on the ansatz:
+(1) Jacobi relations amongst graphs must be satisfied, (2) numerators
+must respect graph symmetries, and (3) the integrand must have the
+correct unitarity cuts.
 
 (These three constraints can be solved in any order and my guess is that Alex and I did solve them in different orders.)
 
@@ -826,7 +853,15 @@ Match the $\ell$ structure of ZM
 
 This is the object we include in the ancillary files, maybe with the remaining variables set to zero
 
-For 4pt on-shell ZM, the LRLR configuration is zero and for every other configuration of external states the on-shell amplitude is subtle because of IR poles.  Note that the (on-shell) kinematic numerators are always unambiguous and never suffer from any of these subtleties in any kinematic configuration.  So when you compare against ZM, you either comparing against zero or something subtle.  This is why you can't really take cuts of the NLSM and ZM integrands and meaningfully compare them even though you can compare their numerators.
+For 4pt on-shell ZM, the LRLR configuration is zero and for every
+other configuration of external states the on-shell amplitude is
+subtle because of IR poles.  Note that the (on-shell) kinematic
+numerators are always unambiguous and never suffer from any of these
+subtleties in any kinematic configuration.  So when you compare
+against ZM, you either comparing against zero or something subtle.
+This is why you can't really take cuts of the NLSM and ZM integrands
+and meaningfully compare them even though you can compare their
+numerators.
 
 \subsection{Double-copy -- Alex }
 
@@ -838,48 +873,29 @@ For 4pt on-shell ZM, the LRLR configuration is zero and for every other configur
 \end{itemize}
 
 \subsection{Yang-Mills revisited -- Alex}
-Transition paragraph.....
+Given the close ties between pion and gluon scattering for trees and
+at one loop, the success of a globally color-dual solution for pions
+at two loops warrants a reexamination of the two-loop pure Yang--Mills
+problem.  As discussed above in \cref{sec:bootstrap}, BDN failed at
+finding an off-shell color-dual representation satisfying 7
+assumptions, and were forced to develop an on-shell notion of
+color-kinematics duality \cite{Bern:2015ooa}.  Thus we must decide
+which assumption(s) to break.  From both a motivation and
+implementation standpoint, the simplest assumption to break is the
+``power-counting'' statement, which we analyze first.
 
-As part of attemtping to construct a color-kinematics dual
-representation for $\mathcal{N}=0$ Yang--Mills at two loops, Bern,
-Davies, and Nohle (BDN) lay out the following core assumptions for
-integrand numerators (in addition to obeying some form of the
-kinematic Jacobi relations) \cite{Bern:2015ooa}
-\begin{enumerate}
-\item Locality: Diagram ``numerators'' are polynomials in momenta and
-  polarizations, \eg the diagrams only have poles given by the
-  propagators of the diagrams. \emph{We explore a minor breaking of this assumption}
-\item Power-counting: The maximum power of the loop momenta in the
-  numerator is boudned by Feynman-gauge Feynman rules.  \emph{We
-    explore breaking this assumption}.
-\item Cubic diagrams: The only diagrams with nonzero numerators are
-  those with strictly cubic vertices.  This is generally a requirement
-  to properly define the kinematic Jacobi relations.
-\item Relabeling : The diagram numerators are only a function of the
-  diagram's topology and labeling
-\item Symmetries: The diagram numerators are invariant under the
-  automorphisms of the diagrams \emph{including signs that compensate
-    for color-factor sign changes}
-\item Unitarity cuts: The cuts of the ansatz must reproduce the
-  physical unitarity cuts of the theory.
-\end{enumerate}
-They demonstrated that the above assumptions are incompatible with an
-off-shell solution to the kinematic Jacobi relations.  Here, we
-explore two violations of these core assumptions.
-
-First, we analyze the power-counting assumption.  In our labeling of
-the two loop Jacobi-basis diagrams, shown in \ace{Figure out fig}, we
-find that the power counting bound proposed by Bern, Davies, and Nohle
-leads to an initial ansatz with XX terms in the double-box, and YY
-terms for the penta-triangle.  However, recent work by Ben-Shahar,
-Garozzo, and Johansson \cite{Ben-Shahar:2022ixa} \ace{Are there other
-  good examples?} demonstrates that constructing Feynman rules that
-produce manifestly color-dual numerators for the NMHV sector of
-Yang--Mills requires introducing additional auxiliary fields,
-including higher-spin modes, which could shift the expected power
-counting in non-trivial ways.  We therefore attempt to find an
-off-shell color-dual Yang--Mills representation in which all power
-counting restrictions are lifted.
+In our labeling of the two loop Jacobi-basis diagrams, shown in
+\ace{Figure out fig}, we find that the power counting bound proposed
+by Bern, Davies, and Nohle leads to an initial ansatz with 10,000
+terms in the double-box, and 9849 terms for the penta-triangle.
+However, recent work by Ben-Shahar, Garozzo, and Johansson
+\cite{Ben-Shahar:2022ixa} \ace{Are there other good examples?}
+demonstrates that constructing Feynman rules that produce manifestly
+color-dual numerators for the NMHV sector of Yang--Mills requires
+introducing additional auxiliary fields, including higher-spin modes,
+which could shift the expected power counting in non-trivial ways.  We
+therefore attempt to find an off-shell color-dual Yang--Mills
+representation in which all power counting restrictions are lifted.
 
 Without power counting restrictions, both the double-box and the
 penta-triangle ansatz have an initial ansatz with 10,010 terms each.
