@@ -18,6 +18,7 @@
 \usepackage{tabularx}
 \usepackage{graphicx}
 \usepackage{stackengine}
+\usepackage{subcaption}
 \usepackage{cleveref}
 
 \def\RA{\rlap{\scalebox{1.6}{$\leftrightarrow$}}}
@@ -888,30 +889,51 @@ In our labeling of the two loop Jacobi-basis diagrams, shown in
 \ace{Figure out fig}, we find that the power counting bound proposed
 by Bern, Davies, and Nohle leads to an initial ansatz with 10,000
 terms in the double-box, and 9849 terms for the penta-triangle.
-However, recent work by Ben-Shahar, Garozzo, and Johansson
-\cite{Ben-Shahar:2022ixa} \ace{Are there other good examples?}
-demonstrates that constructing Feynman rules that produce manifestly
-color-dual numerators for the NMHV sector of Yang--Mills requires
-introducing additional auxiliary fields, including higher-spin modes,
-which could shift the expected power counting in non-trivial ways.  We
-therefore attempt to find an off-shell color-dual Yang--Mills
-representation in which all power counting restrictions are lifted.
-
 Without power counting restrictions, both the double-box and the
-penta-triangle ansatz have an initial ansatz with 10,010 terms each.
-Imposing diagram automorphisms on the two basis diagrams, we reduce
-the number of terms to XX.  Gauge invariance on support of the maximal
-cuts of the basis diagrams further reduces the remaining freedom to
-YY.  The power-counting restriction of BDN would reduce this count to
-ZZ.  In the original BDN work, they imposed three spanning generalized
-unitarity cuts, shown in [].  Instead of directly imposing the
-spanning cuts, we proceed with the relaxed version of the method of
+penta-triangle ansatz have an ansatz with 10,010 terms each.  Imposing
+diagram automorphisms and maximal-cut gauge invariance on the two
+basis diagrams, we reduce the number of terms to XX for the
+double-box, and YY for the penta-triangle.  The power-counting
+restriction of BDN would further reduce these counts to 2232 and 4072.
+In Ref.~\cite{Bern:2015ooa}, the unitarity matching constraints were
+imposed using a spanning set of minimal physical cuts, shown in
+\cref{fig:ym-spanning}.  Instead of also directly going to the
+spanning cuts, we work within the framework of the Method of Maximal
+Cuts \citepls{} in order to identify the simplest cut that is in
+tension with the kinematic Jacobi relations.
+
+\begin{figure}
+  \begin{center}
+    \begin{subfigure}{0.3\textwidth}
+      \begin{center}
+        \LMCut
+      \end{center}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+      \begin{center}
+        \PhysicalCutOne{}{}{}{}
+      \end{center}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+      \begin{center}
+        \PhysicalCutTwo{}{}{}{}
+      \end{center}
+    \end{subfigure}
+  \end{center}
+  \caption{The three spanning physical unitarity cuts of pure
+    Yang--Mills at 2 loops}
+  \label{fig:ym-spanning}
+\end{figure}
+
+we proceed with the relaxed version of the method of
 maximal cuts used above in the pion construction [\ace{is James going
   to talk about something along this line in the pions section?}].  We
 find that even with the completely generic ansatz, the representation
 fails to satisfy the next-to-next-to-maximal cut shown in [].
 Notably, imposing the BDN power-counting constraints additionally
 causes a discrepancy with the N$^2$-max cuts show in [].
+
+\KissingTriangles
 
 
 
