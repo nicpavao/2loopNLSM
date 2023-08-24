@@ -807,6 +807,7 @@ I enforce this $\ell^5$...$\ell^8$ behavior on the NLSM ansatz too.
 \end{itemize}
 
 \subsection{Pions -- James}
+\label{sec:pions}
 
 As we have seen, it is possible to coerce tree numerators into 1-loop numerators at any multiplicity for pions.
 However, these methods cannot be reapplied to generate 2-loop numerators, which begs the question ``is it possible to find globally color-dual numerators beyond 1-loop''.
@@ -925,15 +926,103 @@ tension with the kinematic Jacobi relations.
   \label{fig:ym-spanning}
 \end{figure}
 
-we proceed with the relaxed version of the method of
-maximal cuts used above in the pion construction [\ace{is James going
-  to talk about something along this line in the pions section?}].  We
-find that even with the completely generic ansatz, the representation
-fails to satisfy the next-to-next-to-maximal cut shown in [].
-Notably, imposing the BDN power-counting constraints additionally
-causes a discrepancy with the N$^2$-max cuts show in [].
+Similar to the pion construction in \cref{sec:pions}, we use the
+kinematic Jacobi relations to define the numerators for all cubic
+graphs in terms of the two basis graphs, including allowing nontrivial
+numerators on BEL diagrams.  We will simply avoid imposing
+constraints that directly involve such pathological diagrams.  That
+leaves us with 14 non-pathological cubic diagrams on which to impose
+maximal cuts and symmetries. \ace{Do we want the graphs for these?
+  Doable in tikz, but would take some time, or I can dump nice-ish
+  versions from mathematica}.  Doing so, we are left with AA total
+parameters in the unrestricted ansatz and BB total in the
+BDN-restricted ansatz.
 
-\KissingTriangles
+Proceeding to the next-to-maximal cuts, we continue to avoid BEL
+diagrams.  Additionally, now that we have higher-point vertices, we
+avoid diagrams in which the higher-point vertex could contain an
+off-shell propagator that carries the same momenta as one of the cut
+propagators, \eg \ace{Any feedback on how this looks, especially with
+  the dashed lines?}
+\begin{equation*}
+  \begin{tikzpicture}
+    \pgfmathsetmacro{\ri}{1};
+    \pgfmathsetmacro{\re}{0.6};
+    \pgfmathsetmacro{\ang}{35};
+    \begin{feynman}
+      \blob{i1}{\ang:\ri};
+      \blob{i2}{180-\ang:\ri};
+      \blob{i3}{180+\ang:\ri};
+      \blob{i4}{-\ang:\ri};
+      \blob{i5}{ $(i1)!0.5!(i2)$ };
+      \ver{e1}{45:\ri+\re};
+      \ver{e2}{135:\ri+\re};
+      \ver{e3}{225:\ri+\re};
+      \ver{e4}{-45:\ri+\re};
+      
+      \diagram{
+        {[edges={ultra thick}] (e1)--(i1),
+          (e2)--(i2),
+          (e3)--(i3),
+          (e4)--(i4),
+          (i5)--(i1)--(i4)--(i3)--(i2),
+          (i2) --[out=60,in=180-60] (i5),
+          (i2) --[out=-60,in=180+60] (i5)
+        };
+      };
+    \end{feynman}
+  \end{tikzpicture}
+  \text{ contains a contribution from }
+  \begin{tikzpicture}
+    \pgfmathsetmacro{\ri}{1};
+    \pgfmathsetmacro{\re}{0.6};
+    \pgfmathsetmacro{\ang}{35};
+    \pgfmathsetmacro{\cang}{90};
+    \pgfmathsetmacro{\cl}{1.1};
+      \ver{i1}{\ang:\ri};
+      \ver{i2}{180-\ang:\ri};
+      \ver{i3}{180+\ang:\ri};
+      \ver{i4}{-\ang:\ri};
+      \ver{i5}{ $(i1)!0.25!(i2)$ };
+      \ver{i6}{ $(i1)!0.75!(i2)$ };
+      
+      \ver{e1}{45:\ri+\re};
+      \ver{e2}{135:\ri+\re};
+      \ver{e3}{225:\ri+\re};
+      \ver{e4}{-45:\ri+\re};
+
+      \ver{c1}{0:\cl};
+      \ver{c2}{\cang:\cl};
+      \ver{c3}{2*\cang:\cl};
+      \ver{c4}{3*\cang:\cl};
+      \ver{ci}{$(i5)!0.5!(i1)$};
+      \path let \p1 =(ci) in coordinate (c5) at (\x1,0.2){};
+      \draw[ultra thick] (e1)--(i1);
+      \draw[ultra thick] (e2)--(i2);
+      \draw[ultra thick] (e3)--(i3);
+      \draw[ultra thick] (e4)--(i4);
+      \draw[ultra thick] (i5)--(i1)--(i4)--(i3)--(i2)--(i6);
+      \draw[ultra thick] (i6) to[out=60,in=180-60] (i5);
+      \draw[ultra thick] (i6) to[out=-60,in=180+60] (i5);
+      \draw[dashed,ultra thick,blue] (0,0) -- (c1);
+      \draw[dashed,ultra thick,blue] (0,0) -- (c2);
+      \draw[dashed,ultra thick,blue] (0,0) -- (c3);
+      \draw[dashed,ultra thick,blue] (0,0) -- (c4);
+      \draw[dashed,ultra thick,blue] (c5) -- ++(90:0.7*\cl);
+      
+  \end{tikzpicture},
+\end{equation*}
+as it is non-trivial and beyond the scope of this paper to define
+exactly what such a cut and cut contribution means.  After discarding
+these types of cuts, we are left with 8 unique cut topologies to
+check.  Seven of these next-to-maximal cuts are consistent with the
+kinematic Jacobi relations and symmetries.  Interestingly, the
+``kissing triangles'' cut,
+\begin{equation*}
+  \KissingTriangles \,,
+\end{equation*}
+cannot be satisfied by either the unrestricted or the BDN-restricted
+ansatz with Jacobi relations and symmetries applied.
 
 
 

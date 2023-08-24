@@ -33,14 +33,21 @@
   },
 }
 
-%Put the baseline at the center of the picture, for every picture
-\tikzset{every picture/.style={baseline={(current bounding box.center)}}}
+% Put the baseline at the center of the picture, for every
+% picture. The shift makes it closer to being centered in the center
+% of the line (for intance with equations) rather than the center
+% sitting on the baseline itself (which in equations makes things look
+% not-centered against operators)
+\tikzset{every picture/.style={baseline={([yshift=-.7ex]current bounding box.center)}}}
 
 % Diagram definitions
 
 %% Nice blob definition consistent with what James was already using,
 %% but handling the coordinate duplication internally.
 \newcommand{\blob}[2]{\vertex[dot,scale=2] (#1) at (#2){};\vertex[dot,scale=1.5,hgrey0] at (#2){};}
+%% Use the same syntax, so that it is easy to convert between blobby
+%% cuts and normal diagrams
+\newcommand{\ver}[2]{\coordinate (#1) at (#2){};}
 
 
 %%% Jacobi 1 %%%
@@ -439,7 +446,6 @@
         \pgfmathsetmacro{\ri}{0.8};
         \pgfmathsetmacro{\ro}{0.6};
         \pgfmathsetmacro{\defl}{25};
-        % \vertex[dot,scale=2] (kiss) at (0,0) {};
         \blob{kiss}{0,0};
         \blob{e1}{\defl:\ri};
         \blob{e2}{-\defl:\ri};
