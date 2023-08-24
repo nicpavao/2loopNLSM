@@ -169,7 +169,7 @@ linewidth=4pt]{eBox}
 
 
 %TODO-type commands
-\newcommand\citepls{{\bf\color{red}[[Cite Needed]]}}
+\newcommand{\citepls}[1]{{\bf\color{red}[[Cite Needed:#1]]}}
 \newcommand{\sect}{\textbf{\textcolor{red}{RefSec}}}
 
 \newcommand{\afour}{\ensuremath{A_4^{\text{tree}}}}
@@ -216,7 +216,7 @@ In this work, we will consider three different types of cubic representations, t
 \be
 \stackrel{\Acubic{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{}}{\text{Fundamental}}\qquad\qquad \stackrel{\cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{}}{\text{Bifundamental}}\qquad\qquad \stackrel{\Acubic{hgrey0}{}{nhpBlue}{}{nhpBlue}{}{nhpBlue}}{\text{Adjoint}}
 \ee
-In this review, we will present examples of this distinct kinematic representations that have appeared in the literature. Though from the get go, we stress that in this work we are interested in identifying the analog of adjoint representations of the kinematic numerators; those for which all legs are equally preferrenced by the functional dressing. The only non-trivial $S$-matrix in the literature that exhibits this property to all-loop order, is that of Zakharov-Mikhailov theory \cite{}. We will briefly review the perturbative construction of this theory below. 
+In this review, we will present examples of this distinct kinematic representations that have appeared in the literature. Though from the get go, we stress that in this work we are interested in identifying the analog of adjoint representations of the kinematic numerators; those for which all legs are equally preferrenced by the functional dressing. The only non-trivial $S$-matrix in the literature that exhibits this property to all-loop order, is that of Zakharov-Mikhailov theory \citepls{}. We will briefly review the perturbative construction of this theory below. 
 \subsection{Color-dual Amplitudes}
 Review of BCJ relations and Jacobi relations off-shell. Justify kinematic algebra in an off-shell framework by talking about on-shell construction. yada yada yada
 
@@ -227,7 +227,7 @@ In the next section we will construct one-loop color-dual numerators using Lagra
 \mathcal{L}^{\text{semi-YM}} = - \frac{1}{2} G_{\mu\nu} F^{\mu\nu} = - \frac{1}{2} G_{\mu\nu} F^{\mu\nu} - \frac{g}{2} G_{\mu\nu} [A_\mu, A_\nu]
 \ee
 \draftnoteJM{I believe this Lagrangian has a name -- BF theory.  All this does is set F=0 and if you impose Lorenz gauge then you get many of the known color-dual theories.}
-\subsubsection{Self-Dual Yang-Mills} The first example in the literature \cite{} of color-dual Feynman rules is that of Yang-Mills theory in the self-dual sector (SDYM):
+\subsubsection{Self-Dual Yang-Mills} The first example in the literature \citepls{} of color-dual Feynman rules is that of Yang-Mills theory in the self-dual sector (SDYM):
 \be
 \mathcal{L}^{\text{YM}} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
 \ee
@@ -292,7 +292,7 @@ Next we will briefly describe a 2D scalar theory, Zakharov-Mikhailov (ZM) theory
 \subsubsection{YZ-Theory}
 SDYM makes explicit reference to the spacetime dimension and Zakharov-Mikhailov theory, to be discussed in \cref{sec:ZMTheory}, does as well.
 This makes both theories poorly suited for constructing dimensionally-regulated loop-level amplitudes.
-On the other hand, YZ-theory is an honest $D$-dimensional theory that captures the classical physics of the nonlinear sigma model (NLSM) while manifest the duality between color and kinematics \cite{Cheung2016prv}.
+On the other hand, YZ-theory is an honest $D$-dimensional theory that captures the classical physics of the nonlinear sigma model (NLSM) while manifest the duality between color and kinematics \cite{Cheung:2016prv}.
 
 One can understand YZ-theory as a particular dimensional reduction of Yang-Mills in $D=2d+1$ dimensions, down to $d$ dimensions. 
 Starting with the Yang-Mills Lagrangian, one can redefine the gauge fields, $A_M$, in terms of $X$, $Y$ and $Z$ fields:
@@ -463,7 +463,7 @@ Color dual theories with the same interactions but different kinetic terms have 
 For example, J-theory and the theory of non-Abelian fluids presented in \cite{Cheung:2020djz} differ only in their propagators.
 Specifically, taking the static limit of the fluid's $(D+1)$-dimensional kinetic term $\partial_t - \nabla^2$ and Wick rotating one of the coordinates yields the relativistic d'Alembertian of $D$-dimensional J-theory.
 
-While the color-dual nature of ZM theory is rather elegant, the loop-level construction introduces complications when applying dimensional regularization. Similar to the difficulties of renormalizing chiral fermions \cite{ 'tHooft}, there is ambiguity in promoting the integrands to formal $D$-dimensional expressions. As such, in our two-loop bootstrap of NLSM we will only use the ZM integrands as a mechanism for reducing the residual gauge freedom in our final solution -- rather than a full $D$-dimensional integrand to which we match off-shell in dim reg. 
+While the color-dual nature of ZM theory is rather elegant, the loop-level construction introduces complications when applying dimensional regularization. Similar to the difficulties of renormalizing chiral fermions \citepls{ 'tHooft}, there is ambiguity in promoting the integrands to formal $D$-dimensional expressions. As such, in our two-loop bootstrap of NLSM we will only use the ZM integrands as a mechanism for reducing the residual gauge freedom in our final solution -- rather than a full $D$-dimensional integrand to which we match off-shell in dim reg. 
 
 \subsubsection{Wess-Zumino-Witten theory -- James}
 I want to write this down or I'm going to completely forget it
@@ -693,9 +693,9 @@ One was to resolve this is to introduce higher spin modes in order to accomodate
 \be
 \AcubicB{hgrey0}{}{nhpRed}{}{nhpRed}{Bfield}{nhpRed}{}{nhpRed} = s_{12 }(\epsilon_{(13)} \epsilon_{(24)} - \epsilon_{(14)} \epsilon_{(23)})
 \ee
-While introducing succesively higher spiin states to the NMHV lagrangian constructed in \cite{} could in principle work at tree level, we will see that it is not consiisntent with what we find at general loop order. We will comment on this in \sect{}. For now, we will study how to construct one-loop integrands consistent with the color-kinematics by isolating the cubic sector of the state sum above. This is easily understood in terms of a polarization decomposition introduced by one of the authors \cite{} that decomposes vector amplitudes in terms of building blocks that preserve partial amplitude relations. 
+While introducing succesively higher spiin states to the NMHV lagrangian constructed in \citepls{} could in principle work at tree level, we will see that it is not consiisntent with what we find at general loop order. We will comment on this in \sect{}. For now, we will study how to construct one-loop integrands consistent with the color-kinematics by isolating the cubic sector of the state sum above. This is easily understood in terms of a polarization decomposition introduced by one of the authors \citepls{} that decomposes vector amplitudes in terms of building blocks that preserve partial amplitude relations. 
 \subsection{Block Decomposition of Yang-Mills}
-Describe how different orders in $\varepsilon_i\varepsilon_j$ in pure Yang-Mills captures different cubic and contact sectors of the theory. All the $D$-dimensional Lagnrangians above can be understood as selecting specific on shell states to isolate the cubic sector of Yang-Mills at a given loop order. Start with reducible amplitude block decomp from Ref. \cite:
+Describe how different orders in $\varepsilon_i\varepsilon_j$ in pure Yang-Mills captures different cubic and contact sectors of the theory. All the $D$-dimensional Lagnrangians above can be understood as selecting specific on shell states to isolate the cubic sector of Yang-Mills at a given loop order. Start with reducible amplitude block decomp from Ref. \citepls{}:
 \begin{eBox}
 \begin{equation}\label{eq:pureVecRABD}
 A_{(\sigma)}^{\text{YM}} = \sum_{k=0}^{\lfloor |\sigma|/2\rfloor}\sum_{\rho \in S^{2|k}_{\sigma}}\epsilon_{(\rho)} \Delta_{(\sigma)}^{(\rho)}\,.
