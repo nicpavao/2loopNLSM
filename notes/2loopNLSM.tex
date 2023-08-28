@@ -541,19 +541,18 @@ I enforce this $\ell^5$...$\ell^8$ behavior on the NLSM ansatz too.
 
 As we have seen, it is possible to coerce tree numerators into 1-loop numerators at any multiplicity for pions.
 However, these methods cannot be reapplied to generate 2-loop numerators, which begs the question ``is it possible to find globally color-dual numerators beyond 1-loop''.
-We will tackle this question for NLSM before moving on to YM
+We will tackle this question for NLSM before moving on to YM.
 
-Every vertex in NLSM scales as $k^2$ so, for example, the numerator of a cubic 4pt 2-loop diagram scales as $k^{12}$ so there are 8,008 independent dot products of momenta at this mass dimension.
+Every vertex in NLSM scales as $k^2$ so the numerator of a cubic 4pt 2-loop diagram scales as $k^{12}$.
+There are 8,008 independent dot products of momenta at this mass dimension.
+Since there are two basis numerators, double box and penta-triangle, the entire calculation involves 16,016 degrees of freedom.\footnote{A custom solver is needed for the pion ansatz since \texttt{Mathematica} cannot reasonably handle sixteen thousand parameters.  One alternative might be to use a large linear system solver designed for integral reduction.  However, these solvers assume that the matrix under consideration has a very low density.  This is not the case for pions where the equations naturally have a density of a few percent.  The YM equations have a lower density because the theory separates into different ``helicity'' or $e_i\cdot e_j$ sectors.  Since pions are scalars there is no such separation into sectors, resulting in denser equations.}
 
-NLSM scalar theory, no external state information stuff.
-
-As mentioned before, there are 8,008 linearly independent dot products of momenta of the required mass dimension so the total number of free parameters in the system is 16,016.
-As this is too many parameters for \texttt{Mathematica} to reasonably handle, we employ a custom solver suitable for the moderately dense systems appearing in this context.
-(Scalars might generate denser systems since ever dot product can interfere with every other unlike gauge theories which separate based on polarization structure, can cite Nic. \nhp{ distinguish between NLSM and YM ansatz -- i.e. why is 10,010 per diagram solvable for YM, but 8,008 per diagram runs into issues for NLSM. As you said, emphasize the density of NLSM matrix inversion due to generalized gauge freedom vs. independent polarization structures for YM.})
 
 How many constraints fixed by Jacobi, then graph sym, then cuts
 
-Cuts (b) and (c) are the only non-vanishing 4pt 2-loop physical cuts for an even multiplicity theory.
+Move some of the cut pictures here.
+
+Cuts (b) and (c) of \cref{eq:PotentialCuts} are the only non-vanishing 4pt 2-loop physical cuts for an even multiplicity theory.
 This means that even at two loops, unitarity cuts are still only probing the on-shell 4pt NLSM amplitude.
 Even though (b) and (c) are the only non-zero cuts, other cuts, for example the maximal cut (d), must also be imposed in order to correctly reproduce NLSM.
 The maximal cut vanishes because only 3pt amplitudes contribute and these amplitudes vanish in any scalar theory.
