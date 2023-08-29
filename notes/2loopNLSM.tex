@@ -789,6 +789,37 @@ kinematic Jacobi relations and symmetries.  Interestingly, the
 cannot be satisfied by either the unrestricted or the BDN-restricted
 ansatz with Jacobi relations and symmetries applied.
 
+\ace{I need to check this.  For now it is a standing hypothesis:} In
+fact, we can make the failure extremely precise.  Start with the
+diagrams shown in the Jacobi relation from \cref{eq:TwoLoopJacobiOne}:
+the double-box, crossed-box, and penta-triangle.  For each of the
+three diagrams, write down the most generic parity-even local ansatz
+involving four polarizations and six momenta (any combination of external or loop).  Each ansatz will be
+10,010 terms initially.  Next impose the symmetry constraints on each
+of the three diagrams, leaving XX free parameters on the double-box,
+YY free parameters on the crossed-box, and ZZ free paramters on the
+penta-triangle.  Then impose the ``kissing triangle'' next-to-maximal
+cut, which in the \emph{non-planar} color channel only recieves
+contributions from the double-box
+\begin{equation}
+  \KissingTriangles
+  =
+  \frac{1}{(\textcolor{nhp4}{\ell_1})^2} \
+  n \left[
+    \DoubleBoxLabeled{1}{2}{3}{4}
+  \right]
+  +
+  \frac{1}{(\textcolor{nhp4}{\ell_2})^2} \
+  n\left[\DoubleBoxLabeled{1}{3}{2}{4}\right]
+\end{equation}
+After imposing this cut, we find that the original Jacobi relation,
+\cref{eq:TwoLoopJacobiOne}, can no longer be satisfied:
+\begin{equation}
+  \KissingTriangles
+  \Rightarrow
+  \JacobiOneDoubleBox +  \JacobiOneCrossedBox + \JacobiOnePentaTriangle \neq 0
+\end{equation}
+
 
 
 \begin{itemize}
