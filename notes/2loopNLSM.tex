@@ -65,7 +65,7 @@
 %Comment commands
 \newcommand{\ace}[1]{\textcolor{darkgreen}{\textbf{AE:}{ #1}}}
 \newcommand{\nhp}[1]{\textcolor{nhpRed}{\textbf{NHP:}{#1}}}
-\newcommand{\draftnoteJM}[1]{\textbf{\textcolor{blue}{#1}}}
+\newcommand{\jm}[1]{\textcolor{blue}{\textbf{JM: }{#1}}}
 
 
 \usepackage[framemethod=default]{mdframed}
@@ -242,7 +242,7 @@ Some background here on how we approach color-dual bootstrap (as we will utilize
 As part of attemtping to construct a color-kinematics dual
 representation for $\mathcal{N}=0$ Yang--Mills at two loops, Bern,
 Davies, and Nohle (BDN) \cite{Bern:2015ooa} lay out the following core
-assumptions in searching for double-copyable integrand numerators (ordered accoring to the
+assumptions in searching for double-copyable integrand numerators (ordered according to the
 reference):
 \begin{enumerate}
 \item Locality: Diagram ``numerators'' are polynomials in momenta and
@@ -268,10 +268,10 @@ in which ``numerators'' with controlled rational contributions have
 been found
 \cite{Square,WeinzierlBCJLagrangian,Mogull:2015adi,FivePointN4BCJ,Johansson:2017bfl}.
 However, without a guiding principle about what types of rational
-terms to use, the size of ans\"{a}tze quickly get out of hand.  Point
-2 was motivated at the time by the hope that color-dual numerators
-could arise naturally out of a special gauge choice.  On the other hand, recent
-work by Ben-Shahar, Garozzo, and Johansson \cite{Ben-Shahar:2022ixa}
+terms to use, the size of ans\"{a}tze quickly get out of hand.
+Point 2 was motivated at the time by the hope that color-dual numerators
+could arise naturally out of a special gauge choice. \jm{I'm not sure that we should bring up point 2.  I don't follow it and I don't think Alex did either since this wouldn't be the most general ansatz.  Also, why doesn't point 5 cover point 4?}
+On the other hand, recent work by Ben-Shahar, Garozzo, and Johansson \cite{Ben-Shahar:2022ixa}
 \ace{Are there other good examples?}  demonstrates that constructing
 Feynman rules which produce manifestly color-dual numerators for the
 NMHV sector of Yang--Mills requires introducing additional auxiliary
@@ -341,27 +341,27 @@ correct unitarity cuts.
 
 \subsubsection{Jacobi relations}
 \label{sec:jac-rels}
-\ace{I like (and have previously used) the terms \emph{defining} and \emph{boundary} relations for the two types of Jacobi}
 
 Jacobi relations are the heart of color-kinematics duality.
 The color factors in an integrand obey a set of Jacobi identities.
 Color-kinematics duality states that there exists a way of writing the kinematic numerators of the integrand so that they obey the same set of Jacobi identities.
 (Can trivially read off the adjoint color factors from a cubic graph.)
-So if any triplet of graphs is related by a Jacobi identity, so too must their numerators.
-Broadly speaking there are two kinds of Jacobi identities.
-The first kind relate graphs to a basis.
+If any triplet of graphs is related by a Jacobi identity, so too must their numerators.
+Broadly speaking there are two kinds of Jacobi identities:  \emph{defining} relations and \emph{boundary} relations.
+Defining Jacobi relations can be used to express any graph in terms of a basis.
 For example, the double box, crossed box, and penta-triangle are related to each other as follows
 \be % [[11]]
 \label{eq:TwoLoopJacobiOne}
 \JacobiOneDoubleBox +  \JacobiOneCrossedBox + \JacobiOnePentaTriangle =0.
 \ee
 where the shared propagator is shown in red.
-Using this relation the crossed box can be written in terms of the other two.
+Using this relation the crossed box can be written (or \emph{defined}) in terms of the other two.
 In this way, all of the 14 cubic 4pt 2-loop topologies can be written in terms of a basis of the double box and penta-triangle.
 (Any two of the double box, crossed box, and penta-triangle would suffice for a basis but the planar basis is chosen for simplicity in this work.)
 For global color-kinematics duality each of the two basis graphs receives its own numerator ansatz and the numerator of any other graph can be expressed in terms of these.
 
-The second kind of Jacobi relations relate basis elements to themselves.
+After using the defining Jacobi relations to relate any graph to the basis, we will refer to any remaining Jacobi relations as boundary relations.
+In other words, boundary relations (indirectly) relate basis elements to themselves.
 For example, the crossed box numerator is related to itself via the following Jacobi relation
 \be % [[19]]
 \label{eq:TwoLoopJacobiTwo}
@@ -369,14 +369,12 @@ For example, the crossed box numerator is related to itself via the following Ja
 \ee
 where the shared propagator is shown in red as before.
 Each of the crossed box numerators can be represented in terms of the double box and penta-triangle so this Jacobi relation places constraints on the basis numerator ansatze.
-The first kind of Jacobi relations simplifies how many numerators require ansatze whereas the second kind of Jacobi relations place constraints on the remaining numerators.
+While defining Jacobi relations simplify how many numerators require ansatze, boundary relations place restrictions on those ansatze.
 In principle there could be Jacobi relations involving tadpoles and BEL graphs, which would be subtle to handle.
 One option is to force the numerators of these graphs to zero.
 However, since these graphs will not contribute to physical unitarity cuts, we take a different approach.
 These graphs are allowed to have non-zero numerators but any Jacobi relations involving them are simply not imposed or solved.
 See (4 loop N=4 paper) for a discussion of BELs in the context of color-kinematics duality.
-
-In total, there are 21 Jacobi relations on the 14 cubic 4pt 2-loop graphs where, again, tadpole and BEL graphs are ignored.
 
 \subsubsection{Graph symmetries}
 \label{sec:syms}
@@ -384,7 +382,7 @@ In total, there are 21 Jacobi relations on the 14 cubic 4pt 2-loop graphs where,
 The second key constraint in an ansatz construction of color-dual numerators comes from graph symmetries.
 Every numerator is required to respect all of the symmetries (or automorphisms) of its associated graph.
 While it is very convenient to impose graph symmetries, it is not completely necessary in order to perform the double copy.
-At tree level, finding manifestly color dual numerators is often achieved at the expense of manifest Bose symmetry (see YZ theory, j-theory, Alex numerators from CHY, Henrik numerators).
+At tree level, finding manifestly color-dual numerators is often achieved at the expense of manifest Bose symmetry (see YZ theory, j-theory, Alex numerators from CHY, Henrik numerators).
 Nonetheless, for a pure ansatz construction it is very reasonable to impose graph symmetries.
 Note that the graph symmetry constraint is imposed on \emph{every} graph, not just the basis graphs.
 For example, the crossed box,
@@ -408,7 +406,7 @@ For example, potential 4pt 2-loop cuts include
 \ee
 as well as many more.
 In these graphs, all exposed propagators are understood to be cut/on-shell.
-As an equation, a unitarity cut this looks schematically like
+As an equation, a unitarity cut looks schematically like
 \be
 \label{eq:SchematicCutEquation}
 \sum \limits_\text{topologies} \frac{n \vert_\text{cut}}{\prod \limits_\text{uncut} k^2} = \sum \limits_\text{states} \prod \limits_\text{blobs} A_\text{tree} .
@@ -417,12 +415,13 @@ The right hand side of the equation is a product of on-shell tree amplitudes, re
 States crossing (or propagating across) the cut must be summed over.
 For scalars this sum is trivial but for spinning particles this is no longer the case and the physical state projector must be inserted (see Dimitrius paper for simplifying this operation).
 The graph topologies appearing in the left hand side of \cref{eq:SchematicCutEquation} come from blowing up the grey blobs into cubic tree graphs in every conceivable way.
+The numerator of each graph is related back to the basis numerators via Jacobi relations.
 For each of these topologies, the numerator of the associated graph is subjected to the cut constraints and is then divided by the uncut propagators.
 The right hand side is assumed to be known, which places a constraint on the numerator ansatz in the left hand side.
 
 It is possible to work with either color-dressed cuts or color-ordered cuts.
 For color-dressed cuts the grey blobs are blown up into all possible channels and all color factors $f^{abc}$ are explicitly retained on both sides of the unitarity equation \cref{eq:SchematicCutEquation}.
-For color-ordered cuts the grey blobs are only blown up in color ordered channels, all color factors in \cref{eq:SchematicCutEquation} are suppressed, and the product of on-shell amplitudes only extends over color-ordered trees.
+For color-ordered cuts the grey blobs are only blown up in color-ordered channels, all color factors in \cref{eq:SchematicCutEquation} are suppressed, and the product of on-shell amplitudes only extends over color-ordered trees.
 Since color-ordered cuts do not contain the full color information of the theory, it is necessary to do multiple color-ordered cuts -- over different orderings of the blob labels -- in order to fully capture all of the cut information.
 For a color dual theory such as NLSM or YM it is enough to do $(n-2)!$ labelings of each blob due to the Kleiss-Kuijf and $U(1)$ decoupling identities (cite KK).
 In this sense color-dressed cuts contain extraneous information that is bypassed when using color-ordered cuts.
@@ -501,98 +500,77 @@ Where we have define the antisymmetric kinematic variable, $[LR] = l_i^L - l_R^2
 
 \section{Bootstrapping two-loop...}
 
-\subsection{Notes to self -- James}
-\begin{itemize}
-\item We should comment on 1-loop YM.  Can you easily write down the $n$-gon numerator?  I have some memory that someone has some complicated YM numerator.
-\item Cite papers arguing about whether NLSM in 2D is non-trivial or not.
-\item Explain why you need to take a certain portion of the YZ numerator to get the right answer.  Basically you can't have a vector particle circle the loop -- NLSM is a scalar theory so only scalar DOF should actually live in cuts.  If you have a tree then you plug in longitudinal modes but if you have a loop then you really need to remove vector modes so that only scalars circle the loop.
-\item Reiterate that the (tree) amplitudes of CS and SDYM are zero.
-\item ZM and 2D NLSM (PCM) are the same classically but not quantum mechanically.
-This observation is due to other people but an easy way to see it.
-ZM and 2D NLSM have the same EOM after a field redefinition.
-This means that the classical physics is the same but of course the Lagrangians aren't the same and the field redefinition can change the path integral measure.
-\item Forcing pions to match ZM in 2D does funny things.
-The pion coupling constant is dropped but is implicitly set by the ordered 4pt amplitude which is normalized to be $-k_1 \cdot k_3$ in the package.
-I've tabulated what happens when you take a general D NLSM answer and force it to match ZM in 2D.
-Let's say that $n_\text{NLSM} = z n_\text{ZM}$ in 2D where I'm matching basis/master numerators.
-For 4pt tree, $z=2/3$ (I matched the half ladder).
-For 4pt 1-loop, $z$ is free/pure generalized gauge (I matched the box).
-For 4pt 2-loop (when you impose certain $\ell$ power counting) $z$ is $216/565=\tfrac{2^3 3^3}{5 \cdot 113}$ (I matched the double box and penta-triangle).
-For 6pt tree, $z$ is 12/35 (I matched the half ladder).
-So you can match kinematic structure (the combination of Mandelstams) of NLSM to ZM in 2D but you can't get the coupling constant right at loop level, that is, ZM is a different theory quantum mechanically.
-Actually these numbers make it look like you can't even match the theories classically but I guess for the theories to match classically you only need the amplitudes to agree and I matched numerators.
-\item Explain how matching to ZM is a little silly.
-Check that NLSM and ZM numerator agree on cuts.
-Can't do that or else it becomes subtle.
-Only well defined object is numerator.
-\item At 4pt 1-loop $\prod p_L^2 -p_R^2$ agrees with the ZM answer $\prod p_L \eps p_R$ up to some number.
-At 6pt 1-loop this is not true and the two answers differ by alternating signs depending on the kinematic configuration.
-\item You cannot lift ZM to general D NLSM in the democratic way that Nic described because it fails at 6pt tree.  So you take the ZM answer that looks like $\langle 1 2\rangle \langle 3 4\rangle...$ you can convert every pair of angles to dot products using 2D $\epsilon$ identities.  Make an ansatz where you do every pairing of $\epsilon$'s.  This doesn't work.
-\item To clean up the NLSM 4pt 2-loop answer I forced the answer to match ZM in 2D.
-The ZM answer also only has certain powers of loop momenta $\ell^5$...$\ell^8$ where $\ell$ represents any combination of $\ell_1$ and $\ell_2$.
-I enforce this $\ell^5$...$\ell^8$ behavior on the NLSM ansatz too.
-\item Describe Jacobi:  s,t,u channel color factors sum to zero so you want numerators to do the same
-\item Remember that I've explicitly checked the nice form of the 1-loop NLSM numerators at 4pt, 6pt, and 8pt.
-\item Should probably give the 4pt pion amplitude somewhere to show my conventions.
-\end{itemize}
-
-\subsection{Pions -- James}
+\subsection{Two-loop NLSM}
 \label{sec:pions}
 
 As we have seen, it is possible to coerce tree numerators into 1-loop numerators at any multiplicity for pions.
 However, these methods cannot be reapplied to generate 2-loop numerators, which begs the question ``is it possible to find globally color-dual numerators beyond 1-loop''.
 We will tackle this question for NLSM before moving on to YM.
 
-Every vertex in NLSM scales as $k^2$ so the numerator of a cubic 4pt 2-loop diagram scales as $k^{12}$.
-There are 8,008 independent dot products of momenta at this mass dimension.
-Since there are two basis numerators, double box and penta-triangle, the entire calculation involves 16,016 degrees of freedom.\footnote{A custom solver is needed for the pion ansatz since \texttt{Mathematica} cannot reasonably handle sixteen thousand parameters.  One alternative might be to use a large linear system solver designed for integral reduction.  However, these solvers assume that the matrix under consideration has a very low density.  This is not the case for pions where the equations naturally have a density of a few percent.  The YM equations have a lower density because the theory separates into different ``helicity'' or $e_i\cdot e_j$ sectors.  Since pions are scalars there is no such separation into sectors, resulting in denser equations.}
+Every vertex in NLSM scales as $k^2$ so the numerator of a 4pt 2-loop diagram diagram scales as $k^{12}$.
+At this mass dimension there are 8,008 independent dot products of momenta.
+Ignoring tadpoles and BEL graphs, there are 14 cubic 4pt 2-loop graphs, but they are related to one another via 21 distinct Jacobi relations.
+As mentioned in (review section), this means that the numerator of every graph can be expressed in terms of the double box and penta-triangle.
+With two basis graphs there is a total of 16,016 ansatz parameters.\footnote{\texttt{Mathematica} is not suited to equations with sixteen thousand parameters so a different method is desirable.
+One possibility is to use a solver designed for integral reduction.
+However, these solvers typically assume that the matrix has a very low density which is not the case for equations coming from NLSM which typically have a density of a few percent.
+While the equations in YM naturally separate into different ``helicity'' sectors (or $e_i \cdot e_j$ and $e_i \cdot k_j$ sectors in $D$ dimensions), there is no such separation of sectors in a scalar theory where any product of momenta can interfere with any other.
+The NLSM constraint equations were solved using a custom solver, \texttt{FiniteFieldSolve}, designed to solve large linear systems of arbitrary density.
+\texttt{FiniteFieldSolve} will be released publicly shortly.}
+Imposing all of the Jacobi relations eliminates all but 4,473 of the original free parameters.
+Further imposing graph symmetries reduces the number of free parameters to 1,243.
 
-
-How many constraints fixed by Jacobi, then graph sym, then cuts
-
-Move some of the cut pictures here.
-
-Cuts (b) and (c) of \cref{eq:PotentialCuts} are the only non-vanishing 4pt 2-loop physical cuts for an even multiplicity theory.
+The final essential constraint is unitarity.
+Cuts (b) and (c) of \cref{eq:PotentialCuts} are the only non-vanishing cuts that need to be enforced.  \jm{Move some of the cut pictures here?}
 This means that even at two loops, unitarity cuts are still only probing the on-shell 4pt NLSM amplitude.
 Even though (b) and (c) are the only non-zero cuts, other cuts, for example the maximal cut (d), must also be imposed in order to correctly reproduce NLSM.
 The maximal cut vanishes because only 3pt amplitudes contribute and these amplitudes vanish in any scalar theory.
-It is possible to automatically enforce (or ``bake in'') the double box and penta-triangle max cuts on the ansatz by writing the ansatz in terms of inverse propagators (and remaining irreducible scalar products) and then only keeping terms that involve at least one inverse propagator since those terms will vanish on those max cuts, just as the product of 3pt scalar amplitudes will.
-However, for the sake of simplicity we do not take this route.
+%It is possible to automatically enforce (or ``bake in'') the double box and penta-triangle max cuts on the ansatz by writing the ansatz in terms of inverse propagators (and remaining irreducible scalar products) and then only keeping terms that involve at least one inverse propagator since those terms will vanish on those max cuts, just as the product of 3pt scalar amplitudes will.
+%However, for the sake of simplicity we do not take this route.
+Imposing all relevant cuts leaves 765 free parameters representing the generalized gauge freedom in the answer.
 
-How many DOF left after imposing cuts
+\jm{Why aren't the two physical cuts spanning?  I know from experience that they're not but I can't easily explain why.}
 
-Why aren't the two physical cuts spanning?  I know from experience that they're not but I can't easily explain why.
-
-After imposing all of the three key constraints (Jacobi, graph symmetries, and unitarity), there still remains a plethora of generalized gauge freedom in the X unconstrained ansatz parameters.
-At this point color kinematics duality has been satisfied so the double copy will proceed without issue, but it is possible to enforce additional, more aesthetic, constraints as desired.
+At this point color-kinematics duality has been satisfied, so the double copy will proceed without issue.
+However, the plethora of generalized gauge freedom parameters leaves the option for enforcing additional aesthetic constraints.
 $\mathcal{N}=4$ SYM provides several hints for further conditions to impose on the ansatz.
 For example, for maximally supersymmetric gauge theory it is possible to enforce the no triangle hypothesis, manifest loop power counting, and, at least for 4pt and up to four loops, strip off a factor of $st A_\text{tree}$ from the integrand (I'm not sure I know all of the papers to cite here).
 For the NLSM integrand it is desirable to make color-kinematics duality as manifest as possible.
-One hope would be to factor out some piece of the 1-loop numerator since this at least manifests antisymmetry on some of the legs.
-However, a more fruitful direction is to match onto the one known theory with pion power counting that manifests color-kinematics duality to all loop order, namely, ZM theory.
+One hope would be to factor out some piece of the 1-loop numerator since this at least manifests antisymmetry for the vertices involving external legs.
+However, a more fruitful direction is to match onto the one known theory with pion power counting that manifests color-kinematics duality to all loop order, namely, Zakharov-Mikhailov theory (cite ZM, James).
 
+Why don't you just set all of the generalized gauge freedom parameters to zero?
+You can learn useful things by not doing this (see N=4), this allows us to introduce more physics into the problem, and, unsurprisingly, setting them to zero produces more a more complex answer with more unwieldy rational numbers than using physics.
 
-ZM plagued by (suffers from) IR regulation issues.
-Only one of the two physical/meaningful cuts can be done in a non-subtle way.
-We're using ZM more as a tool to... -- We know ZM has the right kinematic structure to give CK in 2D so we're just matching onto that because we can.  ZM and NLSM can be different at quantum level.
+ZM theory is governed by the Lagrangian
+\be
+\label{eq:ZMLagrangian}
+\mathcal{L}^{\text{ZM}} = \frac{1}{2}(\partial \varphi)^2 + g f^{abc} \varphi^a \epsilon^{\mu\nu}(\partial_\mu \varphi^b)( \partial_\nu \varphi^c) .
+\ee
+The color-stripped Feynman rule for the vertex is simply $V(k_1, k_2, k_3) \propto \epsilon_{\mu\nu}k_1^\mu k_2^\nu$ where off-shell color-kinematics duality to all orders in perturbation theory simply follows from the Schouten identity.
+Since the theory only has a cubic vertex and the theory has manifest off-shell color-kinematics duality, it is trivial to read off the color-dual numerator for any graph.
+From the presence of the Levi-Civita tensor $\epsilon^{\mu\nu}$, the theory clearly resides in two spacetime dimensions where scattering is notoriously plagued by infrared regulation issues.
+Every on-shell particle is either a right mover, with momentum proportional to $k_R^\mu \equiv (1,1)$, or a left mover, with momentum proportional to $k_L^\mu \equiv (1,-1)$.
+On-shell ZM amplitudes naturally divide into sectors corresponding to the configuration of left and right movers, where the scattering in many sectors is rather subtle.
+Only \emph{ordered} amplitudes can be defined unambiguously from the Feynman rules.
+At 4pt, only the alternating sector is free of subtleties and the amplitude for this process vanishes.
+In equations, $A[LRLR]=0$ where $R$ corresponds to a right mover and $L$ corresponds to a left mover.
+In every other configuration of right and left movers, such as $A[RRRR]$, one of the internal propagators is incidentally on-shell since $k_R^2=k_L^2=0$.
 
-Can't match to ZM on all of the physical cuts (one of them is always subtle).  Matching to ZM should be interpreted as just a way to simplify things, not really physical.
+It is tempting to try to match the pion 4pt 2-loop integrand to ZM on the cuts, but given that the cuts only probe the on-shell 4pt amplitude, which is either subtle or vanishes for ZM, it is better to compare the off-shell numerators directly.
+As local functions, the numerators never suffer from any of the subtleties of on-shell 2D kinematics.
+Since the physical cuts are difficult to compare, ZM theory is being used here simply as a tool to eliminate generalized gauge freedom; ZM theory has the right power counting and kinematic structure in 2D to compare against.
+Since ZM theory is only being used for the kinematical structure of its numerators, it is natural to introduce a proportionality constant $z$ between the NLSM and ZM numerators $n_\text{NLSM} \vert_{2D} = z ~ n_\text{ZM}$.
+The parameter $z$, which would normally be fixed on cuts, effectively encodes the discrepancy between the coupling constants of the two theories.\footnote{Floating the proportionality parameter $z$ is also motivated because ZM is believed to be quantum mechanically different from NLSM even though they are dual classically \citepls{Nappi}.}
+This introduces an extra degree of freedom into the problem.
+Mechanically, the pion numerator is matched to ZM by first taking every possible assignment of right and left movers for the external particles and then restricting the pion numerator to 2D.
+The loop momenta are restricted to 2D but left off-shell.
+After performing the 2D matching, there are only 365 parameters of generalized gauge freedom.
 
-Cut (b) is always subtle
-
-Match the $\ell$ structure of ZM
-
-This is the object we include in the ancillary files, maybe with the remaining variables set to zero
-
-For 4pt on-shell ZM, the LRLR configuration is zero and for every
-other configuration of external states the on-shell amplitude is
-subtle because of IR poles.  Note that the (on-shell) kinematic
-numerators are always unambiguous and never suffer from any of these
-subtleties in any kinematic configuration.  So when you compare
-against ZM, you either comparing against zero or something subtle.
-This is why you can't really take cuts of the NLSM and ZM integrands
-and meaningfully compare them even though you can compare their
-numerators.
+The loop momentum structure of ZM theory provides one final hint for simplifying the pion numerators.
+Both loop momenta $\ell_1$ and $\ell_2$ appear in the ZM numerators but only 5 to 8 powers appear in any term, that is, each term in the ZM numerator scales as either $\ell^5$, $\ell^6$, $\ell^7$, or $\ell^8$ where $\ell$ here refers to any combination of $\ell_1$ or $\ell_2$.
+When the pion numerator is also forced to have this loop power counting, the number of generalized gauge freedom parameters reduces to 58.
+The pion numerator appearing in the ancillary files contains only these 58 degrees of freedom.\footnote{When the 4pt pion amplitude is normalized to $-k_1\cdot k_2$ and the ZM vertex is normalized to $k_1^\mu \epsilon_{\mu\nu}k_2^\nu$, the parameter $z$ is fixed to $216/565$, which is clearly unrelated to the difference in coupling constants.}
 
 \subsection{Double-copy -- Alex }
 
@@ -716,7 +694,7 @@ diagrams.  Additionally, now that we have higher-point vertices, we
 avoid diagrams in which the higher-point vertex could contain an
 off-shell propagator that carries the same momenta as one of the cut
 propagators, \eg \ace{Any feedback on how this looks, especially with
-  the dashed lines?}
+  the dashed lines?} \jm{It looks good!  Can you omit the part where the blue lines actually cross?}
 \begin{equation*}
   \begin{tikzpicture}
     \pgfmathsetmacro{\ri}{1};
@@ -940,7 +918,7 @@ In the next section we will construct one-loop color-dual numerators using Lagra
 \be
 \mathcal{L}^{\text{semi-YM}} = - \frac{1}{2} G_{\mu\nu} F^{\mu\nu} = - \frac{1}{2} G_{\mu\nu} F^{\mu\nu} - \frac{g}{2} G_{\mu\nu} [A_\mu, A_\nu]
 \ee
-\draftnoteJM{I believe this Lagrangian has a name -- BF theory.  All this does is set F=0 and if you impose Lorenz gauge then you get many of the known color-dual theories.}
+\jm{I believe this Lagrangian has a name -- BF theory.  All this does is set F=0 and if you impose Lorenz gauge then you get many of the known color-dual theories.}
 \subsubsection{Self-Dual Yang-Mills} The first example in the literature \citepls{} of color-dual Feynman rules is that of Yang-Mills theory in the self-dual sector (SDYM):
 \be
 \mathcal{L}^{\text{YM}} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
@@ -983,7 +961,7 @@ This constraint is  satisfied with the following definition of the gauge field i
 \be\label{SDDef}
 A_v = \frac{1}{2} \partial_w \Psi, \qquad A_{\bar{w}} = \frac{1}{2} \partial_u \Psi,
 \ee
-Using this definition on the final \draftnoteJM{first?} self-dual constraint equation thus yields the following equation of motion for the dynamical scalar field:
+Using this definition on the final \jm{first?} self-dual constraint equation thus yields the following equation of motion for the dynamical scalar field:
 \be\label{SDEOM}
 (\ref{SDLightCone1}) \text{ and } (\ref{SDDef}) \quad  \Rightarrow\quad \Box \Psi + ig [\partial_u \Psi, \partial_w \Psi ]=0
 \ee
@@ -1206,6 +1184,41 @@ Should this section maybe go first?
 \item (Almost all of the theories (aside from NLSM) have trivial amplitudes at least at tree level)
 \item This means that almost all of the theories only have CK at the classical level, which can sometimes be fudged into 1-loop as we'll now discuss.
 \item For off-shell CK, the kinetic term is relatively unimportant so long as the poles are correctly/consistently identified (what do you mean by s,t,u channel poles).  This might screw up locality in the squared theory.
+\end{itemize}
+
+\section{Notes to self -- James}
+\begin{itemize}
+\item We should comment on 1-loop YM.  Can you easily write down the $n$-gon numerator?  I have some memory that someone has some complicated YM numerator.
+\item Cite papers arguing about whether NLSM in 2D is non-trivial or not.
+\item Explain why you need to take a certain portion of the YZ numerator to get the right answer.  Basically you can't have a vector particle circle the loop -- NLSM is a scalar theory so only scalar DOF should actually live in cuts.  If you have a tree then you plug in longitudinal modes but if you have a loop then you really need to remove vector modes so that only scalars circle the loop.
+\item Reiterate that the (tree) amplitudes of CS and SDYM are zero.
+\item ZM and 2D NLSM (PCM) are the same classically but not quantum mechanically.
+This observation is due to other people but an easy way to see it.
+ZM and 2D NLSM have the same EOM after a field redefinition.
+This means that the classical physics is the same but of course the Lagrangians aren't the same and the field redefinition can change the path integral measure.
+\item Forcing pions to match ZM in 2D does funny things.
+The pion coupling constant is dropped but is implicitly set by the ordered 4pt amplitude which is normalized to be $-k_1 \cdot k_3$ in the package.
+I've tabulated what happens when you take a general D NLSM answer and force it to match ZM in 2D.
+Let's say that $n_\text{NLSM} = z n_\text{ZM}$ in 2D where I'm matching basis/master numerators.
+For 4pt tree, $z=2/3$ (I matched the half ladder).
+For 4pt 1-loop, $z$ is free/pure generalized gauge (I matched the box).
+For 4pt 2-loop (when you impose certain $\ell$ power counting) $z$ is $216/565=\tfrac{2^3 3^3}{5 \cdot 113}$ (I matched the double box and penta-triangle).
+For 6pt tree, $z$ is 12/35 (I matched the half ladder).
+So you can match kinematic structure (the combination of Mandelstams) of NLSM to ZM in 2D but you can't get the coupling constant right at loop level, that is, ZM is a different theory quantum mechanically.
+Actually these numbers make it look like you can't even match the theories classically but I guess for the theories to match classically you only need the amplitudes to agree and I matched numerators.
+\item Explain how matching to ZM is a little silly.
+Check that NLSM and ZM numerator agree on cuts.
+Can't do that or else it becomes subtle.
+Only well defined object is numerator.
+\item At 4pt 1-loop $\prod p_L^2 -p_R^2$ agrees with the ZM answer $\prod p_L \eps p_R$ up to some number.
+At 6pt 1-loop this is not true and the two answers differ by alternating signs depending on the kinematic configuration.
+\item You cannot lift ZM to general D NLSM in the democratic way that Nic described because it fails at 6pt tree.  So you take the ZM answer that looks like $\langle 1 2\rangle \langle 3 4\rangle...$ you can convert every pair of angles to dot products using 2D $\epsilon$ identities.  Make an ansatz where you do every pairing of $\epsilon$'s.  This doesn't work.
+\item To clean up the NLSM 4pt 2-loop answer I forced the answer to match ZM in 2D.
+The ZM answer also only has certain powers of loop momenta $\ell^5$...$\ell^8$ where $\ell$ represents any combination of $\ell_1$ and $\ell_2$.
+I enforce this $\ell^5$...$\ell^8$ behavior on the NLSM ansatz too.
+\item Describe Jacobi:  s,t,u channel color factors sum to zero so you want numerators to do the same
+\item Remember that I've explicitly checked the nice form of the 1-loop NLSM numerators at 4pt, 6pt, and 8pt.
+\item Should probably give the 4pt pion amplitude somewhere to show my conventions.
 \end{itemize}
 
 
