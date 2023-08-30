@@ -51,8 +51,9 @@
 
 
 
-\newcommand{\DoubleBoxLabeled}[4]{ {
-\begin{tikzpicture}
+\newcommand{\KTDBContrib}[4]{ {
+    \begin{tikzpicture}
+      \pgfmathsetmacro{\cutlength}{0.8}
 \begin{feynman}
 \vertex (a1) at (-1.5,1){#4};
 \vertex (a2) at (1.5,-1){#2};
@@ -64,18 +65,43 @@
 \vertex (mid4) at (1,-.5) ;
 \vertex (mid5) at (-1,.5);
 \vertex (mid6) at (-1,-.5) ;
+% Cut reference coords at the center of each line
+%LH box midpoints
+\vertex (m1) at ($(mid5)!0.5!(mid6)$);
+\vertex (m2) at ($(mid1)!0.5!(mid6)$);
+\vertex (m3) at ($(mid5)!0.5!(mid2)$);
+\vertex (clo) at ($(m2)!0.5!(m3)$) {};
+\vertex (c1) at ($(clo)+(90:\cutlength)$);
+\vertex (c2) at ($(clo)+(180:\cutlength)$);
+\vertex (c3) at ($(clo)+(270:\cutlength)$);
+%RH box midpoints
+\vertex (m4) at ($(mid3)!0.5!(mid4)$);
+\vertex (m5) at ($(mid3)!0.5!(mid2)$);
+\vertex (m6) at ($(mid4)!0.5!(mid1)$);
+\vertex (cro) at ($(m5)!0.5!(m6)$) {};
+\vertex (c4) at ($(cro)+(90:\cutlength)$);
+\vertex (c5) at ($(cro)+(0:\cutlength)$);
+\vertex (c6) at ($(cro)+(270:\cutlength)$);
+
+
 \diagram{
 (a4) --[ultra thick,](mid6),
 (a3) --[ultra thick,](mid3),
 (a2) --[ultra thick,](mid4),
 (a1) --[ultra thick,](mid5),
-(mid1) --[ultra thick,nhp4](mid2),
+(mid1) --[ultra thick,ucp-color](mid2),
 (mid3) --[ultra thick,](mid2),
 (mid1) --[ultra thick,](mid6),
 (mid1) --[ultra thick,](mid4),
 (mid5) --[ultra thick,](mid2),
 (mid5) --[ultra thick,](mid6),
 (mid3) --[ultra thick,](mid4),
+(clo)--[ultra thick,dashed,blue](c1),
+(clo)--[ultra thick,dashed,blue](c2),
+(clo)--[ultra thick,dashed,blue](c3),
+(cro)--[ultra thick,dashed,blue](c4),
+(cro)--[ultra thick,dashed,blue](c5),
+(cro)--[ultra thick,dashed,blue](c6)
 };
 \end{feynman}
 \end{tikzpicture}

@@ -19,7 +19,9 @@
 
 <<TetanusLink`
 (*Define some convenient defaults*)
+WorkingGF = 2^MersennePrimeExponent[6] - 1;
 WorkingGF = 2^MersennePrimeExponent[7] - 1;
+WorkingGF = 2^MersennePrimeExponent[8] - 1;
 (*WorkingGF = 107;*)
 tetanusSolve[system_]:=tetanusSolveFull[system,a,a[1000,0],{-#[[1]]&,-#[[2]]&},GroundField->WorkingGF]
 tetanusSolveNP[system_]:=tetanusSolveFull[system,a,a[1000,0],{-#[[1]]&,-#[[2]]&},PrintStatusQ->False,GroundField->WorkingGF]

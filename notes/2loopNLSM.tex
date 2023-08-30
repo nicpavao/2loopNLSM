@@ -20,6 +20,7 @@
 \usepackage{stackengine}
 \usepackage{subcaption}
 \usepackage{cleveref}
+\usepackage[normalem]{ulem}
 
 \def\RA{\rlap{\scalebox{1.6}{$\leftrightarrow$}}}
 \def\DA{\smash{\bclap{\scalebox{1.6}{$\downarrow$}}}}
@@ -60,6 +61,9 @@
 \definecolor{hgrey1}{RGB}{150,150,150}
 \definecolor{hgrey0}{RGB}{175,175,175}
 \definecolor{darkgreen}{RGB}{59,126,108}
+\definecolor{nu-80}{RGB}{104, 076, 150}
+\definecolor{nu-40}{RGB}{164, 149, 195}
+\colorlet{ucp-color}{nu-40}
 
 
 %Comment commands
@@ -268,16 +272,25 @@ in which ``numerators'' with controlled rational contributions have
 been found
 \cite{Square,WeinzierlBCJLagrangian,Mogull:2015adi,FivePointN4BCJ,Johansson:2017bfl}.
 However, without a guiding principle about what types of rational
-terms to use, the size of ans\"{a}tze quickly get out of hand.
-Point 2 was motivated at the time by the hope that color-dual numerators
-could arise naturally out of a special gauge choice. \jm{I'm not sure that we should bring up point 2.  I don't follow it and I don't think Alex did either since this wouldn't be the most general ansatz.  Also, why doesn't point 5 cover point 4?}
-On the other hand, recent work by Ben-Shahar, Garozzo, and Johansson \cite{Ben-Shahar:2022ixa}
-\ace{Are there other good examples?}  demonstrates that constructing
-Feynman rules which produce manifestly color-dual numerators for the
-NMHV sector of Yang--Mills requires introducing additional auxiliary
-fields, including higher-spin modes, which could shift the expected
-power counting in non-trivial ways.  Point 3 is a requirement of the
-BCJ double-copy: currently there is no known way of incorporating
+terms to use, the size of ans\"{a}tze quickly get out of hand.  Point
+2 was motivated at the time by the hope that color-dual numerators
+could arise naturally out of a special gauge choice. \jm{I'm not sure
+  that we should bring up point 2.  I don't follow it and I don't
+  think Alex did either since this wouldn't be the most general
+  ansatz.  Also, why doesn't point 5 cover point 4?}\ace{I paraphrased
+  these out of \cite{Bern:2015ooa}, thus the inclusion of Point 2.
+  For Points 4 and 5, definitely 4 $\not \Rightarrow$ 5.  In the other
+  direction, I could imagine a situation in which we violate 4 (eg we
+  need to specify a reference ordering) but that symmetries are still
+  respected as long as you also perform the correct actions on the
+  auxiliary data.} On the other hand, recent work by Ben-Shahar,
+Garozzo, and Johansson \cite{Ben-Shahar:2022ixa} \ace{Are there other
+  good examples?}  demonstrates that constructing Feynman rules which
+produce manifestly color-dual numerators for the NMHV sector of
+Yang--Mills requires introducing additional auxiliary fields,
+including higher-spin modes, which could shift the expected power
+counting in non-trivial ways.  Point 3 is a requirement of the BCJ
+double-copy: currently there is no known way of incorporating
 non-cubic diagrams into the kinematic Jacobi relations.  Points 4 and
 5 will be elaborated on in \cref{sec:syms}, Point 6 in
 \cref{sec:unitarity}, and Point 7 in \cref{sec:jac-rels}.
@@ -573,6 +586,8 @@ When the pion numerator is also forced to have this loop power counting, the num
 The pion numerator appearing in the ancillary files contains only these 58 degrees of freedom.\footnote{When the 4pt pion amplitude is normalized to $-k_1\cdot k_2$ and the ZM vertex is normalized to $k_1^\mu \epsilon_{\mu\nu}k_2^\nu$, the parameter $z$ is fixed to $216/565$, which is clearly unrelated to the difference in coupling constants.}
 
 \subsection{Double-copy -- Alex }
+\ace{I'm punting a lot of discussion to Ref \cite{Carrasco:2023qgz}.
+  Do we think that is a problem?}
 
 \begin{figure}
   \begin{center}
@@ -612,18 +627,15 @@ $\mathcal{N}=0$ YM numerators from Ref.~\cite{Bern:2015ooa} (which
 additionally satisfies a relaxed form of color-kinematics duality),
 and the cubic $\mathcal{N}=4$ sYM representation from the well-known
 $n_{\text{DB}} = n_{\text{CB}} = s (st\, A_{\text{tree}})$ \citepls{}.
+On the other hand, we use the methods of Ref.~\cite{Carrasco:2023qgz}
+to directly compute the needed basis cuts in all 3 theories without
+relying on a color-dual pion representation.  We find exact agreement
+in each of the three theories for both physical cuts.  Since
+Ref.~\cite{Carrasco:2023qgz} has already exhaustively explored the
+properties of four-point loop amplitudes in these theories, we direct
+interested readers there for more information.
 
-Using the methods of Ref.~\cite{Carrasco:2023qgz}, we can directly
-compute the needed basis cuts in all 3 theories without relying on a
-color-dual pion representation.  
 
-
-\begin{itemize}
-\item  ``Most important'' check of Jacobi -- imposes ``diff'' invariance in the DC numerators
-\item Match against cuts from \cite{Carrasco:2023qgz}: double copy
-  with N=0 \cite{Bern:2015ooa}, N=4, itself
-  \item Whip up a non-jacobi N=0 or $\pi$ to highlight double copy success?
-\end{itemize}
 
 \subsection{Yang-Mills revisited -- Alex}
 Given the close ties between pion and gluon scattering for trees and
@@ -694,7 +706,7 @@ diagrams.  Additionally, now that we have higher-point vertices, we
 avoid diagrams in which the higher-point vertex could contain an
 off-shell propagator that carries the same momenta as one of the cut
 propagators, \eg \ace{Any feedback on how this looks, especially with
-  the dashed lines?} \jm{It looks good!  Can you omit the part where the blue lines actually cross?}
+  the dashed lines?} \jm{It looks good!  Can you omit the part where the blue lines actually cross?}\ace{Like so?}
 \begin{equation*}
   \begin{tikzpicture}
     \pgfmathsetmacro{\ri}{1};
@@ -760,6 +772,7 @@ propagators, \eg \ace{Any feedback on how this looks, especially with
       \draw[dashed,ultra thick,blue] (0,0) -- (c3);
       \draw[dashed,ultra thick,blue] (0,0) -- (c4);
       \draw[dashed,ultra thick,blue] (c5) -- ++(90:0.7*\cl);
+      \node[fill=white,circle] (c) at (0,0) {};
       
   \end{tikzpicture},
 \end{equation*}
@@ -775,36 +788,45 @@ kinematic Jacobi relations and symmetries.  Interestingly, the
 cannot be satisfied by either the unrestricted or the BDN-restricted
 ansatz with Jacobi relations and symmetries applied.
 
-\ace{I need to check this.  For now it is a standing hypothesis:} In
-fact, we can make the failure extremely precise.  Start with the
-diagrams shown in the Jacobi relation from \cref{eq:TwoLoopJacobiOne}:
-the double-box, crossed-box, and penta-triangle.  For each of the
-three diagrams, write down the most generic parity-even local ansatz
-involving four polarizations and six momenta (any combination of external or loop).  Each ansatz will be
-10,010 terms initially.  Next impose the symmetry constraints on each
-of the three diagrams, leaving XX free parameters on the double-box,
-YY free parameters on the crossed-box, and ZZ free paramters on the
-penta-triangle.  Then impose the ``kissing triangle'' next-to-maximal
-cut, which in the \emph{non-planar} color channel only recieves
-contributions from the double-box
+\ace{\sout{I need to check this.  For now it is a standing
+    hypothesis:} Checked.  The failure works as stated.} In fact, we can make the
+failure extremely precise.  Start with the diagrams shown in the
+Jacobi relation from \cref{eq:TwoLoopJacobiOne}: the double-box,
+crossed-box, and penta-triangle.  For each of the three diagrams,
+write down the most generic parity-even local ansatz involving four
+polarizations and six momenta (any combination of external or loop).
+Each ansatz will be 10,010 terms initially.  Next impose the symmetry
+constraints on each of the three diagrams, leaving 2761 free
+parameters on the double-box, 2576 free parameters on the crossed-box,
+and 5040 free paramters on the penta-triangle.  Then impose the
+``kissing triangle'' next-to-maximal cut, which in the
+\emph{non-planar} $t$-$u$ color channel only recieves contributions from the
+double-box
 \begin{equation}
   \KissingTriangles
   =
-  \frac{1}{(\textcolor{nhp4}{\ell_1})^2} \
+  \frac{1}{(\textcolor{ucp-color}{\ell_1})^2} \
   n \left[
-    \DoubleBoxLabeled{1}{2}{3}{4}
+    \KTDBContrib{1}{2}{3}{4}
   \right]
   +
-  \frac{1}{(\textcolor{nhp4}{\ell_2})^2} \
-  n\left[\DoubleBoxLabeled{1}{3}{2}{4}\right]
+  \frac{1}{(\textcolor{ucp-color}{\ell_2})^2} \
+  n\left[\KTDBContrib{1}{3}{2}{4}\right] \,.
 \end{equation}
 After imposing this cut, we find that the original Jacobi relation,
 \cref{eq:TwoLoopJacobiOne}, can no longer be satisfied:
 \begin{equation}
   \KissingTriangles
   \Rightarrow
-  \JacobiOneDoubleBox +  \JacobiOneCrossedBox + \JacobiOnePentaTriangle \neq 0
+  \JacobiOneDoubleBox +  \JacobiOneCrossedBox + \JacobiOnePentaTriangle \neq 0 \,.
 \end{equation}
+Thus we have identified the minimal failure state for a
+globally-color-dual two-loop Yang--Mills representation: locality,
+symmetry, and the ``kissing triangle'' cut are incompatible with the
+kinematic Jacobi relations.
+
+
+
 
 
 
