@@ -108,6 +108,63 @@
 }
 }
 
+\newcommand{\IUCContrib}[4]{ {
+    \begin{tikzpicture}
+      \pgfmathsetmacro{\cutlength}{0.8}
+\begin{feynman}
+\vertex (a1) at (-1.5,1){\scriptsize{#4}};
+\vertex (a2) at (1.5,-1){\scriptsize{#2}};
+\vertex (a3) at (1.5,1){\scriptsize{#3}};
+\vertex (a4) at (-1.5,-1){\scriptsize{#1}};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (1,.5) ;
+\vertex (mid4) at (1,-.5) ;
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5) ;
+% Cut reference coords at the center of each line
+%LH box midpoints
+\vertex (m1) at ($(mid5)!0.5!(mid6)$);
+\vertex (m2) at ($(mid1)!0.5!(mid6)$);
+\vertex (m3) at ($(mid5)!0.5!(mid2)$);
+\vertex (clo) at ($(m2)!0.5!(m3)$) {};
+\vertex (c1) at ($(clo)+(90:\cutlength)$);
+\vertex (c2) at ($(clo)+(180:\cutlength)$);
+\vertex (c3) at ($(clo)+(270:\cutlength)$);
+%RH box midpoints
+\vertex (m4) at ($(mid3)!0.5!(mid4)$);
+\vertex (m5) at ($(mid3)!0.5!(mid2)$);
+\vertex (m6) at ($(mid4)!0.5!(mid1)$);
+\vertex (cro) at ($(m5)!0.5!(m6)$) {};
+\vertex (c4) at ($(cro)+(90:\cutlength)$);
+\vertex (c5) at ($(cro)+(0:\cutlength)$);
+\vertex (c6) at ($(cro)+(270:\cutlength)$);
+
+
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,ucp-color](mid2),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid6),
+(mid1) --[ultra thick,](mid4),
+(mid5) --[ultra thick,](mid2),
+(mid5) --[ultra thick,ucp-color](mid6),
+(mid3) --[ultra thick,ucp-color](mid4),
+(clo)--[ultra thick,dashed,cut-color](c1),
+%(clo)--[ultra thick,dashed,cut-color](c2),
+(clo)--[ultra thick,dashed,cut-color](c3),
+(cro)--[ultra thick,dashed,cut-color](c4),
+%(cro)--[ultra thick,dashed,cut-color](c5),
+(cro)--[ultra thick,dashed,cut-color](c6)
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
 
 %%% Jacobi 1 %%%
 
@@ -353,6 +410,37 @@
 %%% Graph sym end %%%
 
 %%% Unitarity cuts begin %%%
+\newcommand{\ExCutLabeled}[4]{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-.6, -0.6) {\scriptsize{#1}};
+\vertex (a2) at (-.6, 0.6) {\scriptsize{#2}};
+%\vertex [dot,scale=2](mid1) at (0,0){};
+%\vertex [dot,scale=1.5,hgrey0](mid2) at (0,0){};
+\blob{mid1}{0,0};
+%\vertex [dot,scale=2](mid3) at (.8,0){};
+%\vertex [dot,scale=1.5,hgrey0](mid4) at (.8,0){};
+\blob{mid3}{.8,0};
+%\vertex [dot,scale=2](mid5) at (1.6,0){};
+%\vertex [dot,scale=1.5,hgrey0](mid6) at (1.6,0){};
+\blob{mid5}{1.6,0};
+\vertex (a3) at (2.2, .6) {\scriptsize{#3}};
+\vertex (a4) at (2.2, -.6) {\scriptsize{#4}};
+\diagram{
+(mid1) --[ ultra thick,](a1),
+(mid1) --[ ultra thick,](a2),
+(mid1) --[ ultra thick,out=60,in=120,min distance=0.4cm,edge label=\scriptsize{$\ell_1$}](mid3),
+(mid1) --[ ultra thick,out=-60,in=-120,min distance=0.4cm,edge label'=\scriptsize{$\ell_2$}](mid3),
+(mid3) --[ ultra thick,out=60,in=120,min distance=0.4cm,edge label=\scriptsize{$\ell_3$}](mid5),
+(mid3) --[ ultra thick,out=-60,in=-120,min distance=0.4cm,edge label'=\scriptsize{$\ell_4$}](mid5),
+(mid5) --[ ultra thick](a4),
+(mid5) --[ ultra thick,](a3)
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
 
 \newcommand{\PhysicalCutOne}[4]{ {
 \begin{tikzpicture}[baseline=6]
