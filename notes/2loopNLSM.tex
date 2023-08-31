@@ -493,32 +493,109 @@ sides of \cref{eq:example-cut-prod,eq:example-cut-sum} and all drawn
 legs are assumed to be on-shell.  When drawing numerator contributions
 to cuts, we will not use blobs on vertices, and will use
 \textcolor{cut-color}{dashed lines} bisecting edges to denote cut
-lines and highlight the \textcolor{ucp-color}{uncut edges}.  From now
-on we will leave the cut $\delta(\ell^2)$s implicit.
+lines and use colored edges to highlight the
+\textcolor{ucp-color}{uncut propagators}.  From now on we will leave
+the cut $\delta(\ell^2)$s implicit.
 
 
 In color-charged theories, both sides of the cut can be further
 decomposed according to the color algebra.  For theories charged under
-the adjoint of $SU(N)$ via $f^{abc}$-dressed amplitudes
+the adjoint of $SU(N)$ via $f^{abc}$-dressed amplitudes, it is
+convenient to project onto a specific basis of the Del
+Duca-Dixon-Maltoni (DDM) color basis \cite{DixonMaltoni} by only
+inserting color-ordered amplitudes in the product of trees, and
+restricting the set of compatible diagrams to those whose color
+factors reduce to the appropriate DDM element when summing over
+\emph{only the uncut color contractions}.  In this situation, the
+color becomes an overall factor on the entire equality and thus can be
+ignored.  Cuts that are organized in this manner are known as
+``color-ordered'' cuts, in the same sense as color-ordered tree
+amplitudes.  Since the DDM basis (and dual Kleiss-Kuijf amplitude
+basis \cite{Kleiss:1988ne}) have $(n-2)!$ elements, one generally
+needs to evaluate that many separate color-orderings of the same cut.
+As an example, consider the ``kissing triangle'' cut topology, one of
+the factorization channels of the iterated unitarity cut, which has
+two topologically distinct color-ordered expansions
+\begin{equation}
+  \label{eq:kt-color-ord}
+  \KissingTriangles =
+  \begin{cases}
+     s\text{-}t \text{ channel}
+    &
+      \frac{1}{\textcolor{ucp-color}{s_{12}}}
+      n \left[\scalebox{0.65}{\KTBTContrib{1}{4}{3}{2}}
+      \right]
+      +
+      \frac{1}{\textcolor{ucp-color}{\ell_1^2}} \
+      n \left[
+      \scalebox{0.65}{\KTDBContrib{1}{4}{3}{2}}
+      \right]\\
+    t\text{-}u \text{ channel}
+    & 
+      \frac{1}{\textcolor{ucp-color}{\ell_1^2}} \
+      n \left[
+      \scalebox{0.65}{\KTDBContrib{1}{4}{3}{2}}
+      \right]
+      +
+      \frac{1}{\textcolor{ucp-color}{\ell_2^2}} \
+      n\left[
+      \scalebox{0.65}{\KTDBContrib{1}{3}{4}{2}}
+      \right]
+  \end{cases}
+\end{equation}
+which serve as a complete basis for the full cut.
 
-
-It is possible to work with either color-dressed cuts or color-ordered
-cuts.  For color-dressed cuts the grey blobs are blown up into all
-possible channels and all color factors $f^{abc}$ are explicitly
-retained on both sides of the unitarity equation
-\cref{eq:SchematicCutEquation}.  For color-ordered cuts the grey blobs
-are only blown up in color-ordered channels, all color factors in
-\cref{eq:SchematicCutEquation} are suppressed, and the product of
-on-shell amplitudes only extends over color-ordered trees.  Since
-color-ordered cuts do not contain the full color information of the
-theory, it is necessary to do multiple color-ordered cuts -- over
-different orderings of the blob labels -- in order to fully capture
-all of the cut information.  For a color dual theory such as NLSM or
-YM it is enough to do $(n-2)!$ labelings of each blob due to the
-Kleiss-Kuijf and $U(1)$ decoupling identities (cite KK).  In this
-sense color-dressed cuts contain extraneous information that is
-bypassed when using color-ordered cuts.
-
+Even beginning at one loop, we will encounter types of cuts that are
+difficult to properly define due to hidden non-physical singularities.
+The quintessential example of such a ``pathological'' cut is the 3-1
+two-particle cut at one loop which hides a bubble-on-external-leg
+singularity
+\begin{equation}
+  \begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-.8, -0.6) {};
+\vertex (a2) at (-.8, 0.6) {};
+\vertex (a3) at (-1, 0) {};
+\vertex [dot, scale=2](mid1) at (0,0){};
+\vertex [dot, scale=1.5,hgrey0](mid2) at (0,0){};
+\vertex [dot, scale=2](mid3) at (1,0){};
+\vertex [dot, scale=1.5,hgrey0](mid4) at (1,0){};
+\vertex (a4) at (1.8, 0) {};
+\diagram{
+(mid1) --[ultra thick,](a1),
+(mid1) --[ultra thick,](a2),
+(mid1) --[ultra thick,](a3),
+%(mid1) --[ultra thick,](mid3),
+(mid1) --[ultra thick,out=60,in=120,min distance=0.4cm](mid3),
+(mid1) --[ultra thick,out=-60,in=-120,min distance=0.4cm](mid3),
+(mid3) --[ultra thick](a4),
+};
+\end{feynman}
+\end{tikzpicture}
+\ni
+\frac{\delta(\textcolor{cut-color}{k_1^2})}{\textcolor{ucp-color}{k_1^2}}
+n \left[
+  \begin{tikzpicture}
+    \ver{e1}{-1,0};
+    \ver{e2}{-0.6,0.4};
+    \ver{e3}{-0.3,0.4};
+    \ver{i1}{-0.6,0};
+    \ver{i2}{-0.3,0};
+    \ver{i3}{0,0};
+    \ver{i4}{0.8,0};
+    \ver{co}{$(i3)!0.5!(i4)$};
+    \ver{e4}{1.2,0};
+    \draw[ultra thick] (e1)--(i1)--(i2)--(i3) to [out=80,in=100,min distance=0.4cm](i4)--(e4);
+    \draw[ultra thick,ucp-color](i1)--(i2)--(i3);
+    \draw[ultra thick,cut-color](i4)--(e4);
+    \draw[ultra thick] (i3) to [out=-80,in=-100,min distance=0.4cm](i4);
+    \draw[ultra thick] (e2) -- (i1);
+    \draw[ultra thick] (e3)--(i2);
+    \draw[ultra thick,dashed,cut-color] (co)--++(90:0.5);
+    \draw[ultra thick,dashed,cut-color] (co)--++(-90:0.5);
+  \end{tikzpicture}
+  \right]
+\end{equation}
 
 
 

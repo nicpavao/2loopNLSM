@@ -108,6 +108,67 @@
 }
 }
 
+\newcommand{\KTBTContrib}[4]{ {
+    \begin{tikzpicture}
+      \pgfmathsetmacro{\cutlength}{0.8}
+\begin{feynman}
+\vertex (a1) at (-1.5,1){#4};
+\vertex (a2) at (1.5,-1){#2};
+\vertex (a3) at (1.5,1){#3};
+\vertex (a4) at (-1.5,-1){#1};
+\vertex (mid1) at (-0.25,0);
+\vertex (mid2) at (0.25,0);
+
+%\vertex (mid1) at (0,-.5);
+%\vertex (mid2) at (0,.5);
+\vertex (mid3) at (1,.5) ;
+\vertex (mid4) at (1,-.5) ;
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5) ;
+% Cut reference coords at the center of each line
+%LH box midpoints
+\vertex (m1) at ($(mid5)!0.5!(mid6)$);
+\vertex (m2) at ($(mid1)!0.5!(mid6)$);
+\vertex (m3) at ($(mid5)!0.5!(mid2)$);
+\vertex (clo) at ($(m1)!0.35!(mid1)$) {};
+\vertex (c1) at ($(clo)+(60:\cutlength)$);
+\vertex (c2) at ($(clo)+(180:\cutlength)$);
+\vertex (c3) at ($(clo)+(300:\cutlength)$);
+%RH box midpoints
+\vertex (m4) at ($(mid3)!0.5!(mid4)$);
+\vertex (m5) at ($(mid3)!0.5!(mid2)$);
+\vertex (m6) at ($(mid4)!0.5!(mid1)$);
+\vertex (cro) at ($(m4)!0.4!(mid2)$) {};
+\vertex (c4) at ($(cro)+(120:\cutlength)$);
+\vertex (c5) at ($(cro)+(0:\cutlength)$);
+\vertex (c6) at ($(cro)+(-120:\cutlength)$);
+
+
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,ucp-color](mid2),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid6),
+(mid2) --[ultra thick,](mid4),
+(mid5) --[ultra thick,](mid1),
+(mid5) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid4),
+(clo)--[ultra thick,dashed,cut-color](c1),
+(clo)--[ultra thick,dashed,cut-color](c2),
+(clo)--[ultra thick,dashed,cut-color](c3),
+(cro)--[ultra thick,dashed,cut-color](c4),
+(cro)--[ultra thick,dashed,cut-color](c5),
+(cro)--[ultra thick,dashed,cut-color](c6)
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+
 \newcommand{\IUCContrib}[4]{ {
     \begin{tikzpicture}
       \pgfmathsetmacro{\cutlength}{0.8}
