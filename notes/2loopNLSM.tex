@@ -435,18 +435,35 @@ treatment of unitarity methods optimized for even multiplicity
 theories like NLSM.
 
 In the context of loop integrand construction, generalized unitarity
-allows us to equate products of on-shell tree amplitudes encoded via
-graphs, \eg
+allows us to equate products of on-shell tree amplitudes, encoded via
+a graph $\gamma$, to sums over compatible\footnote{A diagram $g$ is compatible with the
+  cut diagram $\gamma$ if $g$ is isomorphic to $\gamma$ or to any of
+  the additional factorization channels of $\gamma$. } diagram
+numerators evaluated on the support of the on-shell conditions and
+weighted by their uncut propagators
+\begin{equation}
+\label{eq:SchematicCutEquation}
+\text{Cut}[\gamma]= \sum_{\substack{\text{states}\\\text{crossing } E(\gamma)}} \prod_{v \in V(\gamma)} \atree(v)
+= \sum_{g \text{ compat } \gamma}
+\frac{n[g] \vert_\text{cut}}{\prod \limits_{\text{uncut}} \ell^2}
+ \, ,
+\end{equation}
+where $V(\gamma)$ are the vertices of $\gamma$ and $E(\gamma)$ its
+edges.  The sum over states hides much of the complexity of cut
+construction: for scalars the process is trivial while spinning states
+greatly complicate matters (see
+Refs.~\cite{Kosmopoulos:2020pcd,Edison:2022jln} for recent discussion
+and detailed examples of evaluating state sums).  It is useful to
+provide some examples of the two types of expressions appearing in
+\cref{eq:SchematicCutEquation}.  First the so-called
+iterated unitarity cut, which can be written in the product-of-trees
+representation as
 \begin{equation}
   \label{eq:example-cut-prod}
   \ExCutLabeled{1}{2}{3}{4} = \!\!\!\!\! \sum_{\substack{\text{states of }\\ \{\ell_1, \ell_2, \ell_3, \ell_4\}}} \!\!\!\!\!\!\!
   \atree(1,2,\ell_1,\ell_2) \atree(-\ell_1,-\ell_2,\ell_3,\ell_4) \atree(-\ell_3,-\ell_4,3,4) \,,
 \end{equation}
-to sums over compatible\footnote{A diagram $g$ is compatible with the
-  cut diagram $\gamma$ if $g$ is isomorphic to $\gamma$ or to any of
-  the additional factorization channels of $\gamma$. } diagram
-numerators evaluated on the support of the on-shell conditions and
-weighted by their uncut propagators, \eg
+or in reference to a collection of diagram numerators as
 \begin{align}
   \label{eq:example-cut-sum}
   \ExCutLabeled{1}{2}{3}{4} &=
@@ -469,7 +486,7 @@ weighted by their uncut propagators, \eg
     (\textcolor{ucp-color}{\ell_7'})^2}
   \ n\left[
     \IUCContrib{1}{3}{4}{2}
-    \right] + \text{others}
+    \right] + 25\text{ others.}
 \end{align}
 When drawing cut diagrams, we will use gray blobs as in the left-hand
 sides of \cref{eq:example-cut-prod,eq:example-cut-sum} and all drawn
@@ -478,6 +495,32 @@ to cuts, we will not use blobs on vertices, and will use
 \textcolor{cut-color}{dashed lines} bisecting edges to denote cut
 lines and highlight the \textcolor{ucp-color}{uncut edges}.  From now
 on we will leave the cut $\delta(\ell^2)$s implicit.
+
+
+In color-charged theories, both sides of the cut can be further
+decomposed according to the color algebra.  For theories charged under
+the adjoint of $SU(N)$ via $f^{abc}$-dressed amplitudes
+
+
+It is possible to work with either color-dressed cuts or color-ordered
+cuts.  For color-dressed cuts the grey blobs are blown up into all
+possible channels and all color factors $f^{abc}$ are explicitly
+retained on both sides of the unitarity equation
+\cref{eq:SchematicCutEquation}.  For color-ordered cuts the grey blobs
+are only blown up in color-ordered channels, all color factors in
+\cref{eq:SchematicCutEquation} are suppressed, and the product of
+on-shell amplitudes only extends over color-ordered trees.  Since
+color-ordered cuts do not contain the full color information of the
+theory, it is necessary to do multiple color-ordered cuts -- over
+different orderings of the blob labels -- in order to fully capture
+all of the cut information.  For a color dual theory such as NLSM or
+YM it is enough to do $(n-2)!$ labelings of each blob due to the
+Kleiss-Kuijf and $U(1)$ decoupling identities (cite KK).  In this
+sense color-dressed cuts contain extraneous information that is
+bypassed when using color-ordered cuts.
+
+
+
 
 The essence of generalized unitarity is that when internal lines are
 placed on-shell, the integrand should factorize into a product of
