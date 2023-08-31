@@ -501,7 +501,7 @@ the cut $\delta(\ell^2)$s implicit.
 In color-charged theories, both sides of the cut can be further
 decomposed according to the color algebra.  For theories charged under
 the adjoint of $SU(N)$ via $f^{abc}$-dressed amplitudes, it is
-convenient to project onto a specific basis of the Del
+convenient to project onto a specific element of the Del
 Duca-Dixon-Maltoni (DDM) color basis \cite{DixonMaltoni} by only
 inserting color-ordered amplitudes in the product of trees, and
 restricting the set of compatible diagrams to those whose color
@@ -545,7 +545,7 @@ two topologically distinct color-ordered expansions
 \end{equation}
 which serve as a complete basis for the full cut.
 
-Even beginning at one loop, we will encounter types of cuts that are
+Even beginning at one loop, we encounter classes of cuts that are
 difficult to properly define due to hidden non-physical singularities.
 The quintessential example of such a ``pathological'' cut is the 3-1
 two-particle cut at one loop which hides a bubble-on-external-leg
@@ -553,14 +553,14 @@ singularity
 \begin{equation}
   \begin{tikzpicture}
 \begin{feynman}
-\vertex (a1) at (-.8, -0.6) {};
-\vertex (a2) at (-.8, 0.6) {};
-\vertex (a3) at (-1, 0) {};
+\vertex (a1) at (-.8, -0.6) {1};
+\vertex (a2) at (-.8, 0.6) {3};
+\vertex (a3) at (-1, 0) {2};
 \vertex [dot, scale=2](mid1) at (0,0){};
 \vertex [dot, scale=1.5,hgrey0](mid2) at (0,0){};
 \vertex [dot, scale=2](mid3) at (1,0){};
 \vertex [dot, scale=1.5,hgrey0](mid4) at (1,0){};
-\vertex (a4) at (1.8, 0) {};
+\vertex (a4) at (1.8, 0) {4};
 \diagram{
 (mid1) --[ultra thick,](a1),
 (mid1) --[ultra thick,](a2),
@@ -573,7 +573,7 @@ singularity
 \end{feynman}
 \end{tikzpicture}
 \ni
-\frac{\delta(\textcolor{cut-color}{k_1^2})}{\textcolor{ucp-color}{k_1^2}}
+\frac{\delta(\textcolor{cut-color}{k_4^2})}{\textcolor{ucp-color}{s\, k_4^2}}
 n \left[
   \begin{tikzpicture}
     \ver{e1}{-1,0};
@@ -596,9 +596,90 @@ n \left[
   \end{tikzpicture}
   \right]
 \end{equation}
+in which one of the uncut propagators is set equal to an external
+on-shell propagator.  Discussions about how to resolve these types of
+singularities can be found in Refs.~\cite{Edison:2022jln,
+  Edison:2022smn, Edison:2020uzf, Geyer:2015bja, Bern:2012uf}
+\citepls{Minahan}.  In addition to the bubble-on-external-leg cuts,
+there is a related class of cuts in which an uncut propagator is set
+to zero by an \emph{internal cut condition}, for instance,
+\begin{equation*}
+  \begin{tikzpicture}
+    \pgfmathsetmacro{\ri}{1};
+    \pgfmathsetmacro{\re}{0.6};
+    \pgfmathsetmacro{\ang}{35};
+    \begin{feynman}
+      \blob{i1}{\ang:\ri};
+      \blob{i2}{180-\ang:\ri};
+      \blob{i3}{180+\ang:\ri};
+      \blob{i4}{-\ang:\ri};
+      \blob{i5}{ $(i1)!0.5!(i2)$ };
+      \ver{e1}{45:\ri+\re};
+      \ver{e2}{135:\ri+\re};
+      \ver{e3}{225:\ri+\re};
+      \ver{e4}{-45:\ri+\re};
+      
+      \diagram{
+        {[edges={ultra thick}] (e1)--(i1),
+          (e2)--(i2),
+          (e3)--(i3),
+          (e4)--(i4),
+          (i5)--(i1)--(i4)--(i3)--(i2),
+          (i2) --[out=60,in=180-60] (i5),
+          (i2) --[out=-60,in=180+60] (i5)
+        };
+      };
+    \end{feynman}
+  \end{tikzpicture}
+  \text{ contains a contribution from }
+  \begin{tikzpicture}
+    \pgfmathsetmacro{\ri}{1};
+    \pgfmathsetmacro{\re}{0.6};
+    \pgfmathsetmacro{\ang}{35};
+    \pgfmathsetmacro{\cang}{90};
+    \pgfmathsetmacro{\cl}{1.1};
+      \ver{i1}{\ang:\ri};
+      \ver{i2}{180-\ang:\ri};
+      \ver{i3}{180+\ang:\ri};
+      \ver{i4}{-\ang:\ri};
+      \ver{i5}{ $(i1)!0.25!(i2)$ };
+      \ver{i6}{ $(i1)!0.75!(i2)$ };
+      
+      \ver{e1}{45:\ri+\re};
+      \ver{e2}{135:\ri+\re};
+      \ver{e3}{225:\ri+\re};
+      \ver{e4}{-45:\ri+\re};
+
+      \ver{c1}{0:\cl};
+      \ver{c2}{\cang:\cl};
+      \ver{c3}{2*\cang:\cl};
+      \ver{c4}{3*\cang:\cl};
+      \ver{ci}{$(i5)!0.5!(i1)$};
+      \path let \p1 =(ci) in coordinate (c5) at (\x1,0.2){};
+      \draw[ultra thick] (e1)--(i1);
+      \draw[ultra thick] (e2)--(i2);
+      \draw[ultra thick] (e3)--(i3);
+      \draw[ultra thick] (e4)--(i4);
+      \draw[ultra thick] (i5)--(i1)--(i4)--(i3)--(i2)--(i6);
+      \draw[ultra thick] (i6) to[out=60,in=180-60] (i5);
+      \draw[ultra thick] (i6) to[out=-60,in=180+60] (i5);
+      \draw[dashed,ultra thick,cut-color] (0,0) -- (c1);
+      \draw[dashed,ultra thick,cut-color] (0,0) -- (c2);
+      \draw[dashed,ultra thick,cut-color] (0,0) -- (c3);
+      \draw[dashed,ultra thick,cut-color] (0,0) -- (c4);
+      \draw[dashed,ultra thick,cut-color] (c5) -- ++(90:0.7*\cl);
+      \node[fill=white,circle] (c) at (0,0) {};
+  \end{tikzpicture}.
+\end{equation*}
+Fully resolving both of these problems is beyond the scope of the
+current work, so we will simply not impose any constraints that
+require handling these type of cuts.
 
 
 
+
+
+\iffalse
 The essence of generalized unitarity is that when internal lines are
 placed on-shell, the integrand should factorize into a product of
 on-shell tree amplitudes.  The cut to be performed can, itself, be
@@ -653,6 +734,7 @@ is possible to blow up the left blob into a tree amplitude with an
 on-shell internal propagator.  Cuts (b), (c), and (d) represent
 physical cuts where (d) is known as a maximal cut since the maximal
 number of propagators have been put on shell.
+\fi
 
 After imposing all of the conditions above, any remaining free
 parameters represent ``generalized gauge freedom'' meaning that the
@@ -924,75 +1006,7 @@ avoid diagrams in which the higher-point vertex could contain an
 off-shell propagator that carries the same momenta as one of the cut
 propagators, \eg \ace{Any feedback on how this looks, especially with
   the dashed lines?} \jm{It looks good!  Can you omit the part where the blue lines actually cross?}\ace{Like so?}
-\begin{equation*}
-  \begin{tikzpicture}
-    \pgfmathsetmacro{\ri}{1};
-    \pgfmathsetmacro{\re}{0.6};
-    \pgfmathsetmacro{\ang}{35};
-    \begin{feynman}
-      \blob{i1}{\ang:\ri};
-      \blob{i2}{180-\ang:\ri};
-      \blob{i3}{180+\ang:\ri};
-      \blob{i4}{-\ang:\ri};
-      \blob{i5}{ $(i1)!0.5!(i2)$ };
-      \ver{e1}{45:\ri+\re};
-      \ver{e2}{135:\ri+\re};
-      \ver{e3}{225:\ri+\re};
-      \ver{e4}{-45:\ri+\re};
-      
-      \diagram{
-        {[edges={ultra thick}] (e1)--(i1),
-          (e2)--(i2),
-          (e3)--(i3),
-          (e4)--(i4),
-          (i5)--(i1)--(i4)--(i3)--(i2),
-          (i2) --[out=60,in=180-60] (i5),
-          (i2) --[out=-60,in=180+60] (i5)
-        };
-      };
-    \end{feynman}
-  \end{tikzpicture}
-  \text{ contains a contribution from }
-  \begin{tikzpicture}
-    \pgfmathsetmacro{\ri}{1};
-    \pgfmathsetmacro{\re}{0.6};
-    \pgfmathsetmacro{\ang}{35};
-    \pgfmathsetmacro{\cang}{90};
-    \pgfmathsetmacro{\cl}{1.1};
-      \ver{i1}{\ang:\ri};
-      \ver{i2}{180-\ang:\ri};
-      \ver{i3}{180+\ang:\ri};
-      \ver{i4}{-\ang:\ri};
-      \ver{i5}{ $(i1)!0.25!(i2)$ };
-      \ver{i6}{ $(i1)!0.75!(i2)$ };
-      
-      \ver{e1}{45:\ri+\re};
-      \ver{e2}{135:\ri+\re};
-      \ver{e3}{225:\ri+\re};
-      \ver{e4}{-45:\ri+\re};
 
-      \ver{c1}{0:\cl};
-      \ver{c2}{\cang:\cl};
-      \ver{c3}{2*\cang:\cl};
-      \ver{c4}{3*\cang:\cl};
-      \ver{ci}{$(i5)!0.5!(i1)$};
-      \path let \p1 =(ci) in coordinate (c5) at (\x1,0.2){};
-      \draw[ultra thick] (e1)--(i1);
-      \draw[ultra thick] (e2)--(i2);
-      \draw[ultra thick] (e3)--(i3);
-      \draw[ultra thick] (e4)--(i4);
-      \draw[ultra thick] (i5)--(i1)--(i4)--(i3)--(i2)--(i6);
-      \draw[ultra thick] (i6) to[out=60,in=180-60] (i5);
-      \draw[ultra thick] (i6) to[out=-60,in=180+60] (i5);
-      \draw[dashed,ultra thick,cut-color] (0,0) -- (c1);
-      \draw[dashed,ultra thick,cut-color] (0,0) -- (c2);
-      \draw[dashed,ultra thick,cut-color] (0,0) -- (c3);
-      \draw[dashed,ultra thick,cut-color] (0,0) -- (c4);
-      \draw[dashed,ultra thick,cut-color] (c5) -- ++(90:0.7*\cl);
-      \node[fill=white,circle] (c) at (0,0) {};
-      
-  \end{tikzpicture},
-\end{equation*}
 as it is non-trivial and beyond the scope of this paper to define
 exactly what such a cut and cut contribution means.  After discarding
 these types of cuts, we are left with 8 unique cut topologies, shown
