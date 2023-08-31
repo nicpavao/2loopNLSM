@@ -63,7 +63,10 @@
 \definecolor{darkgreen}{RGB}{59,126,108}
 \definecolor{nu-80}{RGB}{104, 076, 150}
 \definecolor{nu-40}{RGB}{164, 149, 195}
-\colorlet{ucp-color}{nu-40}
+\colorlet{ucp-color}{nhpBlue}
+\colorlet{cut-color}{nhp4}
+\colorlet{jacobi-color}{nhp4}
+\colorlet{refl-color}{nhp4}
 
 
 %Comment commands
@@ -200,6 +203,15 @@ linewidth=4pt]{eBox}
 \item Does our construction manifest all the cuts for the two-loop n-gon?
 \item What is the physics story here? Perturbative corrections to special Galilon, DBI for inflation? 
 \item How can bubble on external legs that are zero by IBP inform generalizations beyond pions?
+\item \ace{I have defined a \textcolor{ucp-color}{\texttt{ucp-color}}
+    , \textcolor{cut-color}{\texttt{cut-color}},
+    \textcolor{refl-color}{\texttt{refl-color}},and
+    \textcolor{jacobi-color}{\texttt{jacobi-color}} as aliases for
+    other colors so that we don't have to keep changing colors in
+    multiple locations when we want to change diagram color schemes.
+    I think I have updated all of the diagrams to use the
+    correctly-named color, but haven't changed any of the backing
+    colors for the names.}
 \end{enumerate}
 }
 
@@ -686,12 +698,23 @@ kinematic Jacobi relations to define the numerators for all cubic
 graphs in terms of the two basis graphs, including allowing nontrivial
 numerators on BEL diagrams.  We will simply avoid imposing
 constraints that directly involve such pathological diagrams.  That
-leaves us with 14 non-pathological cubic diagrams on which to impose
+leaves us with 14 non-pathological cubic diagrams, shown in \cref{fig:ym-mc} on which to impose
 maximal cuts and symmetries. \ace{Do we want the graphs for these?
   Doable in tikz, but would take some time, or I can dump nice-ish
   versions from mathematica}.  Doing so, we are left with AA total
 parameters in the unrestricted ansatz and BB total in the
 BDN-restricted ansatz.
+
+\begin{figure}
+  \foreach \x in {1,...,14}
+  {
+    \begin{minipage}{0.32\textwidth}
+      \includegraphics[width=\textwidth]{temp-figs/nonpath-mc-\x.pdf}
+    \end{minipage}
+  }
+  \caption{The 14 non-pathological maximal-cut diagrams}
+  \label{fig:ym-mc}
+\end{figure}
 
 Proceeding to the next-to-maximal cuts, we continue to avoid BEL
 diagrams.  Additionally, now that we have higher-point vertices, we
@@ -759,26 +782,39 @@ propagators, \eg \ace{Any feedback on how this looks, especially with
       \draw[ultra thick] (i5)--(i1)--(i4)--(i3)--(i2)--(i6);
       \draw[ultra thick] (i6) to[out=60,in=180-60] (i5);
       \draw[ultra thick] (i6) to[out=-60,in=180+60] (i5);
-      \draw[dashed,ultra thick,nhp4] (0,0) -- (c1);
-      \draw[dashed,ultra thick,nhp4] (0,0) -- (c2);
-      \draw[dashed,ultra thick,nhp4] (0,0) -- (c3);
-      \draw[dashed,ultra thick,nhp4] (0,0) -- (c4);
-      \draw[dashed,ultra thick,nhp4] (c5) -- ++(90:0.7*\cl);
+      \draw[dashed,ultra thick,cut-color] (0,0) -- (c1);
+      \draw[dashed,ultra thick,cut-color] (0,0) -- (c2);
+      \draw[dashed,ultra thick,cut-color] (0,0) -- (c3);
+      \draw[dashed,ultra thick,cut-color] (0,0) -- (c4);
+      \draw[dashed,ultra thick,cut-color] (c5) -- ++(90:0.7*\cl);
       \node[fill=white,circle] (c) at (0,0) {};
       
   \end{tikzpicture},
 \end{equation*}
 as it is non-trivial and beyond the scope of this paper to define
 exactly what such a cut and cut contribution means.  After discarding
-these types of cuts, we are left with 8 unique cut topologies to
-check.  Seven of these next-to-maximal cuts are consistent with the
-kinematic Jacobi relations and symmetries.  Interestingly, the
-``kissing triangles'' cut,
+these types of cuts, we are left with 8 unique cut topologies, shown
+in \cref{fig:ym-nmc}, to check.  Seven of these next-to-maximal cuts
+are consistent with the kinematic Jacobi relations and symmetries.
+Interestingly, the ``kissing triangles'' cut,
 \begin{equation*}
   \KissingTriangles \,,
 \end{equation*}
 cannot be satisfied by either the unrestricted or the BDN-restricted
 ansatz with Jacobi relations and symmetries applied.
+
+\begin{figure}
+  \foreach \x in {1,...,8}
+  {
+    \begin{minipage}{0.32\textwidth}
+      \includegraphics[width=\textwidth]{temp-figs/nonpath-nmc-\x.pdf}
+    \end{minipage}
+  }
+  \caption{The 8 non-pathological next-to-maximal-cut diagrams}
+  \label{fig:ym-nmc}
+\end{figure}
+
+
 
 \ace{\sout{I need to check this.  For now it is a standing
     hypothesis:} Checked.  The failure works as stated.} In fact, we can make the
@@ -817,6 +853,7 @@ globally-color-dual two-loop Yang--Mills representation: locality,
 symmetry, and the ``kissing triangle'' cut are incompatible with the
 kinematic Jacobi relations.
 
+\iffalse
 We now turn to exploring the use of non-local numerators to skirt the
 incompatibility.  We expect that promoting the numerators to
 sufficiently complicated rational functions of the momenta will
@@ -838,15 +875,8 @@ for the term $n_{\text{nl}}\sim \frac{x}{s}$ we drop all terms with
 $x \propto s$.  Thus each basis diagram ansatz contains 114,422 terms
 to start, 10,010 from the local terms and 34,804 from each of the
 three non-local pieces.
+\fi
 
-
-
-
-
-
-\begin{itemize}
-  \item Attempt at non-local.  Still have problems with cuts+syms+jacobi
-  \end{itemize}
 
 \section{All-loop no-go theorem}
 This could be a section about our expectations for all-loop construction requiring non-local color-dual integrands. Lay out counterfactual proof, i,e. define the following statement:
