@@ -227,7 +227,7 @@
 }
 
 
-%%% Jacobi 1 %%%
+%%% Jacobi 1 start %%%
 
 \newcommand{\JacobiOneDoubleBox}{ {
 \begin{tikzpicture}
@@ -432,13 +432,13 @@
 
 %%% Graph sym start %%%
 
-\newcommand{\CrossedBoxGraphSym}{ {
+\newcommand{\CrossedBoxGraphSym}[4]{ {
 \begin{tikzpicture}
 \begin{feynman}
-\vertex (a1) at (-1.5,1){};
-\vertex (a2) at (1.5,-1){};
-\vertex (a3) at (1.5,1){};
-\vertex (a4) at (-1.5,-1){};
+\vertex (a1) at (-1.5,1){#1};
+\vertex (a2) at (1.5,-1){#3};
+\vertex (a3) at (1.5,1){#4};
+\vertex (a4) at (-1.5,-1){#2};
 \vertex (mid1) at (0,-.5);
 \vertex (mid2) at (0,.5);
 \vertex (mid3) at (1,.5);
@@ -446,8 +446,6 @@
 \vertex (mid5) at (-1,.5);
 \vertex (mid6) at (-1,-.5);
 \vertex (mid7) at (-.5,0) {};
-\vertex (x1) at (-1.5,0);
-\vertex (x2) at (1.5,0);
 \diagram{
 (a4) --[ultra thick,](mid6),
 (a3) --[ultra thick,](mid3),
@@ -461,7 +459,6 @@
 (mid2) --[ultra thick,](mid6),
 (mid5) --[ultra thick,](mid2),
 (mid3) --[ultra thick,](mid4),
-(x1) --[ultra thick,dashed,refl-color](x2),
 };
 \end{feynman}
 \end{tikzpicture}
@@ -469,6 +466,76 @@
 }
 
 %%% Graph sym end %%%
+
+%%% NLSM basis start %%%
+
+\newcommand{\NLSMBasisDoubleBox}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-1.5,1){1};
+\vertex (a2) at (1.5,-1){3};
+\vertex (a3) at (1.5,1){4};
+\vertex (a4) at (-1.5,-1){2};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (1,.5);
+\vertex (mid4) at (1,-.5) ;
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5) ;
+\vertex (l1) at (.5,.85){$\ell_1$};
+\vertex (l2) at (-.5,.85){$\ell_2$};
+\diagram{
+(mid6) --[ultra thick, fermion2](a4),
+(mid3) --[ultra thick, fermion2](a3),
+(mid4) --[ultra thick, fermion2](a2),
+(mid5) --[ultra thick, fermion2](a1),
+(mid1) --[ultra thick,](mid2),
+(mid3) --[ultra thick, fermion2](mid2), %\ell1
+(mid1) --[ultra thick,](mid6),
+(mid1) --[ultra thick,](mid4),
+(mid5) --[ultra thick, fermion2](mid2), %\ell2
+(mid5) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\NLSMBasisPentaTriangle}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-1.5,1){4};
+\vertex (a2) at (.5,-1){2};
+\vertex (a3) at (.5,1){3};
+\vertex (a4) at (-1.5,-1){1};
+\vertex (mid1) at (-.5,-.5);
+\vertex (mid2) at (-1,0);
+\vertex (mid3) at (0,.5) ;
+\vertex (mid4) at (0,-.5) ;
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5) ;
+\vertex (l1) at (-1.35,.3){$\ell_1$};
+\vertex (l2) at (-1.35,-.3){$\ell_2$};
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,](mid2),
+(mid6) --[ultra thick, fermion2](mid2), %\ell2
+(mid1) --[ultra thick,](mid6),
+(mid1) --[ultra thick,](mid4),
+(mid5) --[ultra thick,](mid3),
+(mid5) --[ultra thick, fermion2](mid2), %\ell1
+(mid3) --[ultra thick,](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+%%% NLSM basis end %%%
 
 %%% Unitarity cuts begin %%%
 \newcommand{\ExCutLabeled}[4]{ {

@@ -410,12 +410,19 @@ While it is very convenient to impose graph symmetries, it is not completely nec
 At tree level, finding manifestly color-dual numerators is often achieved at the expense of manifest Bose symmetry (see YZ theory, j-theory, Alex numerators from CHY, Henrik numerators).
 Nonetheless, for a pure ansatz construction it is very reasonable to impose graph symmetries.
 Note that the graph symmetry constraint is imposed on \emph{every} graph, not just the basis graphs.
-For example, the crossed box,
+%For example, the symmetries of the crossed box are spanned by
+%\be
+%\CrossedBoxGraphSym{1}{2}{3}{4} \sim \CrossedBoxGraphSym{2}{1}{3}{4} \text{ and } \CrossedBoxGraphSym{1}{2}{3}{4} \sim \CrossedBoxGraphSym{2}{1}{4}{3}
+%\ee
+For example, the symmetries of the crossed box
 \be
-\CrossedBoxGraphSym ,
+\CrossedBoxGraphSym{1}{2}{3}{4}
 \ee
-is unchanged upon reflection across the horizontal axis (shown as a red dashed line).
-Since the crossed box can be written in terms of the double box and penta-triangle, this imposes non-trivial constraints on the ansatz.
+are spanned by $\{1234\} \to \{2134\}$ and $\{1234\} \to \{1243\}$.
+In general, internal edge labels will have to be tracked as well.
+Care must be taken with the signs in a symmetry relation.
+To compensate for the antisymmetric structure of $f^{abc}$, the vertices are all totally antisymmetric and hence have signs built into their orientations.
+Once the signs are included in the symmetry relations, the crossed box can be expressed in terms of the double box and penta-triangle, thus imposing non-trivial constraints on the ansatz.
 
 \paragraph{Unitarity}
 \label{sec:unitarity}
@@ -501,7 +508,7 @@ the cut $\delta(\ell^2)$s implicit.
 In color-charged theories, both sides of the cut can be further
 decomposed according to the color algebra.  For theories charged under
 the adjoint of $SU(N)$ via $f^{abc}$-dressed amplitudes, it is
-convenient to project onto a specific element of the Del
+convenient to project onto a specific basis of the Del
 Duca-Dixon-Maltoni (DDM) color basis \cite{DixonMaltoni} by only
 inserting color-ordered amplitudes in the product of trees, and
 restricting the set of compatible diagrams to those whose color
@@ -545,7 +552,7 @@ two topologically distinct color-ordered expansions
 \end{equation}
 which serve as a complete basis for the full cut.
 
-Even beginning at one loop, we encounter classes of cuts that are
+Even beginning at one loop, we will encounter types of cuts that are
 difficult to properly define due to hidden non-physical singularities.
 The quintessential example of such a ``pathological'' cut is the 3-1
 two-particle cut at one loop which hides a bubble-on-external-leg
@@ -553,14 +560,14 @@ singularity
 \begin{equation}
   \begin{tikzpicture}
 \begin{feynman}
-\vertex (a1) at (-.8, -0.6) {1};
-\vertex (a2) at (-.8, 0.6) {3};
-\vertex (a3) at (-1, 0) {2};
+\vertex (a1) at (-.8, -0.6) {};
+\vertex (a2) at (-.8, 0.6) {};
+\vertex (a3) at (-1, 0) {};
 \vertex [dot, scale=2](mid1) at (0,0){};
 \vertex [dot, scale=1.5,hgrey0](mid2) at (0,0){};
 \vertex [dot, scale=2](mid3) at (1,0){};
 \vertex [dot, scale=1.5,hgrey0](mid4) at (1,0){};
-\vertex (a4) at (1.8, 0) {4};
+\vertex (a4) at (1.8, 0) {};
 \diagram{
 (mid1) --[ultra thick,](a1),
 (mid1) --[ultra thick,](a2),
@@ -573,7 +580,7 @@ singularity
 \end{feynman}
 \end{tikzpicture}
 \ni
-\frac{\delta(\textcolor{cut-color}{k_4^2})}{\textcolor{ucp-color}{s\, k_4^2}}
+\frac{\delta(\textcolor{cut-color}{k_1^2})}{\textcolor{ucp-color}{k_1^2}}
 n \left[
   \begin{tikzpicture}
     \ver{e1}{-1,0};
@@ -596,90 +603,9 @@ n \left[
   \end{tikzpicture}
   \right]
 \end{equation}
-in which one of the uncut propagators is set equal to an external
-on-shell propagator.  Discussions about how to resolve these types of
-singularities can be found in Refs.~\cite{Edison:2022jln,
-  Edison:2022smn, Edison:2020uzf, Geyer:2015bja, Bern:2012uf}
-\citepls{Minahan}.  In addition to the bubble-on-external-leg cuts,
-there is a related class of cuts in which an uncut propagator is set
-to zero by an \emph{internal cut condition}, for instance,
-\begin{equation*}
-  \begin{tikzpicture}
-    \pgfmathsetmacro{\ri}{1};
-    \pgfmathsetmacro{\re}{0.6};
-    \pgfmathsetmacro{\ang}{35};
-    \begin{feynman}
-      \blob{i1}{\ang:\ri};
-      \blob{i2}{180-\ang:\ri};
-      \blob{i3}{180+\ang:\ri};
-      \blob{i4}{-\ang:\ri};
-      \blob{i5}{ $(i1)!0.5!(i2)$ };
-      \ver{e1}{45:\ri+\re};
-      \ver{e2}{135:\ri+\re};
-      \ver{e3}{225:\ri+\re};
-      \ver{e4}{-45:\ri+\re};
-      
-      \diagram{
-        {[edges={ultra thick}] (e1)--(i1),
-          (e2)--(i2),
-          (e3)--(i3),
-          (e4)--(i4),
-          (i5)--(i1)--(i4)--(i3)--(i2),
-          (i2) --[out=60,in=180-60] (i5),
-          (i2) --[out=-60,in=180+60] (i5)
-        };
-      };
-    \end{feynman}
-  \end{tikzpicture}
-  \text{ contains a contribution from }
-  \begin{tikzpicture}
-    \pgfmathsetmacro{\ri}{1};
-    \pgfmathsetmacro{\re}{0.6};
-    \pgfmathsetmacro{\ang}{35};
-    \pgfmathsetmacro{\cang}{90};
-    \pgfmathsetmacro{\cl}{1.1};
-      \ver{i1}{\ang:\ri};
-      \ver{i2}{180-\ang:\ri};
-      \ver{i3}{180+\ang:\ri};
-      \ver{i4}{-\ang:\ri};
-      \ver{i5}{ $(i1)!0.25!(i2)$ };
-      \ver{i6}{ $(i1)!0.75!(i2)$ };
-      
-      \ver{e1}{45:\ri+\re};
-      \ver{e2}{135:\ri+\re};
-      \ver{e3}{225:\ri+\re};
-      \ver{e4}{-45:\ri+\re};
-
-      \ver{c1}{0:\cl};
-      \ver{c2}{\cang:\cl};
-      \ver{c3}{2*\cang:\cl};
-      \ver{c4}{3*\cang:\cl};
-      \ver{ci}{$(i5)!0.5!(i1)$};
-      \path let \p1 =(ci) in coordinate (c5) at (\x1,0.2){};
-      \draw[ultra thick] (e1)--(i1);
-      \draw[ultra thick] (e2)--(i2);
-      \draw[ultra thick] (e3)--(i3);
-      \draw[ultra thick] (e4)--(i4);
-      \draw[ultra thick] (i5)--(i1)--(i4)--(i3)--(i2)--(i6);
-      \draw[ultra thick] (i6) to[out=60,in=180-60] (i5);
-      \draw[ultra thick] (i6) to[out=-60,in=180+60] (i5);
-      \draw[dashed,ultra thick,cut-color] (0,0) -- (c1);
-      \draw[dashed,ultra thick,cut-color] (0,0) -- (c2);
-      \draw[dashed,ultra thick,cut-color] (0,0) -- (c3);
-      \draw[dashed,ultra thick,cut-color] (0,0) -- (c4);
-      \draw[dashed,ultra thick,cut-color] (c5) -- ++(90:0.7*\cl);
-      \node[fill=white,circle] (c) at (0,0) {};
-  \end{tikzpicture}.
-\end{equation*}
-Fully resolving both of these problems is beyond the scope of the
-current work, so we will simply not impose any constraints that
-require handling these type of cuts.
 
 
 
-
-
-\iffalse
 The essence of generalized unitarity is that when internal lines are
 placed on-shell, the integrand should factorize into a product of
 on-shell tree amplitudes.  The cut to be performed can, itself, be
@@ -734,7 +660,6 @@ is possible to blow up the left blob into a tree amplitude with an
 on-shell internal propagator.  Cuts (b), (c), and (d) represent
 physical cuts where (d) is known as a maximal cut since the maximal
 number of propagators have been put on shell.
-\fi
 
 After imposing all of the conditions above, any remaining free
 parameters represent ``generalized gauge freedom'' meaning that the
@@ -814,13 +739,26 @@ Where we have define the antisymmetric kinematic variable, $[LR] = l_i^L - l_R^2
 \label{sec:pions}
 
 As we have seen, it is possible to coerce tree numerators into 1-loop numerators at any multiplicity for pions.
-However, these methods cannot be reapplied to generate 2-loop numerators, which begs the question ``is it possible to find globally color-dual numerators beyond 1-loop''.
-We will tackle this question for NLSM before moving on to YM.
+However, these methods cannot be reapplied to generate higher-loop numerators, which begs the question ``is it possible to find globally color-dual numerators beyond 1-loop''.
+We will tackle this question for N$^2$LO 2-to-2 scattering in NLSM before moving on to the same process in YM.
 
-Every vertex in NLSM scales as $k^2$ so the numerator of a 4pt 2-loop diagram diagram scales as $k^{12}$.
+Ignoring tadpoles and BEL graphs, there are 14 cubic 4pt 2-loop graphs (see later picture) which are related to each other via 21 Jacobi relations.
+As mentioned in (review section), color-kinematics duality ensures that the numerator of every graph can be expressed in terms of a basis of the double box and penta-triangle,
+\be 
+\NLSMBasisDoubleBox \text{ and } \NLSMBasisPentaTriangle .
+\ee
+For a scalar theory like NLSM the numerator only depends on dot products of momenta.
+The basis of Mandelstam invariants for both of these graphs can be taken to be
+\be
+\{ k_{13}, k_{23}, k_{15}, k_{16}, k_{25}, k_{26}, k_{35}, k_{36}, k_{55}, k_{56}, k_{66} \},
+\ee
+where $k_{ij}$ means $k_i \cdot k_j$, $k_5=\ell_1$, and $k_5 = \ell_2$.
+%%%%
+% Basis for both diagrams
+% {d[p[1], p[3]], d[p[1], p[6]], d[p[1], p[7]], d[p[2], p[3]],  d[p[2], p[6]], d[p[2], p[7]], d[p[3], p[6]], d[p[3], p[7]],  d[p[6], p[6]], d[p[6], p[7]], d[p[7], p[7]]}
+%%%%
+Every vertex in NLSM scales as $k^2$ so the numerator of each diagram scales as $k^{12}$.
 At this mass dimension there are 8,008 independent dot products of momenta.
-Ignoring tadpoles and BEL graphs, there are 14 cubic 4pt 2-loop graphs, but they are related to one another via 21 distinct Jacobi relations.
-As mentioned in (review section), this means that the numerator of every graph can be expressed in terms of the double box and penta-triangle.
 With two basis graphs there is a total of 16,016 ansatz parameters.\footnote{\texttt{Mathematica} is not suited to equations with sixteen thousand parameters so a different method is desirable.
 One possibility is to use a solver designed for integral reduction.
 However, these solvers typically assume that the matrix has a very low density which is not the case for equations coming from NLSM which typically have a density of a few percent.
@@ -838,6 +776,7 @@ The maximal cut vanishes because only 3pt amplitudes contribute and these amplit
 %It is possible to automatically enforce (or ``bake in'') the double box and penta-triangle max cuts on the ansatz by writing the ansatz in terms of inverse propagators (and remaining irreducible scalar products) and then only keeping terms that involve at least one inverse propagator since those terms will vanish on those max cuts, just as the product of 3pt scalar amplitudes will.
 %However, for the sake of simplicity we do not take this route.
 Imposing all relevant cuts leaves 765 free parameters representing the generalized gauge freedom in the answer.
+Again, ambiguous non-physical cuts are not imposed.
 
 \jm{Why aren't the two physical cuts spanning?  I know from experience that they're not but I can't easily explain why.}
 
@@ -847,7 +786,7 @@ $\mathcal{N}=4$ SYM provides several hints for further conditions to impose on t
 For example, for maximally supersymmetric gauge theory it is possible to enforce the no triangle hypothesis, manifest loop power counting, and, at least for 4pt and up to four loops, strip off a factor of $st A_\text{tree}$ from the integrand (I'm not sure I know all of the papers to cite here).
 For the NLSM integrand it is desirable to make color-kinematics duality as manifest as possible.
 One hope would be to factor out some piece of the 1-loop numerator since this at least manifests antisymmetry for the vertices involving external legs.
-However, a more fruitful direction is to match onto the one known theory with pion power counting that manifests color-kinematics duality to all loop order, namely, Zakharov-Mikhailov theory (cite ZM, James).
+However, a more fruitful direction is to match onto the one known theory with pion power counting that manifests color-kinematics duality to all loop order, namely, Zakharov-Mikhailov theory \citepls{Original ZM paper, ZM CK paper}.
 
 Why don't you just set all of the generalized gauge freedom parameters to zero?
 You can learn useful things by not doing this (see N=4), this allows us to introduce more physics into the problem, and, unsurprisingly, setting them to zero produces more a more complex answer with more unwieldy rational numbers than using physics.
@@ -878,7 +817,12 @@ The loop momenta are restricted to 2D but left off-shell.
 After performing the 2D matching, there are only 365 parameters of generalized gauge freedom.
 
 The loop momentum structure of ZM theory provides one final hint for simplifying the pion numerators.
-Both loop momenta $\ell_1$ and $\ell_2$ appear in the ZM numerators but only 5 to 8 powers appear in any term, that is, each term in the ZM numerator scales as either $\ell^5$, $\ell^6$, $\ell^7$, or $\ell^8$ where $\ell$ here refers to any combination of $\ell_1$ or $\ell_2$.
+A generic term in the ZM numerator (of either basis graph) looks schematically like
+\be
+\ell_1^m \ell_2^n k^{12-(m+n)} \text{ where } 5 \leq m+n \leq 8.
+\ee
+In other words, every term contains between 5 and 8 powers of loop momenta, as one would expect from a set of local, cubic Feynman rules.
+\jm{I believe this is true but I need to check it.}
 When the pion numerator is also forced to have this loop power counting, the number of generalized gauge freedom parameters reduces to 58.
 The pion numerator appearing in the ancillary files contains only these 58 degrees of freedom.\footnote{When the 4pt pion amplitude is normalized to $-k_1\cdot k_2$ and the ZM vertex is normalized to $k_1^\mu \epsilon_{\mu\nu}k_2^\nu$, the parameter $z$ is fixed to $216/565$, which is clearly unrelated to the difference in coupling constants.}
 
@@ -1006,7 +950,75 @@ avoid diagrams in which the higher-point vertex could contain an
 off-shell propagator that carries the same momenta as one of the cut
 propagators, \eg \ace{Any feedback on how this looks, especially with
   the dashed lines?} \jm{It looks good!  Can you omit the part where the blue lines actually cross?}\ace{Like so?}
+\begin{equation*}
+  \begin{tikzpicture}
+    \pgfmathsetmacro{\ri}{1};
+    \pgfmathsetmacro{\re}{0.6};
+    \pgfmathsetmacro{\ang}{35};
+    \begin{feynman}
+      \blob{i1}{\ang:\ri};
+      \blob{i2}{180-\ang:\ri};
+      \blob{i3}{180+\ang:\ri};
+      \blob{i4}{-\ang:\ri};
+      \blob{i5}{ $(i1)!0.5!(i2)$ };
+      \ver{e1}{45:\ri+\re};
+      \ver{e2}{135:\ri+\re};
+      \ver{e3}{225:\ri+\re};
+      \ver{e4}{-45:\ri+\re};
+      
+      \diagram{
+        {[edges={ultra thick}] (e1)--(i1),
+          (e2)--(i2),
+          (e3)--(i3),
+          (e4)--(i4),
+          (i5)--(i1)--(i4)--(i3)--(i2),
+          (i2) --[out=60,in=180-60] (i5),
+          (i2) --[out=-60,in=180+60] (i5)
+        };
+      };
+    \end{feynman}
+  \end{tikzpicture}
+  \text{ contains a contribution from }
+  \begin{tikzpicture}
+    \pgfmathsetmacro{\ri}{1};
+    \pgfmathsetmacro{\re}{0.6};
+    \pgfmathsetmacro{\ang}{35};
+    \pgfmathsetmacro{\cang}{90};
+    \pgfmathsetmacro{\cl}{1.1};
+      \ver{i1}{\ang:\ri};
+      \ver{i2}{180-\ang:\ri};
+      \ver{i3}{180+\ang:\ri};
+      \ver{i4}{-\ang:\ri};
+      \ver{i5}{ $(i1)!0.25!(i2)$ };
+      \ver{i6}{ $(i1)!0.75!(i2)$ };
+      
+      \ver{e1}{45:\ri+\re};
+      \ver{e2}{135:\ri+\re};
+      \ver{e3}{225:\ri+\re};
+      \ver{e4}{-45:\ri+\re};
 
+      \ver{c1}{0:\cl};
+      \ver{c2}{\cang:\cl};
+      \ver{c3}{2*\cang:\cl};
+      \ver{c4}{3*\cang:\cl};
+      \ver{ci}{$(i5)!0.5!(i1)$};
+      \path let \p1 =(ci) in coordinate (c5) at (\x1,0.2){};
+      \draw[ultra thick] (e1)--(i1);
+      \draw[ultra thick] (e2)--(i2);
+      \draw[ultra thick] (e3)--(i3);
+      \draw[ultra thick] (e4)--(i4);
+      \draw[ultra thick] (i5)--(i1)--(i4)--(i3)--(i2)--(i6);
+      \draw[ultra thick] (i6) to[out=60,in=180-60] (i5);
+      \draw[ultra thick] (i6) to[out=-60,in=180+60] (i5);
+      \draw[dashed,ultra thick,cut-color] (0,0) -- (c1);
+      \draw[dashed,ultra thick,cut-color] (0,0) -- (c2);
+      \draw[dashed,ultra thick,cut-color] (0,0) -- (c3);
+      \draw[dashed,ultra thick,cut-color] (0,0) -- (c4);
+      \draw[dashed,ultra thick,cut-color] (c5) -- ++(90:0.7*\cl);
+      \node[fill=white,circle] (c) at (0,0) {};
+      
+  \end{tikzpicture},
+\end{equation*}
 as it is non-trivial and beyond the scope of this paper to define
 exactly what such a cut and cut contribution means.  After discarding
 these types of cuts, we are left with 8 unique cut topologies, shown
