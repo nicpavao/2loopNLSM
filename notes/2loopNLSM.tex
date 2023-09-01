@@ -198,14 +198,18 @@ linewidth=4pt]{eBox}
   
 \title{\center  \fontsize{18.8}{20} \selectfont  Towards Globally Color-Dual All-Loop Integrands}
 
-\abstract{ For now, let's put the things we need to check/compute here in the abstract. 
+\abstract{
+\ace{I will start working here over the weekendish}
+
+TODO:\\
+For now, let's put the things we need to check/compute here in the abstract. 
 \begin{enumerate}
 \item Does our construction manifest all the cuts for the two-loop n-gon?
 \item What is the physics story here? Perturbative corrections to special Galilon, DBI for inflation? 
 \item How can bubble on external legs that are zero by IBP inform generalizations beyond pions?
 \item \ace{I have defined a \textcolor{ucp-color}{\texttt{ucp-color}}
     , \textcolor{cut-color}{\texttt{cut-color}},
-    \textcolor{refl-color}{\texttt{refl-color}},and
+    \textcolor{refl-color}{\texttt{refl-color}}, and
     \textcolor{jacobi-color}{\texttt{jacobi-color}} as aliases for
     other colors so that we don't have to keep changing colors in
     multiple locations when we want to change diagram color schemes.
@@ -610,7 +614,8 @@ singularities can be found in Refs.~\cite{Edison:2022jln,
 \citepls{Minahan}.  In addition to the bubble-on-external-leg cuts,
 there is a related class of cuts in which an uncut propagator is set
 to zero by an \emph{internal cut condition}, for instance,
-\begin{equation*}
+\begin{equation}
+  \label{eq:other-path}
   \begin{tikzpicture}
     \pgfmathsetmacro{\ri}{1};
     \pgfmathsetmacro{\re}{0.6};
@@ -677,7 +682,7 @@ to zero by an \emph{internal cut condition}, for instance,
       \draw[dashed,ultra thick,cut-color] (c5) -- ++(90:0.7*\cl);
       \node[fill=white,circle] (c) at (0,0) {};
   \end{tikzpicture}.
-\end{equation*}
+\end{equation}
 Fully resolving both of these problems is beyond the scope of the
 current work, so we will simply not impose any constraints that
 require handling these type of cuts.
@@ -940,7 +945,7 @@ To construct the double-copy theories, we source the cubic
 $\mathcal{N}=0$ YM numerators from Ref.~\cite{Bern:2015ooa} (which
 additionally satisfies a relaxed form of color-kinematics duality),
 and the cubic $\mathcal{N}=4$ sYM representation from the well-known
-$n_{\text{DB}} = n_{\text{CB}} = s (st\, A_{\text{tree}})$ \citepls{}.
+$n_{\text{DB}} = n_{\text{CB}} = s^2t\, \atree)$ \citepls{}.
 On the other hand, we use the methods of Ref.~\cite{Carrasco:2023qgz}
 to directly compute the needed basis cuts in all 3 theories without
 relying on a color-dual pion representation.  We find exact agreement
@@ -961,8 +966,25 @@ assumptions, and were forced to develop an on-shell notion of
 color-kinematics duality \cite{Bern:2015ooa}.  Thus we must decide
 which assumption(s) to break.  From both a motivation and
 implementation standpoint, the simplest assumption to break is the
-``power-counting'' statement, which we analyze first.
+``power-counting'' statement, which we now analyze.
 
+We follow the same general procedure as outlined above, again
+identifying the double-box and penta-triangle as the Jacobi basis
+graphs and building a generic ansatz for each of their numerators.
+Because we are now considering pure Yang--Mills, each monomial in the
+local ansatz must consist of five Lorentz scalar dot products instead
+of the six for NLSM, and each monomial must be linear in each of the
+four external gluon polarizations.  Thus, the ansatz will be built
+from terms of the form
+\begin{align}
+  \pol_1 \cdot k_2, \quad \pol_1 \cdot k_3, \quad& \pol_1 \cdot \ell_1, \quad \pol_1 \cdot \ell_2, \notag \\
+  \pol_2 \cdot k_1, \quad \pol_2 \cdot k_3, \quad& \pol_2 \cdot \ell_1, \quad \pol_2 \cdot \ell_2, \notag \\
+  \pol_3 \cdot k_1, \quad \pol_3 \cdot k_2, \quad& \pol_3 \cdot \ell_1, \quad \pol_3 \cdot \ell_2,  \\
+  \pol_4 \cdot k_1, \quad \pol_4 \cdot k_2, \quad& \pol_4 \cdot \ell_1, \quad \pol_4 \cdot \ell_2, \notag \\
+  \pol_1 \cdot \pol_2, \quad \pol_1 \cdot \pol_3, \quad& \pol_1 \cdot \pol_4, \quad \pol_2 \cdot \pol_3, \notag \\
+  \pol_2 \cdot \pol_4, \quad& \pol_3 \cdot \pol_4  \notag
+\end{align}
+in addition to the purely momentum-dependent terms show in \sect{}.
 In our labeling of the two loop Jacobi-basis diagrams, shown in
 \ace{Figure out fig}, we find that the power counting bound proposed
 by Bern, Davies, and Nohle leads to an initial ansatz with 10,000
@@ -1006,14 +1028,12 @@ tension with the kinematic Jacobi relations.
 Similar to the pion construction in \cref{sec:pions}, we use the
 kinematic Jacobi relations to define the numerators for all cubic
 graphs in terms of the two basis graphs, including allowing nontrivial
-numerators on BEL diagrams.  We will simply avoid imposing
-constraints that directly involve such pathological diagrams.  That
-leaves us with 14 non-pathological cubic diagrams, shown in \cref{fig:ym-mc} on which to impose
-maximal cuts and symmetries. \ace{Do we want the graphs for these?
-  Doable in tikz, but would take some time, or I can dump nice-ish
-  versions from mathematica}.  Doing so, we are left with AA total
-parameters in the unrestricted ansatz and BB total in the
-BDN-restricted ansatz.
+numerators on BEL diagrams.  We will simply avoid imposing constraints
+that directly involve such pathological diagrams.  That leaves us with
+14 non-pathological cubic diagrams, shown in \cref{fig:ym-mc}, on
+which to impose maximal cuts and symmetries.  Doing so, we are left
+with AA total parameters in the unrestricted ansatz and BB total in
+the BDN-restricted ansatz.
 
 \begin{figure}
   \foreach \x in {1,...,14}
@@ -1026,87 +1046,14 @@ BDN-restricted ansatz.
   \label{fig:ym-mc}
 \end{figure}
 
-Proceeding to the next-to-maximal cuts, we continue to avoid BEL
-diagrams.  Additionally, now that we have higher-point vertices, we
-avoid diagrams in which the higher-point vertex could contain an
-off-shell propagator that carries the same momenta as one of the cut
-propagators, \eg \ace{Any feedback on how this looks, especially with
-  the dashed lines?} \jm{It looks good!  Can you omit the part where the blue lines actually cross?}\ace{Like so?}
-\begin{equation*}
-  \begin{tikzpicture}
-    \pgfmathsetmacro{\ri}{1};
-    \pgfmathsetmacro{\re}{0.6};
-    \pgfmathsetmacro{\ang}{35};
-    \begin{feynman}
-      \blob{i1}{\ang:\ri};
-      \blob{i2}{180-\ang:\ri};
-      \blob{i3}{180+\ang:\ri};
-      \blob{i4}{-\ang:\ri};
-      \blob{i5}{ $(i1)!0.5!(i2)$ };
-      \ver{e1}{45:\ri+\re};
-      \ver{e2}{135:\ri+\re};
-      \ver{e3}{225:\ri+\re};
-      \ver{e4}{-45:\ri+\re};
-      
-      \diagram{
-        {[edges={ultra thick}] (e1)--(i1),
-          (e2)--(i2),
-          (e3)--(i3),
-          (e4)--(i4),
-          (i5)--(i1)--(i4)--(i3)--(i2),
-          (i2) --[out=60,in=180-60] (i5),
-          (i2) --[out=-60,in=180+60] (i5)
-        };
-      };
-    \end{feynman}
-  \end{tikzpicture}
-  \text{ contains a contribution from }
-  \begin{tikzpicture}
-    \pgfmathsetmacro{\ri}{1};
-    \pgfmathsetmacro{\re}{0.6};
-    \pgfmathsetmacro{\ang}{35};
-    \pgfmathsetmacro{\cang}{90};
-    \pgfmathsetmacro{\cl}{1.1};
-      \ver{i1}{\ang:\ri};
-      \ver{i2}{180-\ang:\ri};
-      \ver{i3}{180+\ang:\ri};
-      \ver{i4}{-\ang:\ri};
-      \ver{i5}{ $(i1)!0.25!(i2)$ };
-      \ver{i6}{ $(i1)!0.75!(i2)$ };
-      
-      \ver{e1}{45:\ri+\re};
-      \ver{e2}{135:\ri+\re};
-      \ver{e3}{225:\ri+\re};
-      \ver{e4}{-45:\ri+\re};
-
-      \ver{c1}{0:\cl};
-      \ver{c2}{\cang:\cl};
-      \ver{c3}{2*\cang:\cl};
-      \ver{c4}{3*\cang:\cl};
-      \ver{ci}{$(i5)!0.5!(i1)$};
-      \path let \p1 =(ci) in coordinate (c5) at (\x1,0.2){};
-      \draw[ultra thick] (e1)--(i1);
-      \draw[ultra thick] (e2)--(i2);
-      \draw[ultra thick] (e3)--(i3);
-      \draw[ultra thick] (e4)--(i4);
-      \draw[ultra thick] (i5)--(i1)--(i4)--(i3)--(i2)--(i6);
-      \draw[ultra thick] (i6) to[out=60,in=180-60] (i5);
-      \draw[ultra thick] (i6) to[out=-60,in=180+60] (i5);
-      \draw[dashed,ultra thick,cut-color] (0,0) -- (c1);
-      \draw[dashed,ultra thick,cut-color] (0,0) -- (c2);
-      \draw[dashed,ultra thick,cut-color] (0,0) -- (c3);
-      \draw[dashed,ultra thick,cut-color] (0,0) -- (c4);
-      \draw[dashed,ultra thick,cut-color] (c5) -- ++(90:0.7*\cl);
-      \node[fill=white,circle] (c) at (0,0) {};
-      
-  \end{tikzpicture},
-\end{equation*}
-as it is non-trivial and beyond the scope of this paper to define
-exactly what such a cut and cut contribution means.  After discarding
-these types of cuts, we are left with 8 unique cut topologies, shown
-in \cref{fig:ym-nmc}, to check.  Seven of these next-to-maximal cuts
-are consistent with the kinematic Jacobi relations and symmetries.
-Interestingly, the ``kissing triangles'' cut,
+Proceeding to the next-to-maximal cuts, we continue to avoid
+pathological diagrams including the newly-appearing type discussed in
+\cref{eq:other-path}. After discarding these types of cuts, we are
+left with 8 \ace{(maybe a few more to account for dangling trees)}
+unique cut topologies, shown in \cref{fig:ym-nmc}, to check.  Seven of
+these next-to-maximal cuts are consistent with the kinematic Jacobi
+relations and symmetries.  Interestingly, the ``kissing triangles''
+cut,
 \begin{equation*}
   \KissingTriangles \,,
 \end{equation*}
@@ -1129,22 +1076,18 @@ ansatz with Jacobi relations and symmetries applied.
   \label{fig:ym-nmc}
 \end{figure}
 
-
-
-\ace{\sout{I need to check this.  For now it is a standing
-    hypothesis:} Checked.  The failure works as stated.} In fact, we can make the
-failure extremely precise.  Start with the diagrams shown in the
-Jacobi relation from \cref{eq:TwoLoopJacobiOne}: the double-box,
-crossed-box, and penta-triangle.  For each of the three diagrams,
-write down the most generic parity-even local ansatz involving four
-polarizations and six momenta (any combination of external or loop).
-Each ansatz will be 10,010 terms initially.  Next impose the symmetry
-constraints on each of the three diagrams, leaving 2761 free
-parameters on the double-box, 2576 free parameters on the crossed-box,
-and 5040 free paramters on the penta-triangle.  Then impose the
-``kissing triangle'' next-to-maximal cut, which in the
-\emph{non-planar} $t$-$u$ color channel only recieves contributions from the
-double-box
+In fact, we can make the failure extremely precise.  Start with the
+diagrams shown in the Jacobi relation from \cref{eq:TwoLoopJacobiOne}:
+the double-box, crossed-box, and penta-triangle.  For each of the
+three diagrams, write down the most generic parity-even local ansatz
+involving four polarizations and six momenta (any combination of
+external or loop).  Each ansatz will be 10,010 terms initially.  Next
+impose the symmetry constraints on each of the three diagrams, leaving
+2761 free parameters on the double-box, 2576 free parameters on the
+crossed-box, and 5040 free paramters on the penta-triangle.  Then
+impose the ``kissing triangle'' next-to-maximal cut, which in the
+\emph{non-planar} $t$-$u$ color channel only recieves contributions
+from the double-box
 \begin{equation}
   \KissingTriangles
   =
@@ -1165,8 +1108,8 @@ After imposing this cut, we find that the original Jacobi relation,
 \end{equation}
 Thus we have identified the minimal failure state for a
 globally-color-dual two-loop Yang--Mills representation: locality,
-symmetry, and the ``kissing triangle'' cut are incompatible with the
-kinematic Jacobi relations.
+symmetry, and the kinematic Jacobi relations for just three diagrams
+are incompatible with the ``kissing triangle'' cut.
 
 \iffalse
 We now turn to exploring the use of non-local numerators to skirt the
