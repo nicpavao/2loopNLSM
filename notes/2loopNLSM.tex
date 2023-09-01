@@ -204,9 +204,6 @@ linewidth=4pt]{eBox}
 TODO:\\
 For now, let's put the things we need to check/compute here in the abstract. 
 \begin{enumerate}
-\item Does our construction manifest all the cuts for the two-loop n-gon?
-\item What is the physics story here? Perturbative corrections to special Galilon, DBI for inflation? 
-\item How can bubble on external legs that are zero by IBP inform generalizations beyond pions?
 \item \ace{I have defined a \textcolor{ucp-color}{\texttt{ucp-color}}
     , \textcolor{cut-color}{\texttt{cut-color}},
     \textcolor{refl-color}{\texttt{refl-color}}, and
@@ -856,16 +853,14 @@ Imposing all of the Jacobi relations eliminates all but 4,473 of the original fr
 Further imposing graph symmetries reduces the number of free parameters to 1,243.
 
 The final essential constraint is unitarity.
-Cuts (b) and (c) of \cref{eq:PotentialCuts} are the only non-vanishing cuts that need to be enforced.  \jm{Move some of the cut pictures here?}
-This means that even at two loops, unitarity cuts are still only probing the on-shell 4pt NLSM amplitude.
-Even though (b) and (c) are the only non-zero cuts, other cuts, for example the maximal cut (d), must also be imposed in order to correctly reproduce NLSM.
-The maximal cut vanishes because only 3pt amplitudes contribute and these amplitudes vanish in any scalar theory.
+Cuts (b) and (c) of \cref{eq:PotentialCuts} are the only physical cuts that need to be enforced.  \jm{Move some of the cut pictures here?}
+This means that even at two loops, unitarity is still only probing the on-shell 4pt NLSM amplitude.
+The other cuts besides (b) and (c) are either pathological or vanish because they involve a 3pt point on-shell amplitude (which vanishes in any scalar theory).
+In order to manifest the $\mathbb{Z}_2$ symmetry of NLSM at the integrand level, we enforce that all non-pathological cuts containing a 3pt vertex (such as the maximal cut) vanish.
+Imposing all relevant cuts leaves 765 free parameters representing the generalized gauge freedom in the answer.
+
 %It is possible to automatically enforce (or ``bake in'') the double box and penta-triangle max cuts on the ansatz by writing the ansatz in terms of inverse propagators (and remaining irreducible scalar products) and then only keeping terms that involve at least one inverse propagator since those terms will vanish on those max cuts, just as the product of 3pt scalar amplitudes will.
 %However, for the sake of simplicity we do not take this route.
-Imposing all relevant cuts leaves 765 free parameters representing the generalized gauge freedom in the answer.
-Again, ambiguous non-physical cuts are not imposed.
-
-\jm{Why aren't the two physical cuts spanning?  I know from experience that they're not but I can't easily explain why.}
 
 At this point color-kinematics duality has been satisfied, so the double copy will proceed without issue.
 However, the plethora of generalized gauge freedom parameters leaves the option for enforcing additional aesthetic constraints.
