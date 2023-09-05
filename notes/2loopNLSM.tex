@@ -604,13 +604,14 @@ n \left[
   \end{tikzpicture}
   \right]
 \end{equation}
-in which one of the uncut propagators is set equal to an external
-on-shell propagator.  Discussions about how to resolve these types of
-singularities can be found in Refs.~\cite{Edison:2022jln,
-  Edison:2022smn, Edison:2020uzf, Geyer:2015bja, Bern:2012uf}
-\citepls{Minahan}.  In addition to the bubble-on-external-leg cuts,
-there is a related class of cuts in which an uncut propagator is set
-to zero by an \emph{internal cut condition}, for instance,
+in which one of the \textcolor{ucp-color}{uncut propagators} is set
+equal to an \textcolor{cut-color}{external on-shell propagator}.
+Discussions about how to resolve these types of singularities can be
+found in Refs.~\cite{Edison:2022jln, Edison:2022smn, Edison:2020uzf,
+  Geyer:2015bja, Bern:2012uf} \citepls{Minahan}.  In addition to the
+bubble-on-external-leg cuts, there is a related class of cuts in which
+an uncut propagator is set to zero by an \emph{internal cut
+  condition}, for instance,
 \begin{equation}
   \label{eq:other-path}
   \begin{tikzpicture}
@@ -828,15 +829,17 @@ We will tackle this question for N$^2$LO 2-to-2 scattering in NLSM before moving
 
 Ignoring tadpoles and BEL graphs, there are 14 cubic 4pt 2-loop graphs (see later picture) which are related to each other via 21 Jacobi relations.
 As mentioned in (review section), color-kinematics duality ensures that the numerator of every graph can be expressed in terms of a basis of the double box and penta-triangle,
-\be 
+\begin{equation}
+\label{eq:jacobi-basis}
 \NLSMBasisDoubleBox \text{ and } \NLSMBasisPentaTriangle .
-\ee
+\end{equation}
 For a scalar theory like NLSM the numerator only depends on dot products of momenta.
 The basis of Mandelstam invariants for both of these graphs can be taken to be
-\be
+\begin{equation}
+\label{eq:scalar-basis}
 \{ k_{13}, k_{23}, k_{15}, k_{16}, k_{25}, k_{26}, k_{35}, k_{36}, k_{55}, k_{56}, k_{66} \},
-\ee
-where $k_{ij}$ means $k_i \cdot k_j$, $k_5=\ell_1$, and $k_5 = \ell_2$.
+\end{equation}
+where $k_{ij}$ means $k_i \cdot k_j$, $k_5=\ell_1$, and $k_6 = \ell_2$.
 %%%%
 % Basis for both diagrams
 % {d[p[1], p[3]], d[p[1], p[6]], d[p[1], p[7]], d[p[2], p[3]],  d[p[2], p[6]], d[p[2], p[7]], d[p[3], p[6]], d[p[3], p[7]],  d[p[6], p[6]], d[p[6], p[7]], d[p[7], p[7]]}
@@ -979,23 +982,23 @@ from terms of the form
   \pol_1 \cdot \pol_2, \quad \pol_1 \cdot \pol_3, \quad& \pol_1 \cdot \pol_4, \quad \pol_2 \cdot \pol_3, \notag \\
   \pol_2 \cdot \pol_4, \quad& \pol_3 \cdot \pol_4  \notag
 \end{align}
-in addition to the purely momentum-dependent terms show in \sect{}.
-In our labeling of the two loop Jacobi-basis diagrams, shown in
-\ace{Figure out fig}, we find that the power counting bound proposed
-by Bern, Davies, and Nohle leads to an initial ansatz with 10,000
-terms in the double-box, and 9849 terms for the penta-triangle.
-Without power counting restrictions, both the double-box and the
-penta-triangle ansatz have an ansatz with 10,010 terms each.  Imposing
-diagram automorphisms and maximal-cut gauge invariance on the two
-basis diagrams, we reduce the number of terms to XX for the
-double-box, and YY for the penta-triangle.  The power-counting
-restriction of BDN would further reduce these counts to 2232 and 4072.
-In Ref.~\cite{Bern:2015ooa}, the unitarity matching constraints were
-imposed using a spanning set of minimal physical cuts, shown in
-\cref{fig:ym-spanning}.  Instead of also directly going to the
-spanning cuts, we work within the framework of the Method of Maximal
-Cuts \citepls{} in order to identify the simplest cut that is in
-tension with the kinematic Jacobi relations.
+in addition to the purely momentum-dependent terms show in
+\cref{eq:scalar-basis}.  In our labeling of the two loop Jacobi-basis
+diagrams, shown in \cref{eq:jacobi-basis}, we find that the power
+counting bound proposed by Bern, Davies, and Nohle leads to an initial
+ansatz with 10,000 terms in the double-box, and 9849 terms for the
+penta-triangle.  Without power counting restrictions, both the
+double-box and the penta-triangle ansatz have an ansatz with 10,010
+terms each.  Imposing diagram automorphisms and maximal-cut gauge
+invariance on the two basis diagrams, we reduce the number of terms to
+XX for the double-box, and YY for the penta-triangle.  The
+power-counting restriction of BDN would further reduce these counts to
+2232 and 4072.  In Ref.~\cite{Bern:2015ooa}, the unitarity matching
+constraints were imposed using a spanning set of minimal physical
+cuts, shown in \cref{fig:ym-spanning}.  Instead of also directly going
+to the spanning cuts, we work within the framework of the Method of
+Maximal Cuts \citepls{} in order to identify the simplest cut that is
+in tension with the kinematic Jacobi relations.
 
 \begin{figure}
   \begin{center}
