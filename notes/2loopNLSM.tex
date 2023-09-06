@@ -235,8 +235,67 @@ In this work, we will consider three different types of cubic representations, t
 \stackrel{\Acubic{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{}}{\text{Fundamental}}\qquad\qquad \stackrel{\cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{}}{\text{Bifundamental}}\qquad\qquad \stackrel{\Acubic{hgrey0}{}{nhpBlue}{}{nhpBlue}{}{nhpBlue}}{\text{Adjoint}}
 \ee
 In this review, we will present examples of this distinct kinematic representations that have appeared in the literature. Though from the get go, we stress that in this work we are interested in identifying the analog of adjoint representations of the kinematic numerators; those for which all legs are equally preferrenced by the functional dressing. The only non-trivial $S$-matrix in the literature that exhibits this property to all-loop order, is that of Zakharov-Mikhailov theory \citepls{}. We will briefly review the perturbative construction of this theory below. 
+
 \subsection{Color-dual Amplitudes}
-Review of BCJ relations and Jacobi relations off-shell. Justify kinematic algebra in an off-shell framework by talking about on-shell construction. yada yada yada
+
+I think this belongs in another section...
+Why DC is cool:
+1) Reduction in computational complexity.
+Off-shell high spin is terrible.
+Gravity has infinitely many very complex Feynman rules as a result of gauge redundancy but YM only has two relatively simple Feynman rules.
+2) DC points to deep structure hidden in Lagrangian formulation.
+
+Color-kinematics duality is a statement about amplitude integrands.
+Ignoring factors of $i$ and the coupling constant, a generic $m$-point $L$-loop amplitude in a color-dual theory -- such as NLSM, YM, or bi-adjoint scalar theory -- can be written as
+\be
+\mathcal{A}_m^L = \sum \limits_\Gamma \frac{1}{S_\Gamma} \int \frac{d^{LD}\ell}{(2\pi)^{LD}} \frac{c_\Gamma n_\Gamma}{d_\Gamma} .
+\ee
+Here the spacetime dimension is $D$.
+Even though the underlying theory may have quartic (or higher multiplicity) vertices, it is possible to multiply and divide by propagators so that the sum runs over only purely cubic graphs $\Gamma$.
+Overcounting is removed by the internal symmetry factor $S_\Gamma$, which tracks the number of graph symmetries with external legs held fixed.
+The color factor $c_\Gamma$ is the string of structure constants $f^{abc}$ associated with the graph $\Gamma$,\footnote{This paper is focused on theories with particles that transform in the adjoint.  However, the double copy can be applied to a far more diverse set of theories, see for example \citepls{$DF^2$, fundamental fermions, anything else anyone wants to mention}.}
+the denominator $d_\Gamma$ is the product of propagators associated with the graph $\Gamma$, and the numerator $n_\Gamma$ is all of the remaining kinematic factors including dot products of momenta and polarization vectors.
+
+The color factors $c_\Gamma$ are not independent and are related to one another via a set of Jacobi identities that look schematically like
+\be
+c_i+c_j+c_k=0,
+\ee
+where $i$, $j$, and $k$ are three graphs.
+An example Jacobi relation will be presented in \sect{}.
+Color-kinematics duality states that there exists a way to rearrange factors between the various kinematic numerators $n_\Gamma$ such that the numerators obey all of the same Jacobi identities as the color factors
+\be
+n_i +n_j +n_k=0.
+\ee
+If color-kinematics duality can be achieved at the off-shell level, then the kinematic numerators should satisfy an algebra just like the color factors.
+In theories where the kinematic algebra is known, it is often the algebra of volume preserving diffeomorphisms \citepls{Donal Ricardo SDYM, Henrik Maor CS, Cliff James NLSM, Cliff et al ZM}.
+
+Once color-dual numerators $n_\Gamma$ have been found, they can be used to replace the color factors ($c_\Gamma \to n_\Gamma$) in a \emph{different} amplitude to produce the corresponding amplitude in the double-copy theory
+\be
+\tilde{\mathcal{A}}_m^L = \sum \limits_\Gamma \frac{1}{S_\Gamma} \int \frac{d^{LD}\ell}{(2\pi)^{LD}} \frac{c_\Gamma \tilde{n}_\Gamma}{d_\Gamma} ~~ \xrightarrow{(c_\Gamma \to n_\Gamma)} ~~ \mathcal{M}_m^L = \sum \limits_\Gamma \frac{1}{S_\Gamma} \int \frac{d^{LD}\ell}{(2\pi)^{LD}} \frac{n_\Gamma \tilde{n}_\Gamma}{d_\Gamma}.
+\ee
+Importantly, the $\tilde{n}_\Gamma$ do not need to respect color-kinematics duality.
+The prototypical example of the double-copy is that YM double copied with YM results in gravity where the gauge invariance of each separate gluon produces the diffeomorphism invariance of the graviton.
+The double copy can be proven at tree level using the KLT relations but there is significant evidence that the double copy persists to all loop orders \citepls{KLT, ``M. Kiermaier, Gravity as the square of gauge theory, in Amplitudes 2010, Queen Mary,
+University of London,
+https://strings.ph.qmul.ac.uk/?theory/Amplitudes2010/Talks/MK2010.pdf '',
+any loop papers we want}.
+
+Many of the 1-loop results presented in \sect{} are informed by the tree-level double-copy so we will review the tree case here.
+The color structure of tree-level amplitudes is particularly simple.
+A fully color dressed tree amplitude $\mathcal{A}$ in YM or NLSM can be decomposed in terms of the trace basis
+\be
+\mathcal{A}_m = \sum Tr(...) A[]
+\ee
+where, because of the cyclicity of the trace, $(n-1)!$ of the color-ordered partial amplitudes $A$ form a basis.
+Any color factor can be written in terms of the basis of $(n-2)!$ DDM half ladders, indicating that there are further linear relations (the KK relations) amongst the partial amplitudes (cite DDM, KK).
+The KLT relations (or tree-level color-kinematics duality) means that there are even more linear relations among the partial amplitudes, meaning that you can go to a basis of $(n-3)!$.
+At tree level, it is enough to specify the numerators of the half ladder topologies.
+By repeated application of the Jacobi identity, any other topology can be obtained from the half ladder.
+The same is true for 1-loop and the $n$-gon.
+
+Do 4pt tree example
+$c_s+c_t+c_u=0$ and $n_s+n_t+n_u=0$
+NLSM 4pt CK numerators and DC to sGal
 
 \subsection{Color-dual Lagrangians}
 
