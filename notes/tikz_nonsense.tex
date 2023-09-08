@@ -323,6 +323,35 @@
 }
 }
 
+%%% Half ladder start %%%
+
+\newcommand{\HalfLadder}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (0,0){$a_1$};
+\vertex (b1) at (1,0);
+\vertex (a2) at (1,1){$a_2$};
+\vertex (b2) at (2,0);
+\vertex (a3) at (2,1){$a_3$};
+\vertex (an1) at (4,1){$a_{n-1}$};
+\vertex (an) at (5,0){$a_n$};
+\vertex (bn) at (4,0);
+\vertex (ak) at (3,1){$...$};
+\diagram{
+(a1) --[ultra thick,](b1),
+(a2) --[ultra thick,](b1),
+(b1) --[ultra thick,](b2),
+(a3) --[ultra thick,](b2),
+(b2) --[ultra thick,](bn),
+(an1) --[ultra thick,](bn),
+(an) --[ultra thick,](bn),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+%%% Half ladder end %%%
 
 %%% Jacobi 1 start %%%
 
