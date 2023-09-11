@@ -227,7 +227,7 @@ For now, let's put the things we need to check/compute here in the abstract.
 \setstackgap{L}{7pt}
 
 \section{Introduction}
-\section{Review}
+\section{Background}
  To set the stage, it is worth distinguishing between the algebraic properties of functionally symmetric kinematics that satisfy color-kinematics globally, and some of the other constructions that appear in the literature. 
 
 In this work, we will consider three different types of cubic representations, that we define below: 
@@ -291,7 +291,7 @@ Any tree-level color factor can be converted into a linear combination of Del Du
 \ee
 associated with the graph
 \be
-\HalfLadder
+\halfLadder
 \ee
 by repeated application of the Jacobi identity \cite{DixonMaltoni}.
 The fully color-dressed tree amplitude can then be re-expressed as
@@ -328,22 +328,22 @@ Davies, and Nohle (BDN) \cite{Bern:2015ooa} lay out the following core
 assumptions in searching for double-copyable integrand numerators (ordered according to the
 reference):
 \begin{enumerate}
-\item Locality: Diagram ``numerators'' are polynomials in momenta and
+\item \textbf{Locality}: Diagram ``numerators'' are polynomials in momenta and
   polarizations, \eg the diagrams only have poles given by the
   propagators of the diagrams.
-\item Power-counting: The maximum power of the loop momenta in the
+\item  \textbf{Power-counting:} The maximum power of the loop momenta in the
   numerator is bounded by Feynman-gauge Feynman rules.
-\item Cubic diagrams: The only diagrams with nonzero numerators are
+\item  \textbf{Cubic diagrams}: The only diagrams with nonzero numerators are
   those with strictly cubic vertices.  This is generally a requirement
   to properly define the kinematic Jacobi relations.
-\item Relabeling : The diagram numerators are only a function of the
+\item  \textbf{Relabeling}: The diagram numerators are only a function of the
   diagram's topology and labeling.
-\item Symmetries: The diagram numerators are invariant under the
+\item  \textbf{Symmetries}: The diagram numerators are invariant under the
   automorphisms of the diagrams \emph{including signs that compensate
     for color-factor sign changes}.
-\item Unitarity cuts: The cuts of the ansatz must reproduce the
+\item  \textbf{Unitarity cuts}: The cuts of the ansatz must reproduce the
   physical unitarity cuts of the theory.
-\item Color-kinematics duality: The numerators obey some form of the
+\item  \textbf{Color-kinematics duality}: The numerators obey some form of the
   kinematic Jacobi relations.
 \end{enumerate}
 Point 1 is generally a matter of convenience: there are many examples
@@ -592,7 +592,7 @@ the factorization channels of the iterated unitarity cut, which has
 two topologically distinct color-ordered expansions
 \begin{equation}
   \label{eq:kt-color-ord}
-  \KissingTriangles =
+   \NMCutC =
   \begin{cases}
      s\text{-}t \text{ channel}
     &
@@ -625,28 +625,6 @@ The quintessential example of such a ``pathological'' cut is the 3-1
 two-particle cut at one loop which hides a bubble-on-external-leg
 singularity
 \begin{equation}
-  \begin{tikzpicture}
-\begin{feynman}
-\vertex (a1) at (-.8, -0.6) {1};
-\vertex (a2) at (-.8, 0.6) {3};
-\vertex (a3) at (-1, 0) {2};
-\vertex [dot, scale=2](mid1) at (0,0){};
-\vertex [dot, scale=1.5,hgrey0](mid2) at (0,0){};
-\vertex [dot, scale=2](mid3) at (1,0){};
-\vertex [dot, scale=1.5,hgrey0](mid4) at (1,0){};
-\vertex (a4) at (1.8, 0) {4};
-\diagram{
-(mid1) --[ultra thick,](a1),
-(mid1) --[ultra thick,](a2),
-(mid1) --[ultra thick,](a3),
-%(mid1) --[ultra thick,](mid3),
-(mid1) --[ultra thick,out=60,in=120,min distance=0.4cm](mid3),
-(mid1) --[ultra thick,out=-60,in=-120,min distance=0.4cm](mid3),
-(mid3) --[ultra thick](a4),
-};
-\end{feynman}
-\end{tikzpicture}
-\ni
 \frac{\delta(\textcolor{cut-color}{k_4^2})}{\textcolor{ucp-color}{s\, k_4^2}}
 n \left[
   \begin{tikzpicture}
@@ -669,6 +647,27 @@ n \left[
     \draw[ultra thick,dashed,cut-color] (co)--++(-90:0.5);
   \end{tikzpicture}
   \right]
+  \in   \begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-.8, -0.6) {1};
+\vertex (a2) at (-.8, 0.6) {3};
+\vertex (a3) at (-1, 0) {2};
+\vertex [dot, scale=2](mid1) at (0,0){};
+\vertex [dot, scale=1.5,hgrey0](mid2) at (0,0){};
+\vertex [dot, scale=2](mid3) at (1,0){};
+\vertex [dot, scale=1.5,hgrey0](mid4) at (1,0){};
+\vertex (a4) at (1.8, 0) {4};
+\diagram{
+(mid1) --[ultra thick,](a1),
+(mid1) --[ultra thick,](a2),
+(mid1) --[ultra thick,](a3),
+%(mid1) --[ultra thick,](mid3),
+(mid1) --[ultra thick,out=60,in=120,min distance=0.4cm](mid3),
+(mid1) --[ultra thick,out=-60,in=-120,min distance=0.4cm](mid3),
+(mid3) --[ultra thick](a4),
+};
+\end{feynman}
+\end{tikzpicture}
 \end{equation}
 in which one of the \textcolor{ucp-color}{uncut propagators} is set
 equal to an \textcolor{cut-color}{external on-shell propagator}.
@@ -867,12 +866,13 @@ A^{\text{NLSM}}_{\text{1-loop}} \equiv \partial_D \Delta^{(\varnothing)}_{\text{
 \end{eBox}
 Why must we take the derivative with respect to $D$? After all, $J$-theory and $YZ$-theory both have well defined propagators for internal $\bar{J}J$ and $\bar{Z}Z$ propagators. However, as we noted in the previous section, all the $J$ and $Z$ states must be on-shell in order to produce NLSM amplitudes. Thus, the unitarity cuts of $J$ theory at one-loop will not produce NLSM amplitudes. However, the internal $YY$-loop is a valid forward limit, since as constructed YZ theory is valid for off-shell Y-particles, and thus they serve as a valid forward limit. We will construct these one-loop integrands below in the next section. 
 \subsection{Semi-abelian Yang-Mills theory}
-\subsection{One-loop SDYM integrands}
+\subsection{One-loop color-dual integrands}
 \be
 \simplebox = g_{\text{YM}}^4 X(k_1,l_1)X(k_2,l_2)X(k_3,l_3)X(k_4,l_4)
 \ee
-\subsection{One-loop NLSM Integrands}
-
+\be
+\nGonScalar
+\ee
 Note from James:  I've explicitly checked the nice form of the 1-loop numerators at 4pt, 6pt, and 8pt.
 \be
 \simplebox = (2 f_\pi^{-1})^4 (l_1 k_1)(l_2 k_2)(l_3 k_3)(l_4 k_4)
@@ -1098,19 +1098,16 @@ that directly involve such pathological diagrams.  That leaves us with
 which to impose maximal cuts and symmetries.  Doing so, we are left
 with AA total parameters in the unrestricted ansatz and BB total in
 the BDN-restricted ansatz.
-
 \begin{figure}
-  \foreach \x in {1,...,14}
-  {
-    \begin{minipage}{0.32\textwidth}
-      \includegraphics[width=\textwidth]{temp-figs/nonpath-mc-\x.pdf}
-    \end{minipage}
-  }
-  \caption{The 14 non-pathological maximal-cut diagrams}
-  \label{fig:ym-mc}
-\end{figure}
-\begin{figure}
-{ \doubleBoxCut, \crossBoxCut}
+\centering
+{\MCutC, \MCutD, \sumoCut, \MCutJ,  
+ \\
+  \doubleBoxCut,  \crossBoxCut,\pentaTriangleCut,  \MCutF, 
+\\
+\MCutI,  \MCutE, \MCutK, 
+\\
+ \MCutL, \MCutG,  \MCutH,
+}
   \caption{The 14 non-pathological maximal-cut diagrams}
   \end{figure}
 
@@ -1123,23 +1120,16 @@ these next-to-maximal cuts are consistent with the kinematic Jacobi
 relations and symmetries.  Interestingly, the ``kissing triangles''
 cut,
 \begin{equation*}
-  \KissingTriangles \,,
+   \NMCutC \,,
 \end{equation*}
 cannot be satisfied by either the unrestricted or the BDN-restricted
 ansatz with Jacobi relations and symmetries applied.
 \begin{figure}
-  \foreach \x in {1,...,8}
-  {
-    \begin{minipage}{0.32\textwidth}
-      \includegraphics[width=\textwidth]{temp-figs/nonpath-nmc-\x.pdf}
-    \end{minipage}
-  }
-  \caption{The 8 non-pathological next-to-maximal-cut diagrams.
-    \ace{Note that Mathematica drew the bottom-left diagram with two
-      legs stacked on top of each other which eventually meet in a
-      3pt.  One leg is on the ``bottom level'' and connects with a 3pt
-      to the two legs coming off to the side, and the other is on the
-      ``top level'' and connects to the 4pt.}}
+\centering
+ { \NMCutH, \NMCutG,  \NMCutD,\NMCutB, 
+ \\
+ \NMCutE, \NMCutF, \NMCutA, \NMCutC,  }
+  \caption{The 8 non-pathological next-to-maximal-cut diagrams.}
   \label{fig:ym-nmc}
 \end{figure}
 
@@ -1156,7 +1146,7 @@ impose the ``kissing triangle'' next-to-maximal cut, which in the
 \emph{non-planar} $t$-$u$ color channel only recieves contributions
 from the double-box
 \begin{equation}
-  \KissingTriangles
+   \NMCutC
   =
   \frac{1}{\textcolor{ucp-color}{\ell_1^2}} \
   n \left[
@@ -1169,7 +1159,7 @@ from the double-box
 After imposing this cut, we find that the original Jacobi relation,
 \cref{eq:TwoLoopJacobiOne}, can no longer be satisfied:
 \begin{equation}
-  \KissingTriangles
+   \NMCutC
   \Rightarrow
   \JacobiOneDoubleBox +  \JacobiOneCrossedBox + \JacobiOnePentaTriangle \neq 0 \,.
 \end{equation}
@@ -1202,8 +1192,8 @@ to start, 10,010 from the local terms and 34,804 from each of the
 three non-local pieces.
 \fi
 
-
-\section{All-loop no-go theorem}
+\section{Conclusions and Outlook}
+\subsection{All-loop No-Go Theorem}
 This could be a section about our expectations for all-loop construction requiring non-local color-dual integrands. Lay out counterfactual proof, i,e. define the following statement:
 \be
  Q_L=\textit{``the $L$-loop numerator is polynomial and color-dual"}. 
@@ -1217,8 +1207,7 @@ Or equivalently,
 \text{not }Q_{L-1}\Rightarrow \text{not }Q_L
 \ee
 We have found that the two-loop integrand for Yang-Mills cannot be constructed from a color-dual polynomial kinematic numerator. Thus, if a color-dual representation exists at all-loop order for Yang-Mills it must be a rational function of kinematics. 
-  
-\section{Discussion}\label{sec:Discussion}
+\subsection{Future Directions}\label{sec:Discussion}
 \paragraph{Acknowledgments} The authors would like to thank ... for insightful conversations, related collaboration, and encouragement throughout the completion of this work. This work was supported by the DOE under contract DE-SC0015910 and by the Alfred P. Sloan Foundation. N.H.P. additionally acknowledges the Northwestern University Amplitudes and Insight group, the Department of Physics and Astronomy, and Weinberg College for their generous support. 
 
 Figures made with TikZ-Feynman [1601.05437]

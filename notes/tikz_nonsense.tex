@@ -44,7 +44,7 @@
 
 %% Nice blob definition consistent with what James was already using,
 %% but handling the coordinate duplication internally.
-\newcommand{\blob}[2]{\vertex[dot,scale=2] (#1) at (#2){};\vertex[dot,scale=1.5,hgrey0] at (#2){};}
+\newcommand{\blob}[2]{\vertex[dot,scale=2.4] (#1) at (#2){};\vertex[dot,scale=1.8,hgrey0] at (#2){};}
 %% Use the same syntax, so that it is easy to convert between blobby
 %% cuts and normal diagrams
 \newcommand{\ver}[2]{\coordinate (#1) at (#2){};}
@@ -166,6 +166,641 @@
 (mid2) --[ultra thick,](mid6),
 (mid5) --[ultra thick,](mid2),
 (mid3) --[ultra thick,](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\NMCutA}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-1.5,1){};
+\vertex (a2) at (1.5,-.5){};
+\vertex (a3) at (1.5,.5){};
+\vertex (a4) at (-1.5,-1){};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (.75,0);
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5);
+\vertex (mid7) at (-.5,0) {};
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid3),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid3),
+(mid5) --[ultra thick,](mid7),
+(mid7) --[ultra thick,](mid1),
+(mid2) --[ultra thick,](mid6),
+(mid5) --[ultra thick,](mid2),
+};
+\vertex [dot,scale=2.4](midC) at (.75,0){};
+\vertex [dot,scale=1.8,hgrey0](midC) at (.75,0){};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\NMCutB}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-1.5,1){};
+\vertex (a2) at (1.5,-.5){};
+\vertex (a3) at (1.5,.5){};
+\vertex (a4) at (-1.5,-1){};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (.75,0);
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5);
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid3),
+(a1) --[ultra thick,](mid5),
+(mid5) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid3),
+(mid5) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid6),
+(mid1) --[ultra thick,](mid2),
+};
+\vertex [dot,scale=2.4](midC) at (.75,0){};
+\vertex [dot,scale=1.8,hgrey0](midC) at (.75,0){};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\NMCutC}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-1.25,.85){};
+\vertex (a2) at (1.25,-.85){};
+\vertex (a3) at (1.25,.85){};
+\vertex (a4) at (-1.25,-.85){};
+\vertex (mid1) at (0,0);
+\vertex (mid3) at (.75,.4) ;
+\vertex (mid4) at (.75,-.4) ;
+\vertex (mid5) at (-.75,.4);
+\vertex (mid6) at (-.75,-.4) ;
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid5),
+(mid3) --[ultra thick,](mid1),
+(mid1) --[ultra thick,](mid6),
+(mid1) --[ultra thick,](mid4),
+(mid5) --[ultra thick,](mid1),
+(mid5) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid4),
+};
+\vertex [dot,scale=2.4](midC) at (0,0){};
+\vertex [dot,scale=1.8,hgrey0](midC) at (0,0){};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\NMCutD}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-1.5,1){};
+\vertex (a2) at (.5,1){};
+\vertex (a3) at (1.5,0){};
+\vertex (a4) at (-1.5,-1){};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (.75,0);
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5);
+\vertex (mid7) at (-.5,0) {};
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid2),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid3),
+(mid5) --[ultra thick,](mid7),
+(mid7) --[ultra thick,](mid1),
+(mid2) --[ultra thick,](mid6),
+(mid5) --[ultra thick,](mid2),
+};
+\vertex [dot,scale=2.4](midC) at (0,.5){};
+\vertex [dot,scale=1.8,hgrey0](midC) at (0,.5){};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\NMCutE}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-1.3,.7){};
+\vertex (a2) at (.7,.85){};
+\vertex (a3) at (1.5,0){};
+\vertex (a4) at(-1.3,-.7){};
+\vertex (mid1) at (.05,-.6);
+\vertex (mid2) at (.05,.6);
+\vertex (mid3) at (.6,0);
+\vertex (mid5) at (-.65,.35);
+\vertex (mid6) at (-.65,-.35);
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid2),
+(a1) --[ultra thick,](mid5),
+(mid5) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid3),
+(mid5) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid6),
+(mid1) --[ultra thick,](mid2),
+};
+\vertex [dot,scale=2.4](midC) at (.05,.6){};
+\vertex [dot,scale=1.8,hgrey0](midC) at (.05,.6){};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\NMCutF}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a2) at (.7,.85){};
+\vertex (a3) at (.7,-.85){};
+\vertex (a4) at (1.2,-.5){};
+\vertex (a1) at (1.2,.5){};
+\vertex (mid1) at (.05,-.6);
+\vertex (mid2) at (.05,.6);
+\vertex (mid3) at (.6,0);
+\vertex (mid5) at (-.65,.35);
+\vertex (mid6) at (-.65,-.35);
+\diagram{
+(a4) --[ultra thick,](mid3),
+(a3) --[ultra thick,](mid1),
+(a2) --[ultra thick,](mid2),
+(a1) --[ultra thick,](mid3),
+(mid6) --[ultra thick,half left](mid5),
+(mid6) --[ultra thick,half right](mid5),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid3),
+(mid5) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid6),
+};
+\vertex [dot,scale=2.4](midC) at (.6,0){};
+\vertex [dot,scale=1.8,hgrey0](midC) at (.6,0){};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+%,out=60,in=120,min distance=0.4cm
+\newcommand{\NMCutG}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-.45,1.15){};
+\vertex (a2) at (.7,.85){};
+\vertex (a3) at (.7,-.85){};
+\vertex (a4) at (1.2,0){};
+\vertex (mid1) at (.05,-.6);
+\vertex (mid2) at (.05,.6);
+\vertex (mid3) at (.6,0);
+\vertex (mid5) at (-.65,.35);
+\vertex (mid6) at (-.65,-.35);
+\diagram{
+(a4) --[ultra thick,](mid3),
+(a3) --[ultra thick,](mid1),
+(a2) --[ultra thick,](mid2),
+(a1) --[ultra thick,](mid2),
+(mid6) --[ultra thick,half left](mid5),
+(mid6) --[ultra thick,half right](mid5),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid3),
+(mid5) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid6),
+};
+\vertex [dot,scale=2.4](midC) at (.05,.6){};
+\vertex [dot,scale=1.8,hgrey0](midC) at (.05,.6){};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\NMCutH}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-1.3,.7){};
+\vertex (a2) at (-1.3,.1){};
+\vertex (a3) at (1.5,0){};
+\vertex (a4) at (-1.3,-.7){};
+\vertex (mid1) at (.05,-.6);
+\vertex (mid2) at (.05,.6);
+\vertex (mid3) at (.6,0);
+\vertex (mid5) at (-.65,.35);
+\vertex (mid6) at (-.65,-.35);
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid5),
+(a1) --[ultra thick,](mid5),
+(mid5) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid3),
+(mid5) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid6),
+(mid1) --[ultra thick,](mid2),
+};
+\vertex [dot,scale=2.4](midC) at (-.65,.35){};
+\vertex [dot,scale=1.8,hgrey0](midC) at (-.65,.35){};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\pentaTriangleCut}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-.5,1){};
+\vertex (a2) at (1.5,-1){};
+\vertex (a3) at (1.5,1){};
+\vertex (a4) at (-.5,-1){};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (1,.5);
+\vertex (mid4) at (1,-.5);
+\vertex (mid5) at (1,0);
+\vertex (mid6) at (.5,-.5);
+\diagram{
+(a4) --[ultra thick,](mid1),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid2),
+(mid5) --[ultra thick,](mid6),
+(mid2) --[ultra thick,](mid1),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid4),
+(mid3) --[ultra thick,](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\sumoCut}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (1.1*1.1,0){};
+\vertex (a2) at (.6*1.1,-1*1.1){};
+\vertex (a3) at (-.6*1.1,-1*1.1){};
+\vertex (a4) at (-1.1*1.1,0){};
+\vertex (mid1) at (.6*1.1,0);
+\vertex (mid2) at (.3*1.1,-.5*1.1);
+\vertex (mid3) at (-.3*1.1,-.5*1.1);
+\vertex (mid4) at (-.6*1.1,0);
+\vertex (mid5) at (-.3*1.1,.5*1.1);
+\vertex (mid6) at (.3*1.1,.5*1.1);
+\diagram{
+(a1) --[ultra thick,](mid1),
+(a2) --[ultra thick,](mid2),
+(a3) --[ultra thick,](mid3),
+(a4) --[ultra thick,](mid4),
+(mid1) --[ultra thick,](mid2),
+(mid2) --[ultra thick,](mid3),
+(mid3) --[ultra thick,](mid4),
+(mid4) --[ultra thick,](mid5),
+(mid1) --[ultra thick,](mid6),
+(mid6) --[ultra thick,half right](mid5),
+(mid6) --[ultra thick,half left](mid5),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+
+\newcommand{\MCutC}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a2) at (.7,.85){};
+\vertex (a3) at (.7,-.85){};
+\vertex (a4) at (1.8,-.5){};
+\vertex (a1) at (1.8,.5){};
+\vertex (mid1) at (.05,-.6);
+\vertex (mid2) at (.05,.6);
+\vertex (mid3) at (.6,0);
+\vertex (mid4) at (1.2,0);
+\vertex (mid5) at (-.65,.35);
+\vertex (mid6) at (-.65,-.35);
+\diagram{
+(a4) --[ultra thick,](mid4),
+(a3) --[ultra thick,](mid1),
+(a2) --[ultra thick,](mid2),
+(a1) --[ultra thick,](mid4),
+(mid3) --[ultra thick,](mid4),
+(mid6) --[ultra thick,half left](mid5),
+(mid6) --[ultra thick,half right](mid5),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid3),
+(mid5) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid6),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+
+\newcommand{\MCutD}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a2) at (-1.3,-.7){};
+\vertex (a3) at (.7,-.85){};
+\vertex (a4) at (1.8,-.5){};
+\vertex (a1) at (1.8,.5){};
+\vertex (mid1) at (.05,-.6);
+\vertex (mid2) at (.05,.6);
+\vertex (mid3) at (.6,0);
+\vertex (mid5) at (-.65,.35);
+\vertex (mid6) at (-.65,-.35);
+\vertex (mid4) at (1.2,0);
+\diagram{
+(a4) --[ultra thick,](mid4),
+(a3) --[ultra thick,](mid1),
+(a2) --[ultra thick,](mid6),
+(a1) --[ultra thick,](mid4),
+(mid3) --[ultra thick,](mid4),
+(mid2) --[ultra thick,half left](mid5),
+(mid2) --[ultra thick,half right](mid5),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid3),
+(mid5) --[ultra thick,](mid6),
+(mid1) --[ultra thick,](mid6),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+
+\newcommand{\MCutE}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-1.5,1){};
+\vertex (a2) at (1.8,-.5){};
+\vertex (a3) at (1.8,.5){};
+\vertex (a4) at (-1.5,-1){};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (.6,0);
+\vertex (mid4) at (1.2,0);
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5);
+\vertex (mid7) at (-.5,0) {};
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid4),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid3),
+(mid5) --[ultra thick,](mid7),
+(mid7) --[ultra thick,](mid1),
+(mid2) --[ultra thick,](mid6),
+(mid5) --[ultra thick,](mid2),
+(mid3) --[ultra thick,](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+
+\newcommand{\MCutF}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-1.8,.5){};
+\vertex (a2) at (1.8,-.5){};
+\vertex (a3) at (1.8,.5){};
+\vertex (a4) at (-1.8,-.5){};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (.6,0);
+\vertex (mid4) at (1.2,0);
+\vertex (mid5) at (-1.2,0);
+\vertex (mid6) at (-.6,0);
+\diagram{
+(a4) --[ultra thick,](mid5),
+(a3) --[ultra thick,](mid4),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid5),
+(mid5) --[ultra thick,](mid6),
+(mid1) --[ultra thick,](mid6),
+(mid2) --[ultra thick,](mid6),
+(mid2) --[ultra thick,](mid1),
+(mid2) --[ultra thick,](mid3),
+(mid1) --[ultra thick,](mid3),
+(mid4) --[ultra thick,](mid3),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+
+\newcommand{\MCutG}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-1.5,.85){};
+\vertex (a2) at (2,-.5){};
+\vertex (a3) at (2,.5){};
+\vertex (a4) at (-1.5,-.85){};
+\vertex (mid1) at (-.25,0);
+\vertex (mid2) at (.25,0);
+\vertex (mid3) at (1,.0) ;
+\vertex (mid4) at (1.5,.0) ;
+\vertex (mid5) at (-1,.4);
+\vertex (mid6) at (-1,-.4) ;
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid4),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,](mid2),
+(mid3) --[ultra thick,half right](mid2),
+(mid3) --[ultra thick,half left](mid2),
+(mid1) --[ultra thick,](mid6),
+(mid5) --[ultra thick,](mid1),
+(mid5) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+
+\newcommand{\MCutH}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-2,-.5){};
+\vertex (a4) at (-2,.5){};
+\vertex (a2) at (2,-.5){};
+\vertex (a3) at (2,.5){};
+\vertex (mid1) at (-.25,0);
+\vertex (mid2) at (.25,0);
+\vertex (mid3) at (1,.0) ;
+\vertex (mid4) at (1.5,.0) ;
+\vertex (mid5) at (-1,.0) ;
+\vertex (mid6) at (-1.5,.0) ;
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid4),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid6),
+(mid1) --[ultra thick,](mid2),
+(mid3) --[ultra thick,half right](mid2),
+(mid3) --[ultra thick,half left](mid2),
+(mid5) --[ultra thick,half right](mid1),
+(mid5) --[ultra thick,half left](mid1),
+(mid5) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+
+\newcommand{\MCutI}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-1.5,1){};
+\vertex (a2) at (1.8,-.5){};
+\vertex (a3) at (1.8,.5){};
+\vertex (a4) at (-1.5,-1){};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (.6,0);
+\vertex (mid4) at (1.2,0);
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5);
+\vertex (mid7) at (-.5,0) {};
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid4),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid3),
+(mid5) --[ultra thick,](mid6),
+(mid5) --[ultra thick,](mid2),
+(mid3) --[ultra thick,](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\MCutJ}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-1,-.5){};
+\vertex (a4) at (-1,.5){};
+\vertex (a2) at (2.25,-.5){};
+\vertex (a3) at (2.25,.5){};
+\vertex (mid1) at (-.5,0);
+\vertex (mid2) at (0,0);
+\vertex (mid3) at (1.25,.0) ;
+\vertex (mid5) at (.25,.75);
+\vertex (mid6) at (1,.75) ;
+\vertex (mid4) at (1.75,.0) ;
+
+\diagram{
+(a4) --[ultra thick,](mid1),
+(a3) --[ultra thick,](mid4),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid1),
+(mid1) --[ultra thick,](mid2),
+(mid3) --[ultra thick](mid2),
+(mid3) --[ultra thick](mid6),
+(mid5) --[ultra thick](mid2),
+(mid5) --[ultra thick,half left](mid6),
+(mid5) --[ultra thick,half right](mid6),
+(mid3) --[ultra thick,](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\MCutK}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a2) at (-2.2,0){};
+\vertex (a3) at (-2.2,1){};
+\vertex (a1) at (-1.6,.5);
+
+\vertex (a4) at (-1.5,-1){};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (.6,0);
+\vertex (mid4) at (1.2,0);
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5);
+\vertex (mid7) at (-.5,0) {};
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a1) --[ultra thick,](mid5),
+(a1) --[ultra thick,](a2),
+(a1) --[ultra thick,](a3),
+(mid1) --[ultra thick,](mid6),
+(mid3) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid2),
+(mid1) --[ultra thick,](mid3),
+(mid5) --[ultra thick,](mid6),
+(mid5) --[ultra thick,](mid2),
+(mid3) --[ultra thick,](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\MCutL}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-1.5,.85){};
+\vertex (a2) at (1.5,-.85){};
+\vertex (a3) at (1.5,.85){};
+\vertex (a4) at (-1.5,-.85){};
+\vertex (mid1) at (-.25,0);
+\vertex (mid2) at (.25,0);
+\vertex (mid3) at (1,.4);
+\vertex (mid4) at (1,-.4) ;
+\vertex (mid5) at (-1,.4);
+\vertex (mid6) at (-1,-.4) ;
+\diagram{
+(a4) --[ultra thick,](mid6),
+(a3) --[ultra thick,](mid3),
+(a2) --[ultra thick,](mid4),
+(a1) --[ultra thick,](mid5),
+(mid1) --[ultra thick,](mid2),
+(mid3) --[ultra thick,](mid2),
+(mid4) --[ultra thick,](mid2),
+(mid4) --[ultra thick,](mid3),
+(mid1) --[ultra thick,](mid6),
+(mid5) --[ultra thick,](mid1),
+(mid5) --[ultra thick,](mid6),
 };
 \end{feynman}
 \end{tikzpicture}
@@ -324,6 +959,37 @@
 }
 
 %%% Half ladder start %%%
+
+\newcommand{\halfLadder}{ {
+\begin{tikzpicture}[baseline=8]
+\begin{feynman}
+\vertex (mid1) at (0,0);
+\vertex (mid2) at (.7,0);
+\vertex (mid3) at (1,0);
+\vertex (mid3a) at (1.5,.4){$\cdots$};
+\vertex (mid4) at (1.8,0);
+\vertex (mid4a) at (2.1,0);
+\vertex (a6) at (3,0){$a_n$};
+\vertex (a1) at (-0.9,0){$a_1$};
+\vertex (a2) at (0,.9){$a_2$};
+\vertex (a3) at (.7,.85){$a_3$};
+\vertex (a4) at (2.1,.9){$a_{n-1}$};
+\diagram{
+(mid1) -- [ultra thick](a1),
+(mid1) -- [ultra thick](a2),
+(mid2) -- [ultra thick](a3),
+(mid4a) -- [ultra thick](a4),
+(mid4a) -- [ultra thick](mid4),
+(mid4a) -- [ultra thick](a6),
+(mid1) --[ultra thick](mid2),
+(mid2) --[ultra thick](mid3),
+(mid3) --[scalar,ultra thick](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
 
 \newcommand{\HalfLadder}{ {
 \begin{tikzpicture}
@@ -669,14 +1335,14 @@
 \begin{feynman}
 \vertex (a1) at (-.6, -0.6) {\scriptsize{#1}};
 \vertex (a2) at (-.6, 0.6) {\scriptsize{#2}};
-%\vertex [dot,scale=2](mid1) at (0,0){};
-%\vertex [dot,scale=1.5,hgrey0](mid2) at (0,0){};
+%\vertex [dot,scale=2.4](mid1) at (0,0){};
+%\vertex [dot,scale=1.8,hgrey0](mid2) at (0,0){};
 \blob{mid1}{0,0};
-%\vertex [dot,scale=2](mid3) at (.8,0){};
-%\vertex [dot,scale=1.5,hgrey0](mid4) at (.8,0){};
+%\vertex [dot,scale=2.4](mid3) at (.8,0){};
+%\vertex [dot,scale=1.8,hgrey0](mid4) at (.8,0){};
 \blob{mid3}{.8,0};
-%\vertex [dot,scale=2](mid5) at (1.6,0){};
-%\vertex [dot,scale=1.5,hgrey0](mid6) at (1.6,0){};
+%\vertex [dot,scale=2.4](mid5) at (1.6,0){};
+%\vertex [dot,scale=1.8,hgrey0](mid6) at (1.6,0){};
 \blob{mid5}{1.6,0};
 \vertex (a3) at (2.2, .6) {\scriptsize{#3}};
 \vertex (a4) at (2.2, -.6) {\scriptsize{#4}};
@@ -701,12 +1367,12 @@
 \begin{feynman}
 \vertex (a1) at (-1, 1) {#1};
 \vertex (a2) at (1, 1) {#2};
-\vertex [dot,scale=2](mid1) at (0.5,0.5){};
-\vertex [dot,scale=1.5,hgrey0](mid2) at (0.5,0.5){};
-\vertex [dot,scale=2](mid3) at (-0.5,0.5){};
-\vertex [dot,scale=1.5,hgrey0](mid4) at (-0.5,0.5){};
-\vertex [dot,scale=2](mid5) at (0,0){};
-\vertex [dot,scale=1.5,hgrey0](mid6) at (0,0){};
+\vertex [dot,scale=2.4](mid1) at (0.5,0.5){};
+\vertex [dot,scale=1.8,hgrey0](mid2) at (0.5,0.5){};
+\vertex [dot,scale=2.4](mid3) at (-0.5,0.5){};
+\vertex [dot,scale=1.8,hgrey0](mid4) at (-0.5,0.5){};
+\vertex [dot,scale=2.4](mid5) at (0,0){};
+\vertex [dot,scale=1.8,hgrey0](mid6) at (0,0){};
 \vertex (a3) at (-.5, -.5) {#3};
 \vertex (a4) at (.5, -.5) {#4};
 \diagram{
@@ -731,12 +1397,12 @@
 \begin{feynman}
 \vertex (a1) at (-.6, -0.6) {#1};
 \vertex (a2) at (-.6, 0.6) {#2};
-\vertex [dot,scale=2](mid1) at (0,0){};
-\vertex [dot,scale=1.5,hgrey0](mid2) at (0,0){};
-\vertex [dot,scale=2](mid3) at (.8,0){};
-\vertex [dot,scale=1.5,hgrey0](mid4) at (.8,0){};
-\vertex [dot,scale=2](mid5) at (1.6,0){};
-\vertex [dot,scale=1.5,hgrey0](mid6) at (1.6,0){};
+\vertex [dot,scale=2.4](mid1) at (0,0){};
+\vertex [dot,scale=1.8,hgrey0](mid2) at (0,0){};
+\vertex [dot,scale=2.4](mid3) at (.8,0){};
+\vertex [dot,scale=1.8,hgrey0](mid4) at (.8,0){};
+\vertex [dot,scale=2.4](mid5) at (1.6,0){};
+\vertex [dot,scale=1.8,hgrey0](mid6) at (1.6,0){};
 \vertex (a3) at (2.2, .6) {#3};
 \vertex (a4) at (2.2, -.6) {#4};
 \diagram{
@@ -761,18 +1427,18 @@
 \vertex (a2) at (1.2,-0.8){};
 \vertex (a3) at (1.2,0.8){};
 \vertex (a4) at (-1.2,-0.8){};
-\vertex [dot,scale=2] (mid1) at (0,-.4){};
-\vertex [dot,scale=1.5,hgrey0](mid1x) at (0,-.4){};
-\vertex [dot,scale=2] (mid2) at (0,.4){};
-\vertex [dot,scale=1.5,hgrey0] (mid2x) at (0,.4){};
-\vertex [dot,scale=2] (mid3) at (0.8,.4){};
-\vertex [dot,scale=1.5,hgrey0] (mid3x) at (0.8,.4){};
-\vertex [dot,scale=2] (mid4) at (0.8,-.4){};
-\vertex [dot,scale=1.5,hgrey0] (mid4x) at (0.8,-.4){};
-\vertex [dot,scale=2] (mid5) at (-0.8,.4){};
-\vertex [dot,scale=1.5,hgrey0] (mid5x) at (-0.8,.4){};
-\vertex [dot,scale=2] (mid6) at (-0.8,-.4){};
-\vertex [dot,scale=1.5,hgrey0] (mid6x) at (-0.8,-.4){};
+\vertex [dot,scale=2.4] (mid1) at (0,-.4){};
+\vertex [dot,scale=1.8,hgrey0](mid1x) at (0,-.4){};
+\vertex [dot,scale=2.4] (mid2) at (0,.4){};
+\vertex [dot,scale=1.8,hgrey0] (mid2x) at (0,.4){};
+\vertex [dot,scale=2.4] (mid3) at (0.8,.4){};
+\vertex [dot,scale=1.8,hgrey0] (mid3x) at (0.8,.4){};
+\vertex [dot,scale=2.4] (mid4) at (0.8,-.4){};
+\vertex [dot,scale=1.8,hgrey0] (mid4x) at (0.8,-.4){};
+\vertex [dot,scale=2.4] (mid5) at (-0.8,.4){};
+\vertex [dot,scale=1.8,hgrey0] (mid5x) at (-0.8,.4){};
+\vertex [dot,scale=2.4] (mid6) at (-0.8,-.4){};
+\vertex [dot,scale=1.8,hgrey0] (mid6x) at (-0.8,-.4){};
 \diagram{
 (a4) --[ultra thick,](mid6),
 (a3) --[ultra thick,](mid3),
@@ -797,10 +1463,10 @@
 \vertex (a1) at (-.8, -0.6) {};
 \vertex (a2) at (-.8, 0.6) {};
 \vertex (a3) at (-1, 0) {};
-\vertex [dot, scale=2](mid1) at (0,0){};
-\vertex [dot, scale=1.5,hgrey0](mid2) at (0,0){};
-\vertex [dot, scale=2](mid3) at (1,0){};
-\vertex [dot, scale=1.5,hgrey0](mid4) at (1,0){};
+\vertex [dot, scale=2.4](mid1) at (0,0){};
+\vertex [dot, scale=1.8,hgrey0](mid2) at (0,0){};
+\vertex [dot, scale=2.4](mid3) at (1,0){};
+\vertex [dot, scale=1.8,hgrey0](mid4) at (1,0){};
 \vertex (a4) at (1.8, 0) {};
 \diagram{
 (mid1) --[ultra thick,](a1),
@@ -816,15 +1482,76 @@
 }
 }
 
+\newcommand{\nGonVec}{ {
+\begin{tikzpicture}[baseline=-2]
+\begin{feynman}
+\vertex (mid1) at (.7*.8,0);
+\vertex (mid2) at (.35*.8,.606*.8);
+\vertex (mid3) at (-.35*.8,.606*.8);
+\vertex (mid4) at (-.7*.8,0);
+\vertex (mid5) at (-.35*.8,-.606*.8);
+\vertex (mid6) at (.35*.8,-.606*.8);
+\vertex (a1) at (1.7,0){$n\!-\!1$};
+\vertex (a2) at (.7,1.212){$n$};
+\vertex (a3) at (-.7,1.212){$1$};
+\vertex (a4) at (-1.4,0){$2$};
+\diagram{
+(mid1) -- [ultra thick,fermion2](a1),
+(mid2) -- [ultra thick,fermion2](a2),
+(mid3) -- [ultra thick,fermion2](a3),
+(mid4) -- [ultra thick,fermion2](a4),
+(mid1) --[ultra thick,fermion2](mid2),
+(mid2) --[ultra thick](mid3),
+(mid3) --[ultra thick](mid4),
+(mid4) --[ultra thick](mid5),
+(mid5) --[scalar,ultra thick](mid6),
+(mid6) --[ultra thick](mid1),
+}; 
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+
+\newcommand{\nGonScalar}{ {
+\begin{tikzpicture}[baseline=-2]
+\begin{feynman}
+\vertex (mid1) at (.7*.8,0);
+\vertex (mid2) at (.35*.8,.606*.8);
+\vertex (mid3) at (-.35*.8,.606*.8);
+\vertex (mid4) at (-.7*.8,0);
+\vertex (mid5) at (-.35*.8,-.606*.8);
+\vertex (mid6) at (.35*.8,-.606*.8);
+\vertex (a1) at (1.7,0){$n\!-\!1$};
+\vertex (a2) at (.7,1.212){$n$};
+\vertex (a3) at (-.7,1.212){$1$};
+\vertex (a4) at (-1.4,0){$2$};
+\diagram{
+(mid1) -- [ultra thick,fermion2](a1),
+(mid2) -- [ultra thick,fermion2](a2),
+(mid3) -- [ultra thick,fermion2](a3),
+(mid4) -- [ultra thick,fermion2](a4),
+(mid1) --[ultra thick,nhpRed](mid2),
+(mid2) --[ultra thick,nhpRed](mid3),
+(mid3) --[ultra thick,nhpRed](mid4),
+(mid4) --[ultra thick,nhpRed](mid5),
+(mid5) --[scalar,ultra thick,nhpRed](mid6),
+(mid6) --[ultra thick,nhpRed](mid1),
+}; 
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
 \newcommand{\LMCut}{ {
 \begin{tikzpicture}
 \begin{feynman}
 \vertex (a1) at (-.8, -0.6) {};
 \vertex (a2) at (-.8, 0.6) {};
-\vertex [dot, scale=2](mid1) at (0,0){};
-\vertex [dot, scale=1.5,hgrey0](mid2) at (0,0){};
-\vertex [dot, scale=2](mid3) at (1,0){};
-\vertex [dot, scale=1.5,hgrey0](mid4) at (1,0){};
+\vertex [dot, scale=2.4](mid1) at (0,0){};
+\vertex [dot, scale=1.8,hgrey0](mid2) at (0,0){};
+\vertex [dot, scale=2.4](mid3) at (1,0){};
+\vertex [dot, scale=1.8,hgrey0](mid4) at (1,0){};
 \vertex (a3) at ($(mid3)+(0.8, -0.6)$) {};
 \vertex (a4) at ($(mid3)+(.8, 0.6)$) {};
 \diagram{
