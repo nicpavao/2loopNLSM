@@ -232,7 +232,7 @@ For now, let's put the things we need to check/compute here in the abstract.
 
 In this work, we will consider three different types of cubic representations, that we define below: 
 \be
-\stackrel{\Acubic{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{}}{\text{Fundamental}}\qquad\qquad \stackrel{\cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{}}{\text{Bifundamental}}\qquad\qquad \stackrel{\Acubic{hgrey0}{}{nhpBlue}{}{nhpBlue}{}{nhpBlue}}{\text{Adjoint}}
+\qquad\qquad \stackrel{\cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{}}{\text{Bifundamental}}\qquad\qquad \stackrel{\Acubic{hgrey0}{}{nhpBlue}{}{nhpBlue}{}{nhpBlue}}{\text{Adjoint}}
 \ee
 In this review, we will present examples of this distinct kinematic representations that have appeared in the literature. Though from the get go, we stress that in this work we are interested in identifying the analog of adjoint representations of the kinematic numerators; those for which all legs are equally preferrenced by the functional dressing. The only non-trivial $S$-matrix in the literature that exhibits this property to all-loop order, is that of Zakharov-Mikhailov theory \citepls{}. We will briefly review the perturbative construction of this theory below. 
 
@@ -336,9 +336,8 @@ reference):
 \item  \textbf{Cubic diagrams}: The only diagrams with nonzero numerators are
   those with strictly cubic vertices.  This is generally a requirement
   to properly define the kinematic Jacobi relations.
-\item  \textbf{Relabeling}: The diagram numerators are only a function of the
-  diagram's topology and labeling.
-\item  \textbf{Symmetries}: The diagram numerators are invariant under the
+\item  \textbf{Symmetries}: The diagram numerators are only a function of the
+  diagram's topology and labeling. The diagram numerators are invariant under the
   automorphisms of the diagrams \emph{including signs that compensate
     for color-factor sign changes}.
 \item  \textbf{Unitarity cuts}: The cuts of the ansatz must reproduce the
@@ -817,13 +816,23 @@ freedom does not affect the physical integrand or its double copy.
 
 
 \section{One-loop cubic construction}
-Here we'll describe the why constructing the full Yang-Mills kinematic algebra (outside self-dual sector) is generically hard, and why the same reason makes NLSM beyond one-loop hard as well. It has to do with out the vector state sum mixes with the four-point contact. In terms of our previously defined Feynman rules, the three-point YM vertex takes the form:
+Here we'll describe the why constructing the full Yang-Mills kinematic algebra (outside self-dual sector) is generically hard, and why the same reason makes NLSM beyond one-loop hard as well. It has to do with how the vector state sum mixes with the four-point contact. 
+
+This is most easily seen by decomposing the Yang-Mill three-point interaction in terms of the following vertex in Lorenz gauge:
+\be \label{YMSvert}
+\Acubic{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{} = (\varepsilon_1\varepsilon_2)(\varepsilon_3 k_1)
+\ee
+With this, the full vector interaction can be expressed as a sum over cyclic permutations:
 \be
 \cubic{hgrey0}{gluon}{}{gluon}{}{gluon}{}  =  \cubic{hgrey0}{fermion2}{}{}{nhpRed}{}{nhpRed} + \cubic{hgrey0}{}{nhpRed}{fermion2}{}{}{nhpRed} + \Acubic{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{} +\text{h.c.}
 \ee
 The state-sum between two three-point gluon vertex yields the following expansion in terms of YZ-theory vertices:
 \be
  \AcubicB{hgrey0}{gluon}{}{gluon}{}{gluon}{}{gluon}{} =  \AcubicB{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{}{fermion2}{} + 5 \text{ perms} + \AcubicB{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{}{}{nhpRed}
+\ee
+where we have defined a new oriented vertex in terms of our scalar-vector building block of \ref{YMSvert},
+\be
+\cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} = \cubic{hgrey0}{}{nhpRed}{fermion2}{}{}{nhpRed} +\cubic{hgrey0}{fermion2}{}{}{nhpRed}{}{nhpRed}\,.
 \ee
 All the $(\epsilon\epsilon)^1$ diagram permutations are isolated to the cubic sector and together manifest color-kinematics duality. However, the exception of the last diagram which introduces a $(\epsilon\epsilon)^2$ factor, must conspire with the Yang-Mills contact to preserve the duality off-shell
 
@@ -866,6 +875,18 @@ A^{\text{NLSM}}_{\text{1-loop}} \equiv \partial_D \Delta^{(\varnothing)}_{\text{
 \end{eBox}
 Why must we take the derivative with respect to $D$? After all, $J$-theory and $YZ$-theory both have well defined propagators for internal $\bar{J}J$ and $\bar{Z}Z$ propagators. However, as we noted in the previous section, all the $J$ and $Z$ states must be on-shell in order to produce NLSM amplitudes. Thus, the unitarity cuts of $J$ theory at one-loop will not produce NLSM amplitudes. However, the internal $YY$-loop is a valid forward limit, since as constructed YZ theory is valid for off-shell Y-particles, and thus they serve as a valid forward limit. We will construct these one-loop integrands below in the next section. 
 \subsection{Semi-abelian Yang-Mills theory}
+\begin{eBox}
+\be
+\mathcal{L}^{\text{semi-YM}} = -\frac{1}{2}\text{tr}\left[\bar{F}_{\mu\nu}F^{\mu\nu}\right]
+\ee
+\end{eBox}
+where,
+\be
+\bar{F}^a_{\mu\nu} = \partial_\mu \bar{A}_\nu^a - \partial_\nu \bar{A}_\mu^a
+\ee
+\be
+F^a_{\mu\nu} = \partial_\mu A_\nu^a - \partial_\nu A_\mu^a
+\ee
 \subsection{One-loop color-dual integrands}
 \be
 \simplebox = g_{\text{YM}}^4 X(k_1,l_1)X(k_2,l_2)X(k_3,l_3)X(k_4,l_4)
@@ -1215,11 +1236,6 @@ Figures made with TikZ-Feynman [1601.05437]
 \appendix
 \section{Catalog of color-dual theories}
 \label{sec:CKLagrangians}
-In the next section we will construct one-loop color-dual numerators using Lagrangian descriptions that are manifestly color-dual. As we will show, taking forward limits of tree-level numerators works as long as one can construct an off-shell description with a Lagrangian. Here we briefly review the off-shell examples of the kinematic algebra that will be relevant in this paper. 
-\be
-\mathcal{L}^{\text{semi-YM}} = - \frac{1}{2} G_{\mu\nu} F^{\mu\nu} = - \frac{1}{2} G_{\mu\nu} F^{\mu\nu} - \frac{g}{2} G_{\mu\nu} [A_\mu, A_\nu]
-\ee
-\jm{I believe this Lagrangian has a name -- BF theory.  All this does is set F=0 and if you impose Lorenz gauge then you get many of the known color-dual theories.}
 \paragraph{Self-Dual Yang-Mills} The first example in the literature \citepls{} of color-dual Feynman rules is that of Yang-Mills theory in the self-dual sector (SDYM):
 \be
 \mathcal{L}^{\text{YM}} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
@@ -1487,7 +1503,7 @@ Should this section maybe go first?
 \item For off-shell CK, the kinetic term is relatively unimportant so long as the poles are correctly/consistently identified (what do you mean by s,t,u channel poles).  This might screw up locality in the squared theory.
 \end{itemize}
 \section{Spinor-helicity and conventions}
-Dimensions will generically be away from four, in $D=4-2\epsilon$, with $\epsilon$ arbitrary. As noted, it will be convenient to take $D\rightarrow 4$ in certain circumstances after integration.  In such cases we will employ appropriate spinor-helicity variables.  Here we apply the same conventions of Ref.~\cite{jjmcTASI2014}, which we quote now. For massless momenta, $k_a$ and $k_b$, we have 
+Here we apply the same conventions of Ref.~\cite{jjmcTASI2014}, which we quote now. For massless momenta, $k_a$ and $k_b$, we have 
 \begin{equation}
 s_{ab} = (k_a+k_b)^2= \langle ab \rangle[ba]\,,
 \end{equation}
@@ -1559,7 +1575,10 @@ Notice there is an overall factor that cancels one of the propagators. Plugging 
 \mathcal{I}^{\text{BEL}}_{1|2,34} = s_{12} k_1^{\nu} k_2^{[\mu} k_{[34]}^{\nu]} \int \frac{d^D l}{i\pi^{D/2}} \frac{l^\mu }{l^2-\mu^2} \sim   s_{12}(s_{13}-s_{14}) (\mu^2)^{D/2}
 \ee
 where we have introduced a mass regulator that will be proportional the the on-shell momentum inside the BEL, $\mu^2 \equiv k_1^2$. Thus, in large enough dimension, this integral suppresses the $\mu^{-2}$ divergence appearing in the denominator of the BEL diagram. 
+
+
 \section{Notes to self -- James}
+\jm{Notes to self -- James}
 \begin{itemize}
 \item We should comment on 1-loop YM.  Can you easily write down the $n$-gon numerator?  I have some memory that someone has some complicated YM numerator.
 \item Cite papers arguing about whether NLSM in 2D is non-trivial or not.
