@@ -313,70 +313,32 @@ Why the bowtie is so important.
 
 \subsection{Color-dual Bootstrap}
 \label{sec:bootstrap}
-Some background here on how we approach color-dual bootstrap (as we will utilize in our two-loop construction). Building an ansatz from irreducible lorentz products (ISPs). Comments about:
-\begin{itemize}
-\item loop momenta weight counting 
-\item polynomial vector spaces 
-\item generalized gauge freedom
-\item functional jacobi constraints and cuts
-\end{itemize}
 
-
-As part of attemtping to construct a color-kinematics dual
-representation for $\mathcal{N}=0$ Yang--Mills at two loops, Bern,
-Davies, and Nohle (BDN) \cite{Bern:2015ooa} lay out the following core
-assumptions in searching for double-copyable integrand numerators (ordered according to the
-reference):
+Aside from a few special theories \citepls{}, color-dual integrands are constructed from an ansatz.
+The four conditions imposed on the ansatz are summarized here and elaborated on below.
 \begin{enumerate}
 \item \textbf{Locality}: Diagram ``numerators'' are polynomials in momenta and
   polarizations, \eg the diagrams only have poles given by the
   propagators of the diagrams.
-\item  \textbf{Power-counting:} The maximum power of the loop momenta in the
-  numerator is bounded by Feynman-gauge Feynman rules.
-\item  \textbf{Cubic diagrams}: The only diagrams with nonzero numerators are
-  those with strictly cubic vertices.  This is generally a requirement
-  to properly define the kinematic Jacobi relations.
-\item  \textbf{Symmetries}: The diagram numerators are only a function of the
-  diagram's topology and labeling. The diagram numerators are invariant under the
-  automorphisms of the diagrams \emph{including signs that compensate
-    for color-factor sign changes}.
-\item  \textbf{Unitarity cuts}: The cuts of the ansatz must reproduce the
-  physical unitarity cuts of the theory.
-\item  \textbf{Color-kinematics duality}: The numerators obey some form of the
-  kinematic Jacobi relations.
+  \item  \textbf{Color-kinematics duality}: The numerators obey the same Jacobi identities as the color factors.
+This implicitly requires that the integrand is expressed in terms of purely cubic diagrams.
+\item  \textbf{Graph symmetries}: The diagram numerators are invariant under the automorphisms of the diagrams \emph{including signs that compensate for color-factor sign changes}.
+The diagram numerators are only a function of the diagram's topology and labeling.
+\item  \textbf{Unitarity cuts}: The cuts of the ansatz must reproduce the physical unitarity cuts of the theory.
 \end{enumerate}
-Point 1 is generally a matter of convenience: there are many examples
-in which ``numerators'' with controlled rational contributions have
-been found
-\cite{Square,WeinzierlBCJLagrangian,Mogull:2015adi,FivePointN4BCJ,Johansson:2017bfl}.
-However, without a guiding principle about what types of rational
-terms to use, the size of ans\"{a}tze quickly get out of hand.  Point
-2 was motivated at the time by the hope that color-dual numerators
-could arise naturally out of a special gauge choice. \jm{I'm not sure
-  that we should bring up point 2.  I don't follow it and I don't
-  think Alex did either since this wouldn't be the most general
-  ansatz.  Also, why doesn't point 5 cover point 4?}\ace{I paraphrased
-  these out of \cite{Bern:2015ooa}, thus the inclusion of Point 2.
-  For Points 4 and 5, definitely 4 $\not \Rightarrow$ 5.  In the other
-  direction, I could imagine a situation in which we violate 4 (eg we
-  need to specify a reference ordering) but that symmetries are still
-  respected as long as you also perform the correct actions on the
-  auxiliary data.} On the other hand, recent work by Ben-Shahar,
-Garozzo, and Johansson \cite{Ben-Shahar:2022ixa} \ace{Are there other
-  good examples?}  demonstrates that constructing Feynman rules which
-produce manifestly color-dual numerators for the NMHV sector of
-Yang--Mills requires introducing additional auxiliary fields,
-including higher-spin modes, which could shift the expected power
-counting in non-trivial ways.  Point 3 is a requirement of the BCJ
-double-copy: currently there is no known way of incorporating
-non-cubic diagrams into the kinematic Jacobi relations.  Points 4 and
-5 will be elaborated on in \cref{sec:syms}, Point 6 in
-\cref{sec:unitarity}, and Point 7 in \cref{sec:jac-rels}.
 
+\paragraph{Locality}
 
-References for Jacobi, unitarity, etc.
+The kinematic numerators need to be $D$-dimensional, Lorentz invariant, local (polynomial) functions of the graph kinematics with the correct power counting and external states.
+Insisting on a local numerator is partly a matter of convenience as the ansatz for a rational function would quickly grow out of control without a guiding principle for what terms to include.
+Locality is also physically motivated since Feynman rules typically produce polynomial numerators.
+While locality is well motivated from a physical and computational standpoint, the literature has featured numerators that violate locality, break manifest Lorentz invariance, and modify naive power counting through the presence of higher spin modes \cite{Square, WeinzierlBCJLagrangian, Mogull:2015adi, FivePointN4BCJ, Johansson:2017bfl, Ben-Shahar:2022ixa, Cheung:2016prv, Cheung:2021zvb}. \jm{Alex wrote some of this citation.  I'm not sure why it broke.}
+These developments suggest that relaxing locality is a viable option when the condition proves too stringent for an ansatz.
+We will comment more on locality in \sect{}.
 
-Aside from the few special theories mentioned in \cref{sec:CKLagrangians}, color-dual integrands are constructed from an ansatz.
+\paragraph{Color-kinematics duality}
+
+Somewhere emphasize that Zvi et al didn't do the most general ansatz, imposed extra loop power counting constraints.
 
 Different kinds of CK.  We want global.  Global is the simplest
 option, it is also the option that you would automatically get if you
@@ -421,16 +383,7 @@ inverse propagators.  Next, the ansatz must have the correct power
 counting and external states, \emph{e.g.}, polarization vectors for
 YM.  The numerator is assumed to be manifestly local but one approach
 to finding color-dual numerators is to relax manifest locality, see
-(...) for more details.  After zeroth order considerations like power
-counting, there are three conditions that are imposed on the ansatz:
-(1) Jacobi relations amongst graphs must be satisfied, (2) numerators
-must respect graph symmetries, and (3) the integrand must have the
-correct unitarity cuts.
-
-(These three constraints can be solved in any order and my guess is that Alex and I did solve them in different orders.)
-
-\paragraph{Jacobi relations}
-\label{sec:jac-rels}
+(...) for more details.
 
 Jacobi relations are the heart of color-kinematics duality.
 The color factors in an integrand obey a set of Jacobi identities.
@@ -467,7 +420,8 @@ These graphs are allowed to have non-zero numerators but any Jacobi relations in
 See (4 loop N=4 paper) for a discussion of BELs in the context of color-kinematics duality.
 
 \paragraph{Graph symmetries}
-\label{sec:syms}
+
+Want explicit Bose sym, broken in many cases.
 
 The second key constraint in an ansatz construction of color-dual numerators comes from graph symmetries.
 Every numerator is required to respect all of the symmetries (or automorphisms) of its associated graph.
@@ -490,7 +444,7 @@ To compensate for the antisymmetric structure of $f^{abc}$, the vertices are all
 Once the signs are included in the symmetry relations, the crossed box can be expressed in terms of the double box and penta-triangle, thus imposing non-trivial constraints on the ansatz.
 
 \paragraph{Unitarity}
-\label{sec:unitarity}
+
 The last key source of constraints comes from ensuring that the ansatz
 correctly reproduces the generalized unitarity cuts of the theory.
 Matching the unitarity cuts provides the vast majority of
@@ -812,7 +766,6 @@ number of propagators have been put on shell.
 After imposing all of the conditions above, any remaining free
 parameters represent ``generalized gauge freedom'' meaning that the
 freedom does not affect the physical integrand or its double copy.
-
 
 \section{One-loop cubic construction}
 Here we'll describe the why constructing the full Yang-Mills kinematic algebra (outside self-dual sector) is generically hard, and why the same reason makes NLSM beyond one-loop hard as well. It has to do with how the vector state sum mixes with the four-point contact. 
