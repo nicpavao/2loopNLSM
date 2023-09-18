@@ -1512,6 +1512,36 @@
 }
 }
 
+\newcommand{\nGonVector}{ {
+\begin{tikzpicture}[baseline=-2]
+\begin{feynman}
+\vertex (mid1) at (.7*.8,0);
+\vertex (mid2) at (.35*.8,.606*.8);
+\vertex (mid3) at (-.35*.8,.606*.8);
+\vertex (mid4) at (-.7*.8,0);
+\vertex (mid5) at (-.35*.8,-.606*.8);
+\vertex (mid6) at (.35*.8,-.606*.8);
+\vertex (a1) at (1.7,0){$n\!-\!1$};
+\vertex (a2) at (.7,1.212){$n$};
+\vertex (a3) at (-.7,1.212){$1$};
+\vertex (a4) at (-1.4,0){$2$};
+\diagram{
+(mid1) -- [ultra thick,fermion2](a1),
+(mid2) -- [ultra thick,fermion2](a2),
+(mid3) -- [ultra thick,fermion2](a3),
+(mid4) -- [ultra thick,fermion2](a4),
+(mid1) --[ultra thick,fermion2](mid2),
+(mid2) --[ultra thick,fermion2](mid3),
+(mid3) --[ultra thick,fermion2](mid4),
+(mid4) --[ultra thick,fermion2](mid5),
+(mid5) --[scalar,ultra thick](mid6),
+(mid6) --[ultra thick,fermion2](mid1),
+}; 
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
 
 \newcommand{\nGonScalar}{ {
 \begin{tikzpicture}[baseline=-2]
@@ -1607,23 +1637,23 @@
 \vertex (mid4) at (.35,-.35);
 \vertex (mid5) at (-.35,.35);
 \vertex (mid6) at (-.35,-.35);
-\diagram{(mid4) --[ultra thick,nhpRed](mid3),
-(mid5) --[ultra thick,nhpRed](mid6),
-(mid3) --[ultra thick,nhpRed](mid5),
-(mid6) --[ultra thick,nhpRed](mid4),
+\diagram{(mid4) --[ultra thick,fermion2](mid3),
+(mid5) --[ultra thick,fermion2](mid6),
+(mid3) --[ultra thick,fermion2](mid5),
+(mid6) --[ultra thick,fermion2](mid4),
 (mid6) --[ultra thick,fermion2](a4),
 (mid3) --[ultra thick,fermion2](a3),
 (mid4) --[ultra thick,fermion2](a2),
 (mid5) --[ultra thick,fermion2](a1),
 };
-\vertex [dot, scale=1.6](mid3a) at (.35,.35){};
-\vertex [dot, scale=1.1,hgrey0](mid3b) at (.35,.35){};
-\vertex [dot, scale=1.6](mid4a) at (-.35,.35){};
-\vertex [dot, scale=1.1,hgrey0](mid4b) at (-.35,.35){};
-\vertex [dot, scale=1.6](mid5a) at (.35,-.35){};
-\vertex [dot, scale=1.1,hgrey0](mid5b) at (.35,-.35){};
-\vertex [dot, scale=1.6](mid6a) at (-.35,-.35){};
-\vertex [dot, scale=1.1,hgrey0](mid6b) at (-.35,-.35){};
+%\vertex [dot, scale=1.6](mid3a) at (.35,.35){};
+%\vertex [dot, scale=1.1,hgrey0](mid3b) at (.35,.35){};
+%\vertex [dot, scale=1.6](mid4a) at (-.35,.35){};
+%\vertex [dot, scale=1.1,hgrey0](mid4b) at (-.35,.35){};
+%\vertex [dot, scale=1.6](mid5a) at (.35,-.35){};
+%\vertex [dot, scale=1.1,hgrey0](mid5b) at (.35,-.35){};
+%\vertex [dot, scale=1.6](mid6a) at (-.35,-.35){};
+%\vertex [dot, scale=1.1,hgrey0](mid6b) at (-.35,-.35){};
 \end{feynman}
 \end{tikzpicture}
 }
