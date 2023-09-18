@@ -259,7 +259,7 @@ Color-kinematics duality is a statement about the off-shell graphical simplicity
 Here the spacetime dimension is $D$.
 Even though the underlying theory may have quartic (or higher multiplicity) vertices, it is possible to multiply and divide by propagators so that the sum runs over only purely cubic graphs $\Gamma$.
 Overcounting is removed by the internal symmetry factor $S_\Gamma$, which tracks the number of graph symmetries with external legs held fixed.
-The color factor $c_\Gamma$ is the string of structure constants $f^{abc}$ associated with the graph $\Gamma$,\footnote{This paper is focused on theories with particles that transform in the adjoint.  However, the double copy can be applied to a far more diverse set of theories with particles that transform in the fundamental or more diverse representations, see for example \cite{Johansson:2017srf, Johansson2014zca, Johansson:2015oia, Johansson:2019dnu} ref[Ingrid+JJ, Aslan+JJ] \jm{I cited DF$^2$ and fundamental fermions. Is there anything else anyone wants to mention?}.}
+The color factor $c_\Gamma$ is the string of structure constants $f^{abc}$ associated with the graph $\Gamma$,\footnote{This paper is focused on theories with particles that transform in the adjoint.  However, the double copy can be applied to a far more diverse set of theories with particles that transform in the fundamental or more diverse representations, see for example \cite{Johansson:2017srf, Johansson2014zca, Johansson:2015oia, Johansson:2019dnu, Carrasco:2023vjg, Carrasco:2020ywq} \jm{I cited DF$^2$, fundamental fermions, Aslan+JJ, Ingrid+JJ. Is there anything else anyone wants to mention?}.}
 the denominator $d_\Gamma$ is the product of propagators associated with the graph $\Gamma$, and the numerator $n_\Gamma$ is all of the remaining kinematic factors including dot products of momenta and polarization vectors.
 
 The color factors $c_\Gamma$ are not independent and are related to one another via a set of Jacobi identities that look schematically like
@@ -403,7 +403,7 @@ A globally color-dual integrand is desirable because of its simplicity and becau
 
 Every numerator is required to respect all of the symmetries (or automorphisms) of its associated graph.
 Graph symmetries are an avatar of Bose symmetry.
-For a pure ansatz construction it is very reasonable to impose graph symmetries, but color-kinematics duality at tree-level is often achieved at the expense of manifest Bose symmetry \cite{Cheung:2016prv, Cheung:2021zvb, Brandhuber:2021bsf} \citepls{Alex numerators from CHY}.
+For a pure ansatz construction it is very reasonable to impose graph symmetries, but color-kinematics duality at tree-level is often achieved at the expense of manifest Bose symmetry \cite{Cheung:2016prv, Cheung:2021zvb, Brandhuber:2021bsf, Edison:2020ehu}.
 In an ansatz construction graph symmetries are imposed for \emph{every} graph, not just the basis graphs.
 %For example, the symmetries of the crossed box are spanned by
 %\be
@@ -762,7 +762,7 @@ where the new cubic Lagrangian is of the form:
 \ee
 Of course, higher multiplicity would require further redefinition of the three-point vertex to satisfy Jacobi identites on all internal edges. While introducing successively higher spin states could in principle work at tree level, we will see that it is not consistent with what we find at general loop order. We will comment on this in \sect{}. For now, we will study how to construct one-loop integrands consistent with the color-kinematics by isolating the cubic sector of the state sum above. 
 
-As one can see above, the Jacobi identity of \ref{cubicJac} fails only in terms with two factors of polarization dot products, $(\varepsilon\varepsilon)^2$. Whereas, if we restricted ourselves to just considering factors with a single polarization dot product, the jacobi identity of Yang-Mills would be satisfied \textit{off-shell} and in arbitrary spacetime dimensions:
+As one can see above, the Jacobi identity of \ref{cubicJac} fails only in terms with two factors of polarization dot products, $(\varepsilon\varepsilon)^2$. Whereas, if we restricted ourselves to just considering factors with a single polarization dot product, the Jacobi identity of Yang-Mills would be satisfied \textit{off-shell} and in arbitrary spacetime dimensions:
 \be
 {}_1\langle V^{2}_{\text{YM}}V^{3}_{\text{YM}}\rangle_4\big|^{(\varepsilon\varepsilon)^1}+\text{cyc}(234) =0
 \ee
@@ -837,7 +837,7 @@ where $l_i = l+k_1+k_2+\cdots+ k_i$. In general, the $n$-gon vertex would be
 \be
 \mathcal{N}^{\text{SDYM}}_{n\text{-gon}}= \nGonVector = g_{\text{YM}}^n \langle \mathcal{X}(k_1,l_1)\mathcal{X}(k_2,l_2)\cdots \mathcal{X}(k_n,l_n) \rangle
 \ee
-Due to the state-sum of internal loop factors, $\sum {\varepsilon_{(+l)}\varepsilon_{(-l)}}=D$, the integrand above depends explicitly on the spacetime dimension, $D$. By taking a derivative, we can recover the integrand needed for all-plus one-loop amplitudes with an internal scalar:
+Due to the state-sum of internal loop factors, $\sum {\varepsilon_{(+l)}\varepsilon_{(-l)}}=D$, the integrand above depends explicitly on the spacetime dimension, $D$. By taking a derivative\footnote{Another way to understand this derivative is that it selects the large $D$ behavior of the integrand.}, we can recover the integrand needed for all-plus one-loop amplitudes with an internal scalar:
 \be
 \frac{\partial}{\partial D} \mathcal{N}^{\text{SDYM}}_{n\text{-gon}}=\nGonScalar  = (2 g_{\text{YM}})^n (l_1 k_1)(l_2 k_2)\cdots (l_n k_n)
 \ee
@@ -1075,7 +1075,7 @@ the BDN-restricted ansatz.
 Proceeding to the next-to-maximal cuts, we continue to avoid
 pathological diagrams including the newly-appearing type discussed in
 \cref{eq:other-path}. After discarding these types of cuts, we are
-left with 8 \ace{(maybe a few more to account for dangling trees)}
+left with 8 \ace{(maybe a few more to account for dangling trees)} \jm{How about we just say that there are 8 N$^1$ cuts ignoring dangling trees?}
 unique cut topologies, shown in \cref{fig:ym-nmc}, to check.  Seven of
 these next-to-maximal cuts are consistent with the kinematic Jacobi
 relations and symmetries.  Interestingly, the ``kissing triangles''
