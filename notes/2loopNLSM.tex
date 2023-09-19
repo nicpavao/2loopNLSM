@@ -214,22 +214,26 @@ linewidth=4pt]{eBox}
 
 \abstract{
 
-  We make progress towards understanding how color-dual representations must be constructed at the multi-loop level. First
-  identify a cubic theory, \emph{semi-abelian} Yang--Mills, that unifies many of the color-dual theories constructed in the literature, and provides a construction of color-dual numerators at one-loop directly from Feynman rules. Joint
-  consideration of these theories highlights that the lifting of
-  one-loop color-kinematics dual numerators to two loops may be just
-  as challenging as the step from tree level to one loop.  As a first
-  step in understanding the two-loop challenge, we construct
-  color-dual two-loop four-point non-linear sigma model (NLSM)
-  numerators using generalized unitarity methods.  The double-copy of
-  the constructed NLSM numerators with themselves, $\mathcal{N}=0$
-  Yang--Mills, and $\mathcal{N}=4$ Yang--Mills correctly reproduce the
-  known physical unitarity cuts of special Gallileons, Born-Infeld
-  theory, and Dirac-Born-Infeld-Volkov-Akulov theory, respectively.
-  These NLSM numerators are in explicit tension with generalizations
-  of the one-loop NLSM numerators. \ace{I realize that we all know
-    this, but does/will a statement to this effect actually make it
-    into the draft?}  Additionally, we revisit the two-loop four-point
+  We make progress towards understanding how color-dual
+  representations must be constructed at the multi-loop level. First
+  we identify a cubic theory, \emph{semi-abelian} Yang--Mills, that
+  unifies many of the color-dual theories constructed in the
+  literature, and provides a construction of color-dual numerators at
+  one-loop directly from Feynman rules. Joint consideration of these
+  theories highlights that the lifting of one-loop color-kinematics
+  dual numerators to two loops may be just as challenging as the step
+  from tree level to one loop.  As a first step in understanding the
+  two-loop challenge, we construct color-dual two-loop four-point
+  non-linear sigma model (NLSM) numerators using generalized unitarity
+  methods.  The double-copy of the constructed NLSM numerators with
+  themselves, $\mathcal{N}=0$ Yang--Mills, and $\mathcal{N}=4$
+  Yang--Mills correctly reproduce the known physical unitarity cuts of
+  special Gallileons, Born-Infeld theory, and
+  Dirac-Born-Infeld-Volkov-Akulov theory, respectively.  These NLSM
+  numerators are in explicit tension with generalizations of the
+  one-loop NLSM numerators. \ace{I realize that we all know this, but
+    does/will a statement to this effect actually make it into the
+    draft?}  Additionally, we revisit the two-loop four-point
   Yang--Mills problem in order to identify the exact point of
   inconsistency in a local color-dual construction.
   
@@ -260,172 +264,392 @@ For now, let's put the things we need to check/compute here in the abstract.
 \setstackgap{L}{7pt}
 
 \section{Introduction}\label{intro}
-Since the turn of the century, our understanding of the $S$-matrix and its hidden structures has expanded dramatically. At the heart of this progress is the mantra that physical observables are simpler when studied on-shell \cite{Parke:1986gb,TasiLance,Cheung:2017pzi}. However, while plugging in on-shell states certainly offers a path towards taming the factorial growth of Feynman diagrams, it also obscures the off-shell simplicity at the heart of many quantum field theories. A shining example of this hidden structure is the duality between color and kinematics \cite{BCJ,Bern:2010ue,BCJreview}, which states that the kinematic numerators of gauge theory amplitudes can be rearranged to obey the same algebraic identities as the constituent color factors. When this duality is realized globally off-shell, it dramatically decreases the combinatorial complexity posed by integrand construction, and offers a path towards efficient assembly of quantum gravity integrands directly from simpler gauge theory building blocks via the double copy \cite{BCJ,Bern:2010ue}. 
+Since the turn of the century, our understanding of the $S$-matrix and
+its hidden structures has expanded dramatically. At the heart of this
+progress is the mantra that physical observables are simpler when
+studied on-shell
+\cite{Parke:1986gb,TasiLance,Cheung:2017pzi}. However, while plugging
+in on-shell states certainly offers a path towards taming the
+factorial growth of Feynman diagrams, it also obscures the off-shell
+simplicity at the heart of many quantum field theories. A shining
+example of this hidden structure is the duality between color and
+kinematics \cite{BCJ,Bern:2010ue,BCJreview}, which states that the
+kinematic numerators of gauge theory amplitudes can be rearranged to
+obey the same algebraic identities as the constituent color
+factors. When this duality is realized globally off-shell, it
+dramatically decreases the combinatorial complexity posed by integrand
+construction, and offers a path towards efficient assembly of quantum
+gravity integrands directly from simpler gauge theory building blocks
+via the double copy \cite{BCJ,Bern:2010ue}.
 
-However, despite the tremendous success in leveraging this duality to compute gauge and gravity observables to high orders in perturbation theory \cite{FiveLoopN4,GeneralizedDoubleCopyFiveLoops,Bern:2018jmv,Carrasco:2021otn}, color-kinematics remains a conjecture at loop level. Indeed, there are many examples in the literature where identifying color-dual representations beyond one-loop has posed a formidable challenge \cite{Mogull:2015adi,Johansson:2017bfl,KalinN2TwoLoop}. In this work, we use the nonlinear sigma model (NLSM) and Yang-Mills, two theories proven to permit color-dual representations at tree-level \cite{Feng:2010my,Cachazo:2014xea}, as case studies for advancing our understanding of the kinematic algebra to the multi-loop level. 
+However, despite the tremendous success in leveraging this duality to
+compute gauge and gravity observables to high orders in perturbation
+theory \cite{FiveLoopN4, GeneralizedDoubleCopyFiveLoops, Bern:2018jmv,
+  Carrasco:2021otn}, color-kinematics remains a conjecture at loop
+level. Indeed, there are many examples in the literature where
+identifying color-dual representations beyond one-loop has posed a
+formidable challenge
+\cite{Mogull:2015adi,Johansson:2017bfl,KalinN2TwoLoop} \ace{BDN might
+  fit better here rather than the 2loop SQCD}. In this work, we use
+the nonlinear sigma model (NLSM) and Yang-Mills, two theories proven
+to permit color-dual representations at tree-level
+\cite{Feng:2010my,Cachazo:2014xea}, as case studies for advancing our
+understanding of the kinematic algebra to the multi-loop level.
 
-We begin with an overview of color-kinematics duality in \cref{background}. We then construct a manifestly color-dual theory in \cref{sec:cubic}, which generates $D$-dimensional color-dual $n$-point numerators for both NLSM and the self-dual sector of Yang-Mills through one-loop. The construction of this theory, which we dub \textit{semi-abelian Yang-Mills}, relies on isolating the cubic sector of pure Yang-Mills amplitudes from the four-point contacts that are needed to fully realize non-abelian gauge symmetry. Despite the potency of this theory at one-loop, the construction runs into an obstruction at two-loop, which we describe in \cref{2LoopObstruction}. 
+We begin with an overview of color-kinematics duality in
+\cref{background}. We then construct a manifestly color-dual theory in
+\cref{sec:cubic}, which generates $D$-dimensional color-dual $n$-point
+numerators for both NLSM and the self-dual sector of Yang-Mills
+through one-loop. The construction of this theory, which we dub
+\textit{semi-abelian Yang-Mills}, relies on isolating the cubic sector
+of pure Yang-Mills amplitudes from the four-point contacts that are
+needed to fully realize non-abelian gauge symmetry. Despite the
+potency of this theory at one-loop, the construction runs into an
+obstruction at two-loop, which we describe in \cref{2LoopObstruction}.
 
-Faced with this obstruction, we study the multi-loop sector of both NLSM and Yang-Mills in \cref{2loopBoot} using an ansatz based color-dual bootstrap. In contrast to much of the available literature on construction of color-dual integrands at two-loop \cite{Bern:2013yya,Mogull:2015adi,Johansson:2017bfl}, our results are completely agnostic to the spacetime dimension; all the polarizations and momenta appearing in our construction will remain formally $D$-dimensional. This makes our methods and results particularly well suited for algorithmically extracting rational terms from the $D$-dependence of dimensionally regulated loop momenta. We are able to achieve this by employing a custom solver, \texttt{FiniteFieldSolve}, which will soon be made public. 
+Faced with this obstruction, we study the multi-loop sector of both
+NLSM and Yang-Mills in \cref{2loopBoot} using an ansatz based
+color-dual bootstrap. In contrast to much of the available literature
+on construction of color-dual integrands at two-loop
+\cite{Bern:2013yya,Mogull:2015adi,Johansson:2017bfl}, our results are
+completely agnostic to the spacetime dimension; all the polarizations
+and momenta appearing in our construction will remain formally
+$D$-dimensional. This makes our methods and results particularly well
+suited for algorithmically extracting rational terms from the
+$D$-dependence of dimensionally regulated loop momenta. We are able to
+achieve this by employing a custom solver, \texttt{FiniteFieldSolve},
+which will soon be made public. \ace{This either needs an extra
+  context sentence, or moved out of the intro.}
 
-With this solver, we are able to compute a two-loop integrand for NLSM that globally manifests the duality off-shell. This represents a new benchmark for color-dual representations in non-supersymmetric gauge theories. However in contrast, we find surprisingly that Yang-Mills does not permit a globally color-dual representation, even when considering the most general polynomial ansatz of Lorentz covariant kinematics. Concretely, we find a sharp failure point between the ``bowtie'' cut, and the following jacobi triple:
+With this solver, we are able to compute a two-loop integrand for NLSM
+that globally manifests the duality off-shell. This represents a new
+benchmark for color-dual representations in non-supersymmetric gauge
+theories. However in contrast, we find surprisingly that Yang-Mills
+does not permit a globally color-dual representation, \ace{Maybe tone
+  down surprise and ref BDN} even when considering the most general
+polynomial ansatz of Lorentz covariant kinematics. Concretely, we find
+a sharp failure point between the ``bowtie'' cut, and the following
+jacobi triple:
 \begin{equation}
    \NMCutC
   \Rightarrow
   \JacobiOneDoubleBox +  \JacobiOneCrossedBox + \JacobiOnePentaTriangle \neq 0 \,.
 \end{equation}
-We comment on the implications of this finding in \cref{conclusions}, and discuss alternative approaches where one must relax field theoretic locality in order to accommodate the construction of globally color-dual multi-loop integrands.
+We comment on the implications of this finding in \cref{conclusions},
+and discuss alternative approaches where one must relax field
+theoretic locality in order to accommodate the construction of
+globally color-dual multi-loop integrands.
 
 \section{Background}\label{background}
-To set the stage, in this section we provide an overview of color-kinematics duality -- both the on-shell and off-shell constructions. We then detail a color-dual boostrap approach for constructing integrands in theories for which the off-shell kinematic algebra has not yet been identified, like Yang-Mills and NLSM. 
+To set the stage, in this section we provide an overview of
+color-kinematics duality -- both the on-shell and off-shell
+constructions. We then detail a color-dual boostrap approach for
+constructing integrands in theories for which the off-shell kinematic
+algebra has not yet been identified, like Yang-Mills and NLSM.
 \subsection{Color-dual Amplitudes}\label{onShellCK}
 
-I think this belongs in another section...
-Why DC is cool:
-1) Reduction in computational complexity.
-Off-shell high spin is terrible.
-Gravity has infinitely many very complex Feynman rules as a result of gauge redundancy but YM only has two relatively simple Feynman rules.
-2) DC points to deep structure hidden in Lagrangian formulation.
+%I think this belongs in another section...
+%Why DC is cool:
+%1) Reduction in computational complexity.
+%Off-shell high spin is terrible.
+%Gravity has infinitely many very complex Feynman rules as a result of gauge redundancy but YM only has two relatively simple Feynman rules.
+%2) DC points to deep structure hidden in Lagrangian formulation.
 
-Color-kinematics duality is a statement about the off-shell graphical simplicity that manifest redundancy in the on-shell observables of gauge and gravity theories. Ignoring factors of $i$ and the coupling constant, a generic $m$-point $L$-loop amplitude in a color-dual theory -- such as NLSM, YM, or bi-adjoint scalar theory -- can be written as
-\be
+Color-kinematics duality is a statement about the off-shell graphical
+simplicity that manifest redundancy in the on-shell observables of
+gauge and gravity theories. Ignoring factors of $i$ and the coupling
+constant, a generic $m$-point $L$-loop amplitude in a color-dual
+theory -- such as NLSM, YM, or bi-adjoint scalar
+theory\ace{technically this is true as written for any theory.  In
+  fact we slip that type of disclaimer in quite a lot throughout the
+  rest of the section} -- can be written as
+\begin{equation}
 \mathcal{A}_m^L = \sum \limits_\Gamma \frac{1}{S_\Gamma} \int \frac{d^{LD}\ell}{(2\pi)^{LD}} \frac{c_\Gamma n_\Gamma}{d_\Gamma} .
-\ee
-Here the spacetime dimension is $D$.
-Even though the underlying theory may have quartic (or higher multiplicity) vertices, it is possible to multiply and divide by propagators so that the sum runs over only purely cubic graphs $\Gamma$.
-Overcounting is removed by the internal symmetry factor $S_\Gamma$, which tracks the number of graph symmetries with external legs held fixed.
-The color factor $c_\Gamma$ is the string of structure constants $f^{abc}$ associated with the graph $\Gamma$,\footnote{This paper is focused on theories with particles that transform in the adjoint.  However, the double copy can be applied to a far more diverse set of theories with particles that transform in the fundamental or more diverse representations, see for example \cite{Johansson:2017srf, Johansson2014zca, Johansson:2015oia, Johansson:2019dnu, Carrasco:2023vjg, Carrasco:2020ywq}.}
-the denominator $d_\Gamma$ is the product of propagators associated with the graph $\Gamma$, and the numerator $n_\Gamma$ is all of the remaining kinematic factors including dot products of momenta and polarization vectors.
+\end{equation}
+Here the spacetime dimension is $D$.  Even though the underlying
+theory may have quartic (or higher multiplicity) vertices, it is
+possible to multiply and divide by propagators so that the sum runs
+over only purely cubic graphs $\Gamma$.  Overcounting is removed by
+the internal symmetry factor $S_\Gamma$, which tracks the number of
+graph symmetries with external legs held fixed.  The color factor
+$c_\Gamma$ is the string of structure constants $f^{abc}$ associated
+with the graph $\Gamma$,\footnote{This paper is focused on theories
+  with particles that transform in the adjoint.  However, the double
+  copy can be applied to a far more diverse set of theories with
+  particles that transform in the fundamental or more diverse
+  representations, see for example \cite{Johansson:2017srf,
+    Johansson2014zca, Johansson:2015oia, Johansson:2019dnu,
+    Carrasco:2023vjg, Carrasco:2020ywq}.}  the denominator $d_\Gamma$
+is the product of propagators associated with the graph $\Gamma$, and
+the numerator $n_\Gamma$ is all of the remaining kinematic factors
+including dot products of momenta and polarization vectors.
 
-The color factors $c_\Gamma$ are not independent and are related to one another via a set of Jacobi identities that look schematically like
-\be
+The color factors $c_\Gamma$ are not independent and are related to
+one another via a set of Jacobi identities that look schematically
+like
+\begin{equation}
 c_i+c_j+c_k=0,
-\ee
-where $i$, $j$, and $k$ are three graphs.
-Example Jacobi relations are presented in detail in \cref{sec:bootstrap}.
-Color-kinematics duality states that there exists a way to rearrange factors between the various kinematic numerators $n_\Gamma$ such that the numerators obey all of the same Jacobi identities as the color factors
-\be
+\end{equation}
+where $i$, $j$, and $k$ are three graphs.  Example Jacobi relations
+are presented in detail in \cref{sec:bootstrap}.  Color-kinematics
+duality states that there exists a way to rearrange factors between
+the various kinematic numerators $n_\Gamma$ such that the numerators
+obey all of the same Jacobi identities as the color factors
+\begin{equation}
 n_i +n_j +n_k=0.
-\ee
-If color-kinematics duality can be achieved at the off-shell level, then the kinematic numerators should satisfy an algebra just like the color factors.
-In theories where the kinematic algebra is known, it is often the algebra of volume preserving diffeomorphisms \cite{Monteiro2011pc, Ben-Shahar:2021zww, Cheung:2020djz, Cheung:2021zvb, Cheung:2022mix}.
-As a simple example, color-dual numerators for 4pt pion scattering at tree level are
+\end{equation}
+If color-kinematics duality can be achieved at the off-shell level,
+then the kinematic numerators should satisfy an algebra just like the
+color factors.  In theories where the kinematic algebra is known, it
+is often the algebra of volume preserving diffeomorphisms
+\cite{Monteiro2011pc, Ben-Shahar:2021zww, Cheung:2020djz,
+  Cheung:2021zvb, Cheung:2022mix}.  As a simple example, color-dual
+numerators for 4pt pion scattering at tree level are
 \begin{align}
 &n_s = s(t-u)\\
 &n_t = t(u-s)\\
 &n_u = u(s-t)
 \end{align}
-where the coupling has been normalized away.
-These numerators sum to zero by explicit calculation.
-Note that the $s$-channel numerator contains an explicit factor of $s$ that cancels with the propagator and the same goes for the $t$- and $u$-channels so that the net result is a local function, just as one would expect for the pion tree amplitude.
+where the coupling has been normalized away.  These numerators sum to
+zero by explicit calculation.  Note that the $s$-channel numerator
+contains an explicit factor of $s$ that cancels with the propagator
+and the same goes for the $t$- and $u$-channels so that the net result
+is a local function, just as one would expect for the pion tree
+amplitude.
 
-Once color-dual numerators $n_\Gamma$ have been found, they can be used to replace the color factors ($c_\Gamma \to n_\Gamma$) in a \emph{different} amplitude to produce the corresponding amplitude in the double-copy theory
-\be\label{DCconstruction}
-\tilde{\mathcal{A}}_m^L = \sum \limits_\Gamma \frac{1}{S_\Gamma} \int \frac{d^{LD}\ell}{(2\pi)^{LD}} \frac{c_\Gamma \tilde{n}_\Gamma}{d_\Gamma} ~~ \xrightarrow{(c_\Gamma \to n_\Gamma)} ~~ \mathcal{M}_m^L = \sum \limits_\Gamma \frac{1}{S_\Gamma} \int \frac{d^{LD}\ell}{(2\pi)^{LD}} \frac{n_\Gamma \tilde{n}_\Gamma}{d_\Gamma}.
-\ee
-Importantly, the $\tilde{n}_\Gamma$ do not need to respect color-kinematics duality.
-The prototypical example of the double-copy is that YM double copied with YM results in gravity where the gauge invariance of each separate gluon produces the diffeomorphism invariance of the graviton.
-The double copy can be proven at tree level using the KLT relations but there is significant evidence that the double copy persists to all loop orders \cite{KLT, KiermaierTalk} \citepls{Any loop papers we want?}.
-In addition to pointing at deep structure hidden in the Lagrangian for gravity, the double copy is immensely useful at a utilitarian level since it is much more efficient at producing $\mathcal{M}_m^L$ than traditional methods like Feynman rules.
+Once color-dual numerators $n_\Gamma$ have been found, they can be
+used to replace the color factors ($c_\Gamma \to n_\Gamma$) in a
+\emph{different} amplitude to produce the corresponding amplitude in
+the double-copy theory \be\label{DCconstruction}
+\tilde{\mathcal{A}}_m^L = \sum \limits_\Gamma \frac{1}{S_\Gamma} \int
+\frac{d^{LD}\ell}{(2\pi)^{LD}} \frac{c_\Gamma
+  \tilde{n}_\Gamma}{d_\Gamma} ~~ \xrightarrow{(c_\Gamma \to n_\Gamma)}
+~~ \mathcal{M}_m^L = \sum \limits_\Gamma \frac{1}{S_\Gamma} \int
+\frac{d^{LD}\ell}{(2\pi)^{LD}} \frac{n_\Gamma
+  \tilde{n}_\Gamma}{d_\Gamma}.
+\end{equation}
+Importantly, the $\tilde{n}_\Gamma$ do not need to respect
+color-kinematics duality.  The prototypical example of the double-copy
+is that YM double copied with YM results in gravity where the gauge
+invariance of each separate gluon produces the diffeomorphism
+invariance of the graviton.  The double copy can be proven at tree
+level using the KLT relations but there is significant evidence that
+the double copy persists to all loop orders \cite{KLT, KiermaierTalk}
+\citepls{Any loop papers we want?}.  In addition to pointing at deep
+structure hidden in the Lagrangian for gravity, the double copy is
+immensely useful at a utilitarian level since it is much more
+efficient at producing $\mathcal{M}_m^L$ than traditional methods like
+Feynman rules.
 
-Many of the 1-loop results presented in \cref{sec:cubic} are informed by the tree-level double-copy so we will review the tree case here.
+Many of the 1-loop results presented in \cref{sec:cubic} are informed
+by the tree-level double-copy so we will review the tree case here.
 The color structure of tree-level amplitudes is particularly simple.
-A fully color dressed tree amplitude $\mathcal{A}_n$ in YM, NLSM, or bi-adjoint scalar theory can be decomposed in terms of the trace basis
-\be
-\mathcal{A}_n = \sum \limits_{\sigma\in S_{n-1}} \text{Tr}(T^{a_{\sigma_1}} T^{a_{\sigma_2}}...T^{a_{\sigma_{n-1}}} T^{a_n}) A_n[\sigma_1, \sigma_2,...\sigma_{n-1}, n],
-\ee
-where $T^a$ are generators of the gauge group and, because of the cyclicity of the trace, one of the legs is held fixed so that the sum runs over the $(n-1)!$ permutations of the remaining external legs.
-The coefficients of the color factors are the color-ordered partial amplitudes $A_n[...]$.
-Any tree-level color factor can be converted into a linear combination of Del Duca-Dixon-Maltoni (DDM) half-ladder color factors
-\be
+A fully color dressed tree amplitude $\mathcal{A}_n$ in YM, NLSM, or
+bi-adjoint scalar theory can be decomposed in terms of the trace basis
+\begin{equation}
+  \mathcal{A}_n = \sum \limits_{\sigma\in S_{n-1}} \text{Tr}(T^{a_{\sigma_1}} T^{a_{\sigma_2}}...T^{a_{\sigma_{n-1}}} T^{a_n}) A_n[\sigma_1, \sigma_2,...\sigma_{n-1}, n],
+  \label{eq:trace-basis}
+\end{equation}
+where $T^a$ are generators of the gauge group and, because of the
+cyclicity of the trace, one of the legs is held fixed so that the sum
+runs over the $(n-1)!$ permutations of the remaining external legs.
+The coefficients of the color factors are the color-ordered partial
+amplitudes $A_n[...]$.  Any tree-level color factor can be converted
+into a linear combination of Del Duca-Dixon-Maltoni (DDM) half-ladder
+color factors
+\begin{equation}
 \text{DDM}[a_1, a_2,... a_n] \equiv f^{a_1 a_2 b_1} f^{b_1 a_3 b_2} f^{b_2 a_4 b_3}...f^{b_{n-3} a_{n-1} a_n}
-\ee
+\end{equation}
 associated with the graph
-\be
+\begin{equation}
 \halfLadder
-\ee
+\end{equation}
 by repeated application of the Jacobi identity \cite{DixonMaltoni}.
 The fully color-dressed tree amplitude can then be re-expressed as
-\be
-\mathcal{A}_n = \sum \limits_{\sigma\in S_{n-2}} \text{DDM}[a_1, a_{\sigma_2}, a_{\sigma_3}, a_{\sigma_{n-1}}, a_n]  A_n[1, \sigma_2,...\sigma_{n-1}, n]
-\ee
-with legs $1$ and $n$ fixed so that the sum only contains $(n-2)!$ terms, indicating that there are additional relations -- the Kleiss-Kuijf (KK) relations -- amongst the partial amplitudes \cite{Kleiss:1988ne}.
-The KK relations are generic to any theory with purely adjoint particles.
-Color-kinematics duality implies that the KK basis is overcomplete and can be reduced to a basis of $(n-3)!$ amplitudes via the fundamental BCJ identities \cite{BCJ,Feng:2010my}
-\be
+\begin{equation}
+  \mathcal{A}_n = \sum \limits_{\sigma\in S_{n-2}} \text{DDM}[a_1, a_{\sigma_2}, a_{\sigma_3}, a_{\sigma_{n-1}}, a_n]  A_n[1, \sigma_2,...\sigma_{n-1}, n]
+  \label{eq:ddm-basis}
+\end{equation}
+with legs $1$ and $n$ fixed so that the sum only contains $(n-2)!$
+terms, indicating that there are additional relations -- the
+Kleiss-Kuijf (KK) relations \cite{Kleiss:1988ne} -- amongst the
+partial amplitudes appearing in the right-hand side of
+\cref{eq:trace-basis}.  The KK relations are generic to any theory
+with purely adjoint particles.  Color-kinematics duality further
+implies that the KK basis is overcomplete and can be reduced to a
+basis of $(n-3)!$ amplitudes via the fundamental BCJ identities
+\cite{BCJ,Feng:2010my}
+\begin{equation}
 \sum \limits_{i=2}^{n-1} k_1 \cdot (k_2+...+k_i) A_n[2,...,i,1,i+1,...,n] =0.
-\ee
-In terms of constructing explicit color-dual solutions at tree level, it is enough to specify the numerator of the half ladder because any diagram can be reduced to a half ladder through successive applications of the Jacobi identity.
-At 1-loop, every diagram can be related to one topology as well, in this case the $n$-gon, but the pattern does not persist to 2-loops.
+\end{equation}
+In terms of constructing explicit color-dual solutions at tree level,
+it is enough to specify the numerator of the half ladder because any
+diagram can be reduced to a half ladder through successive
+applications of the Jacobi identity.  At 1-loop, every diagram can be
+related to one topology as well, in this case the $n$-gon, but the
+pattern does not persist to 2-loops.
 
 \subsection{Color-dual Lagrangians}\label{offShellCK}
-While BCJ relations is an on-shell statement about the color-dual nature of scattering amplitudes, one might aspire to hard code color-kinematics duality by realizing an off-shell Lagrangian description of the theory. The double-copy construction of \ref{DCconstruction} would suggest a manifestly cubic Lagrangian of the form:
-\be
+While the BCJ relations are an on-shell statement about the color-dual
+nature of scattering amplitudes, one might aspire to hard code
+color-kinematics duality by realizing an off-shell Lagrangian
+description of the theory. The double-copy construction of
+\cref{DCconstruction} would suggest a manifestly cubic Lagrangian of
+the form:
+\begin{equation}
 \mathcal{L} = P_V^{ab}P_W^{ij}\mathcal{O}^a_i \Box \mathcal{O}^b_j +  V^{abc} W^{ijk}\mathcal{O}^a_i \mathcal{O}^b_j \mathcal{O}^c_k
-\ee
-where $V^{abc}$ and $W^{ijk}$ are cubic Feynman rules mixing field operators $\mathcal{O}^{a}_i$ indexed by quantum numbers $a$ and $i$. We have introduced $P_V^{ab}$ and $P_W^{ij}$ projection operators to encode non-local kinetic structure that could in principle participate in the construction. Should the off-shell Feynman rules of this cubic theory be antisymmetric and satisfy Jacobi identities on all internal edges,
+\end{equation}
+where $V^{abc}$ and $W^{ijk}$ are cubic Feynman rules mixing field
+operators $\mathcal{O}^{a}_i$ indexed by quantum numbers $a$ and
+$i$. We have introduced $P_V^{ab}$ and $P_W^{ij}$ projection operators
+to encode non-local kinetic structure that could in principle
+participate in the construction. Should the off-shell Feynman rules of
+this cubic theory be antisymmetric and satisfy Jacobi identities on
+all internal edges,
 \begin{align}
 \textit{anti-symmetry}:& \quad{}_{a_1}\langle V^{a_2} \rangle_{a_3}+\text{cyc}(23)=0\,,
 \\
 \textit{Jacobi identity}:& \quad {}_{a_1}\langle V^{a_2} V^{a_3}\rangle_{a_4}+\text{cyc}(234)=0\,,
 \end{align}
 where 
-\be
+\begin{equation}
 {}_{a_1}\langle V^{a_2}V^{a_3}\cdots V^{a_{n-1}} \rangle_{a_n} \equiv V^{a_1a_2b_1}V^{b_1a_3b_2}\cdots V^{b_{n-3} a_{n-2}a_n}\,.
-\ee
-This is a sufficient condition of the amplitudes to obey BCJ relations. Off-shell description of color-dual theories are rare, and only a few examples are available in the literature. Typically when one goes about construction color-dual theories directly from a set of cubic interactions, higher point Jacobi and antisymmetry constraints require introducing additional operators. See refs \cite{Ben-Shahar:2022ixa} for some recent examples. Indeed, as we'll show in \cref{sec:cubic}, Yang-Mills requires introducing a cubic 2-form interaction in order to manifest the kinematic algebra just at four-point. Absent information about the kinematic algebra, one can make progress in the construction of loop-level color-dual amplitudes by employing a color-dual bootstrap. 
+\end{equation}
+This is a sufficient condition of the amplitudes to obey BCJ
+relations. \ace{Reword previous 2 sentences} Off-shell descriptions of
+color-dual theories are rare, and only a few examples are available in
+the literature \cite{Monteiro2011pc, Cheung:2016prv, Cheung:2021zvb,
+  Cheung:2020djz, Ben-Shahar:2022ixa, Ben-Shahar:2021zww,
+  Ben-Shahar:2021doh}\ace{Are these a reasonable
+  collection?  Just grabbed the ones below}. Typically when one goes about constructing color-dual
+theories directly from a set of cubic interactions, higher point
+Jacobi and antisymmetry constraints require introducing additional
+operators. See refs \cite{Ben-Shahar:2022ixa} for some recent
+examples. Indeed, as we'll show in \cref{sec:cubic}, Yang-Mills
+requires introducing a cubic 2-form interaction in order to manifest
+the kinematic algebra just at four-point. Absent information about the
+kinematic algebra, one can make progress in the construction of
+loop-level color-dual amplitudes by employing a color-dual bootstrap.
+
+
 \subsection{Color-dual Bootstrap}
 \label{sec:bootstrap}
 
-Aside from a few special theories that permit an off-shell Lagrangian description \cite{Monteiro2011pc, Cheung:2016prv, Cheung:2021zvb, Cheung:2020djz, Ben-Shahar:2022ixa, Ben-Shahar:2021zww, Ben-Shahar:2021doh}, color-dual integrands are constructed from an ansatz.
-The four conditions we impose on an ansatz are summarized here and elaborated on below.\footnote{The four ansatz conditions are similar to those of Ref.~\cite{Bern:2015ooa} except that the authors demand that the numerators have the same loop power counting as Feynman gauge Feynman rules.  This is an additional assumption that is most emphatically not made here.}
+Aside from a few special theories that permit an off-shell Lagrangian
+description \cite{Monteiro2011pc, Cheung:2016prv, Cheung:2021zvb,
+  Cheung:2020djz, Ben-Shahar:2022ixa, Ben-Shahar:2021zww,
+  Ben-Shahar:2021doh}, color-dual integrands are constructed from an
+ansatz.  The four conditions we impose on an ansatz are summarized
+here and elaborated on below.\footnote{The four ansatz conditions are
+  similar to those of Ref.~\cite{Bern:2015ooa} except that there
+  authors demand that the numerators have the same loop power counting
+  as Feynman gauge Feynman rules.  This is an additional assumption
+  that is most emphatically not made here.}
 \begin{enumerate}
-\item \textbf{Off-shell Locality}: Diagram numerators are polynomials in momenta and
-  polarizations, \eg the diagrams only have poles given by the
-  propagators of the diagrams.
-  \item  \textbf{Color-kinematics duality}: The numerators obey the same Jacobi identities as the color factors.
-This implicitly requires that the integrand is expressed in terms of purely cubic diagrams.
-\item  \textbf{Graph symmetries}: The diagram numerators are only a function of the diagram's topology and labeling.  Furthermore, the diagram numerators are invariant under the automorphisms of the diagrams \emph{including signs that compensate for color-factor sign changes}.
-\item  \textbf{On-shell Unitarity }: The cuts of the ansatz must reproduce the physical unitarity cuts of the theory when internal momenta are taken on-shell.
+\item \textbf{Off-shell Locality}: Diagram numerators are polynomials
+  in momenta and polarizations, \eg the diagrams only have poles given
+  by the propagators of the diagrams.
+\item \textbf{Color-kinematics duality}: The numerators obey the same
+  Jacobi identities as the color factors.  This implicitly requires
+  that the integrand is expressed in terms of purely cubic diagrams.
+\item \textbf{Graph symmetries}: The diagram numerators are only a
+  function of the diagram's topology and labeling.  Furthermore, the
+  diagram numerators are invariant under the automorphisms of the
+  diagrams \emph{including signs that compensate for color-factor sign
+    changes}.
+\item \textbf{On-shell Unitarity }: The cuts of the ansatz must
+  reproduce the physical unitarity cuts of the theory when internal
+  momenta are taken on-shell.
 \end{enumerate}
 
-In order to clarify general statements, the following subsections include examples from a 4pt 2-loop integrand for some color-dual theory like YM or NLSM.
-This is the simplest integrand that demonstrates the full machinery of the color-dual bootstrap.
-All tree and 1-loop processes are generated by single basis diagrams (the half ladder and $n$-gon respectively) so they lack examples of the ``boundary'' Jacobi relations to be described shortly.
-Choosing the 4pt 2-loop integrand also has the advantage that this process appears prominently in this paper.
+In order to clarify general statements, the following subsections
+include examples from a 4-point 2-loop integrand for some generic
+color-dual theory like YM or NLSM.  This is the simplest case that
+demonstrates the full machinery of the color-dual bootstrap.  All tree
+and 1-loop processes are generated by single basis diagrams (the half
+ladder and $n$-gon respectively) so they lack examples of the
+``boundary'' Jacobi relations to be described shortly \ace{This is not
+  strictly true.  Boundary Jacobi occur in 1L when demanding that BEL
+  and/or tadpole are 0.  However, I appreciate that logic that 2L is
+  the first time where an A+A+A=0 Jacobi occurs, rather than A+A=0.}.
+Choosing the 4-point 2-loop integrand also has the advantage that this
+process appears prominently in this paper.
 
 \paragraph{Off-shell Locality}
 
-The kinematic numerators must be $D$-dimensional, Lorentz invariant, local (polynomial) functions of the graph kinematics with the correct power counting and external states.
-Insisting on a local numerator is partly a matter of convenience as the ansatz for a rational function would quickly grow out of control without a guiding principle for what terms to include.
-Locality is also physically motivated since Feynman rules typically produce polynomial numerators.
-While these assumptions are well motivated from a physical and complexity standpoint, the literature has featured numerators that violate locality, modify naive power counting through the inclusion of higher spin modes, and break manifest Lorentz invariance \cite{Square, WeinzierlBCJLagrangian, Mogull:2015adi, FivePointN4BCJ, Johansson:2017bfl, Ben-Shahar:2022ixa, Cheung:2016prv, Cheung:2021zvb}.
-These developments suggest that relaxing locality is a viable alternative when the condition proves too stringent for an ansatz.
-We will comment more on locality in \sect{}.
+The kinematic numerators must be $D$-dimensional, Lorentz invariant,
+local (polynomial) functions of the graph kinematics with the correct
+power counting and external states.  Insisting on a local numerator is
+partly a matter of convenience as the ansatz for a rational function
+would quickly grow out of control without a guiding principle for what
+terms to include.  Locality is also physically motivated since Feynman
+rules typically produce polynomial numerators.  While these
+assumptions are well motivated from a physical and complexity
+standpoint, the literature has featured numerators that violate
+locality, modify naive power counting through the inclusion of higher
+spin modes, and break manifest Lorentz invariance \cite{Square,
+  WeinzierlBCJLagrangian, Mogull:2015adi, FivePointN4BCJ,
+  Johansson:2017bfl, Ben-Shahar:2022ixa, Cheung:2016prv,
+  Cheung:2021zvb}.  These developments suggest that relaxing locality
+is a viable alternative when the condition proves too stringent for an
+ansatz.  We will comment more on locality in \cref{conclusions}.
 
-\jm{The next section feels a little redundant and silly sometimes because the integrand, color factors, kinematic numerators, etc. were defined a while ago.  I'm not sure how to merge the two sections though.}
+\jm{The next section feels a little redundant and silly sometimes
+  because the integrand, color factors, kinematic numerators,
+  etc. were defined a while ago.  I'm not sure how to merge the two
+  sections though.}
+
+
 
 \paragraph{Color-kinematics duality}
+\begin{figure}
+\centering
+{\MCutC, \MCutD, \sumoCut, \MCutJ,  
+ \\
+  \doubleBoxCut,  \crossBoxCut,\pentaTriangleCut,  \MCutF, 
+\\
+\MCutI,  \MCutE, \MCutK, 
+\\
+ \MCutL, \MCutG,  \MCutH,
+}
+\caption{The 14 non-pathological 4-point 2-loop cubic diagrams,
+  including all dangling tree diagrams.} \label{fig:MaxCuts}
+  \end{figure}
 
-Color-kinematics duality is a statement about color factors, kinematic numerators, and the accompanying Jacobi relations.
-Adjoint-type color factors are associated with cubic graphs, so satisfying color-kinematics duality implicitly requires expressing the integrand in terms of such graphs. As mentioned earlier, this is possible to do even for a theory with quartic (or higher multiplicity) vertices by multiplying and dividing by propagators.
-In the case of the 4pt 2-loop example promised above, there are 14 cubic graph topologies (shown in \cref{fig:MaxCuts}) ignoring tadpoles and bubble on external leg (BEL) graphs.
+Color-kinematics duality is a statement about color factors, kinematic
+numerators, and the accompanying Jacobi relations.  Adjoint-type color
+factors are associated with cubic graphs, so satisfying
+color-kinematics duality implicitly requires expressing the integrand
+in terms of such graphs. As mentioned earlier, this is possible to do
+even for a theory with quartic (or higher multiplicity) vertices by
+multiplying and dividing by propagators.  In the case of the 4-point
+2-loop example promised above, there are 14 cubic graph topologies
+(shown in \cref{fig:MaxCuts}) ignoring tadpoles and bubble on external
+leg (BEL) graphs.
 
-With the integrand expressed in terms of cubic graphs, it is possible to discuss the main ingredient in color-kinematics duality -- the Jacobi relations.
-The color factors in an integrand obey a set of Jacobi identities.
-Color-kinematics duality states that there \emph{exists} a way of writing the kinematic numerators of the integrand so that they obey the same set of Jacobi identities.
-The Jacobi identities can be divided into two categories:  \emph{defining} relations and \emph{boundary} relations.
-Defining Jacobi relations can be used to express any graph in terms of a basis.
-For example, the double box, crossed box, and penta-triangle are related to each other as follows
-\be % [[11]]
+With the integrand expressed in terms of cubic graphs, it is possible
+to discuss the main ingredient in color-kinematics duality -- the
+Jacobi relations.  The color factors in an integrand obey a set of
+Jacobi identities.  Color-kinematics duality states that there
+\emph{exists} a way of writing the kinematic numerators of the
+integrand so that they obey the same set of Jacobi identities.  The
+Jacobi identities can be divided into two categories: \emph{defining}
+relations and \emph{boundary} relations.  Defining Jacobi relations
+can be used to express any graph in terms of a basis.  For example,
+the double box, crossed box, and penta-triangle are related to each
+other as follows \be % [[11]]
 \label{eq:TwoLoopJacobiOne}
-\JacobiOneDoubleBox +  \JacobiOneCrossedBox + \JacobiOnePentaTriangle =0,
-\ee
-where the shared propagator is shown in red.
-Using this relation the crossed box can be written (or \emph{defined}) in terms of the other two.
-In this way, all of the 14 cubic 4pt 2-loop topologies can be written in terms of a basis of the double box and penta-triangle.
-(Any two of the double box, crossed box, and penta-triangle would suffice for a basis but the planar basis is chosen for simplicity in this work.)
-The numerator of each of the two basis graphs receives its own ansatz and the numerator of any other graph can be expressed in terms of these two.
+\JacobiOneDoubleBox +  \JacobiOneCrossedBox + \JacobiOnePentaTriangle =0\,,
+\end{equation}
+where the shared propagator is shown in red.  Using this relation the
+crossed box can be written (or \emph{defined}) in terms of the other
+two.  In this way, all of the 14 cubic 4-point 2-loop topologies can be
+written in terms of a basis of the double box and penta-triangle.
+(Any two of the double box, crossed box, and penta-triangle would
+suffice for a basis but the planar basis is chosen for simplicity in
+this work.)  The numerator of each of the two basis graphs receives
+its own ansatz and the numerator of any other graph can be expressed
+in terms of these two.
 
 After using the defining Jacobi relations to relate every graph to the basis, any remaining Jacobi relations will be referred to as boundary relations.
 In other words, boundary relations (indirectly) relate basis elements to themselves.
@@ -433,54 +657,85 @@ For example, the crossed box numerator is related to itself via the following Ja
 \be % [[19]]
 \label{eq:TwoLoopJacobiTwo}
 \JacobiTwoCrossedBoxOne + \JacobiTwoCrossedBoxTwo +  \JacobiTwoCrossedBoxThree =0,
-\ee
-where the shared propagator is shown in red as before.
-Each of the crossed box numerators can be written in terms of the double box and penta-triangle so this Jacobi relation places constraints on the basis numerator \ansatze{}.
-While defining Jacobi relations simplify how many numerators require \ansatze{}, boundary relations place restrictions on those \ansatze{}.
-In principle there could be Jacobi relations involving tadpoles and BEL graphs, which would be subtle to handle.
-One option is to force the numerators of these graphs to zero.
-However, since these graphs will not contribute to physical unitarity cuts, we take a different approach.
-These graphs are allowed to have non-zero numerators but any Jacobi relations involving them are simply not imposed or solved.
-See Ref.~\cite{Bern:2012uf} for a discussion of BELs in the context of color-kinematics duality.
+\end{equation}
+where the shared propagator is shown in red as before.  Each of the
+crossed box numerators can be written in terms of the double box and
+penta-triangle so this Jacobi relation places constraints on the basis
+numerator \ansatze{}.  While defining Jacobi relations simplify how
+many numerators require \ansatze{}, boundary relations place
+restrictions on those \ansatze{}.  In principle there could be Jacobi
+relations involving tadpoles and BEL graphs, which would be subtle to
+handle.  One option is to force the numerators of these graphs to
+zero.  However, since these graphs will not contribute to physical
+unitarity cuts, we take a different approach.  These graphs are
+allowed to have non-zero numerators but any Jacobi relations involving
+them are simply not imposed or solved.  See Refs.~\cite{Bern:2012uf,
+  Edison:2022jln} for discussions of BELs in the context of
+color-kinematics duality.
 
-What has just been described is sometimes referred to as ``global'' color-kinematics duality because the Jacobi identities are solved by a single (global) integrand with off-shell internal lines.
-In order to perform the double copy it is enough to simply satisfy the Jacobi identities on the generalized unitarity cuts, meaning that each graph can be assigned its own ansatz \cite{Bern:2015ooa}.
-If a global solution cannot be found, this is one way to enlarge the ansatz where the other option described above was to incorporate non-local terms in the ``numerators''.
-A globally color-dual integrand is desirable because of its simplicity and because a color-dual Lagrangian would naively produce precisely this object.
+\ace{Awkward phrasing/transition.}  What has just been described is
+sometimes referred to as ``global'' color-kinematics duality because
+the Jacobi identities are solved by a single (global) integrand with
+off-shell internal lines.  In order to perform the double copy it is
+enough to simply satisfy the Jacobi identities on the generalized
+unitarity cuts, meaning that each graph can be assigned its own ansatz
+\cite{Bern:2015ooa}.  If a global solution cannot be found, this is
+one way to enlarge the ansatz where the other option described above
+was to incorporate non-local terms in the ``numerators''.  A globally
+color-dual integrand is desirable because of its simplicity and
+because a color-dual Lagrangian would naively produce precisely this
+object.
 
 \paragraph{Graph symmetries}
 
-Every numerator is required to respect all of the symmetries (or automorphisms) of its associated graph.
-Graph symmetries are an avatar of Bose symmetry.
-For a pure ansatz construction it is very reasonable to impose graph symmetries, but color-kinematics duality at tree-level is often achieved at the expense of manifest Bose symmetry \cite{Cheung:2016prv, Cheung:2021zvb, Brandhuber:2021bsf, Edison:2020ehu}.
-In an ansatz construction graph symmetries are imposed for \emph{every} graph, not just the basis graphs.
+Every numerator is required to respect all of the symmetries (or
+automorphisms) of its associated graph.  Graph symmetries are an
+avatar of Bose symmetry.  For a pure ansatz construction it is very
+reasonable to impose graph symmetries, but color-kinematics duality at
+tree-level is often achieved at the expense of manifest Bose symmetry
+\cite{Cheung:2016prv, Cheung:2021zvb, Brandhuber:2021bsf,
+  Edison:2020ehu}.  In an ansatz construction graph symmetries are
+imposed for \emph{every} graph, not just the basis graphs.
 %For example, the symmetries of the crossed box are spanned by
-%\be
+%\begin{equation}
 %\CrossedBoxGraphSym{1}{2}{3}{4} \sim \CrossedBoxGraphSym{2}{1}{3}{4} \text{ and } \CrossedBoxGraphSym{1}{2}{3}{4} \sim \CrossedBoxGraphSym{2}{1}{4}{3}
-%\ee
-For example, the symmetries of the crossed box
-\be
+% \end{equation}
+\ace{is there a reason we commented out this diagram?}  For example,
+the symmetries of the crossed box
+\begin{equation}
 \CrossedBoxGraphSym{1}{2}{3}{4}
-\ee
+\end{equation}
 are spanned by $\{1234\} \to \{2134\}$ and $\{1234\} \to \{1243\}$.
 In general, internal edge labels must be tracked as well.
 Furthermore, care must be taken with the signs in a symmetry relation.
-To compensate for the antisymmetric color factors, $f^{abc}$, graph vertices are all totally antisymmetric and hence have signs built into their orientations.
-Once the signs are included in the symmetry relations, the crossed box can be expressed in terms of the double box and penta-triangle, thus imposing non-trivial constraints on the ansatz.
+To compensate for the antisymmetric color factors, $f^{abc}$, graph
+vertices are all totally antisymmetric and hence have signs built into
+their orientations.  Once the signs are included in the symmetry
+relations, the crossed box can be expressed in terms of the double box
+and penta-triangle, thus imposing non-trivial constraints on the
+ansatz. \ace{I'm not quite sure why the signs are mentioned in the
+  previous sentence?}
 
 \paragraph{On-shell Unitarity}
 
-The final constraints comes from ensuring that the ansatz correctly reproduces the generalized unitarity cuts of the desired theory, thus guaranteeing that the numerators encode the correct physical, theory-dependent information.
-Generalized unitarity methods has been reviewed in many places so we will be light on details here \cite{BCFUnitarity, BernHuangReview, Bern:2015ooa, Bourjaily:2017wjl, JJHenrikReview, FivePointN4BCJ, Bern:2012uf, BCJreview, Edison:2022jln}.
-\ace{Here is a semi-random collection of unitarity-related citations.  Probably want to bulk it up a bit more.}
-Recently, generalized unitarity was optimized for even-multiplicity theories like NLSM \cite{Carrasco:2023qgz}.
+The final constraints comes from ensuring that the ansatz correctly
+reproduces the generalized unitarity cuts of the desired theory, thus
+guaranteeing that the numerators encode the correct physical,
+theory-dependent information.  Generalized unitarity methods has been
+reviewed in many places so we will be light on details here
+\cite{BCFUnitarity, BernHuangReview, Bern:2015ooa, Bourjaily:2017wjl,
+  JJHenrikReview, FivePointN4BCJ, Bern:2012uf, BCJreview,
+  Edison:2022jln, Edison:2022jln}.  \ace{Here is a semi-random
+  collection of unitarity-related citations.  Probably want to bulk it
+  up a bit more.}  Recently, generalized unitarity was optimized for
+even-multiplicity theories like NLSM \cite{Carrasco:2023qgz}.
 
-Generalized unitarity equates products of on-shell tree amplitudes, encoded via
-a graph $\gamma$, to sums over compatible\footnote{A diagram $g$ is compatible with the
-  cut diagram $\gamma$ if $g$ is isomorphic to $\gamma$ or to any of
-  the additional factorization channels of $\gamma$. } diagram
-numerators evaluated on the support of the on-shell conditions and
-weighted by their uncut propagators
+Generalized unitarity equates products of on-shell tree amplitudes,
+encoded via a graph $\gamma$, to sums over compatible\footnote{A
+  diagram $g$ is compatible with the cut diagram $\gamma$ if $g$ is
+  isomorphic to $\gamma$ or to any of the additional factorization
+  channels of $\gamma$. } diagram numerators evaluated on the support
+of the on-shell conditions and weighted by their uncut propagators
 \begin{equation}
 \label{eq:SchematicCutEquation}
 \text{Cut}[\gamma]= \sum_{\substack{\text{states}\\\text{crossing } E(\gamma)}} \prod_{v \in V(\gamma)} \atree(v)
@@ -532,8 +787,10 @@ to cuts, we will not use blobs on vertices, and will use
 \textcolor{cut-color}{dashed lines} bisecting edges to denote cut
 lines and use colored edges to highlight the
 \textcolor{ucp-color}{uncut propagators}.  From now on we will leave
-the cut $\delta(\ell^2)$s implicit.
-\jm{Again, I love the colors!  Would it be possible to add $\ell$ labels to the RHS of \cref{eq:example-cut-sum} to show what $\ell_5$, $\ell_6$... are?}
+the cut $\delta(\ell^2)$s implicit.  \jm{Again, I love the colors!
+  Would it be possible to add $\ell$ labels to the RHS of
+  \cref{eq:example-cut-sum} to show what $\ell_5$, $\ell_6$... are?}
+\ace{It is doable, will work on it once our text is a bit more happy}
 
 
 In color-charged theories, both sides of the cut can be further
@@ -541,19 +798,23 @@ decomposed according to the color algebra.  For theories charged under
 the adjoint of $SU(N)$ via $f^{abc}$-dressed amplitudes, it is
 convenient to project onto a specific element of the Del
 Duca-Dixon-Maltoni (DDM) color basis \cite{DixonMaltoni} by only
-inserting color-ordered amplitudes in the product of trees, and
-restricting the set of compatible diagrams to those whose color
-factors reduce to the appropriate DDM element when summing over
-\emph{only the uncut color contractions}.  In this situation, the
-color becomes an overall factor on the entire equality and thus can be
-ignored.  Cuts that are organized in this manner are known as
-``color-ordered'' cuts, in the same sense as color-ordered tree
-amplitudes.  Since the DDM basis (and dual Kleiss-Kuijf amplitude
-basis \cite{Kleiss:1988ne}) have $(n-2)!$ elements, one generally
-needs to evaluate that many separate color-orderings of the same cut. \jm{Don't you need $(n-2)!$ for each blob in the cut?  So you need to evaluate $(n_1-2)! (n_2-2)!...$ cuts where $n_1$, $n_2$... are the multiplicities of the blobs.}
-As an example, consider the ``bowtie'' cut topology -- one of
-the factorization channels of the iterated unitarity cut -- which has
-two topologically distinct color-ordered expansions
+inserting color-ordered amplitudes, a la the right hand side of
+\cref{eq:ddm-basis} in the product of trees, and restricting the set
+of compatible diagrams to those whose color factors reduce to the
+appropriate DDM element when summing over \emph{only the uncut color
+  contractions}.  In this situation, the color becomes an overall
+factor on the entire cut equality and thus can be ignored.  Cuts that
+are organized in this manner are known as ``color-ordered'' cuts, in
+the same sense as color-ordered tree amplitudes.  Since the DDM basis
+(and dual Kleiss-Kuijf amplitude basis \cite{Kleiss:1988ne}) have
+$(n-2)!$ elements, one generally needs to evaluate that many separate
+color-orderings of the same cut. \jm{Don't you need $(n-2)!$ for each
+  blob in the cut?  So you need to evaluate $(n_1-2)! (n_2-2)!...$
+  cuts where $n_1$, $n_2$... are the multiplicities of the
+  blobs.}\ace{Yes.  Lets figure out a way to word it.} As an example,
+consider the ``bowtie'' cut topology -- one of the factorization
+channels of the iterated unitarity cut -- which has two topologically
+distinct color-ordered expansions
 \begin{equation}
   \label{eq:kt-color-ord}
    \NMCutC =
@@ -581,16 +842,19 @@ two topologically distinct color-ordered expansions
       \right]
   \end{cases}
 \end{equation}
-which serve as a complete basis for the full cut.
+which serve as a complete basis for the full cut.  \ace{One of the
+  diagrams here got shifted around somehow.  Probably need to rebuild
+  the whole fig manifest}
 
-Even though unitarity methods aim to generate loop-level data from well-defined on-shell information, the procedure can encounter subtleties.
-Beginning at one loop, there are classes of cuts that are
+Even though unitarity methods aim to generate loop-level data from
+well-defined on-shell information, the procedure can encounter
+subtleties.  Beginning at one loop, there are classes of cuts that are
 difficult to properly define due to hidden non-physical singularities.
 The quintessential example of such a ``pathological'' cut is the 3-1
 two-particle cut at one loop which hides a bubble-on-external-leg
 singularity
 \begin{equation}
-\frac{\delta(\textcolor{cut-color}{k_4^2})}{\textcolor{ucp-color}{s\, k_4^2}}
+\frac{\delta(\textcolor{cut-color}{k_4^2})}{s\,\textcolor{ucp-color}{ k_4^2}}
 n \left[
   \begin{tikzpicture}
     \ver{e1}{-1,0};
@@ -603,7 +867,8 @@ n \left[
     \ver{co}{$(i3)!0.5!(i4)$};
     \ver{e4}{1.2,0};
     \draw[ultra thick] (e1)--(i1)--(i2)--(i3) to [out=80,in=100,min distance=0.4cm](i4)--(e4);
-    \draw[ultra thick,ucp-color](i1)--(i2)--(i3);
+    \draw[ultra thick](i1)--(i2);
+    \draw[ultra thick,ucp-color](i2)--(i3);
     \draw[ultra thick,cut-color](i4)--(e4);
     \draw[ultra thick] (i3) to [out=-80,in=-100,min distance=0.4cm](i4);
     \draw[ultra thick] (e2) -- (i1);
@@ -635,10 +900,11 @@ n \left[
 \end{tikzpicture}
 \end{equation}
 in which one of the \textcolor{ucp-color}{uncut propagators} is set
-equal to an \textcolor{cut-color}{external on-shell propagator}. \jm{I think the blue line might extend too far to the left in the picture.}
+equal to an \textcolor{cut-color}{external on-shell propagator}.
 Discussions about how to resolve these types of singularities can be
 found in Refs.~\cite{Edison:2022jln, Edison:2022smn, Edison:2020uzf,
-  Geyer:2015bja, Bern:2012uf} \citepls{Minahan}.  In addition to the
+  Geyer:2015bja, Bern:2012uf, Minahan:1987ha} \ace{Should really make
+  sure that is the right Geyer paper}.  In addition to the
 bubble-on-external-leg cuts, there is a related class of cuts in which
 an uncut propagator is set to zero by an \emph{internal cut
   condition}, for instance,
@@ -723,7 +989,7 @@ require handling these types of cuts.
 The essence of generalized unitarity is that when internal lines are
 placed on-shell, the integrand should factorize into a product of
 on-shell tree amplitudes.  The cut to be performed can, itself, be
-encoded in a graph.  For example, potential 4pt 2-loop cuts include
+encoded in a graph.  For example, potential 4-point 2-loop cuts include
 \begin{equation}
 \label{eq:PotentialCuts}
 \text{(a)} \SubtleCut ~~~~ \text{(b)} \PhysicalCutOne{}{}{}{} ~~~~ \text{(c)} \PhysicalCutTwo{}{}{}{} ~~~~ \text{(d)}  \MaxCut
@@ -773,61 +1039,62 @@ example, cut (a) of \cref{eq:PotentialCuts} is not enforced since it
 is possible to blow up the left blob into a tree amplitude with an
 on-shell internal propagator.  Cuts (b), (c), and (d) represent
 physical cuts where (d) is known as a maximal cut since the maximal
-number of propagators have been put on shell.
-\fi
+number of propagators have been put on shell.  \fi
 
 After imposing all four of the conditions above, any remaining free
 parameters represent ``generalized gauge freedom'' meaning that the
 freedom does not affect the physical integrand or its double copy.
 
+\ace{End of Alex first readthrough}
+
 \section{One-loop cubic construction}
 \label{sec:cubic}
 Here we'll describe why constructing the full Yang-Mills kinematic algebra (outside self-dual sector) is generically hard, and why the same reason makes NLSM beyond one-loop hard as well. It has to do with how the vector state sum mixes with the four-point contact. Starting with the Yang-Mills Lagrangian,
-\be
+\begin{equation}
 \mathcal{L}^{\text{YM}} = -\frac{1}{2}(\partial_\mu A_\nu)^2 + f^{abc} \partial_\mu A^a_\nu A^b_\mu A^c_\nu + f^{abe}f^{ecd}A^a_\mu A^b_\nu  A^c_\mu A^d_\nu 
-\ee
+\end{equation}
 We can express the Yang-Mill three-point interaction in terms of the following vertex in Lorenz gauge:
-\be
+\begin{equation}
 T^k_{ij} = (\varepsilon_i\varepsilon_j)(\varepsilon_k p_i)
-\ee
+\end{equation}
 This kinematic generator is anti-symmetric in $1\leftrightarrow 2$ exchange, and from it we can construct the full Lorenz gauge Yang-Mills vertex by summing over cyclic permutations:
-\be
+\begin{equation}
 V^{(123)}_{\text{YM}} = T^3_{12} +\text{cyc}(123)
-\ee
+\end{equation}
 Contracting this with the vector state sum, we can see that the cubic Yang-Mills vertex does not alone satisfy the four-point Jacobi identity:
 \be\label{cubicJac}
 {}_1\langle V^{2}_{\text{YM}}V^{3}_{\text{YM}}\rangle_4+\text{cyc}(234) = \varepsilon_{(12)}  \varepsilon_{(34)} (s_{13}-s_{23}) +\text{cyc}(234) \neq 0
-\ee
+\end{equation}
 where $ \varepsilon_{(ij)} =  \varepsilon_{i}\cdot  \varepsilon_{j}$. Of course, it is not hard to see that one can simply absorb the remaining terms into the definition of the four-point kinematic numerators:
-\be
+\begin{equation}
 {}_1\langle V^{2}_{\text{YM}+B}V^{3}_{\text{YM}+B}\rangle_4 = {}_1\langle V^{2}_{\text{YM}}V^{3}_{\text{YM}}\rangle_4 + s_{12} (\varepsilon_{(13)}\varepsilon_{(24)}-\varepsilon_{(14)}\varepsilon_{(23)})
-\ee
+\end{equation}
 where $V_{\text{YM}+B}$ indicates the introduction of an additional two-form studied in \cite{Ben-Shahar:2022ixa} for constructing the NMHV Yang-Mills Lagrangian. 
-\be
+\begin{equation}
 {}_1\langle V^{2}_{\text{YM}+B}V^{3}_{\text{YM}+B}\rangle_4+\text{cyc}(234) =0
-\ee
+\end{equation}
 where the new cubic Lagrangian is of the form:
-\be
+\begin{equation}
 \mathcal{L}^{\text{YM}+B} = -\frac{1}{2}(\partial_\mu A_\nu)^2 - B_{\mu\nu}\Box\tilde{B}_{\mu\nu}+ f^{abc} \partial_\mu A^a_\nu A^b_\mu A^c_\nu+ f^{abc} (B_{\mu\nu}+\Box \tilde{B}_{\mu\nu})^a A^b_\mu A^c_\nu
 \ee 
 Of course, higher multiplicity would require further redefinition of the three-point vertex to satisfy Jacobi identites on all internal edges. While introducing successively higher spin states could in principle work at tree level, we will see that it is not consistent with what we find at general loop order. We will comment on this in \sect{}. For now, we will study how to construct one-loop integrands consistent with the color-kinematics by isolating the cubic sector of the state sum above. 
 
 As one can see above, the Jacobi identity of \ref{cubicJac} fails only in terms with two factors of polarization dot products, $(\varepsilon\varepsilon)^2$. Whereas, if we restricted ourselves to just considering factors with a single polarization dot product, the Jacobi identity of Yang-Mills would be satisfied \textit{off-shell} and in arbitrary spacetime dimensions:
-\be
+\begin{equation}
 {}_1\langle V^{2}_{\text{YM}}V^{3}_{\text{YM}}\rangle_4\big|^{(\varepsilon\varepsilon)^1}+\text{cyc}(234) =0
-\ee
+\end{equation}
 Thus for our approach at one-loop, we aim to build color-dual integrands directly from kinematic factors of this form. The organizational principle underlying this construction can be easily understood in terms of a polarization decomposition of vector amplitudes introduced by one of the authors \cite{Pavao:2022kog}, 
 \begin{equation}\label{eq:pureVecRABD}
 A_{(\sigma)}^{\text{YM}} = \sum_{k=0}^{\lfloor |\sigma|/2\rfloor}\sum_{\rho \in S^{2|k}_{\sigma}}\varepsilon_{(\rho)} \Delta_{(\sigma)}^{(\rho)}\,.
 \end{equation}
 By a simple mass-dimensioin argument, we know the tree-level cubic sector of Yang-Mills must be at $\mathcal{O}((\varepsilon\varepsilon)^1)$:
-\be
+\begin{equation}
 A_{(\text{tree})}^{\text{cubic}} = \sum_{\rho \in S^{2|1}_{\sigma}}\varepsilon_{(\rho)} \Delta_{(\sigma)}^{(\rho)}\,.
-\ee
+\end{equation}
 while at one-loop, the cubic sector corresponds to $\mathcal{O}((\varepsilon\varepsilon)^0)$ in polarization dot products:
-\be
+\begin{equation}
 A_{(\text{1-loop})}^{\text{cubic}} = \sum_{\rho \in S^{2|0}_{\sigma}}\varepsilon_{(\rho)} \Delta_{(\sigma)}^{(\rho)}\,.
-\ee
+\end{equation}
 When decomposed in this way, the polarization stripped building blocks must obey a set of Ward-Identities between different helicity sectors in order for the full amplitude to be gauge invariant,:
  \begin{equation}\label{eq:GIrelA}
 \Delta_{(\sigma)}^{(\rho)}\Big|_{\epsilon_i\rightarrow k_i} =-
@@ -839,76 +1106,76 @@ As we demonstrate above, if we include factors of $(\varepsilon\varepsilon)^{n\g
 
 We can achieve this construction by splitting the gauge group of the full Yang-Mills action from $G \rightarrow G_L \times G_R$, where the full non-abelian gauge symmetry is restored only when we identify $G_L = G_R$. However, if we break the left gauge group down to $G_L \rightarrow U(1)^{N^2}$, and take the right gauge group to $G_R \rightarrow U(N)$, then we are left with a semi-abelian theory that is gauge invariant in the preffered $U(1)$-directions. We call this manifestly color-dual theory, \textit{semi-abelian Yang-Mills},
 \begin{eBox}
-\be
+\begin{equation}
 \label{eq:semiYM}
 \mathcal{L}^{\text{semi-YM}} = -\frac{1}{2}\text{tr}\left[\bar{F}_{\mu\nu}F^{\mu\nu}\right]
-\ee
+\end{equation}
 \end{eBox}
 where,
-\be
+\begin{equation}
 \bar{F}^a_{\mu\nu} = \partial_\mu \bar{A}_\nu^a - \partial_\nu \bar{A}_\mu^a
-\ee
-\be
+\end{equation}
+\begin{equation}
 F^a_{\mu\nu} = \partial_\mu A_\nu^a - \partial_\nu A_\mu^a + f^{abc} A_\mu^b A_\nu^c .
-\ee
+\end{equation}
 Here we can think of the abelian vector as a background field that sources on-shell $A_\mu$ currents. Indeed, as we describe in the Appendix \cref{sec:CKLagrangians}, semi-abelian Yang-Mills theory is at the heart of YZ-theory \cite{Cheung:2016prv}, J-theory \cite{Cheung:2020djz,Cheung:2021zvb}, and self-dual Yang-Mills \cite{Monteiro2011pc}. The Feynman rules fo this theory are simply:
-\be
+\begin{equation}
 \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{}= (\varepsilon_1\bar{\varepsilon}_3)(\varepsilon_2 k_3) -  (\varepsilon_2\bar{\varepsilon}_3)(\varepsilon_1 k_3)
-\ee
+\end{equation}
 Specifically, semi-Abelian YM is simply a clever reinterpretation of the Lagrangian obtained by integrating an auxiliary field into the J-theory equations of motion.
 We can use the Ward identity of \ref{eq:GIrelA} to check that the amplitudes are indeed gauge invariant with the abelian polarizations are taken on-shell, $\bar{\varepsilon} \rightarrow k$.
 
 We can select out both of these manifestly cubic sectors by selecting only $\varepsilon^+\varepsilon^+$ in light-cone gauge (i.e. SDYM) and one-minus at tree-level OR what $J$-theory and $YZ$-theory select with their on-shell states. Indeed, the $D$-dimensional description of $J$ theory is just the following blocks in the RABD expansion of Yang-Mills:
-\be
+\begin{equation}
 A(...,\bar{A}_k,...)_{\text{tree}} = \sum_{j\neq k}\Delta^{(jk)}_{\text{tree}}
-\ee
+\end{equation}
 and similarly so at one-loop:
-\be
+\begin{equation}
 A(...)_{\text{1-loop}} \equiv \Delta^{(\varnothing)}_{\text{1-loop}}
-\ee
+\end{equation}
 To recover NLSM at one-loop, we need to extract out the $D$-dependent part that corresponds to an internal $YY$-loop from extra-dimensional scalars:
 \begin{eBox}
-\be
+\begin{equation}
 A^{\text{NLSM}}_{\text{1-loop}} \equiv \partial_D \Delta^{(\varnothing)}_{\text{1-loop}}\big|_{\varepsilon\rightarrow k}
-\ee
+\end{equation}
 \end{eBox}
 Why must we take the derivative with respect to $D$? After all, $J$-theory and $YZ$-theory both have well defined propagators for internal $\bar{J}J$ and $\bar{Z}Z$ propagators. However, as we noted in the previous section, all the $J$ and $Z$ states must be on-shell in order to produce NLSM amplitudes. Thus, the unitarity cuts of $J$ theory at one-loop will not produce NLSM amplitudes. However, the internal $YY$-loop is a valid forward limit, since as constructed YZ theory is valid for off-shell Y-particles, and thus they serve as a valid forward limit. We will construct these one-loop integrands below in the next section. 
 
 \subsection{One-loop color-dual integrands}\label{oneLoopCK}
 Our first application of this theory for color-dual construction at loop level is for self-dual Yang-Mills (SDYM). At tree-level, the off-shell cubic vertices can be written in terms of light cone coordinates \cite{Monteiro2011pc}:
-\be
+\begin{equation}
 X(p,k) = p_u k_w-p_w k_u
-\ee
+\end{equation}
 At loop-level, this construction needs to be analytically continued to general dimension in order to apply dimensional regularization at one-loop. This can be done using the cubic semi-YM vertices of the previous section:
-\be
+\begin{equation}
 \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{}= \mathcal{X}(k_1,k_2) = (\varepsilon_1\varepsilon_3)(\varepsilon_2 k_3) -  (\varepsilon_2\varepsilon_3)(\varepsilon_1 k_3)
-\ee
+\end{equation}
 Plugging in on-shell all-plus helicity states in light-cone gauge will yield precisely the 4D SDYM vertex, up to an unphysical phase. Of course, this has the advantage of permitting a $D$-dimensional construction of the one-loop integrand. Below we provide a four-point example:
-\be
+\begin{equation}
 \simplebox = g_{\text{YM}}^4 \langle \mathcal{X}(k_1,l_1)\mathcal{X}(k_2,l_2)\mathcal{X}(k_3,l_3)\mathcal{X}(k_4,l_4)\rangle
-\ee
+\end{equation}
 where $l_i = l+k_1+k_2+\cdots+ k_i$. In general, the $n$-gon vertex would be
-\be
+\begin{equation}
 \mathcal{N}^{\text{SDYM}}_{n\text{-gon}}= \nGonVector = g_{\text{YM}}^n \langle \mathcal{X}(k_1,l_1)\mathcal{X}(k_2,l_2)\cdots \mathcal{X}(k_n,l_n) \rangle
-\ee
+\end{equation}
 Due to the state-sum of internal loop factors, $\sum {\varepsilon_{(+l)}\varepsilon_{(-l)}}=D$, the integrand above depends explicitly on the spacetime dimension, $D$. By taking a derivative\footnote{Another way to understand this derivative is that it selects the large $D$ behavior of the integrand.}, we can recover the integrand needed for all-plus one-loop amplitudes with an internal scalar:
-\be
+\begin{equation}
 \frac{\partial}{\partial D} \mathcal{N}^{\text{SDYM}}_{n\text{-gon}}=\nGonScalar  = (2 g_{\text{YM}})^n (l_1 k_1)(l_2 k_2)\cdots (l_n k_n)
-\ee
+\end{equation}
 This integrand numerator with internal scalar loop is precisely what one would obtain from the Feynman rules of YZ-theory, absent the $XZ$ internal vector loop. For more background, we refer the reader to appendix \ref{}. 
-\be
+\begin{equation}
  \mathcal{N}^{\text{NLSM}}_{n\text{-gon}}=\left[\frac{\partial}{\partial D} \mathcal{N}^{\text{SDYM}}_{n\text{-gon}}\right]^{\epsilon \rightarrow k}=\nGonScalar =  f_\pi^{-n} [12][23]\cdots [n1]
-\ee
+\end{equation}
 Where we have define the antisymmetric kinematic variable, $[LR] = l_L^2 - l_R^2$
 \subsection{Two-loop obstruction}\label{2LoopObstruction}
 At two-loop, introducing terms that conspire with four-point contacts is unavoidable. At one-loop, we were able to avoid internal contractions of $\bar{A}_\mu A^\mu$ by selecting external states of appropriate weight. However, at two-loop when choosing all external $A_\mu$ states, the amplitude vanishes in semi-YM theory:
-\be
+\begin{equation}
 \mathcal{A}^{\text{semi-YM}}_{\text{2-loop}}(+,+,+,+)=0
-\ee
+\end{equation}
 In order to produce non-vanishing interactions, we would need to reintroduce $D$-dimensional vertices from the diagonal group of $G_L\times G_R$. Doing so will necessarily introduce internal contractions of $\bar{A}_\mu A^\mu$,
-\be
+\begin{equation}
 \mathcal{A}^{\text{YM}}_{\text{2-loop}}(+,+,+,+)=\doubleBoxObstructionA +\doubleBoxObstructionB+\cdots 
-\ee
+\end{equation}
 However, this immediately runs into the difficulty of introducing the four-point contact needed for color-kinematics to be satisfied on all internal edges. To do this prescriptively would require knowledge of the full kinematic algebra for Yang-Mills off-shell. Since this is presently unavailable, to approach the problem of two-loop construction, we instead employ an ansatz based approach. 
 \section{Two-loop bootstrap}\label{2loopBoot}
 We now employ the color-dual bootstrap method described in \cref{bootstrap}. We will employ an ansatz constructed from  $D$-dimensionally Lorentz covariant kinematics. To fix remaining freedom in the NLSM bootstrap, we will match down to ZM theory in $D=2$. This is merely an aesthetic choice, so the final results of both the NLSM and Yang-Mills bootstraps are dimensionally agnostic.
@@ -917,9 +1184,9 @@ We now employ the color-dual bootstrap method described in \cref{bootstrap}. We 
 
 As we have seen, it is possible to coerce tree numerators into 1-loop numerators at any multiplicity for pions.
 However, these methods cannot be reapplied to generate higher-loop numerators, which begs the question ``is it possible to find globally color-dual numerators beyond 1-loop''.
-We will tackle this question for 4pt 2-loop scattering in NLSM before moving on to the same process in YM.
+We will tackle this question for 4-point 2-loop scattering in NLSM before moving on to the same process in YM.
 
-Ignoring tadpoles and BEL graphs, there are 14 cubic 4pt 2-loop graphs (see \cref{fig:MaxCuts}) which are related to each other via 21 Jacobi relations.
+Ignoring tadpoles and BEL graphs, there are 14 cubic 4-point 2-loop graphs (see \cref{fig:MaxCuts}) which are related to each other via 21 Jacobi relations.
 As mentioned in \cref{sec:bootstrap}, color-kinematics duality ensures that the numerator of every graph can be expressed in terms of a basis of the double box and penta-triangle,
 \begin{equation}
 \label{eq:jacobi-basis}
@@ -949,7 +1216,7 @@ Further imposing graph symmetries reduces the number of free parameters to 1,243
 
 The final essential constraint is unitarity.
 Cuts (b) and (c) of \cref{eq:PotentialCuts} are the only physical cuts that need to be enforced.  \jm{Move some of the cut pictures here?}
-This means that even at two loops, unitarity is still only probing the on-shell 4pt NLSM amplitude.
+This means that even at two loops, unitarity is still only probing the on-shell 4-point NLSM amplitude.
 The other cuts besides (b) and (c) are either pathological or vanish because they involve a 3pt point on-shell amplitude (which vanishes on general grounds for scalar theories).
 In order to manifest the $\mathbb{Z}_2$ symmetry of NLSM at the integrand level, we enforce that all non-pathological cuts containing a 3pt vertex (such as the maximal cut) vanish.
 Imposing all relevant cuts leaves 765 free parameters representing the generalized gauge freedom in the answer.
@@ -960,7 +1227,7 @@ Imposing all relevant cuts leaves 765 free parameters representing the generaliz
 At this point color-kinematics duality has been satisfied, so the double copy will proceed without issue.
 However, the plethora of generalized gauge freedom parameters leaves the option for enforcing additional aesthetic constraints.
 $\mathcal{N}=4$ SYM provides several hints for further conditions to impose on the ansatz.
-For example, for maximally supersymmetric gauge theory it is possible to enforce the no triangle hypothesis, manifest loop power counting, and, at least for 4pt and up to four loops, strip off a factor of $st A_\text{tree}$ from the integrand (I'm not sure I know all of the papers to cite here).
+For example, for maximally supersymmetric gauge theory it is possible to enforce the no triangle hypothesis, manifest loop power counting, and, at least for 4-point and up to four loops, strip off a factor of $st A_\text{tree}$ from the integrand (I'm not sure I know all of the papers to cite here).
 For the NLSM integrand it is desirable to make color-kinematics duality as manifest as possible.
 One hope would be to factor out some piece of the 1-loop numerator since this at least manifests antisymmetry for the vertices involving external legs.
 However, a more fruitful direction is to match onto the one known theory with pion power counting that manifests color-kinematics duality to all loop order, namely, Zakharov-Mikhailov (ZM) theory \cite{Zakharov:1973pp, Cheung:2022mix}.
@@ -969,10 +1236,10 @@ Why don't you just set all of the generalized gauge freedom parameters to zero?
 You can learn useful things by not doing this (see N=4), this allows us to introduce more physics into the problem, and, unsurprisingly, setting them to zero produces a more complex answer with more unwieldy rational numbers than using physics.
 
 ZM theory is governed by the Lagrangian
-\be
+\begin{equation}
 \label{eq:ZMLagrangian}
 \mathcal{L}^{\text{ZM}} = \frac{1}{2}(\partial \varphi)^2 + g f^{abc} \varphi^a \varepsilon^{\mu\nu}(\partial_\mu \varphi^b)( \partial_\nu \varphi^c),
-\ee
+\end{equation}
 where more details can be found in \cref{sec:CKLagrangians}.
 The color-stripped Feynman rule for the vertex is simply $V(k_1, k_2, k_3) \propto \varepsilon_{\mu\nu}k_1^\mu k_2^\nu$ where off-shell color-kinematics duality to all orders in perturbation theory simply follows from the Schouten identity.
 Since the theory only has a cubic vertex and the theory has manifest off-shell color-kinematics duality, it is trivial to read off the color-dual numerator for any graph.
@@ -980,11 +1247,11 @@ From the presence of the Levi-Civita tensor $\varepsilon^{\mu\nu}$, the theory c
 Every on-shell particle is either a right mover, with momentum proportional to $k_R^\mu \equiv (1,1)$, or a left mover, with momentum proportional to $k_L^\mu \equiv (1,-1)$.
 On-shell ZM amplitudes naturally divide into sectors corresponding to the configuration of left and right movers, where the scattering in many sectors is rather subtle.
 Only \emph{ordered} amplitudes can be defined unambiguously from the Feynman rules.
-At 4pt, only the alternating sector is free of subtleties and the amplitude for this process vanishes.
+At 4-point, only the alternating sector is free of subtleties and the amplitude for this process vanishes.
 In equations, $A[LRLR]=0$ where $R$ corresponds to a right mover and $L$ corresponds to a left mover.
 In every other configuration of right and left movers, such as $A[RRRR]$, one of the internal propagators is incidentally on-shell since $k_R^2=k_L^2=0$.
 
-It is tempting to try to match the pion 4pt 2-loop integrand to ZM on the cuts, but given that the cuts only probe the on-shell 4pt amplitude, which is either subtle or vanishes for ZM, it is better to compare the off-shell numerators directly.
+It is tempting to try to match the pion 4-point 2-loop integrand to ZM on the cuts, but given that the cuts only probe the on-shell 4-point amplitude, which is either subtle or vanishes for ZM, it is better to compare the off-shell numerators directly.
 As local functions, the numerators never suffer from any of the subtleties of on-shell 2D kinematics.
 Since the physical cuts are difficult to compare, ZM theory is being used here simply as a tool to eliminate generalized gauge freedom; ZM theory has the right power counting and kinematic structure in 2D to compare against.
 Since ZM theory is only being used for the kinematical structure of its numerators, it is natural to introduce a proportionality constant $z$ between the NLSM and ZM numerators $n_\text{NLSM} \vert_{2D} = z ~ n_\text{ZM}$.
@@ -996,13 +1263,13 @@ After performing the 2D matching, there are only 365 parameters of generalized g
 
 The loop momentum structure of ZM theory provides one final hint for simplifying the pion numerators.
 A generic term in the ZM numerator (of either basis graph) looks schematically like
-\be
+\begin{equation}
 \label{eq:ZMLoopPowCount}
 \ell_1^m \ell_2^n k^{12-(m+n)} \text{ where } 5 \leq m+n \leq 8,
-\ee
+\end{equation}
 whereas a generic set of local, cubic Feynman rules could have produced terms with up to $m+n=12$ powers of loop momenta.
 When the pion numerator is forced to have the loop power counting structure in \cref{eq:ZMLoopPowCount} of ZM theory, the number of generalized gauge freedom parameters reduces to 58.
-The pion numerator appearing in the ancillary files contains only these 58 degrees of freedom.\footnote{When the 4pt pion amplitude is normalized to $-k_1\cdot k_2$ and the ZM vertex is normalized to $k_1^\mu \varepsilon_{\mu\nu}k_2^\nu$, the parameter $z$ is fixed to $216/565$, which is clearly unrelated to the difference in coupling constants.}
+The pion numerator appearing in the ancillary files contains only these 58 degrees of freedom.\footnote{When the 4-point pion amplitude is normalized to $-k_1\cdot k_2$ and the ZM vertex is normalized to $k_1^\mu \varepsilon_{\mu\nu}k_2^\nu$, the parameter $z$ is fixed to $216/565$, which is clearly unrelated to the difference in coupling constants.}
 
 \subsection{Double-copy verification}\label{doubleCopyVerify}
 \ace{I'm punting a lot of discussion to Ref \cite{Carrasco:2023qgz}.
@@ -1071,9 +1338,9 @@ local ansatz must consist of five Lorentz scalar dot products instead
 of the six for NLSM, and each monomial must be linear in each of the
 four external gluon polarizations.  Thus, the ansatz will be built
 from terms of the form:
-\be
+\begin{equation}
 \mathcal{N}_{\text{2box}},\mathcal{N}_{\text{pt}}\in \text{span}\left\{(\varepsilon_i \varepsilon_j) , (k_i \varepsilon_j), (k_ik_j)\right\}
-\ee
+\end{equation}
 in addition to the purely momentum-dependent terms show in
 \cref{eq:scalar-basis}.  In our labeling of the two loop Jacobi-basis
 diagrams, shown in \cref{eq:jacobi-basis}, we find that the power
@@ -1120,22 +1387,12 @@ kinematic Jacobi relations to define the numerators for all cubic
 graphs in terms of the two basis graphs, including allowing nontrivial
 numerators on BEL diagrams.  We will simply avoid imposing constraints
 that directly involve such pathological diagrams.  That leaves us with
-14 non-pathological cubic diagrams, shown in \cref{fig:ym-mc}, on
+14 non-pathological cubic diagrams, shown above in \cref{fig:MaxCuts}, on
 which to impose maximal cuts and symmetries.  Doing so, we are left
 with AA total parameters in the unrestricted ansatz and BB total in
 the BDN-restricted ansatz.
-\begin{figure}
-\centering
-{\MCutC, \MCutD, \sumoCut, \MCutJ,  
- \\
-  \doubleBoxCut,  \crossBoxCut,\pentaTriangleCut,  \MCutF, 
-\\
-\MCutI,  \MCutE, \MCutK, 
-\\
- \MCutL, \MCutG,  \MCutH,
-}
-  \caption{The 14 non-pathological maximal-cut diagrams, including all dangling tree diagrams.} \label{fig:MaxCuts}
-  \end{figure}
+
+
 
 Proceeding to the next-to-maximal cuts, we continue to avoid
 pathological diagrams including the newly-appearing type discussed in
@@ -1230,13 +1487,13 @@ Obtaining a globally color-dual integrand beyond 1-loop then requires sacrificin
 Kinematic ``numerators'' that are rational functions of the kinematics appear unnatural from the perspective of point-like quantum field theories. After all, introducing operators that produce rational functions of kinematics must be non-local. Thus, in order to identify valid color-dual representation of Yang-Mills beyond tree-level, we must relax the constraint of \textit{off-shell locality}, and realize locality only in the limit of \textit{on-shell} kinematics. Below we provide an overview of what one might expect for such a construction, and provide some simple examples at tree-level that manifest this structure. 
 \subsection{Non-local construction of scattering amplitudes}\label{nonLocalScattering}
  For example, consider the simple four-point example of a color-dual representation of Yang-Mills theory. 
-\be
+\begin{equation}
 \mathcal{N}_{(12|34)}^{\text{YM}} = \frac{t_8F^4}{3} \frac{s_{13}-s_{12}}{s_{23}{s_{13}}}
-\ee
+\end{equation}
 By construction, this functionally symmetric numerator is anti-symmetric and obeys the Jacobi identity:
-\be
+\begin{equation}
 \mathcal{N}_{(12|34)}^{\text{YM}} + \mathcal{N}_{(13|42)}^{\text{YM}} +\mathcal{N}_{(14|23)}^{\text{YM}} = 0
-\ee
+\end{equation}
 However, it must also factorize to kinematics that are consistent with the local Feynman rules of \ref{}. Evaluating the residues on $s=s_{12}$, $t=s_{23}$ and $u=s_{13}$ poles, we find:
 \begin{align}
 \text{Res}\left[\frac{ \mathcal{N}_{s}^{\text{YM}} }{s}\right]^{s=0}&= \frac{2}{3}A_{(12|l)}^{\text{YM}}A_{(-l|34)}^{\text{YM}} 
@@ -1246,19 +1503,19 @@ However, it must also factorize to kinematics that are consistent with the local
 \text{Res}\left[\frac{\mathcal{N}_{u}^{\text{YM}} }{u}\right]^{s=0}&= -\frac{1}{3} A_{(12|l)}^{\text{YM}}A_{(-l|34)}^{\text{YM}} 
 \end{align}
 Plugging these into a cubic graph representation of Yang-Mills \ref{}, we find:
-\be
+\begin{equation}
 \text{Res}\left[\mathcal{A}_4^{\text{YM}}\right]^{s=0} = \frac{1}{3} A_{(12|l)}^{\text{YM}}A_{(-l|34)}^{\text{YM}} (2c_s-c_t-c_u) =  \mathcal{A}_{(12|l)}^{\text{YM}}\mathcal{A}_{(-l|34)}^{\text{YM}} 
-\ee
+\end{equation}
 where we have applied the color structure Jacobi identity, $c_s+c_t+c_u=0$. While we can absolutely apply a generalized gauge trasformation \cite{BCJ} to restore field theoretic locality to the cubic numerators, we can see clearly that this is an aesthetic choice. Moreover, by abandoning traditional notions of off-shell locality, we can massage the color-dual numerators into a form that is manifestly gauge invariant. As an organizational principle, pulling out an overall gauge-invariant factors comes with the added advantage of simplifying a loop-level construction of color-dual numerators for Yang-Mills. 
 \subsection{Non-local construction of color-dual integrands}\label{nonLocalLoops}
 Much of the complexity for $D$-dimensional vector theories at loop-level arises due to the mixing between external polarization and internal loop momenta. As noted, one advantage of expanding ansatz construction towards functions of rational kinematics is the prospect of stripping out overall factors of gauge invariant tensors. Rather than building an ansatz from the irreducible scalar products of \ref{}, 
-\be
+\begin{equation}
 \mathcal{N}^{\text{YM}}_{m,L} = \sum_i \mathcal{O}_i \mathcal{R}^{(i)}_{m,L}
-\ee
+\end{equation}
 where $\mathcal{O}_i$ are the basis tensors of \cite{Bern:2017tuc,Carrasco:2019yyn}, and $ \mathcal{R}_i$ is a rational function of momenta of the form;
-\be
+\begin{equation}
 \mathcal{R}_{m,L} = \frac{P_{b+a}(k^2,kl,l^2)}{Q_a(k^2,kl,l^2)}, \qquad b=m+2(l-1)
-\ee
+\end{equation}
 where $P_{a}$ and $Q_a$ are degree-$a$ polynomials exclusively of $D$-dimensional scalar kinematics. 
 \subsection{Future Directions}\label{sec:Discussion}
 \paragraph{Acknowledgments} The authors would like to thank ... for insightful conversations, related collaboration, and encouragement throughout the completion of this work. This work was supported by the DOE under contract DE-SC0015910 and by the Alfred P. Sloan Foundation. N.H.P. additionally acknowledges the Northwestern University Amplitudes and Insight group, the Department of Physics and Astronomy, and Weinberg College for their generous support.
@@ -1279,25 +1536,25 @@ Because of the broken Bose symmetry (and the inherited kinetic mixing of semi-Ab
 \jm{I've deleted the boxes around equations.  I actually really like them normally but if we're boxing something in the appendix then it feels like that's a major enough result that it should be in the main body of the paper.}
 
 \paragraph{Self-Dual Yang-Mills} The first example in the literature \citepls{} of color-dual Feynman rules is that of Yang-Mills theory in the self-dual sector (SDYM):
-\be
+\begin{equation}
 \mathcal{L}^{\text{YM}} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
-\ee
+\end{equation}
 To obtain the Lagrangian for self-dual Yang-Mills, we applyy the self-dual condition that equates the field strength to its dual 2-form:
 \be\label{SDcon}
 F_{\mu\nu} = \frac{1}{2} \varepsilon_{\mu\nu\rho\sigma}F^{\rho\sigma}
-\ee
+\end{equation}
 where $F_{\mu\nu} = \partial_\mu A_\nu -\partial_\nu A_\mu + g[A_\mu ,A_\nu]$ is the non-abelian $SU(N)$ field strength. Solutions to the self-dual condition automatically satisfy the Yang-Mills equation of motion due to the Bianchi identity:
-\be
+\begin{equation}
 D^\mu F^{\mu\nu} = \frac{1}{2} \varepsilon_{\mu\nu\rho\sigma}D^\mu F^{\rho\sigma} = 0
-\ee
+\end{equation}
 Solutions to \cref{SDcon} correspond to instanton configurations that are probed by the gauge field path integral in the full non-perturbative description of Yang-Mills. In this paper, we will focus on the perturbative aspects of this constraint. Transforming from Cartesian coordinates to light cone coordinantes, $(t,x,y,z) \rightarrow (u,v,w,\bar{w})$, which take the following definition:
-\be
+\begin{equation}
 u = t+x,\quad v=t-x, \quad w = y+iz
-\ee
+\end{equation}
 which gives the following expression for the invariant line element:
-\be
+\begin{equation}
 ds^2 = 2(dudv - dwd\bar{w}) = dt^2 - d\vec{x}\cdot d\vec{x}
-\ee
+\end{equation}
 Applying this coordinate transformation to the self-dual condition of \cref{SDcon}, we obtain the following three constraint equations from the original three cartesian coordinate expressions:
 \begin{align} \label{SDLightCone1}
 F_{uw} &=0\,,
@@ -1309,29 +1566,29 @@ F_{uw} &=0\,,
  F_{v\bar{w}} &= 0\,,
 \end{align}
 Thus, in light-cone gauge, $A_u=0$, we obtain the follow set of equations that are one-to-one with the self-dual condition:
-\be
+\begin{equation}
 A_u=0 \text{ and } (\ref{SDLightCone1}) \quad\Rightarrow \quad A_w=0
-\ee
+\end{equation}
 The \cref{SDLightCone2} then implies the following that $A_v$ and $A_{\bar{w}}$ depend on a single degree of freedom
-\be
+\begin{equation}
 A_w=0\,,\,A_u=0 \text{ and } (\ref{SDLightCone2}) \quad\Rightarrow \quad \partial_u A_v = \partial_w A_{\bar{w}}
-\ee
+\end{equation}
 This constraint is  satisfied with the following definition of the gauge field in terms of a single scalar degree of freedom which we call $\Psi$:
 \be\label{SDDef}
 A_v = \frac{1}{2} \partial_w \Psi, \qquad A_{\bar{w}} = \frac{1}{2} \partial_u \Psi,
-\ee
+\end{equation}
 Using this definition on the first self-dual constraint equation thus yields the following equation of motion for the dynamical scalar field:
 \be\label{SDEOM}
 (\ref{SDLightCone1}) \text{ and } (\ref{SDDef}) \quad  \Rightarrow\quad \Box \Psi + ig [\partial_u \Psi, \partial_w \Psi ]=0
-\ee
+\end{equation}
 Adding back in the anti-holomorphic field $\bar{\Psi}$ as a Lagrange multiplier, we obtain the following interaction Lagrangian for self-dual Yang-Mills theory:
-\be
+\begin{equation}
 \mathcal{L}^{\text{SDYM}} = (\partial \bar{\Psi})(\partial \Psi) -i g \bar{\Psi} [\partial_u \Psi, \partial_w \Psi ]
-\ee
+\end{equation}
 The color-ordered ordered cubic Feynman rule for this theory can be immediately read off as follows:
-\be
+\begin{equation}
 \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} =X(k_1,k_2) \equiv k_{u,1}k_{w,2} - k_{w,1}k_{u,2}
-\ee
+\end{equation}
 In this form, the Lagrangian and Feynman rules are manifestly color-dual \textit{off-shell}. We can see the effect \cref{SDcon} had on the Feynman rules of the full Yang-Mills Lagrangian: it simply decoupled the anti-MHV three-point vertex from the theory, leaving only the MHV three-point vertex. Before proceeding, it is important to note that the mass-dimension of the theory appears to differ from that of Yang-Mills -- we comment on this in detail in our appendix on spinor-helicity variables and conventions. 
 
 As we will show in \sect{}, the color-dual nature of SDYM can be understood as a direct consequence of isolating the \textit{cubic-sector} of the full Yang-Mills amplitudes by projecting along particular on-shell states. For this reason, the color-dual nature depends critically on the loop order of the amplitude and does not hold generically beyond one-loop. 
@@ -1351,45 +1608,45 @@ Y_M &= (0,Y,0)
 Z_M &= (Z_\mu,0,iZ_\mu) 
 \end{align}
 where $X$ and $Z$ are $d$-vectors and $Y$ is a scalar field. Considering the conjugate nature of the X-Z propagator, in this work we will make the replacement $X\rightarrow \bar{Z}$. Plugging this redefinition of the gauge fields in, upto cubic order, we thus obtain the following Lagrangian:
-\be
+\begin{equation}
 \mathcal{L}^{\text{YZ}} =\frac{1}{2} (\partial Y)^2 + (\partial Z)(\partial \bar{Z}) - g f^{abc} \left( \bar{Z}_{\mu\nu}Z^{\mu} Z^\nu + [Y,\partial_\mu Y] Z^\mu \right)
-\ee
+\end{equation}
 The Feynman rules for this Lagrangian are simply:
-\be
+\begin{equation}
 \Acubic{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{} = i (\varepsilon_3 p_2)\qquad \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} =i(\varepsilon_1 p_{2})(\varepsilon_2\bar{\varepsilon}_3) - i(\varepsilon_2 p_{1})(\varepsilon_1\bar{\varepsilon}_3)
-\ee
+\end{equation}
 Now we review of the construction of NLSM numerators at tree-level. In this construction, we can define generators of the kinematic algebra can be expressed as follows
 \be\label{eq:FeynmanRuleYYZ}
 T^a_{ij}= i \varepsilon_a(p_i-p_j)
-\ee
+\end{equation}
 where momentum conservation requires
-\be
+\begin{equation}
 p_a + p_i + p_j =0
-\ee
+\end{equation}
 The kinematic half-ladder diagrams then takes on the following concise definition:
-\be
+\begin{equation}
 n^{\text{NLSM}}_{(i|a_1a_2...a_n|j)} = (T^{a_1}T^{a_2}\cdots T^{a_n})_{ij}
-\ee
+\end{equation}
 Since there are on pole cancelling factors of $s_{ij} = (p_i+p_j)^2$, this definition of the chiral current algebra is manifestly cubic. Thus, the kinematic structure constants defined in terms of these generators are invariant under generalized gauge freedom. They can be defined implicitly below:
-\be
+\begin{equation}
 [T^a,T^b]_{ij}= F^{a}_{\,b|c}T^c_{ij}
-\ee
+\end{equation}
 Given this definition, the Feynman rule associated with kinematic structure constant is simply:
 \be\label{eq:FeynmanRuleXZZ}
 i F^{a}_{\,b|c} = (\varepsilon_b p_{ab})(\varepsilon_a\bar{\varepsilon}_c) - (\varepsilon_a p_{ab})(\varepsilon_b\bar{\varepsilon}_c) 
-\ee
+\end{equation}
 where $p_{ab}=p_a+p_b$ and $\varepsilon$ and $\bar{\varepsilon}$ are the polarizations of the $Z$-vectors particle and its conjugate field, respectively. The on-shell state sum for the polarization vectors is simply:
-\be
+\begin{equation}
 \sum_{\text{states}} \varepsilon^{\,\mu}_{(p)}\bar{\varepsilon}^{\,\nu}_{(-p)} = \eta^{\mu\nu}
-\ee
+\end{equation}
 Notice that the vector state sum is gauge fixed since the $Y\,Z$ model explicitly chooses Lorenz gauge for the $Z$ particles, $\partial_\mu Z^\mu=0$. To recover NLSM amplitudes from this these kinematic structure constants at tree-level, we simply plug in the following on-shell polarizations for the $Z$ and $\bar{Z}$ particles:
 \be\label{eq:onShellZStates}
 \varepsilon^\mu_{(p)} = p^\mu \qquad \bar{\varepsilon}^\mu_{(p)} = \frac{q^\mu}{pq}
-\ee
+\end{equation}
 where $q^2=0$ is some null reference momentum. With this, we can define tree-level pion scattering in two equivalent ways:
-\be
+\begin{equation}
 A^{\text{NLSM}} = A(...,Y,...,Y,...) = A(...,\bar{Z},...) 
-\ee
+\end{equation}
 where the ellipses denote additional on-shell $Z$-particles. Subject to a particular gauge choice, the kinematic numerators in latter definition for pion scattering is equivalent to those $J$-theory, first written down by Cheung and one of the authors \cite{Cheung:2021zvb}. In this paradigm, the on-shell $\bar{Z}$ state is equivalent to the root leg appearing in the color-dual $J$-theory numerators. 
 
 It is instructive to see how both of these constructions produce valid tree-level amplitudes for the pion. First we'll start with two $Y$ particles on legs 1 and 4. Applying the Feynman rules above, and plugging in on-shell states for the $Z$-particles produces the following $s$- and $t$-channel numerators:
@@ -1401,7 +1658,7 @@ n^{YY}_s &= (T^2T^3)_{14} = s_{12}^2
 Plugging these numerators into the ordered amplitudes $A(s,t)$ yields the desired result:
 \be\label{eq:NLSMYZ4point}
 A^{YY}_{(s,t)} = \frac{n^{YY}_s}{s_{12}}+\frac{ n^{YY}_t }{s_{14}} = s_{13}
-\ee
+\end{equation}
 Similarly we can do the same for the $Z$ and $\bar{Z}$ configuration. Below we have plugged in the on-shell $Z$-particle states, but have left the $\bar{Z}$ index free. This produces the following numerators:
 \begin{align}
 n^{\bar{Z}Z}_s &= {}_4(F^{3}F^{2})_{1} =  s_{12}(s_{14}-s_{13})p_2^{\mu_1}+s_{12}^2(p_3-p_4)^{\mu_1}
@@ -1409,13 +1666,13 @@ n^{\bar{Z}Z}_s &= {}_4(F^{3}F^{2})_{1} =  s_{12}(s_{14}-s_{13})p_2^{\mu_1}+s_{12
  n^{\bar{Z}Z}_t &=   {}_2(F^{3}F^{4})_{1}  = s_{14}(s_{12}-s_{13})p_4^{\mu_1}+s_{14}^2(p_3-p_2)^{\mu_1}
 \end{align}
 where we have defined the short hand notation:
-\be
+\begin{equation}
 {}_x(F^{a_1}F^{a_2}\cdots F^{a_n})_{y} \equiv F^{a_1}_{\,x|b_2}F^{a_2}_{\,b_2|b_3}\cdots F^{a_n}_{\,b_n|y}
-\ee
+\end{equation}
 Similarly, we find the following ordered amplitude when plugging in these numerators:
-\be
+\begin{equation}
 A^{\bar{Z}Z}_{(s,t)} = \frac{n^{\bar{Z}Z}_s}{s_{12}}+\frac{ n^{\bar{Z}Z}_t }{s_{14}} = -s_{13}(p_2+p_3+p_4)^{\mu_1} = s_{13} \,p_1^{\mu_1}
-\ee
+\end{equation}
 Plugging in the on-shell polarizatoin of the conjugate field in \cref{eq:onShellZStates} produces precisely the desired result of \cref{eq:NLSMYZ4point}. Indeed, this construction is valid to all orders at tree-level. One can see this by considering the only two possible factorization channels the contribute the each of these amplitudes, the $YY$ cut and the $\bar{Z}Z$ cut:
 \begin{align}
 A(...,Y,...,Y,...) &\rightarrow A(...,Y,...,Y)A(Y,...,Y,...)
@@ -1430,43 +1687,43 @@ The construction begins with a first order formulation of NLSM in terms of chira
 First order formulation of NLSM in terms of chiral current $J^\mu$.
 Two equations.
 Two constraints, the field strength should vanish
-\be
+\begin{equation}
 \label{eq:FieldStrengthJ}
 F_{\mu\nu}(J) = \partial_\mu J_\nu - \partial_\nu J_\mu + g[J_\mu , J_\nu]=0
-\ee
+\end{equation}
 which then implies that $J^\mu$ is pure gauge $J_\mu = U \partial_\mu U^{-1}$.
 The second condition is that the chiral current should be in Lorenz gauge
-\be
+\begin{equation}
 \label{eq:LorenzGaugeJ}
 \partial_\mu J^\mu=0
-\ee
+\end{equation}
 which then yields the NLSM equation of motion $\partial_\mu (U \partial^\mu U^{-1})=0$.
 Taking a linear combination of \cref{eq:FieldStrengthJ} and \cref{eq:LorenzGaugeJ} yields
-\be
+\begin{equation}
 \label{eq:JTheoryEOM}
 \Box J^\mu +g f^{abc} J^\nu \partial_\nu J^\mu = 0.
-\ee
+\end{equation}
 Integrating in an auxiliary field $\bar{J}^\mu$ as a Lagrange multiplier trivially produces the Lagrangian of semi-Abelian YM \cref{eq:semiYM} but with the gauge fields renamed to $J_\mu$ and $\bar{J}_\mu$.
 In other words, \emph{J-theory and semi-Abelian YM are identical}.
-By calculating an off-shell 4pt correlation function it is possible to check that this Lagrangian automatically satisfies color-kinematics duality.
+By calculating an off-shell 4-point correlation function it is possible to check that this Lagrangian automatically satisfies color-kinematics duality.
 As might be expected, the kinematic algebra is the diffeomorphism algebra.
 For details about external states and how to extract NLSM (a scalar theory) from semi-YM (a vector theory) we refer the reader to \cite{Cheung:2021zvb}.
 Note that the different external particles break manifest Bose symmetry.
 
 This theory is one-to-one with the observables amplitudes of YZ-theory when only considering $Z$-$\bar{Z}$ on-shell states. As such, the single vertex in this theory is the same as the pure vector vertex of YZ theory in Lorenz gauge, where $\partial_\mu J^\mu = 0$: 
-\be
+\begin{equation}
 \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} =i(\varepsilon_1 p_{2})(\varepsilon_2\bar{\varepsilon}_3) - i(\varepsilon_2 p_{1})(\varepsilon_1\bar{\varepsilon}_3)
-\ee
+\end{equation}
 
 \paragraph{Zakharov-Mikhailov theory}
 \label{sec:ZMTheory}
 While J-theory manifests color-kinematics duality, it only does so at tree level because J-theory breaks manifest Bose symmetry.
 Manifest color-kinematics duality can be achieved at all loop orders by restricting J-theory to two spacetime dimensions where the chiral current can be dualized to a scalar $J^\mu = \varepsilon^{\mu\nu} \partial_\nu \varphi$, which trivially enforces Lorenz gauge.
 After plugging $\varphi$ into \cref{eq:JTheoryEOM} and rearranging, another copy of $\varphi$ (rather than some new field) can be integrated in to obtain the Zakharov-Mikhailov (ZM) Lagrangian
-\be
+\begin{equation}
 \label{eq:ZMLagrangian}
 \mathcal{L}^{\text{ZM}} = \frac{1}{2}(\partial \varphi)^2 + g f^{abc} \varphi^a \varepsilon^{\mu\nu}(\partial_\mu \varphi^b)( \partial_\nu \varphi^c) =  \text{tr}\left[\frac{1}{2}(\partial \varphi)^2-i g \varphi [\partial_t \varphi, \partial_z \varphi ]\right] .
-\ee
+\end{equation}
 This procedure makes it clear that ZM and NLSM encode the same classical physics, that is, their equations of motion are dual to each other.
 ZM theory can also be tenuously motivated from SDYM theory.
 The power counting of the interaction term in the SDYM equation of motion \cref{SDEOM} makes it clear that the theory is critical in 2D.
@@ -1476,19 +1733,19 @@ This argument should be understood purely as an alternative route to ZM theory.
 While NLSM and ZM are the same theory classically when restricted to 2D, SDYM and ZM are not because, for example, the tree amplitudes of SDYM vanish but those of ZM do not (cite argumentative papers).
 
 The color-stripped Feynman rule for the three-point vertex can be read off from the Lagrangian \cref{eq:ZMLagrangian}, giving
-\be
+\begin{equation}
 \langle ab\rangle \equiv p_a^\mu \varepsilon_{\mu\nu} p_b^\nu =p_a^0 p_b^1 - p_a^1 p_b^0 = -\langle ba \rangle .
-\ee
+\end{equation}
 The vertex is (1) functionally symmetric and (2) the kinematic portion of the vertex is completely anti-symmetric: 
-\be
+\begin{equation}
 \cubic{hgrey0}{}{nhpBlue}{}{nhpBlue}{}{nhpBlue} = \langle 12\rangle = \langle 23\rangle = \langle 31\rangle = -\langle 21\rangle
-\ee
+\end{equation}
 This important property is due to momentum conservation alone and does not need any additional kinematic constraints to satisfy the duality.
 To prove off-shell color kinematics duality for any multiplicity and loop order it is enough to observe that the sum of the off-shell $s$-, $t$-, and $u$-channel numerators sum to zero
-\be
+\begin{equation}
 \label{eq:ZMJacobi}
 \langle ab \rangle \langle cd\rangle +\langle ac \rangle \langle db\rangle +\langle ad \rangle \langle bc\rangle =0 % \delta^{[a}_c\delta^{b]}_d + \delta^{[a}_d\delta^{c]}_b+ \delta^{[a}_b\delta^{d]}_c
-\ee
+\end{equation}
 by virtue of the 2D Levi-Civita identity $\varepsilon_{\mu\nu}\varepsilon_{\rho\sigma} = \eta_{\mu\rho}\eta_{\nu\sigma}-\eta_{\mu\sigma}\eta_{\nu\rho}$.
 Amusingly, \cref{eq:ZMJacobi} is simply a manifestation of the Schouten identity.
 
@@ -1541,42 +1798,42 @@ The conventions we use in the text where the holomorphic spinor cares extra mass
 [ab] &\rightarrow \frac{b_{\bar{w}}a_u-a_{\bar{w}}b_u}{a_ub_u}\equiv Q(a,b)\,,
 \end{align}
 With this, we still obtain the same completeness relation for the SDYM spinors:
-\be
+\begin{equation}
 X(a,b)Q(b,a) = \frac{1}{2}s_{ab}
-\ee
+\end{equation}
 \section{Regulating BEL integrals}\label{BELreg}
 At one-loop, weight counting tells us that the $n$-gon master numerator must have $n$ on-shell $Z$-particles. Unitarity requires that there are three distinct contributions from $Y\!Z$ theory -- the first from an off-shell $Y$-loop particle and then two more from different orientations of a $\bar{Z}Z$-loop.  Thus, $Y\!Z$ theory gives us the following one-loop $n$-gon numerator:
-\be
+\begin{equation}
 N^{n\text{-gon},YZ}_{(12...n)} = (T^{1}T^{2}\cdots T^{n})+2\, (F^1F^2\cdots F^n)
-\ee
+\end{equation}
 where $(\,\cdots)$ indicates an internal contraction over the $YY$ and $\bar{Z}Z$ loops. Plugging in the Feynman rule of \cref{eq:FeynmanRuleYYZ} and \cref{eq:FeynmanRuleXZZ}, we can readily obtain expressions in terms of the internal loop factors $l_i$ and the external momenta $k_i$ (we define the $l_i$ loop momentum as that flowing into $k_i$ and out of $k_{i-1}$):
-\be
+\begin{equation}
 N_{(12...n)}^{\text{NLSM}}=(T^{1}T^{2}\cdots T^{n}) = (l_1 k_1)(l_2 k_2) \cdots (l_n k_n)
-\ee
+\end{equation}
 and similarly so for the internal vector contribution:
-\be
+\begin{equation}
  (F^1F^2\cdots F^n) = (D-4)(l_1 k_1)(l_2 k_2) \cdots (l_n k_n) + \mathcal{O}(D^0)
-\ee
+\end{equation}
 The dimension dependent factor essentially counts that number of internal vector states. While this $n$-gon is manifestly color-dual, it does not produce the right cuts for NLSM. However, the scalar contribution, that comes dressed with an overall factor $(D-4)$ \textit{does} manifest the duality globally, and satisfies all the desired pion cuts. In order for the Feynman rules for $Y\!Z$ theory compute one-loop color-dual numerators consistent with NLSM cuts, we must add some additional states to cancel off he spurious poles, while preserving color-kinematics duality. We leave this as a direction of future work. 
 
 While the $\bar{Z}Z$ vector loop spoils color-kinematics off-shell, the $Y\!Z$ loop alone gives us a desired expression for the $n$-gon. The important takeaway is that we now have a guess for the form of the off-shell three-point vertex that has a chance of manifesting the duality off-shell. The $n$-gon numerator above has scalar insertions of the following kinematic vertex:
-\be
+\begin{equation}
 T^{a}_{LR} = k_a(l_L-l_{R}) = (l_L+l_{R}) (l_L-l_{R})  = l_L^2-l_{R}^2 
-\ee
+\end{equation}
 Given this structure, in the next section we will attempt to construct two-loop basis diagrams from these cubic vertex assignments and try to reverse engineer the particle content that produces these master numerators.
 
 Before proceeding, we note a strange property of the $n$-gon numerator for the pions. In this form, Jacobi relations produce \textit{non-vanishing} values for bubbles on external legs (BELs). However, it is easy to see that the contribution integrates to zero after applying IBP relations/tensor reduction on the bubble. The BEL diagram can be reconstructed from the $n$-gon as follows:
-\be
+\begin{equation}
 N^{\text{BEL}}_{1|2,34} = N^{\text{NLSM}}_{(1234,l)}-N^{\text{NLSM}}_{(1243,l)}-N^{\text{NLSM}}_{(1342,l)}+N^{\text{NLSM}}_{(1432,l)}
-\ee
+\end{equation}
 where we define the loop momentum to be in between the left most and right most leg on the box. Plugging in particular values for $l_i$, we obtain the following expression for the BEL
-\be
+\begin{equation}
 N^{\text{BEL}}_{1|2,34} = s_{12} (l+k_1)^2 l^{\mu} k_1^{\nu} k_2^{[\mu} k_{[34]}^{\nu]} 
-\ee
+\end{equation}
 Notice there is an overall factor that cancels one of the propagators. Plugging this in, produces an integral of the following form
-\be
+\begin{equation}
 \mathcal{I}^{\text{BEL}}_{1|2,34} = s_{12} k_1^{\nu} k_2^{[\mu} k_{[34]}^{\nu]} \int \frac{d^D l}{i\pi^{D/2}} \frac{l^\mu }{l^2-\mu^2} \sim   s_{12}(s_{13}-s_{14}) (\mu^2)^{D/2}
-\ee
+\end{equation}
 where we have introduced a mass regulator that will be proportional the the on-shell momentum inside the BEL, $\mu^2 \equiv k_1^2$. Thus, in large enough dimension, this integral suppresses the $\mu^{-2}$ divergence appearing in the denominator of the BEL diagram. 
 
 
@@ -1592,12 +1849,12 @@ This observation is due to other people but an easy way to see it.
 ZM and 2D NLSM have the same EOM after a field redefinition.
 This means that the classical physics is the same but of course the Lagrangians aren't the same and the field redefinition can change the path integral measure.
 \item Forcing pions to match ZM in 2D does funny things.
-The pion coupling constant is dropped but is implicitly set by the ordered 4pt amplitude which is normalized to be $-k_1 \cdot k_3$ in the package.
+The pion coupling constant is dropped but is implicitly set by the ordered 4-point amplitude which is normalized to be $-k_1 \cdot k_3$ in the package.
 I've tabulated what happens when you take a general D NLSM answer and force it to match ZM in 2D.
 Let's say that $n_\text{NLSM} = z n_\text{ZM}$ in 2D where I'm matching basis/master numerators.
-For 4pt tree, $z=2/3$ (I matched the half ladder).
-For 4pt 1-loop, $z$ is free/pure generalized gauge (I matched the box).
-For 4pt 2-loop (when you impose certain $\ell$ power counting) $z$ is $216/565=\tfrac{2^3 3^3}{5 \cdot 113}$ (I matched the double box and penta-triangle).
+For 4-point tree, $z=2/3$ (I matched the half ladder).
+For 4-point 1-loop, $z$ is free/pure generalized gauge (I matched the box).
+For 4-point 2-loop (when you impose certain $\ell$ power counting) $z$ is $216/565=\tfrac{2^3 3^3}{5 \cdot 113}$ (I matched the double box and penta-triangle).
 For 6pt tree, $z$ is 12/35 (I matched the half ladder).
 So you can match kinematic structure (the combination of Mandelstams) of NLSM to ZM in 2D but you can't get the coupling constant right at loop level, that is, ZM is a different theory quantum mechanically.
 Actually these numbers make it look like you can't even match the theories classically but I guess for the theories to match classically you only need the amplitudes to agree and I matched numerators.
@@ -1605,46 +1862,46 @@ Actually these numbers make it look like you can't even match the theories class
 Check that NLSM and ZM numerator agree on cuts.
 Can't do that or else it becomes subtle.
 Only well defined object is numerator.
-\item At 4pt 1-loop $\prod p_L^2 -p_R^2$ agrees with the ZM answer $\prod p_L \eps p_R$ up to some number.
+\item At 4-point 1-loop $\prod p_L^2 -p_R^2$ agrees with the ZM answer $\prod p_L \eps p_R$ up to some number.
 At 6pt 1-loop this is not true and the two answers differ by alternating signs depending on the kinematic configuration.
 \item You cannot lift ZM to general D NLSM in the democratic way that Nic described because it fails at 6pt tree.  So you take the ZM answer that looks like $\langle 1 2\rangle \langle 3 4\rangle...$ you can convert every pair of angles to dot products using 2D $\varepsilon$ identities.  Make an ansatz where you do every pairing of $\varepsilon$'s.  This doesn't work.
-\item To clean up the NLSM 4pt 2-loop answer I forced the answer to match ZM in 2D.
+\item To clean up the NLSM 4-point 2-loop answer I forced the answer to match ZM in 2D.
 The ZM answer also only has certain powers of loop momenta $\ell^5$...$\ell^8$ where $\ell$ represents any combination of $\ell_1$ and $\ell_2$.
 I enforce this $\ell^5$...$\ell^8$ behavior on the NLSM ansatz too.
 \item Describe Jacobi:  s,t,u channel color factors sum to zero so you want numerators to do the same
-\item Remember that I've explicitly checked the nice form of the 1-loop NLSM numerators at 4pt, 6pt, and 8pt.
-\item Should probably give the 4pt pion amplitude somewhere to show my conventions.
+\item Remember that I've explicitly checked the nice form of the 1-loop NLSM numerators at 4-point, 6pt, and 8pt.
+\item Should probably give the 4-point pion amplitude somewhere to show my conventions.
 \end{itemize}
 \be \label{YMSvert}
 \Acubic{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{} =T^3_{12}
-\ee
-\be
+\end{equation}
+\begin{equation}
 V^{c}_{ab} = (\varepsilon_a\varepsilon_b)(\varepsilon_c k_a)
-\ee
+\end{equation}
 With this, the full vector interaction can be expressed as a sum over cyclic permutations:
-\be
+\begin{equation}
 \cubic{hgrey0}{gluon}{}{gluon}{}{gluon}{}  =  \cubic{hgrey0}{fermion2}{}{}{nhpRed}{}{nhpRed} + \cubic{hgrey0}{}{nhpRed}{fermion2}{}{}{nhpRed} + \Acubic{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{} +\text{h.c.}
-\ee
+\end{equation}
 The state-sum between two three-point gluon vertex yields the following expansion in terms of YZ-theory vertices:
-\be
+\begin{equation}
  \AcubicB{hgrey0}{gluon}{}{gluon}{}{gluon}{}{gluon}{} =  \AcubicB{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{}{fermion2}{} + 5 \text{ perms} + \AcubicB{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{}{}{nhpRed}
-\ee
+\end{equation}
 where we have defined a new oriented vertex in terms of our scalar-vector building block of \ref{YMSvert},
-\be
+\begin{equation}
 \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} = \cubic{hgrey0}{}{nhpRed}{fermion2}{}{}{nhpRed} +\cubic{hgrey0}{fermion2}{}{}{nhpRed}{}{nhpRed}\,.
-\ee
-\be
+\end{equation}
+\begin{equation}
 \vec{V}^{c}_{ab} =V^{b}_{ac}+V^{a}_{bc}
-\ee
+\end{equation}
 All the $(\varepsilon\varepsilon)^1$ diagram permutations are isolated to the cubic sector and together manifest color-kinematics duality. However, the exception of the last diagram which introduces a $(\varepsilon\varepsilon)^2$ factor, must conspire with the Yang-Mills contact to preserve the duality off-shell
 
-\be
+\begin{equation}
 \AcubicB{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{}{}{nhpRed} = (s_{13}-s_{12}) \varepsilon_{(12)} \varepsilon_{(34)}
-\ee
+\end{equation}
 One was to resolve this is to introduce higher spin modes in order to accomodate the internal index contractions needed to recover the s-channal contract:
-\be
+\begin{equation}
 \AcubicB{hgrey0}{}{nhpRed}{}{nhpRed}{Bfield}{nhpRed}{}{nhpRed} = s_{12 }(\varepsilon_{(13)} \varepsilon_{(24)} - \varepsilon_{(14)} \varepsilon_{(23)})
-\ee
+\end{equation}
 
 
 \bibliographystyle{JHEP}
