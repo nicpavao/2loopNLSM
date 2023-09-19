@@ -108,6 +108,69 @@
 }
 }
 
+\newcommand{\doubleBoxObstructionB}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-1.5,1){};
+\vertex (a2) at (1.5,-1){};
+\vertex (a3) at (1.5,1){};
+\vertex (a4) at (-1.5,-1){};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (1,.5) ;
+\vertex (mid4) at (1,-.5) ;
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5) ;
+\diagram{
+(mid6)--[ultra thick,nhpRed](a4),
+(mid3) --[ultra thick,fermion2](a3),
+(mid4)--[ultra thick,fermion2](a2),
+(mid5) --[ultra thick,nhpRed](a1),
+(mid1) --[ultra thick,nhpRed](mid2),
+(mid3) --[ultra thick,nhpRed](mid2),
+(mid1) --[ultra thick,fermion2](mid6),
+(mid1) --[ultra thick,nhpRed](mid4),
+(mid5) --[ultra thick,fermion2](mid2),
+(mid5) --[ultra thick,nhpRed](mid6),
+(mid3) --[ultra thick,nhpRed](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+
+\newcommand{\doubleBoxObstructionA}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-1.5,1){};
+\vertex (a2) at (1.5,-1){};
+\vertex (a3) at (1.5,1){};
+\vertex (a4) at (-1.5,-1){};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (1,.5) ;
+\vertex (mid4) at (1,-.5) ;
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5) ;
+\diagram{
+(mid6)--[ultra thick,fermion2](a4),
+(mid3) --[ultra thick,fermion2](a3),
+(mid4)--[ultra thick,fermion2](a2),
+(mid5) --[ultra thick,fermion2](a1),
+(mid1) --[ultra thick,fermion2](mid2),
+(mid3) --[ultra thick,nhpRed](mid2),
+(mid1) --[ultra thick,nhpRed](mid6),
+(mid1) --[ultra thick,nhpRed](mid4),
+(mid5) --[ultra thick,nhpRed](mid2),
+(mid5) --[ultra thick,nhpRed](mid6),
+(mid3) --[ultra thick,nhpRed](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
 \newcommand{\doubleBoxCut}{ {
 \begin{tikzpicture}
 \begin{feynman}

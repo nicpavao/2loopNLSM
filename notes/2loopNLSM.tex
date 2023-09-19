@@ -271,11 +271,13 @@ We begin with an overview of color-kinematics duality in \cref{background}. We t
 Faced with this obstruction, we study the multi-loop sector of both NLSM and Yang-Mills in \cref{2loopBoot} using an ansatz based color-dual bootstrap. In contrast to much of the available literature on construction of color-dual integrands at two-loop \cite{}, our results are completely agnostic to the spacetime dimension; all the polarizations and momenta appearing in our construction will remain formally $D$-dimensional. This makes our methods and results particularly well suited for algorithmically extracting rational terms from the $D$-dependence of dimensionally regulated loop momenta. We are able to achieve this by employing a custom solver, \texttt{FiniteFieldSolve}, which will soon be made public. 
 
 With this solver, we are able to compute a two-loop integrand for NLSM that globally manifests the duality off-shell. This represents a new benchmark for color-dual representations in non-supersymmetric gauge theories. However in contrast, we find surprisingly that Yang-Mills does not permit a globally color-dual representation, even when considering the most general polynomial ansatz of Lorentz covariant kinematics. Concretely, we find a sharp failure point between the ``bowtie'' cut, and the following jacobi triple:
+\begin{eBox}
 \begin{equation}
    \NMCutC
   \Rightarrow
   \JacobiOneDoubleBox +  \JacobiOneCrossedBox + \JacobiOnePentaTriangle \neq 0 \,.
 \end{equation}
+\end{eBox}
 We comment on the implications of this finding in \cref{conclusions}, and discuss alternative approaches where one must relax field theoretic locality in order to accommodate the construction of globally color-dual multi-loop integrands.
 
 \section{Background}\label{background}
@@ -811,20 +813,18 @@ where $V_{\text{YM}+B}$ indicates the introduction of an additional two-form stu
 where the new cubic Lagrangian is of the form:
 \be
 \mathcal{L}^{\text{YM}+B} = -\frac{1}{2}(\partial_\mu A_\nu)^2 - B_{\mu\nu}\Box\tilde{B}_{\mu\nu}+ f^{abc} \partial_\mu A^a_\nu A^b_\mu A^c_\nu+ f^{abc} (B_{\mu\nu}+\Box \tilde{B}_{\mu\nu})^a A^b_\mu A^c_\nu
-\ee
+\ee 
 Of course, higher multiplicity would require further redefinition of the three-point vertex to satisfy Jacobi identites on all internal edges. While introducing successively higher spin states could in principle work at tree level, we will see that it is not consistent with what we find at general loop order. We will comment on this in \sect{}. For now, we will study how to construct one-loop integrands consistent with the color-kinematics by isolating the cubic sector of the state sum above. 
 
 As one can see above, the Jacobi identity of \ref{cubicJac} fails only in terms with two factors of polarization dot products, $(\varepsilon\varepsilon)^2$. Whereas, if we restricted ourselves to just considering factors with a single polarization dot product, the Jacobi identity of Yang-Mills would be satisfied \textit{off-shell} and in arbitrary spacetime dimensions:
 \be
 {}_1\langle V^{2}_{\text{YM}}V^{3}_{\text{YM}}\rangle_4\big|^{(\varepsilon\varepsilon)^1}+\text{cyc}(234) =0
 \ee
-Thus for our approach at one-loop, we aim to build color-dual integrands directly from kinematic factors of this form. The organizational principle underlying this construction can be easily understood in terms of a polarization decomposition of vector amplitudes introduced by one of the authors \cite{Pavao:2022kog}, which we summarize briefly below. 
-\subsection{Block Decomposition of Yang-Mills}
-The $D$-dimensional Lagrangians of \ref{} can be understood as selecting specific on shell states to isolate the cubic sector of Yang-Mills at a given loop order. Start with reducible amplitude block decomp from Ref. \cite{Pavao:2022kog}:
+Thus for our approach at one-loop, we aim to build color-dual integrands directly from kinematic factors of this form. The organizational principle underlying this construction can be easily understood in terms of a polarization decomposition of vector amplitudes introduced by one of the authors \cite{Pavao:2022kog}, 
 \begin{equation}\label{eq:pureVecRABD}
 A_{(\sigma)}^{\text{YM}} = \sum_{k=0}^{\lfloor |\sigma|/2\rfloor}\sum_{\rho \in S^{2|k}_{\sigma}}\varepsilon_{(\rho)} \Delta_{(\sigma)}^{(\rho)}\,.
 \end{equation}
-By a simple mass-dimensioin argument, we know the tree-level cubic sector must be at $\mathcal{O}((\varepsilon\varepsilon)^1)$:
+By a simple mass-dimensioin argument, we know the tree-level cubic sector of Yang-Mills must be at $\mathcal{O}((\varepsilon\varepsilon)^1)$:
 \be
 A_{(\text{tree})}^{\text{cubic}} = \sum_{\rho \in S^{2|1}_{\sigma}}\varepsilon_{(\rho)} \Delta_{(\sigma)}^{(\rho)}\,.
 \ee
@@ -832,7 +832,7 @@ while at one-loop, the cubic sector corresponds to $\mathcal{O}((\varepsilon\var
 \be
 A_{(\text{1-loop})}^{\text{cubic}} = \sum_{\rho \in S^{2|0}_{\sigma}}\varepsilon_{(\rho)} \Delta_{(\sigma)}^{(\rho)}\,.
 \ee
-When decomposed in this way, in order for the full amplitude to be gauge invariant, the polarization stripped building blocks, must obey a set of Ward-Identities between different helicity sectors:
+When decomposed in this way, the polarization stripped building blocks must obey a set of Ward-Identities between different helicity sectors in order for the full amplitude to be gauge invariant,:
  \begin{equation}\label{eq:GIrelA}
 \Delta_{(\sigma)}^{(\rho)}\Big|_{\epsilon_i\rightarrow k_i} =-
 \sum_{j \in \rho^c} (k_i \varepsilon_j)\Delta_{(\sigma )}^{(\rho\cup (ij))} \,.
@@ -855,7 +855,10 @@ where,
 \be
 F^a_{\mu\nu} = \partial_\mu A_\nu^a - \partial_\nu A_\mu^a + f^{abc} A_\mu^b A_\nu^c .
 \ee
-Here we can think of the abelian vector as a background field that sources on-shell $A_\mu$ currents. Indeed, as we describe in the Appendix \ref{}, semi-abelian Yang-Mills theory is at the heart of YZ-theory \cite{}, J-theory \cite{}, and self-dual Yang-Mills \cite{}.
+Here we can think of the abelian vector as a background field that sources on-shell $A_\mu$ currents. Indeed, as we describe in the Appendix \ref{}, semi-abelian Yang-Mills theory is at the heart of YZ-theory \cite{}, J-theory \cite{}, and self-dual Yang-Mills \cite{}. The Feynman rules fo this theory are simply:
+\be
+\cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{}= (\varepsilon_1\bar{\varepsilon}_3)(\varepsilon_2 k_3) -  (\varepsilon_2\bar{\varepsilon}_3)(\varepsilon_1 k_3)
+\ee
 Specifically, semi-Abelian YM is simply a clever reinterpretation of the Lagrangian obtained by integrating an auxiliary field into the J-theory equations of motion.
 We can use the Ward identity of \ref{eq:GIrelA} to check that the amplitudes are indeed gauge invariant with the abelian polarizations are taken on-shell, $\bar{\varepsilon} \rightarrow k$.
 
@@ -902,7 +905,15 @@ This integrand numerator with internal scalar loop is precisely what one would o
 \ee
 Where we have define the antisymmetric kinematic variable, $[LR] = l_L^2 - l_R^2$
 \subsection{Two-loop obstruction}\label{2LoopObstruction}
-At two-loop, introducing terms that conspire with four-point contacts is unavoidable (add diagram). Thus, to approach the problem of two-loop construction, we employ an ansatz based approach. 
+At two-loop, introducing terms that conspire with four-point contacts is unavoidable. At one-loop, we were able to avoid internal contractions of $\bar{A}_\mu A^\mu$ by selecting external states of appropriate weight. However, at two-loop when choosing all external $A_\mu$ states, the amplitude vanishes in semi-YM theory:
+\be
+\mathcal{A}^{\text{semi-YM}}_{\text{2-loop}}(+,+,+,+)=0
+\ee
+In order to produce non-vanishing interactions, we would need to reintroduce $D$-dimensional vertices from the diagonal group of $G_L\times G_R$. Doing so will necessarily introduce internal contractions of $\bar{A}_\mu A^\mu$,
+\be
+\mathcal{A}^{\text{YM}}_{\text{2-loop}}(+,+,+,+)=\doubleBoxObstructionA +\doubleBoxObstructionB+\cdots 
+\ee
+However, this immediately runs into the difficulty of introducing the four-point contact needed for color-kinematics to be satisfied on all internal edges. To do this prescriptively would require knowledge of the full kinematic algebra for Yang-Mills off-shell. Since this is presently unavailable, to approach the problem of two-loop construction, we instead employ an ansatz based approach. 
 \section{Two-loop bootstrap}\label{2loopBoot}
 We now employ the color-dual bootstrap method described in \cref{bootstrap}. We will employ an ansatz constructed from  $D$-dimensionally Lorentz covariant kinematics. To fix remaining freedom in the NLSM bootstrap, we will match down to ZM theory in $D=2$. This is merely an aesthetic choice, so the final results of both the NLSM and Yang-Mills bootstraps are dimensionally agnostic.
 \subsection{Two-loop NLSM}\label{2loopNLSM}
@@ -1313,7 +1324,7 @@ This constraint is  satisfied with the following definition of the gauge field i
 \be\label{SDDef}
 A_v = \frac{1}{2} \partial_w \Psi, \qquad A_{\bar{w}} = \frac{1}{2} \partial_u \Psi,
 \ee
-Using this definition on the final \jm{first?} self-dual constraint equation thus yields the following equation of motion for the dynamical scalar field:
+Using this definition on the first self-dual constraint equation thus yields the following equation of motion for the dynamical scalar field:
 \be\label{SDEOM}
 (\ref{SDLightCone1}) \text{ and } (\ref{SDDef}) \quad  \Rightarrow\quad \Box \Psi + ig [\partial_u \Psi, \partial_w \Psi ]=0
 \ee
@@ -1325,7 +1336,7 @@ The color-ordered ordered cubic Feynman rule for this theory can be immediately 
 \be
 \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} =X(k_1,k_2) \equiv k_{u,1}k_{w,2} - k_{w,1}k_{u,2}
 \ee
-In this form, the Lagrangian and Feynman rules are manifestly color-dual \textit{off-shell}. In this form, we can see the effect \cref{SDcon} had on the Feynman rules of the full Yang-Mills Lagrangian: it simply decoupled the anti-MHV three-point vertex from the theory, leaving only the MHV three-point vertex. Before proceeding, it is important to note that the mass-dimension of the theory appears to differ from that of Yang-Mills -- we comment on this in detail in our appendix on spinor-helicity variables and conventions. 
+In this form, the Lagrangian and Feynman rules are manifestly color-dual \textit{off-shell}. We can see the effect \cref{SDcon} had on the Feynman rules of the full Yang-Mills Lagrangian: it simply decoupled the anti-MHV three-point vertex from the theory, leaving only the MHV three-point vertex. Before proceeding, it is important to note that the mass-dimension of the theory appears to differ from that of Yang-Mills -- we comment on this in detail in our appendix on spinor-helicity variables and conventions. 
 
 As we will show in \sect{}, the color-dual nature of SDYM can be understood as a direct consequence of isolating the \textit{cubic-sector} of the full Yang-Mills amplitudes by projecting along particular on-shell states. For this reason, the color-dual nature depends critically on the loop order of the amplitude and does not hold generically beyond one-loop. 
 
@@ -1349,7 +1360,7 @@ where $X$ and $Z$ are $d$-vectors and $Y$ is a scalar field. Considering the con
 \ee
 The Feynman rules for this Lagrangian are simply:
 \be
-\Acubic{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{} = i \varepsilon_3 (p_1-p_2)\qquad \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} =i(\varepsilon_1 p_{2})(\varepsilon_2\bar{\varepsilon}_3) - i(\varepsilon_2 p_{1})(\varepsilon_1\bar{\varepsilon}_3)
+\Acubic{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{} = i (\varepsilon_3 p_2)\qquad \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} =i(\varepsilon_1 p_{2})(\varepsilon_2\bar{\varepsilon}_3) - i(\varepsilon_2 p_{1})(\varepsilon_1\bar{\varepsilon}_3)
 \ee
 Now we review of the construction of NLSM numerators at tree-level. In this construction, we can define generators of the kinematic algebra can be expressed as follows
 \be\label{eq:FeynmanRuleYYZ}
@@ -1446,7 +1457,7 @@ As might be expected, the kinematic algebra is the diffeomorphism algebra.
 For details about external states and how to extract NLSM (a scalar theory) from semi-YM (a vector theory) we refer the reader to \cite{Cheung:2021zvb}.
 Note that the different external particles break manifest Bose symmetry.
 
-This theory is one-to-one with the observables amplitudes of YZ-theory when only considering $Z-\bar{Z}$ on-shell states. As such, the single vertex in this theory is the same as for YZ theory: 
+This theory is one-to-one with the observables amplitudes of YZ-theory when only considering $Z$-$\bar{Z}$ on-shell states. As such, the single vertex in this theory is the same as the pure vector vertex of YZ theory in Lorenz gauge, where $\partial_\mu J^\mu = 0$: 
 \be
 \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} =i(\varepsilon_1 p_{2})(\varepsilon_2\bar{\varepsilon}_3) - i(\varepsilon_2 p_{1})(\varepsilon_1\bar{\varepsilon}_3)
 \ee
