@@ -236,9 +236,8 @@ linewidth=4pt]{eBox}
   numerators are in explicit tension with generalizations of the
   one-loop NLSM numerators. \ace{I realize that we all know this, but
     does/will a statement to this effect actually make it into the
-    draft?}  Additionally, we revisit the two-loop four-point
-  Yang--Mills problem in order to identify the exact point of
-  inconsistency in a local color-dual construction.
+    draft?}
+We find that the most general \emph{local} numerator for two-loop four-point numerator for $\mathcal{N}=0$ YM fails global color-kinematics duality and we pinpoint the failure to the kissing-triangles cut.
   
 
 TODO:\\
@@ -292,8 +291,7 @@ theory \cite{FiveLoopN4, GeneralizedDoubleCopyFiveLoops, Bern:2018jmv,
 level. Indeed, there are many examples in the literature where
 identifying color-dual representations beyond one-loop has posed a
 formidable challenge
-\cite{Mogull:2015adi,Johansson:2017bfl,KalinN2TwoLoop} \ace{BDN might
-  fit better here rather than the 2loop SQCD}. In this work, we use
+\cite{Mogull:2015adi, Johansson:2017bfl, KalinN2TwoLoop, Bern:2015ooa}. In this work, we use
 the nonlinear sigma model (NLSM) and Yang-Mills, two theories proven
 to permit color-dual representations at tree-level
 \cite{Feng:2010my,Cachazo:2014xea}, as case studies for advancing our
@@ -327,12 +325,11 @@ which will soon be made public. \ace{This either needs an extra
 With this solver, we are able to compute a two-loop integrand for NLSM
 that globally manifests the duality off-shell. This represents a new
 benchmark for color-dual representations in non-supersymmetric gauge
-theories. However in contrast, we find surprisingly that Yang-Mills
-does not permit a globally color-dual representation, \ace{Maybe tone
-  down surprise and ref BDN} even when considering the most general
-polynomial ansatz of Lorentz covariant kinematics. Concretely, we find
-a sharp failure point between the ``bowtie'' cut, and the following
-jacobi triple:
+theories.
+However in sharp contrast, we find that Yang-Mills
+does not permit a globally color-dual representation, even when considering the most general
+polynomial ansatz of Lorentz covariant kinematics.\footnote{Globally color-dual local numerators for two-loop pure YM have been studied before but only in the context of a limited ansatz subject to certain loop power counting constraints \cite{Bern:2015ooa}.}
+Concretely, the failure point can be pinpointed to a conflict between between the ``bowtie'' cut and the following Jacobi triple
 \begin{equation}
    \NMCutC
   \Rightarrow
@@ -347,7 +344,7 @@ globally color-dual multi-loop integrands.
 To set the stage, in this section we provide an overview of
 color-kinematics duality -- both the on-shell and off-shell
 constructions. We then detail a color-dual boostrap approach for
-constructing integrands in theories for which the off-shell kinematic
+constructing integrands in theories for which the fully off-shell kinematic
 algebra has not yet been identified, like Yang-Mills and NLSM.
 \subsection{Color-dual Amplitudes}\label{onShellCK}
 
@@ -498,7 +495,7 @@ nature of scattering amplitudes, one might aspire to hard code
 color-kinematics duality by realizing an off-shell Lagrangian
 description of the theory. The double-copy construction of
 \cref{DCconstruction} would suggest a manifestly cubic Lagrangian of
-the form:
+the form
 \begin{equation}
 \mathcal{L} = P_V^{ab}P_W^{ij}\mathcal{O}^a_i \Box \mathcal{O}^b_j +  V^{abc} W^{ijk}\mathcal{O}^a_i \mathcal{O}^b_j \mathcal{O}^c_k
 \end{equation}
@@ -506,25 +503,25 @@ where $V^{abc}$ and $W^{ijk}$ are cubic Feynman rules mixing field
 operators $\mathcal{O}^{a}_i$ indexed by quantum numbers $a$ and
 $i$. We have introduced $P_V^{ab}$ and $P_W^{ij}$ projection operators
 to encode non-local kinetic structure that could in principle
-participate in the construction. Should the off-shell Feynman rules of
-this cubic theory be antisymmetric and satisfy Jacobi identities on
-all internal edges,
+participate in the construction.
+The theory will be color dual if the cubic vertex is antisymmetric and satisfies the Jacobi identity, specifically,
 \begin{align}
-\textit{anti-symmetry}:& \quad{}_{a_1}\langle V^{a_2} \rangle_{a_3}+\text{cyc}(23)=0\,,
+\textit{anti-symmetry}:& \quad{}_{a_1}\langle V^{a_2} \rangle_{a_3}+\text{cyc}(23)=0
 \\
-\textit{Jacobi identity}:& \quad {}_{a_1}\langle V^{a_2} V^{a_3}\rangle_{a_4}+\text{cyc}(234)=0\,,
+\textit{Jacobi identity}:& \quad {}_{a_1}\langle V^{a_2} V^{a_3}\rangle_{a_4}+\text{cyc}(234)=0
 \end{align}
 where 
 \begin{equation}
 {}_{a_1}\langle V^{a_2}V^{a_3}\cdots V^{a_{n-1}} \rangle_{a_n} \equiv V^{a_1a_2b_1}V^{b_1a_3b_2}\cdots V^{b_{n-3} a_{n-2}a_n}\,.
 \end{equation}
-This is a sufficient condition of the amplitudes to obey BCJ
-relations. \ace{Reword previous 2 sentences} Off-shell descriptions of
+Off-shell descriptions of
 color-dual theories are rare, and only a few examples are available in
 the literature \cite{Monteiro2011pc, Cheung:2016prv, Cheung:2021zvb,
   Cheung:2020djz, Ben-Shahar:2022ixa, Ben-Shahar:2021zww,
-  Ben-Shahar:2021doh}\ace{Are these a reasonable
-  collection?  Just grabbed the ones below}. Typically when one goes about constructing color-dual
+  Ben-Shahar:2021doh}.
+\ace{Are these a reasonable collection?  Just grabbed the ones below}
+\jm{These references get repeated in a second.  I'll fix this.}
+Typically when one goes about constructing color-dual
 theories directly from a set of cubic interactions, higher point
 Jacobi and antisymmetry constraints require introducing additional
 operators. See refs \cite{Ben-Shahar:2022ixa} for some recent
