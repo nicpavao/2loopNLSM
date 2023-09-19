@@ -214,10 +214,8 @@ linewidth=4pt]{eBox}
 
 \abstract{
 
-  We catalog and analyze ?4? theories which all manifest the duality
-  between color and kinematics both at tree and one-loop level.  We
-  identify a unifying theory, \emph{semi-abelian} Yang--Mills, from
-  which all four of the theories can be extracted.  Joint
+  We make progress towards understanding how color-dual representations must be constructed at the multi-loop level. First
+  identify a cubic theory, \emph{semi-abelian} Yang--Mills, that unifies many of the color-dual theories constructed in the literature, and provides a construction of color-dual numerators at one-loop directly from Feynman rules. Joint
   consideration of these theories highlights that the lifting of
   one-loop color-kinematics dual numerators to two loops may be just
   as challenging as the step from tree level to one loop.  As a first
@@ -260,24 +258,22 @@ For now, let's put the things we need to check/compute here in the abstract.
  
 \setstackgap{S}{6pt}
 \setstackgap{L}{7pt}
-\newpage
-\section{Introduction}\label{intro}
-Since the turn of the century, our understanding of the $S$-matrix and its hidden structures has expanded dramatically. At the heart of this progress is the mantra that physical observables are simpler when studied on-shell. However, while plugging in on-shell states certainly offers a path towards taming the factorial growth of Feynman diagrams, it also obscures the off-shell simplicity at the heart of many quantum field theories. A shining example of this hidden structure is the duality between color and kinematics \cite{BCJ}, which states that the kinematic numerators of gauge theory amplitudes can be rearranged to obey the same algebraic identities as the constituent color factors. When this duality is realized globally off-shell, it dramatically decreases the combinatorial complexity posed by integrand construction, and offers a path towards efficient assembly of quantum gravity integrands directly from simpler gauge theory building blocks via the double copy \cite{}. 
 
-However, despite the tremendous success in leveraging this duality to compute gauge and gravity observables to high orders in perturbation theory \cite{}, color-kinematics remains a conjecture at loop level. Indeed, there are many examples in the literature where identifying color-dual representations beyond one-loop has posed a formidable challenge \cite{}. In this work, we use the nonlinear sigma model (NLSM) and Yang-Mills, two theories proven to permit color-dual representations at tree-level \cite{}, as case studies for advancing our understanding of the kinematic algebra to the multi-loop level. 
+\section{Introduction}\label{intro}
+Since the turn of the century, our understanding of the $S$-matrix and its hidden structures has expanded dramatically. At the heart of this progress is the mantra that physical observables are simpler when studied on-shell \cite{Parke:1986gb,TasiLance,Cheung:2017pzi}. However, while plugging in on-shell states certainly offers a path towards taming the factorial growth of Feynman diagrams, it also obscures the off-shell simplicity at the heart of many quantum field theories. A shining example of this hidden structure is the duality between color and kinematics \cite{BCJ,Bern:2010ue,BCJreview}, which states that the kinematic numerators of gauge theory amplitudes can be rearranged to obey the same algebraic identities as the constituent color factors. When this duality is realized globally off-shell, it dramatically decreases the combinatorial complexity posed by integrand construction, and offers a path towards efficient assembly of quantum gravity integrands directly from simpler gauge theory building blocks via the double copy \cite{BCJ,Bern:2010ue}. 
+
+However, despite the tremendous success in leveraging this duality to compute gauge and gravity observables to high orders in perturbation theory \cite{FiveLoopN4,GeneralizedDoubleCopyFiveLoops,Bern:2018jmv,Carrasco:2021otn}, color-kinematics remains a conjecture at loop level. Indeed, there are many examples in the literature where identifying color-dual representations beyond one-loop has posed a formidable challenge \cite{Mogull:2015adi,Johansson:2017bfl,KalinN2TwoLoop}. In this work, we use the nonlinear sigma model (NLSM) and Yang-Mills, two theories proven to permit color-dual representations at tree-level \cite{Feng:2010my,Cachazo:2014xea}, as case studies for advancing our understanding of the kinematic algebra to the multi-loop level. 
 
 We begin with an overview of color-kinematics duality in \cref{background}. We then construct a manifestly color-dual theory in \cref{sec:cubic}, which generates $D$-dimensional color-dual $n$-point numerators for both NLSM and the self-dual sector of Yang-Mills through one-loop. The construction of this theory, which we dub \textit{semi-abelian Yang-Mills}, relies on isolating the cubic sector of pure Yang-Mills amplitudes from the four-point contacts that are needed to fully realize non-abelian gauge symmetry. Despite the potency of this theory at one-loop, the construction runs into an obstruction at two-loop, which we describe in \cref{2LoopObstruction}. 
 
-Faced with this obstruction, we study the multi-loop sector of both NLSM and Yang-Mills in \cref{2loopBoot} using an ansatz based color-dual bootstrap. In contrast to much of the available literature on construction of color-dual integrands at two-loop \cite{}, our results are completely agnostic to the spacetime dimension; all the polarizations and momenta appearing in our construction will remain formally $D$-dimensional. This makes our methods and results particularly well suited for algorithmically extracting rational terms from the $D$-dependence of dimensionally regulated loop momenta. We are able to achieve this by employing a custom solver, \texttt{FiniteFieldSolve}, which will soon be made public. 
+Faced with this obstruction, we study the multi-loop sector of both NLSM and Yang-Mills in \cref{2loopBoot} using an ansatz based color-dual bootstrap. In contrast to much of the available literature on construction of color-dual integrands at two-loop \cite{Bern:2013yya,Mogull:2015adi,Johansson:2017bfl}, our results are completely agnostic to the spacetime dimension; all the polarizations and momenta appearing in our construction will remain formally $D$-dimensional. This makes our methods and results particularly well suited for algorithmically extracting rational terms from the $D$-dependence of dimensionally regulated loop momenta. We are able to achieve this by employing a custom solver, \texttt{FiniteFieldSolve}, which will soon be made public. 
 
 With this solver, we are able to compute a two-loop integrand for NLSM that globally manifests the duality off-shell. This represents a new benchmark for color-dual representations in non-supersymmetric gauge theories. However in contrast, we find surprisingly that Yang-Mills does not permit a globally color-dual representation, even when considering the most general polynomial ansatz of Lorentz covariant kinematics. Concretely, we find a sharp failure point between the ``bowtie'' cut, and the following jacobi triple:
-\begin{eBox}
 \begin{equation}
    \NMCutC
   \Rightarrow
   \JacobiOneDoubleBox +  \JacobiOneCrossedBox + \JacobiOnePentaTriangle \neq 0 \,.
 \end{equation}
-\end{eBox}
 We comment on the implications of this finding in \cref{conclusions}, and discuss alternative approaches where one must relax field theoretic locality in order to accommodate the construction of globally color-dual multi-loop integrands.
 
 \section{Background}\label{background}
@@ -355,7 +351,7 @@ The fully color-dressed tree amplitude can then be re-expressed as
 \ee
 with legs $1$ and $n$ fixed so that the sum only contains $(n-2)!$ terms, indicating that there are additional relations -- the Kleiss-Kuijf (KK) relations -- amongst the partial amplitudes \cite{Kleiss:1988ne}.
 The KK relations are generic to any theory with purely adjoint particles.
-Color-kinematics duality implies that the KK basis is overcomplete and can be reduced to a basis of $(n-3)!$ amplitudes via the fundamental BCJ identities \cite{BCJ}
+Color-kinematics duality implies that the KK basis is overcomplete and can be reduced to a basis of $(n-3)!$ amplitudes via the fundamental BCJ identities \cite{BCJ,Feng:2010my}
 \be
 \sum \limits_{i=2}^{n-1} k_1 \cdot (k_2+...+k_i) A_n[2,...,i,1,i+1,...,n] =0.
 \ee
@@ -377,7 +373,7 @@ where
 \be
 {}_{a_1}\langle V^{a_2}V^{a_3}\cdots V^{a_{n-1}} \rangle_{a_n} \equiv V^{a_1a_2b_1}V^{b_1a_3b_2}\cdots V^{b_{n-3} a_{n-2}a_n}\,.
 \ee
-This is a sufficient condition of the amplitudes to obey BCJ relations. Off-shell description of color-dual theories are rare, and only a few examples are available in the literature. Typically when one goes about construction color-dual theories directly from a set of cubic interactions, higher point Jacobi and antisymmetry constraints require introducing additional operators. See refs \cite{} for some recent examples. Indeed, as we'll show in \cref{sec:cubic}, Yang-Mills requires introducing a cubic 2-form interaction in order to manifest the kinematic algebra just at four-point. Absent information about the kinematic algebra, one can make progress in the construction of loop-level color-dual amplitudes by employing a color-dual bootstrap. 
+This is a sufficient condition of the amplitudes to obey BCJ relations. Off-shell description of color-dual theories are rare, and only a few examples are available in the literature. Typically when one goes about construction color-dual theories directly from a set of cubic interactions, higher point Jacobi and antisymmetry constraints require introducing additional operators. See refs \cite{Ben-Shahar:2022ixa} for some recent examples. Indeed, as we'll show in \cref{sec:cubic}, Yang-Mills requires introducing a cubic 2-form interaction in order to manifest the kinematic algebra just at four-point. Absent information about the kinematic algebra, one can make progress in the construction of loop-level color-dual amplitudes by employing a color-dual bootstrap. 
 \subsection{Color-dual Bootstrap}
 \label{sec:bootstrap}
 
@@ -855,7 +851,7 @@ where,
 \be
 F^a_{\mu\nu} = \partial_\mu A_\nu^a - \partial_\nu A_\mu^a + f^{abc} A_\mu^b A_\nu^c .
 \ee
-Here we can think of the abelian vector as a background field that sources on-shell $A_\mu$ currents. Indeed, as we describe in the Appendix \ref{}, semi-abelian Yang-Mills theory is at the heart of YZ-theory \cite{}, J-theory \cite{}, and self-dual Yang-Mills \cite{}. The Feynman rules fo this theory are simply:
+Here we can think of the abelian vector as a background field that sources on-shell $A_\mu$ currents. Indeed, as we describe in the Appendix \cref{sec:CKLagrangians}, semi-abelian Yang-Mills theory is at the heart of YZ-theory \cite{Cheung:2016prv}, J-theory \cite{Cheung:2020djz,Cheung:2021zvb}, and self-dual Yang-Mills \cite{Monteiro2011pc}. The Feynman rules fo this theory are simply:
 \be
 \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{}= (\varepsilon_1\bar{\varepsilon}_3)(\varepsilon_2 k_3) -  (\varepsilon_2\bar{\varepsilon}_3)(\varepsilon_1 k_3)
 \ee
@@ -879,7 +875,7 @@ A^{\text{NLSM}}_{\text{1-loop}} \equiv \partial_D \Delta^{(\varnothing)}_{\text{
 Why must we take the derivative with respect to $D$? After all, $J$-theory and $YZ$-theory both have well defined propagators for internal $\bar{J}J$ and $\bar{Z}Z$ propagators. However, as we noted in the previous section, all the $J$ and $Z$ states must be on-shell in order to produce NLSM amplitudes. Thus, the unitarity cuts of $J$ theory at one-loop will not produce NLSM amplitudes. However, the internal $YY$-loop is a valid forward limit, since as constructed YZ theory is valid for off-shell Y-particles, and thus they serve as a valid forward limit. We will construct these one-loop integrands below in the next section. 
 
 \subsection{One-loop color-dual integrands}\label{oneLoopCK}
-Our first application of this theory for color-dual construction at loop level is for self-dual Yang-Mills (SDYM). At tree-level, the off-shell cubic vertices can be written in terms of light cone coordinates \cite{}:
+Our first application of this theory for color-dual construction at loop level is for self-dual Yang-Mills (SDYM). At tree-level, the off-shell cubic vertices can be written in terms of light cone coordinates \cite{Monteiro2011pc}:
 \be
 X(p,k) = p_u k_w-p_w k_u
 \ee
@@ -1259,7 +1255,7 @@ Much of the complexity for $D$-dimensional vector theories at loop-level arises 
 \be
 \mathcal{N}^{\text{YM}}_{m,L} = \sum_i \mathcal{O}_i \mathcal{R}^{(i)}_{m,L}
 \ee
-where $\mathcal{O}_i$ are the basis tensors of \cite{}, and $ \mathcal{R}_i$ is a rational function of momenta of the form;
+where $\mathcal{O}_i$ are the basis tensors of \cite{Bern:2017tuc,Carrasco:2019yyn}, and $ \mathcal{R}_i$ is a rational function of momenta of the form;
 \be
 \mathcal{R}_{m,L} = \frac{P_{b+a}(k^2,kl,l^2)}{Q_a(k^2,kl,l^2)}, \qquad b=m+2(l-1)
 \ee
