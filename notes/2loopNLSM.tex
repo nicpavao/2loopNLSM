@@ -288,6 +288,14 @@ n_i +n_j +n_k=0.
 \ee
 If color-kinematics duality can be achieved at the off-shell level, then the kinematic numerators should satisfy an algebra just like the color factors.
 In theories where the kinematic algebra is known, it is often the algebra of volume preserving diffeomorphisms \cite{Monteiro2011pc, Ben-Shahar:2021zww, Cheung:2020djz, Cheung:2021zvb, Cheung:2022mix}.
+As a simple example, color-dual numerators for 4pt pion scattering at tree level are
+\begin{align}
+&n_s = s(t-u)\\
+&n_t = t(u-s)\\
+&n_u = u(s-t)
+\end{align}
+where the coupling has been normalized away.
+These numerators sum to zero by explicit calculation.
 
 Once color-dual numerators $n_\Gamma$ have been found, they can be used to replace the color factors ($c_\Gamma \to n_\Gamma$) in a \emph{different} amplitude to produce the corresponding amplitude in the double-copy theory
 \be\label{DCconstruction}
@@ -296,6 +304,7 @@ Once color-dual numerators $n_\Gamma$ have been found, they can be used to repla
 Importantly, the $\tilde{n}_\Gamma$ do not need to respect color-kinematics duality.
 The prototypical example of the double-copy is that YM double copied with YM results in gravity where the gauge invariance of each separate gluon produces the diffeomorphism invariance of the graviton.
 The double copy can be proven at tree level using the KLT relations but there is significant evidence that the double copy persists to all loop orders \cite{KLT, KiermaierTalk} \citepls{Any loop papers we want?}.
+In addition to pointing at deep structure hidden in the Lagrangian for gravity, the double copy is immensely useful at a utilitarian level since it is much more efficient at producing $\mathcal{M}_m^L$ than traditional methods like Feynman rules.
 
 Many of the 1-loop results presented in \sect{} are informed by the tree-level double-copy so we will review the tree case here.
 The color structure of tree-level amplitudes is particularly simple.
@@ -321,8 +330,6 @@ The fully color-dressed tree amplitude can then be re-expressed as
 with legs $1$ and $n$ fixed so that the sum only contains $(n-2)!$ terms, indicating that there are additional relations (the Kleiss-Kuijf relations) amongst the partial amplitudes \cite{Kleiss:1988ne}.\footnote{The fundamental BCJ relations further reduce the basis of partial amplitudes down to $(n-3)!$ \cite{BCJ}.}
 Since the Jacobi identity can be used to express any tree-level color factor in terms of the half ladders, it is enough to specify the numerators of the half ladder diagrams in order to satisfy color-kinematics duality at tree level.
 At 1-loop, every diagram can be related to one topology as well, in this case the $n$-gon, but the pattern does not persist to 2-loops.
-
-\jm{Should we do some example like 4pt NLSM or 4pt YM and say that it's simpler than GR?  I don't think it would add much.}
 
 \subsection{Color-dual Lagrangians}
 While BCJ relations is an on-shell statement about the color-dual nature of scattering amplitudes, one might aspire to hard code color-kinematics duality by realizing an off-shell Lagrangian description of the theory. The double-copy construction of \ref{DCconstruction} would suggest a manifestly cubic Lagrangian of the form:
