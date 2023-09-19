@@ -256,7 +256,7 @@ For now, let's put the things we need to check/compute here in the abstract.
 
 \section{Introduction}
 \section{Background}
-To set the stage, in this section we will provide an overview of color-kinematics duality -- both the on-shell and off-shell construction. We then explicate our approach for constructing color-dual integrands in theories for which the off-shell kinematic algebra has not yet been identified, like Yang-Mills and NLSM. 
+To set the stage, in this section we provide an overview of color-kinematics duality -- both the on-shell and off-shell constructions. We then explicate our approach for constructing color-dual integrands in theories for which the off-shell kinematic algebra has not yet been identified, like Yang-Mills and NLSM. 
 \subsection{Color-dual Amplitudes}
 
 I think this belongs in another section...
@@ -1271,7 +1271,7 @@ Adding back in the anti-holomorphic field $\bar{\Psi}$ as a Lagrange multiplier,
 \end{eBox}
 The color-ordered ordered cubic Feynman rule for this theory can be immediately read off as follows:
 \be
-\cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} =\mathcal{X}(k_1,k_2) \equiv k_{u,1}k_{w,2} - k_{w,1}k_{u,2}
+\cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} =X(k_1,k_2) \equiv k_{u,1}k_{w,2} - k_{w,1}k_{u,2}
 \ee
 In this form, the Lagrangian and Feynman rules are manifestly color-dual \textit{off-shell}. In this form, we can see the effect \cref{SDcon} had on the Feynman rules of the full Yang-Mills Lagrangian: it simply decoupled the anti-MHV three-point vertex from the theory, leaving only the MHV three-point vertex. Before proceeding, it is important to note that the mass-dimension of the theory appears to differ from that of Yang-Mills -- we comment on this in detail in our appendix on spinor-helicity variables and conventions. 
 
@@ -1450,40 +1450,9 @@ Of course, dramatically altering the pole structure could spoil locality in the 
 As already mentioned, the only difference classically between ZM and SDYM is the propagator structure.
 While both theories are color dual for the same reason, altering the propagators has profound consequences since SDYM tree amplitudes vanish and manifest color-kinematics does not persist to all loop orders.
 Color dual theories with the same interactions but different kinetic terms have appeared in the literature before.
-For example, J-theory and the theory of non-Abelian fluids presented in \cite{Cheung:2020djz} differ only in their propagators.
-Specifically, taking the static limit of the fluid's $(D+1)$-dimensional kinetic term $\partial_t - \nabla^2$ and Wick rotating one of the coordinates yields the relativistic d'Alembertian of $D$-dimensional J-theory.
+For example, J-theory and the theory of non-Abelian fluids presented in \cite{Cheung:2020djz} differ only in their propagators. Specifically, taking the static limit of the fluid's $(D+1)$-dimensional kinetic term $\partial_t - \nabla^2$ and Wick rotating one of the coordinates yields the relativistic d'Alembertian of $D$-dimensional J-theory.
 
 While the color-dual nature of ZM theory is rather elegant, the loop-level construction introduces complications when applying dimensional regularization. Similar to the difficulties of renormalizing chiral fermions \citepls{ 'tHooft}, there is ambiguity in promoting the integrands to formal $D$-dimensional expressions. As such, in our two-loop bootstrap of NLSM we will only use the ZM integrands as a mechanism for reducing the residual gauge freedom in our final solution -- rather than a full $D$-dimensional integrand to which we match off-shell in dim reg. 
-
-\paragraph{Wess-Zumino-Witten theory -- James}
-I want to write this down or I'm going to completely forget it
-
-Should probably also mention that BAS has CK at Lagrangian level (duh).
-
-\paragraph{Cubic 2-form theory -- James}
-
-Cubic 2-form theory also has trivial CK.
-If you change the propagator (this trick is a theme) then you get YM at least classically.
-This is the nonsense ``covariant'' DC.
-
-\paragraph{Chern-Simons theory -- James}
-We won't use this but it's useful to treat all of the CK theories in one place
-Cite Henrik Maor
-Again you place some constraint on the field strength and use Lorenz gauge
-
-\paragraph{Generalities of known color-dual theories -- James}
-Should this section maybe go first?
-
-\begin{itemize}
-\item This paper kills all ``simple'' color-dual, loop-level Lagrangians for YM but it remains possible that one exists for NLSM.
-\item There's also CS but the amplitudes are all zero (and marginally 10D N=1 SYM)
-\item All of the theories described above have diff as kinematic algebra, SU(N) for BAS, or rigid/spin Lorenz for cubic 2-form theory
-\item All of the theories choose a simple gauge like Lorenz or lightcone
-\item All of the theories place some constraint on the field strength directly and get their equations of motion directly from that constraint, not the YM EOM.
-\item (Almost all of the theories (aside from NLSM) have trivial amplitudes at least at tree level)
-\item This means that almost all of the theories only have CK at the classical level, which can sometimes be fudged into 1-loop as we'll now discuss.
-\item For off-shell CK, the kinetic term is relatively unimportant so long as the poles are correctly/consistently identified (what do you mean by s,t,u channel poles).  This might screw up locality in the squared theory.
-\end{itemize}
 \section{Spinor-helicity and conventions}
 Here we apply the same conventions of Ref.~\cite{jjmcTASI2014}, which we quote now. For massless momenta, $k_a$ and $k_b$, we have 
 \begin{equation}
