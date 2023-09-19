@@ -273,7 +273,7 @@ Color-kinematics duality is a statement about the off-shell graphical simplicity
 Here the spacetime dimension is $D$.
 Even though the underlying theory may have quartic (or higher multiplicity) vertices, it is possible to multiply and divide by propagators so that the sum runs over only purely cubic graphs $\Gamma$.
 Overcounting is removed by the internal symmetry factor $S_\Gamma$, which tracks the number of graph symmetries with external legs held fixed.
-The color factor $c_\Gamma$ is the string of structure constants $f^{abc}$ associated with the graph $\Gamma$,\footnote{This paper is focused on theories with particles that transform in the adjoint.  However, the double copy can be applied to a far more diverse set of theories with particles that transform in the fundamental or more diverse representations, see for example \cite{Johansson:2017srf, Johansson2014zca, Johansson:2015oia, Johansson:2019dnu, Carrasco:2023vjg, Carrasco:2020ywq} \jm{I cited DF$^2$, fundamental fermions, Aslan+JJ, Ingrid+JJ. Is there anything else anyone wants to mention?}.}
+The color factor $c_\Gamma$ is the string of structure constants $f^{abc}$ associated with the graph $\Gamma$,\footnote{This paper is focused on theories with particles that transform in the adjoint.  However, the double copy can be applied to a far more diverse set of theories with particles that transform in the fundamental or more diverse representations, see for example \cite{Johansson:2017srf, Johansson2014zca, Johansson:2015oia, Johansson:2019dnu, Carrasco:2023vjg, Carrasco:2020ywq}.}
 the denominator $d_\Gamma$ is the product of propagators associated with the graph $\Gamma$, and the numerator $n_\Gamma$ is all of the remaining kinematic factors including dot products of momenta and polarization vectors.
 
 The color factors $c_\Gamma$ are not independent and are related to one another via a set of Jacobi identities that look schematically like
@@ -296,6 +296,7 @@ As a simple example, color-dual numerators for 4pt pion scattering at tree level
 \end{align}
 where the coupling has been normalized away.
 These numerators sum to zero by explicit calculation.
+Note that the $s$-channel numerator contains an explicit factor of $s$ that cancels with the propagator and the same goes for the $t$- and $u$-channels so that the net result is a local function, just as one would expect for the pion tree amplitude.
 
 Once color-dual numerators $n_\Gamma$ have been found, they can be used to replace the color factors ($c_\Gamma \to n_\Gamma$) in a \emph{different} amplitude to produce the corresponding amplitude in the double-copy theory
 \be\label{DCconstruction}
@@ -306,7 +307,7 @@ The prototypical example of the double-copy is that YM double copied with YM res
 The double copy can be proven at tree level using the KLT relations but there is significant evidence that the double copy persists to all loop orders \cite{KLT, KiermaierTalk} \citepls{Any loop papers we want?}.
 In addition to pointing at deep structure hidden in the Lagrangian for gravity, the double copy is immensely useful at a utilitarian level since it is much more efficient at producing $\mathcal{M}_m^L$ than traditional methods like Feynman rules.
 
-Many of the 1-loop results presented in \sect{} are informed by the tree-level double-copy so we will review the tree case here.
+Many of the 1-loop results presented in \cref{sec:cubic} are informed by the tree-level double-copy so we will review the tree case here.
 The color structure of tree-level amplitudes is particularly simple.
 A fully color dressed tree amplitude $\mathcal{A}_n$ in YM, NLSM, or bi-adjoint scalar theory can be decomposed in terms of the trace basis
 \be
@@ -327,8 +328,13 @@ The fully color-dressed tree amplitude can then be re-expressed as
 \be
 \mathcal{A}_n = \sum \limits_{\sigma\in S_{n-2}} \text{DDM}[a_1, a_{\sigma_2}, a_{\sigma_3}, a_{\sigma_{n-1}}, a_n]  A_n[1, \sigma_2,...\sigma_{n-1}, n]
 \ee
-with legs $1$ and $n$ fixed so that the sum only contains $(n-2)!$ terms, indicating that there are additional relations (the Kleiss-Kuijf relations) amongst the partial amplitudes \cite{Kleiss:1988ne}.\footnote{The fundamental BCJ relations further reduce the basis of partial amplitudes down to $(n-3)!$ \cite{BCJ}.}
-Since the Jacobi identity can be used to express any tree-level color factor in terms of the half ladders, it is enough to specify the numerators of the half ladder diagrams in order to satisfy color-kinematics duality at tree level.
+with legs $1$ and $n$ fixed so that the sum only contains $(n-2)!$ terms, indicating that there are additional relations -- the Kleiss-Kuijf (KK) relations -- amongst the partial amplitudes \cite{Kleiss:1988ne}.
+The KK relations are generic to any theory with purely adjoint particles.
+Color-kinematics duality implies that the KK basis is overcomplete and can be reduced to a basis of $(n-3)!$ amplitudes via the fundamental BCJ identities \cite{BCJ}
+\be
+\sum \limits_{i=2}^{n-1} k_1 \cdot (k_2+...+k_i) A_n[2,...,i,1,i+1,...,n] =0.
+\ee
+In terms of constructing explicit color-dual solutions at tree level, it is enough to specify the numerator of the half ladder because any diagram can be reduced to a half ladder through successive applications of the Jacobi identity.
 At 1-loop, every diagram can be related to one topology as well, in this case the $n$-gon, but the pattern does not persist to 2-loops.
 
 \subsection{Color-dual Lagrangians}
@@ -346,7 +352,7 @@ where
 \be
 {}_{a_1}\langle V^{a_2}V^{a_3}\cdots V^{a_{n-1}} \rangle_{a_n} \equiv V^{a_1a_2b_1}V^{b_1a_3b_2}\cdots V^{b_{n-3} a_{n-2}a_n}\,.
 \ee
-This is a sufficient condition of the amplitudes to obey BCJ relations. Off-shell desciription of color-dual theories are rare, and only a few examples are available in the literature. Typically when one goes about construction color-dual theories directly from a set of cubic interactions, higher point Jacobi and antisymmetry constraints require introducing additional operators. See refs \cite{} for some recent examples. Indeed, as we'll show in \ref{cubic}, Yang-Mills requires introducing a cubic 2-form interaction in order to manifest the kinematic algebra just at four-point. Absent information about the kinematic algebra, one can make progress in the construction of loop-level color-dual amplitudes by employing a color-dual bootstrap. 
+This is a sufficient condition of the amplitudes to obey BCJ relations. Off-shell desciription of color-dual theories are rare, and only a few examples are available in the literature. Typically when one goes about construction color-dual theories directly from a set of cubic interactions, higher point Jacobi and antisymmetry constraints require introducing additional operators. See refs \cite{} for some recent examples. Indeed, as we'll show in \cref{sec:cubic}, Yang-Mills requires introducing a cubic 2-form interaction in order to manifest the kinematic algebra just at four-point. Absent information about the kinematic algebra, one can make progress in the construction of loop-level color-dual amplitudes by employing a color-dual bootstrap. 
 \subsection{Color-dual Bootstrap}
 \label{sec:bootstrap}
 
@@ -381,7 +387,7 @@ We will comment more on locality in \sect{}.
 
 Color-kinematics duality is a statement about color factors, kinematic numerators, and the accompanying Jacobi relations.
 Adjoint-type color factors are associated with cubic graphs, so satisfying color-kinematics duality implicitly requires expressing the integrand in terms of such graphs. As mentioned earlier, this is possible to do even for a theory with quartic (or higher multiplicity) vertices by multiplying and dividing by propagators.
-In the case of the 4pt 2-loop example promised above, there are 14 cubic graph topologies (shown in Fig \sect{}) ignoring tadpoles and bubble on external leg (BEL) graphs.
+In the case of the 4pt 2-loop example promised above, there are 14 cubic graph topologies (shown in \cref{fig:MaxCuts}) ignoring tadpoles and bubble on external leg (BEL) graphs.
 
 With the integrand expressed in terms of cubic graphs, it is possible to discuss the main ingredient in color-kinematics duality -- the Jacobi relations.
 The color factors in an integrand obey a set of Jacobi identities.
@@ -752,7 +758,8 @@ After imposing all four of the conditions above, any remaining free
 parameters represent ``generalized gauge freedom'' meaning that the
 freedom does not affect the physical integrand or its double copy.
 
-\section{One-loop cubic construction} \label{cubic}
+\section{One-loop cubic construction}
+\label{sec:cubic}
 Here we'll describe why constructing the full Yang-Mills kinematic algebra (outside self-dual sector) is generically hard, and why the same reason makes NLSM beyond one-loop hard as well. It has to do with how the vector state sum mixes with the four-point contact. Starting with the Yang-Mills Lagrangian,
 \be
 \mathcal{L}^{\text{YM}} = -\frac{1}{2}(\partial_\mu A_\nu)^2 + f^{abc} \partial_\mu A^a_\nu A^b_\mu A^c_\nu + f^{abe}f^{ecd}A^a_\mu A^b_\nu  A^c_\mu A^d_\nu 
@@ -1090,7 +1097,7 @@ the BDN-restricted ansatz.
 \\
  \MCutL, \MCutG,  \MCutH,
 }
-  \caption{The 14 non-pathological maximal-cut diagrams}
+  \caption{The 14 non-pathological maximal-cut diagrams} \label{fig:MaxCuts}
   \end{figure}
 
 Proceeding to the next-to-maximal cuts, we continue to avoid
