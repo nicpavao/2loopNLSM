@@ -262,24 +262,24 @@ For now, let's put the things we need to check/compute here in the abstract.
 \setstackgap{L}{7pt}
 \newpage
 \section{Introduction}\label{intro}
-Since the turn of the century, our understanding of the $S$-matrix and its hidden structures has expanded dramatically. At the heart of this progress is the mantra that physical observables are simpler when studied on-shell. However, while plugging in on-shell states certainly offers a path towards taming the factorial growth of Feynman diagrams, it also obscures the off-shell structure at the heart of many quantum field theories. A shining example of this hidden simplicity is the duality between color and kinematics \cite{BCJ}, which states that the kinematic numerators of gauge theory amplitudes can be rearranged to obey the same algebraic identities as the constituent color factors. When this duality is realized globally off-shell, it dramatically decreases the combinatorial complexity posed by integrand construction, and offers a path towards efficient assembly of quantum gravity integrands directly from simpler gauge theory building blocks via the double copy \cite{}. 
+Since the turn of the century, our understanding of the $S$-matrix and its hidden structures has expanded dramatically. At the heart of this progress is the mantra that physical observables are simpler when studied on-shell. However, while plugging in on-shell states certainly offers a path towards taming the factorial growth of Feynman diagrams, it also obscures the off-shell simplicity at the heart of many quantum field theories. A shining example of this hidden structure is the duality between color and kinematics \cite{BCJ}, which states that the kinematic numerators of gauge theory amplitudes can be rearranged to obey the same algebraic identities as the constituent color factors. When this duality is realized globally off-shell, it dramatically decreases the combinatorial complexity posed by integrand construction, and offers a path towards efficient assembly of quantum gravity integrands directly from simpler gauge theory building blocks via the double copy \cite{}. 
 
-However, despite the tremendous success in leveraging this duality to compute gauge and gravity observables to high orders in perturbation theory \cite{}, the color-kinematics remains a conjecture at loop level. Indeed, there are many examples in the literature where identifying color-dual representations beyond one-loop has posed a formidable challenge \cite{}. In this work, we use the nonlinear sigma model (NLSM) and Yang-Mills, two theories proven to permit color-dual representations at tree-level \cite{}, as case studies for advancing our understanding of the kinematic algebra to the multi-loop level. 
+However, despite the tremendous success in leveraging this duality to compute gauge and gravity observables to high orders in perturbation theory \cite{}, color-kinematics remains a conjecture at loop level. Indeed, there are many examples in the literature where identifying color-dual representations beyond one-loop has posed a formidable challenge \cite{}. In this work, we use the nonlinear sigma model (NLSM) and Yang-Mills, two theories proven to permit color-dual representations at tree-level \cite{}, as case studies for advancing our understanding of the kinematic algebra to the multi-loop level. 
 
-We begin with an overview of color-kinematics duality in \cref{background}. We then construct a manifestly color-dual theory in \cref{sec:cubic}, which generates $D$-dimensional color-dual $n$-point numerators for both NLSM and the self-dual sector of Yang-Mills through one-loop. The construction of this theory, which we dub semi-abelian Yang-Mills, relies on isolating the cubic sector of pure Yang-Mills amplitudes from the four-point contacts that are needed to fully realize non-abelian gauge symmetry. Promoting this construction beyond one-loop runs into an obstruction that we describe in \cref{2loopObstruction}. 
+We begin with an overview of color-kinematics duality in \cref{background}. We then construct a manifestly color-dual theory in \cref{sec:cubic}, which generates $D$-dimensional color-dual $n$-point numerators for both NLSM and the self-dual sector of Yang-Mills through one-loop. The construction of this theory, which we dub \textit{semi-abelian Yang-Mills}, relies on isolating the cubic sector of pure Yang-Mills amplitudes from the four-point contacts that are needed to fully realize non-abelian gauge symmetry. Despite the potency of this theory at one-loop, the construction runs into an obstruction at two-loop, which we describe in \cref{2LoopObstruction}. 
 
-Faced with this obstruction, we study the multi-loop sector of both NLSM and Yang-Mills in \cref{2loopBoot} using an ansatz based color-dual bootstrap. In contrast to presently available on two-loop construction of color-dual integrands \cite{}, our results are completely agnostic to the spacetime dimension; all the polarizations and momenta appearing in our construction will remain formally $D$-dimensional. This makes our methods and results particularly well suited for algorithmically extracting rational terms from the $D$-dependence of dimensionally regulated loop momenta. We are able to achieve this by employing a custom solver, \texttt{FiniteFieldSolve}, which will soon be made public. 
+Faced with this obstruction, we study the multi-loop sector of both NLSM and Yang-Mills in \cref{2loopBoot} using an ansatz based color-dual bootstrap. In contrast to much of the available literature on construction of color-dual integrands at two-loop \cite{}, our results are completely agnostic to the spacetime dimension; all the polarizations and momenta appearing in our construction will remain formally $D$-dimensional. This makes our methods and results particularly well suited for algorithmically extracting rational terms from the $D$-dependence of dimensionally regulated loop momenta. We are able to achieve this by employing a custom solver, \texttt{FiniteFieldSolve}, which will soon be made public. 
 
-With this solver, we are able to compute a two-loop integrand for NLSM that globally manifests the duality off-shell. This represents a new bench mark for color-dual representations in non-supersymmetric gauge theories. However in contrast, we find surprisingly that Yang-Mills does not permit a globally color-dual representation when considering the most general polynomial ansatz of irreducible scalar products. Concretely, we find a sharp failure point between the ``kissing triangles'' cut, and the following jacobi triple:
+With this solver, we are able to compute a two-loop integrand for NLSM that globally manifests the duality off-shell. This represents a new benchmark for color-dual representations in non-supersymmetric gauge theories. However in contrast, we find surprisingly that Yang-Mills does not permit a globally color-dual representation, even when considering the most general polynomial ansatz of Lorentz covariant kinematics. Concretely, we find a sharp failure point between the ``bowtie'' cut, and the following jacobi triple:
 \begin{equation}
    \NMCutC
   \Rightarrow
   \JacobiOneDoubleBox +  \JacobiOneCrossedBox + \JacobiOnePentaTriangle \neq 0 \,.
 \end{equation}
-We comment on the implications of this finding in \cref{conclusions}, and discuss alternative approaches where one relaxes field theoretic locality in order to accommodate the construction of globally color-dual numerators to all-loop order. 
+We comment on the implications of this finding in \cref{conclusions}, and discuss alternative approaches where one must relax field theoretic locality in order to accommodate the construction of globally color-dual multi-loop integrands.
 
 \section{Background}\label{background}
-To set the stage, in this section we provide an overview of color-kinematics duality -- both the on-shell and off-shell constructions. We then explicate our approach for constructing color-dual integrands in theories for which the off-shell kinematic algebra has not yet been identified, like Yang-Mills and NLSM. 
+To set the stage, in this section we provide an overview of color-kinematics duality -- both the on-shell and off-shell constructions. We then detail a color-dual boostrap approach for constructing integrands in theories for which the off-shell kinematic algebra has not yet been identified, like Yang-Mills and NLSM. 
 \subsection{Color-dual Amplitudes}\label{onShellCK}
 
 I think this belongs in another section...
@@ -553,7 +553,7 @@ ignored.  Cuts that are organized in this manner are known as
 amplitudes.  Since the DDM basis (and dual Kleiss-Kuijf amplitude
 basis \cite{Kleiss:1988ne}) have $(n-2)!$ elements, one generally
 needs to evaluate that many separate color-orderings of the same cut. \jm{Don't you need $(n-2)!$ for each blob in the cut?  So you need to evaluate $(n_1-2)! (n_2-2)!...$ cuts where $n_1$, $n_2$... are the multiplicities of the blobs.}
-As an example, consider the ``kissing triangle'' cut topology -- one of
+As an example, consider the ``bowtie'' cut topology -- one of
 the factorization channels of the iterated unitarity cut -- which has
 two topologically distinct color-ordered expansions
 \begin{equation}
@@ -904,7 +904,7 @@ Where we have define the antisymmetric kinematic variable, $[LR] = l_L^2 - l_R^2
 \subsection{Two-loop obstruction}\label{2LoopObstruction}
 At two-loop, introducing terms that conspire with four-point contacts is unavoidable (add diagram). Thus, to approach the problem of two-loop construction, we employ an ansatz based approach. 
 \section{Two-loop bootstrap}\label{2loopBoot}
-
+We now employ the color-dual bootstrap method described in \cref{bootstrap}. We will employ an ansatz constructed from  $D$-dimensionally Lorentz covariant kinematics. To fix remaining freedom in the NLSM bootstrap, we will match down to ZM theory in $D=2$. This is merely an aesthetic choice, so the final results of both the NLSM and Yang-Mills bootstraps are dimensionally agnostic.
 \subsection{Two-loop NLSM}\label{2loopNLSM}
 \label{sec:pions}
 
@@ -1127,7 +1127,7 @@ the BDN-restricted ansatz.
 \\
  \MCutL, \MCutG,  \MCutH,
 }
-  \caption{The 14 non-pathological maximal-cut diagrams} \label{fig:MaxCuts}
+  \caption{The 14 non-pathological maximal-cut diagrams, including all dangling tree diagrams.} \label{fig:MaxCuts}
   \end{figure}
 
 Proceeding to the next-to-maximal cuts, we continue to avoid
@@ -1135,7 +1135,7 @@ pathological diagrams including the newly-appearing type discussed in
 \cref{eq:other-path}.
 After discarding these types of cuts, there are 8 cut topologies (see \cref{fig:ym-nmc}) ignoring cuts with dangling trees.
 Seven of these next-to-maximal cuts are consistent with the kinematic Jacobi
-relations and symmetries.  Interestingly, the ``kissing triangles'' or ``bowtie''
+relations and symmetries.  Interestingly, the ``bowtie'' or ``kissing-triangles''
 cut,
 \begin{equation*}
    \NMCutC \,,
@@ -1147,7 +1147,7 @@ ansatz with Jacobi relations and symmetries applied.
  { \NMCutH, \NMCutG,  \NMCutD,\NMCutB, 
  \\
  \NMCutE, \NMCutF, \NMCutA, \NMCutC,  }
-  \caption{The 8 non-pathological next-to-maximal-cut diagrams.}
+  \caption{The 8 non-pathological 1-particle-irreducible next-to-maximal-cut diagrams used in our cut constraints on the Yang-Mills integrand.}
   \label{fig:ym-nmc}
 \end{figure}
 
@@ -1160,7 +1160,7 @@ external or loop).  Each ansatz will be 10,010 terms initially.  Next
 impose the symmetry constraints on each of the three diagrams, leaving
 2761 free parameters on the double-box, 2576 free parameters on the
 crossed-box, and 5040 free paramters on the penta-triangle.  Then
-impose the ``kissing triangle'' next-to-maximal cut, which in the
+impose the ``bowtie'' next-to-maximal cut, which in the
 \emph{non-planar} $t$-$u$ color channel only recieves contributions
 from the double-box
 \begin{equation}
@@ -1184,7 +1184,7 @@ After imposing this cut, we find that the original Jacobi relation,
 Thus we have identified the minimal failure state for a
 globally-color-dual two-loop Yang--Mills representation: locality,
 symmetry, and the kinematic Jacobi relations for just three diagrams
-are incompatible with the ``kissing triangle'' cut.
+are incompatible with the ``bowtie'' cut.
 
 \iffalse
 We now turn to exploring the use of non-local numerators to skirt the
@@ -1250,7 +1250,7 @@ Much of the complexity for $D$-dimensional vector theories at loop-level arises 
 \ee
 where $\mathcal{O}_i$ are the basis tensors of \cite{}, and $ \mathcal{R}_i$ is a rational function of momenta of the form;
 \be
-\mathcal{R}_{m,L} = \frac{P_{b+a}(kk,kl,ll)}{Q_a(kk,kl,ll)}, \qquad b=m+2(l-1)
+\mathcal{R}_{m,L} = \frac{P_{b+a}(k^2,kl,l^2)}{Q_a(k^2,kl,l^2)}, \qquad b=m+2(l-1)
 \ee
 where $P_{a}$ and $Q_a$ are degree-$a$ polynomials exclusively of $D$-dimensional scalar kinematics. 
 \subsection{Future Directions}\label{sec:Discussion}
