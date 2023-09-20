@@ -1109,8 +1109,10 @@ where
 \bar{F}^a_{\mu\nu} = \partial_\mu \bar{A}_\nu^a - \partial_\nu \bar{A}_\mu^a
 \end{equation}
 \begin{equation}
-F^a_{\mu\nu} = \partial_\mu A_\nu^a - \partial_\nu A_\mu^a + f^{abc} A_\mu^b A_\nu^c .
+F^a_{\mu\nu} = \partial_\mu A_\nu^a - \partial_\nu A_\mu^a + f^{abc} A_\mu^b A_\nu^c
 \end{equation}
+where $A_\mu$ is in Lorenz gauge.
+\jm{I'm pretty sure A has to be in Lorenz gauge.}
 Here we can think of the abelian vector as a background field that sources on-shell $A_\mu$ currents. Indeed, as we describe in Appendix \cref{sec:CKLagrangians}, semi-abelian Yang-Mills theory is at the heart of YZ-theory \cite{Cheung:2016prv}, J-theory \cite{Cheung:2020djz,Cheung:2021zvb}, and self-dual Yang-Mills \cite{Monteiro2011pc}.
 Specifically, semi-abelian YM is simply a clever reinterpretation of the Lagrangian obtained by integrating an auxiliary field into the J-theory equations of motion.
 The Feynman rule for the cubic vertex is
@@ -1120,6 +1122,7 @@ The Feynman rule for the cubic vertex is
 The propagator kinetic mixes between the two gauge fields and has the standard Feynman rule of $i/k^2$.
 We can use the Ward identity of \cref{eq:GIrelA} to check that the amplitudes are indeed gauge invariant when the abelian polarizations are taken to be longitudinal, $\bar{\varepsilon} \rightarrow k$.
 
+\jm{Do you need to put semi-Abelian YM in axial/lightcone gauge in order to recover SDYM?}
 We can select out both of these manifestly cubic sectors by selecting only $\varepsilon^+\varepsilon^+$ in light-cone gauge (i.e. SDYM) and one-minus at tree-level OR what $J$-theory and $YZ$-theory select with their on-shell states. Indeed, the $D$-dimensional description of $J$-theory is just the following blocks in the expansion of Yang-Mills given in \cite{Pavao:2022kog}
 \begin{equation}
 A(...,\bar{A}_k,...)_{\text{tree}} = \sum_{j\neq k}\Delta^{(jk)}_{\text{tree}}
