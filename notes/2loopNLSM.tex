@@ -219,26 +219,21 @@ linewidth=4pt]{eBox}
 
   We make progress towards understanding how color-dual
   representations must be constructed at the multi-loop level. First
-  we identify a cubic theory, \emph{semi-abelian} Yang--Mills, that
-  unifies many of the color-dual theories constructed in the
-  literature, and provides a construction of color-dual numerators at
-  one-loop directly from Feynman rules. Joint consideration of these
-  theories highlights that the lifting of one-loop color-kinematics
-  dual numerators to two loops may be just as challenging as the step
-  from tree level to one loop.  As a first step in understanding the
+  we identify a cubic theory, semi-abelian Yang--Mills, that
+  unifies many of the color-dual theories studied in the
+  literature, and provides a prescriptive approach for constructing color-dual numerators at
+  one-loop directly from Feynman rules. Consideration of this
+  theory highlights that the lifting from one-loop color-kinematics
+  dual numerators to two loops is just as challenging as the progression
+  from tree-level to one-loop.  As a first step in understanding the
   two-loop challenge, we construct color-dual two-loop four-point
-  non-linear sigma model (NLSM) numerators using generalized unitarity
-  methods.  The double-copy of the constructed NLSM numerators with
-  themselves, $\mathcal{N}=0$ Yang--Mills, and $\mathcal{N}=4$
-  Yang--Mills correctly reproduce the known physical unitarity cuts of
+  nonlinear sigma model (NLSM) numerators using a $D$-dimensional color-dual bootstrap.  The double-copy of the constructed NLSM numerators with
+  themselves, pure Yang--Mills, and $\mathcal{N}=4$
+  super-Yang-Mills correctly reproduce the known physical unitarity cuts of
   special Gallileons, Born-Infeld theory, and
   Dirac-Born-Infeld-Volkov-Akulov theory, respectively.  These NLSM
   numerators are in explicit tension with generalizations of the
-  one-loop NLSM numerators. \ace{I realize that we all know this, but
-    does/will a statement to this effect actually make it into the
-    draft?}
-We find that the most general \emph{local} numerator for two-loop four-point numerator for $\mathcal{N}=0$ YM fails global color-kinematics duality and we pinpoint the failure to the kissing-triangles cut.
-  
+  one-loop NLSM numerators. Using our constructive bootstrap, we also find that the most general \emph{local} two-loop four-point numerator for pure Yang-Mills fails to satisfy global color-kinematics duality. We pinpoint the failure to the bow-tie unitarity cut, and discuss a path towards \emph{non-local} construction of color-dual integrands at generic loop order.   
 
 TODO:\\
 For now, let's put the things we need to check/compute here in the abstract. 
@@ -267,7 +262,7 @@ For now, let's put the things we need to check/compute here in the abstract.
 
 \section{Introduction}\label{intro}
 Since the turn of the century, our understanding of the $S$-matrix and
-its hidden structures has expanded dramatically. At the heart of this
+its concealed structures has expanded dramatically. At the heart of this
 progress is the mantra that physical observables are simpler when
 studied on-shell
 \cite{Parke:1986gb,TasiLance,Cheung:2017pzi}. However, while plugging
@@ -311,14 +306,13 @@ obstruction at two-loop, which we describe in \cref{2LoopObstruction}.
 Faced with this obstruction, we study the multi-loop sector of both
 NLSM and Yang-Mills in \cref{2loopBoot} using an ansatz based
 color-dual bootstrap. In contrast to much of the available literature
-on construction of color-dual integrands at two-loop
+on color-dual integrand construction at two-loop
 \cite{Bern:2013yya,Mogull:2015adi,Johansson:2017bfl}, our results are
 completely agnostic to the spacetime dimension; all the polarizations
 and momenta appearing in our construction will remain formally
 $D$-dimensional. This makes our methods and results particularly well
 suited for algorithmically extracting rational terms from the
-$D$-dependence of dimensionally regulated loop momenta. We are able to
-achieve this by employing a custom solver, \texttt{FiniteFieldSolve},
+$D$-dependence of dimensionally regulated loop momenta. Prior to this work, one of the primary barriers in studying multi-loop color-dual integrands $D$-dimensionally is the explosion of terms that one encounters in generic ansatz-based constructions at high-loop order. We were able overcome this barrier by employing a custom solver, \texttt{FiniteFieldSolve},
 which will soon be made public. \ace{This either needs an extra
   context sentence, or moved out of the intro.}
 
@@ -327,9 +321,9 @@ that globally manifests the duality off-shell. This represents a new
 benchmark for color-dual representations in non-supersymmetric gauge
 theories.
 However in sharp contrast, we find that Yang-Mills
-does not permit a globally color-dual representation, even when considering the most general
+does \emph{not} permit a globally color-dual representation, even when considering the most general
 polynomial ansatz of Lorentz covariant kinematics.\footnote{Globally color-dual local numerators for two-loop pure YM have been studied before but only in the context of a limited ansatz subject to certain loop power counting constraints \cite{Bern:2015ooa}.}
-Concretely, the failure point can be pinpointed to a conflict between between the ``bowtie'' cut and the following Jacobi triple
+Concretely, the failure point can be pinpointed to a conflict between between the ``bowtie'' cut and the following Jacobi triple:
 \begin{equation}
    \NMCutC
   \Rightarrow
@@ -338,7 +332,7 @@ Concretely, the failure point can be pinpointed to a conflict between between th
 We comment on the implications of this finding in \cref{conclusions},
 and discuss alternative approaches where one must relax field
 theoretic locality in order to accommodate the construction of
-globally color-dual multi-loop integrands.
+globally color-dual integrands at generic loop order.
 
 %Why DC is cool:
 %1) Reduction in computational complexity.
@@ -511,7 +505,7 @@ The theory will be color dual if the cubic vertex is antisymmetric and satisfies
 \end{align}
 where 
 \begin{equation}
-{}_{a_1}\langle V^{a_2}V^{a_3}\cdots V^{a_{n-1}} \rangle_{a_n} \equiv V^{a_1a_2b_1}V^{b_1a_3b_2}\cdots V^{b_{n-3} a_{n-2}a_n}\,.
+{}_{a_1}\langle V^{a_2}V^{a_3}\cdots V^{a_{n-1}} \rangle_{a_n} \equiv V^{a_1a_2b_1}P_{b_1 c_1}V^{c_1 a_3b_2}\cdots P_{b_{n-3}c_{n-3}}V^{c_{n-3} a_{n-1}a_n}\,.
 \end{equation}
 Off-shell descriptions of
 color-dual theories are rare, and only a few examples are available in
@@ -532,7 +526,7 @@ loop-level color-dual amplitudes by employing a color-dual bootstrap.
 \subsection{Color-dual Bootstrap}
 \label{sec:bootstrap}
 
-When an off-shell color-dual Lagrangian is not known, the amplitude integrand must be constructed from an ansatz.  The four conditions we impose on an integrand ansatz are summarized
+When an off-shell color-dual Lagrangian is not known, the loop-level amplitude integrand must be constructed from an ansatz.  The four conditions we impose on an integrand ansatz are summarized
 here and elaborated on below.\footnote{The four ansatz conditions are
   similar to those of Ref.~\cite{Bern:2015ooa} except that there the
   authors demand that the numerators have the same loop power counting
