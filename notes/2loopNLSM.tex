@@ -1173,8 +1173,9 @@ where
 \bar{F}^a_{\mu\nu} = \partial_\mu \bar{A}_\nu^a - \partial_\nu \bar{A}_\mu^a
 \end{equation}
 \begin{equation}
-F^a_{\mu\nu} = \partial_\mu A_\nu^a - \partial_\nu A_\mu^a + f^{abc} A_\mu^b A_\nu^c .
+F^a_{\mu\nu} = \partial_\mu A_\nu^a - \partial_\nu A_\mu^a + f^{abc} A_\mu^b A_\nu^c
 \end{equation}
+and $A_\mu$ is in Lorenz gauge.
 Here we can think of the abelian vector as a background field that
 sources on-shell $A_\mu$ currents. Indeed, as we describe in Appendix
 \cref{sec:CKLagrangians}, semi-abelian Yang-Mills theory is at the
@@ -1337,9 +1338,8 @@ these graphs can be taken to be
 \end{equation}
 where $k_{ij}$ means $k_i \cdot k_j$, $k_5=\ell_1$, and $k_6 = \ell_2$.
 %%%%
-% Basis for both diagrams {d[p[1], p[3]], d[p[1], p[6]], d[p[1],
-% p[7]], d[p[2], p[3]], d[p[2], p[6]], d[p[2], p[7]], d[p[3], p[6]],
-% d[p[3], p[7]], d[p[6], p[6]], d[p[6], p[7]], d[p[7], p[7]]}
+% Basis for both diagrams
+% {d[p[1], p[3]], d[p[1], p[6]], d[p[1], p[7]], d[p[2], p[3]],  d[p[2], p[6]], d[p[2], p[7]], d[p[3], p[6]], d[p[3], p[7]],  d[p[6], p[6]], d[p[6], p[7]], d[p[7], p[7]]}
 %%%%
 Every vertex in NLSM scales as $k^2$ so the numerator of each diagram
 scales as $k^{12}$.  At this mass dimension there are 8,008
@@ -1660,26 +1660,12 @@ are incompatible with the ``bowtie'' cut. \jm{Insert clip of Gordon Ramsay sayin
 
 
 \section{Conclusions and Outlook}\label{conclusions}
-There is overwhelming evidence that YM and NLSM obey color-kinematics
-duality at loop level even though naive Lagrangians for these theories
-do not manifest the duality.  At tree level, the duality can be
-manifested by breaking manifest Bose symmetry at the Lagrangian level,
-either by explicitly picking different gluon states (as in SDYM) or by
-picking states that only restore Bose symmetry in the final amplitude
-(as in NLSM).  All of these theories can be encapsulated in the
-semi-Abelian YM theory presented in \cref{eq:semiYM} which obscures
-the Bose symmetry of the external states due to the presence of the
-two gauge fields $A_\mu$ and $\bar{A}_\mu$.  The kinetic mixing
-between the two gauge fields permits globally color-dual 1-loop
-integrands, but special care must be taken so that the integrands
-produced from semi-Abelian YM correspond to SDYM or NLSM.  Due to the
-kinetic mixing that stems from the broken Bose symmetry, it is
-impossible to construct a 2-loop integrand for semi-Abelian YM theory,
-that is, the theory is 1-loop exact.  Obtaining a globally color-dual
-integrand beyond 1-loop then requires sacrificing more than just Bose
-symmetry and in this paper it is argued that off-shell locality must
-be abandoned.\footnote{Locality is relaxed in \cite{Mogull:2015adi} in
-  order to obtain color-dual 2-loop integrands.}
+There is overwhelming evidence that YM and NLSM obey color-kinematics duality at loop level even though naive Lagrangians for these theories do not manifest the duality.
+At tree level, the duality can be manifested by breaking manifest Bose symmetry at the Lagrangian level, either by explicitly picking different gluon states (as in SDYM) or by picking states that only restore Bose symmetry in the final amplitude (as in NLSM).
+All of these theories can be encapsulated in the semi-abelian YM theory presented in \cref{eq:semiYM} which obscures the Bose symmetry of the external states due to the presence of the two gauge fields $A_\mu$ and $\bar{A}_\mu$.
+The kinetic mixing between the two gauge fields permits globally color-dual 1-loop integrands, but special care must be taken so that the integrands produced from semi-abelian YM correspond to SDYM or NLSM.
+Due to the kinetic mixing that stems from the broken Bose symmetry, it is impossible to construct a 2-loop integrand for semi-abelian YM theory, that is, the theory is 1-loop exact.
+Obtaining a globally color-dual integrand beyond 1-loop then requires sacrificing more than just Bose symmetry and in this paper it is argued that off-shell locality must be abandoned.\footnote{Locality is relaxed in \cite{Mogull:2015adi} in order to obtain color-dual 2-loop integrands.}
 
 \jm{I am intentionally shying away from really firm statements like `you must abandon locality' because there are always loopholes and we made a lot of other assumptions in fixing our \ansatze{}.}
 
@@ -1725,12 +1711,12 @@ Feynman diagrams were typeset using TikZ-Feynman \cite{Ellis:2016jkw}.
 \label{sec:CKLagrangians}
 
 Below we review the four manifestly color-dual theories that appear in this paper, in particular SDYM, two formulations of NLSM, and ZM.
-All of these theories are closely tied together by the semi-Abelian YM theory in \cref{eq:semiYM} or in other words the cubic sector of YM.
+All of these theories are closely tied together by the semi-abelian YM theory in \cref{eq:semiYM} or in other words the cubic sector of YM.
 The manifestly color-dual equations of motion for SDYM and NLSM are derived by picking a gauge and then placing a constraint not on the YM equation of motion or Bianchi identity but rather directly on the field strength itself.
 Other theories can be obtained from SDYM and NLSM by judicious modification of the propagator.
 In all of these theories, the kinematic algebra is that of (volume preserving) diffeomorphisms or some close variant thereof.
 In almost all of these theories, Bose symmetry is broken or obscured at the Lagrangian level.
-Because of the broken Bose symmetry (and the inherited kinetic mixing of semi-Abelian YM), these theories cannot produce color-dual numerators at 2-loop or higher.
+Because of the broken Bose symmetry (and the inherited kinetic mixing of semi-abelian YM), these theories cannot produce color-dual numerators at 2-loop or higher.
 
 \jm{I've deleted the boxes around equations.  I actually really like them normally but if we're boxing something in the appendix then it feels like that's a major enough result that it should be in the main body of the paper.}
 
@@ -1902,8 +1888,8 @@ Taking a linear combination of \cref{eq:FieldStrengthJ} and \cref{eq:LorenzGauge
 \label{eq:JTheoryEOM}
 \Box J^\mu +g f^{abc} J^\nu \partial_\nu J^\mu = 0.
 \end{equation}
-Integrating in an auxiliary field $\bar{J}^\mu$ as a Lagrange multiplier trivially produces the Lagrangian of semi-Abelian YM \cref{eq:semiYM} but with the gauge fields renamed to $J_\mu$ and $\bar{J}_\mu$.
-In other words, \emph{J-theory and semi-Abelian YM are identical}.
+Integrating in an auxiliary field $\bar{J}^\mu$ as a Lagrange multiplier trivially produces the Lagrangian of semi-abelian YM \cref{eq:semiYM} but with the gauge fields renamed to $J_\mu$ and $\bar{J}_\mu$.
+Since both theories are in Lorenz gauge this means that \emph{J-theory and semi-abelian YM are identical}.
 By calculating an off-shell 4-point correlation function it is possible to check that this Lagrangian automatically satisfies color-kinematics duality.
 As might be expected, the kinematic algebra is the diffeomorphism algebra.
 For details about external states and how to extract NLSM (a scalar theory) from semi-YM (a vector theory) we refer the reader to \cite{Cheung:2021zvb}.
