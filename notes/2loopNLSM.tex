@@ -30,16 +30,16 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Comment the following out to compile new images
-%
-%\immediate\write18{mkdir -p images}  %% Create `pgf-img` directory
-%\usetikzlibrary{external}  
-%\immediate\write18{mkdir -p images}  %% Create `pgf-img` directory
-%\tikzexternalize[                     %% Activate externalization
-% prefix=images/,                    %% Avoid cluttering the directory
-% system call={                       %% Use lualatex in system call
-%    pdflatex \tikzexternalcheckshellescape -halt-on-error -shell-escape -interaction=batchmode -jobname="\image" "\texsource" || rm "\image.pdf"
-% },
-%]
+
+\immediate\write18{mkdir -p images}  %% Create `pgf-img` directory
+\usetikzlibrary{external}  
+\immediate\write18{mkdir -p images}  %% Create `pgf-img` directory
+\tikzexternalize[                     %% Activate externalization
+ prefix=images/,                    %% Avoid cluttering the directory
+ system call={                       %% Use lualatex in system call
+    pdflatex \tikzexternalcheckshellescape -halt-on-error -shell-escape -interaction=batchmode -jobname="\image" "\texsource" || rm "\image.pdf"
+ },
+]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
