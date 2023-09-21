@@ -31,14 +31,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Comment the following out to compile new images
 
-\usetikzlibrary{external}  
-\immediate\write18{mkdir -p images}  %% Create `pgf-img` directory
-\tikzexternalize[                     %% Activate externalization
-prefix=images/,                    %% Avoid cluttering the directory
-system call={                       %% Use lualatex in system call
-   pdflatex \tikzexternalcheckshellescape -halt-on-error -shell-escape -interaction=batchmode -jobname="\image" "\texsource" || rm "\image.pdf"
-},
-]
+%\usetikzlibrary{external}  
+%\immediate\write18{mkdir -p images}  %% Create `pgf-img` directory
+%\tikzexternalize[                     %% Activate externalization
+%prefix=images/,                    %% Avoid cluttering the directory
+%system call={                       %% Use lualatex in system call
+  % pdflatex \tikzexternalcheckshellescape -halt-on-error -shell-escape -interaction=batchmode -jobname="\image" %"\texsource" || rm "\image.pdf"
+%},
+%]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -211,7 +211,11 @@ linewidth=4pt]{eBox}
 \affiliation{Department of Physics and Astronomy, Northwestern
   University, Evanston, Illinois 60208, USA}
 
-\emailAdd{alexander.edison@northwestern.edu, james.mangan@northwestern.edu, pavao@u.northwestern.edu}
+\emailAdd{alexander.edison@northwestern.edu, 
+\\
+james.mangan@northwestern.edu, 
+\\
+pavao@u.northwestern.edu}
   
 \title{\center  \fontsize{18.8}{20} \selectfont  Towards Globally Color-Dual All-Loop Integrands}
 
@@ -241,10 +245,11 @@ linewidth=4pt]{eBox}
 TODO:\\
 For now, let's put the things we need to check/compute here in the abstract. 
 \begin{enumerate}
-\item Settle on $n$ vs $N$ vs $\mathcal{N}$ as the symbol for
-  numerator
+%\item Settle on $n$ vs $N$ vs $\mathcal{N}$ as the symbol for
+ % numerator 
+  
 \item \ace{I am starting to get a bit concerned about the overuse of the
-  phrase ``color-dual''}
+  phrase ``color-dual''} \nhp{We all choose capital $N$}
 \item \ace{I have defined a \textcolor{ucp-color}{\texttt{ucp-color}}
     , \textcolor{cut-color}{\texttt{cut-color}},
     \textcolor{refl-color}{\texttt{refl-color}}, and
@@ -376,7 +381,7 @@ theory\ace{technically this is true as written for any theory.  In
   theories we're thinking about.  We could omit it but then we'd have
   to say that the theory has at least one color factor and is probably
   an adjoint type theory and at that point I'd rather just give an
-  example.} -- can be written as
+  example.} \nhp{Nic will clarify between cubic vs color-dual here}-- can be written as
 \begin{equation}
   \mathcal{A}_m^L = \sum \limits_\Gamma \frac{1}{S_\Gamma} \int \frac{d^{LD}\ell}{(2\pi)^{LD}} \frac{c_\Gamma n_\Gamma}{d_\Gamma} .
   \label{eq:gen-amp}
@@ -616,13 +621,6 @@ to require the off-shell numerators to be polynomial functions of
 kinematics.  However, simply requiring on-shell locality may suffice.
 This alternative will be discussed in \cref{nonLocalScattering}.
 
-\jm{The next section feels a little redundant and silly sometimes
-  because the integrand, color factors, kinematic numerators,
-  etc. were defined a while ago.  I'm not sure how to merge the two
-  sections though.}
-
-
-
 \paragraph{Color-kinematics duality}
 \begin{figure}
 \centering
@@ -697,7 +695,7 @@ them are simply not imposed or solved.  See Refs.~\cite{Bern:2012uf,
   Edison:2022jln} for discussions of BELs in the context of
 color-kinematics duality.
 
-\ace{Awkward phrasing/transition.}  What has just been described is
+\ace{Awkward phrasing/transition.} \nhp{will message language} What has just been described is
 sometimes referred to as ``global'' color-kinematics duality because
 the Jacobi identities are solved by a single (global) integrand with
 off-shell internal lines.  In order to perform the double copy it is
@@ -720,26 +718,30 @@ tree-level is often achieved at the expense of manifest Bose symmetry
 \cite{Cheung:2016prv, Cheung:2021zvb, Brandhuber:2021bsf,
   Edison:2020ehu}.  In an ansatz construction graph symmetries are
 imposed for \emph{every} graph, not just the basis graphs.
-%For example, the symmetries of the crossed box are spanned by
+For example, the symmetries of the crossed box are spanned by,
+\nhp{Alex, fix the scaling to get the boxes to fit}
+\be
+\CrossedBoxGraphSym{1}{2}{3}{4}\!\! \sim\!\! \CrossedBoxGraphSym{2}{1}{3}{4} 
+\text{ and }
+\CrossedBoxGraphSym{1}{2}{3}{4} \!\!\sim\!\! \CrossedBoxGraphSym{2}{1}{4}{3}
+\ee
+%\ace{is there a reason we commented out this diagram?} \jm{You can try
+ % either one.  I liked the one I left in better.}  For example, the
+%symmetries of the crossed box
 %\begin{equation}
-%\CrossedBoxGraphSym{1}{2}{3}{4} \sim \CrossedBoxGraphSym{2}{1}{3}{4} \text{ and } \CrossedBoxGraphSym{1}{2}{3}{4} \sim \CrossedBoxGraphSym{2}{1}{4}{3}
-% \end{equation}
-\ace{is there a reason we commented out this diagram?} \jm{You can try
-  either one.  I liked the one I left in better.}  For example, the
-symmetries of the crossed box
-\begin{equation}
-\CrossedBoxGraphSym{1}{2}{3}{4}
-\end{equation}
-are spanned by $\{1234\} \to \{2134\}$ and $\{1234\} \to \{1243\}$.
+%\CrossedBoxGraphSym{1}{2}{3}{4}
+%\end{equation}
+which are just functional relabelings of external legs, $\{1234\} \to \{2134\}$ and $\{1234\} \to \{1243\}$.
 In general, internal edge labels must be tracked as well.
 Furthermore, care must be taken with the signs in a symmetry relation.
 To compensate for the antisymmetric color factors, $f^{abc}$, graph
 vertices are all totally antisymmetric and hence have signs built into
-their orientations.  Once the signs are included in the symmetry
-relations, the crossed box can be expressed in terms of the double box
+their orientations.  Once imposing symmetry relations, the crossed box can be expressed in terms of the double box
 and penta-triangle, thus imposing non-trivial constraints on the
-ansatz. \ace{I'm not quite sure why the signs are mentioned in the
-  previous sentence?}
+ansatz. 
+\nhp{Someone add in comment here about how symmetry relations imposes constraints of jacobi from equation above}.
+%\ace{I'm not quite sure why the signs are mentioned in the
+%  previous sentence?}
 
 \paragraph{On-shell Unitarity}
 
@@ -748,11 +750,9 @@ reproduces the generalized unitarity cuts of the desired theory, thus
 guaranteeing that the numerators encode the correct physical,
 theory-dependent information.  Generalized unitarity methods has been
 reviewed in many places so we will be light on details here
-\cite{BCFUnitarity, BernHuangReview, Bern:2015ooa, Bourjaily:2017wjl,
+\cite{BCFUnitarity, Bern:2015ooa, Bourjaily:2017wjl,
   JJHenrikReview, FivePointN4BCJ, Bern:2012uf, BCJreview,
-  Edison:2022jln, Edison:2022smn}.  \ace{Here is a semi-random
-  collection of unitarity-related citations.  Probably want to bulk it
-  up a bit more.}  Recently, generalized unitarity was optimized for
+  Edison:2022jln, Edison:2022smn}. Recently, generalized unitarity was optimized for
 even-multiplicity theories like NLSM \cite{Carrasco:2023qgz}.
 
 Generalized unitarity equates products of on-shell tree amplitudes,
@@ -1122,7 +1122,7 @@ the three-point vertex to satisfy Jacobi identities on all internal
 edges. While introducing successively higher spin states could in
 principle work at tree level, we will see that it is not consistent
 with what we find at general loop order. We will comment on this in
-\cref{sec:Discussion} \ace{Is this the sec you are thinking of?} \nhp{ Yes. thanks :-)}. For
+\cref{sec:Discussion}. For
 now, we will study how to construct one-loop integrands consistent
 with the color-kinematics by isolating the cubic sector of the state
 sum above.
@@ -1136,9 +1136,7 @@ and in arbitrary spacetime dimensions
 \begin{equation}
 {}_1\langle V^{2}_{\text{YM}}V^{3}_{\text{YM}}\rangle_4\big|^{(\varepsilon\varepsilon)^1}+\text{cyc}(234) =0\,.
 \end{equation}
-\ace{Should we mention that this is closely related to MHV vs NMHV?} \nhp{Yes, I added a couple sentences and reference below -- let me know what you think}.
-
-This restriction to the $(\varepsilon\varepsilon)^1$ cubic sector of Yang-Mills is closely related to the MHV decomposition of color-dual numerators \cite{ElvangHuangReview,Chen:2019ywi,Chen:2021chy}, where choosing appropriate reference vectors sends all $(\varepsilon\varepsilon) \rightarrow 0$, with the exception of one of the positive helicity polarizations, $\varepsilon^+_1$, dotted into all the $n-2$ negative helicity modes in the full MHV amplitude, $\varepsilon^+_1 \varepsilon^-_i \neq 0$. We describe this in detail in \cref{Conventions}. With the interest in constructing dimension agnostic color-dual integrands at one-loop, we want to avoid making specific reference to 4D helicity states.
+This restriction to the $(\varepsilon\varepsilon)^1$ cubic sector of Yang-Mills is closely related to the MHV decomposition of color-dual numerators \cite{TasiLance,ElvangHuangReview,Chen:2019ywi,Chen:2021chy}, where choosing appropriate reference vectors sends all $(\varepsilon\varepsilon) \rightarrow 0$, with the exception of one of the positive helicity polarizations, $\varepsilon^+_1$, dotted into all the $n-2$ negative helicity modes in the full MHV amplitude, $\varepsilon^+_1 \varepsilon^-_i \neq 0$. We describe this in detail in \cref{Conventions}. With the interest in constructing dimension agnostic color-dual integrands at one-loop, we want to avoid making specific reference to 4D helicity states.
 
 Thus for our approach at one-loop, we aim to build color-dual integrands directly from $D$-dimensional kinematic factors that are $\mathcal{O}((\varepsilon\varepsilon)^1)$ at tree-level, and $\mathcal{O}((\varepsilon\varepsilon)^0)$ at one-loop. The $D$-dimensional organizational principle underlying this construction can be understood in terms of a vector amplitude decomposition introduced by one of the authors \cite{Pavao:2022kog},
 \begin{equation}\label{eq:pureVecRABD}
@@ -1279,11 +1277,11 @@ yield precisely the 4D SDYM vertex, up to an unphysical phase \ace{Can
  \ee
 where $\mathcal{X}(k^+_1,k^+_2) = A^{\text{YM}}(1^+,2^+,3^-)$ in light cone gauge, and in the second step applied momentum conservation to redefinition of the spinor bracket, $\langle 12\rangle \rightarrow X(p,k)$ defined in \cref{Conventions}. Of course, the form of \cref{DdimSDYM} has the advantage of
 permitting a $D$-dimensional construction of the one-loop
-integrand. Below we provide a four-point example:
+integrand. Below we provide a four-point example: \nhp{change ordering on legs}
 \begin{equation}
 \simplebox = g_{\text{YM}}^4 \langle \mathcal{X}(k_1,l_1)\mathcal{X}(k_2,l_2)\mathcal{X}(k_3,l_3)\mathcal{X}(k_4,l_4)\rangle
 \end{equation}
-where $l_i = l+k_1+k_2+\cdots+ k_i$ and the bracket $\langle \cdots\rangle$ indicates that we have applied the off-shell state projector, $\sum {\varepsilon^\mu_{(+l_i)}\varepsilon^\nu_{(-l_i)}}=P_{(l_i)}^{\mu\nu}$ on all internal polarizations. In general, the $n$-gon vertex would be
+where $l_i = l+k_1+k_2+\cdots+ k_i$ and the bracket $\langle \,\cdots\rangle$ indicates that we have applied the gauge fixed state projector, $\sum {\varepsilon^\mu_{(+l_i)}\varepsilon^\nu_{(-l_i)}}=\eta^{\mu\nu}$ on all internal polarizations. In general, the $n$-gon diagram would be,
 \begin{equation}
 \mathcal{N}^{\text{SDYM}}_{n\text{-gon}}= \nGonVector = g_{\text{YM}}^n \langle \mathcal{X}(k_1,l_1)\mathcal{X}(k_2,l_2)\cdots \mathcal{X}(k_n,l_n) \rangle
 \end{equation}
@@ -1304,9 +1302,9 @@ internal vector loop. For more background, we refer the reader to
 \begin{equation}
  \mathcal{N}^{\text{NLSM}}_{n\text{-gon}}=\left[\partial_D  \mathcal{N}^{\text{SDYM}}_{n\text{-gon}}\right]^{\epsilon \rightarrow k}=\nGonScalar =  f_\pi^{-n} [12][23]\cdots [n1]
 \end{equation}
-Where we have define the antisymmetric kinematic variable, $[LR] = l_L^2 - l_R^2$, since when plugging on longitudinal modes, the $n$-gon can be re-expressed completely in terms of inverse propagators, $2(k_i \cdot l_i) = l_{i}^2-l^2_{i-1}$. We have verified through 10-point one-loop that this $n$-gon expression is a valid color-dual representation for NLSM. 
+Where we have define the antisymmetric kinematic variable, $[ij] = l_i^2 - l_j^2$, since when plugging on longitudinal modes, the $n$-gon can be re-expressed completely in terms of inverse propagators, $2(k_i \cdot l_i) = l_{i}^2-l^2_{i-1}$. We have verified through 10-point one-loop that this $n$-gon expression is a valid color-dual representation for NLSM. 
 
-Before proceeding, we note that the above definition does give rise to ``pathological" bubble-on-external-leg (BEL) diagrams discussed previously in \cref{sec:bootstrap}. However, one can show that these diagrams integrate to zero for spacetime dimension, $D>2$, and thus can be disregarded as unphysical. For the interested reader, in \cref{BELreg} we provide a detailed overview of this dimensional regularization of the BEL diagram.
+Before proceeding, we note that the above definition does give rise to ``pathological" bubble-on-external-leg (BEL) diagrams, discussed previously in \cref{sec:bootstrap}. However, one can show that these diagrams integrate to zero for spacetime dimension, $D>2$, and thus can be disregarded as unphysical. For the interested reader, in \cref{BELreg} we provide a detailed overview of this dimensional regularization of the BEL diagram.
 \subsection{Two-loop obstruction}\label{2LoopObstruction}
 At two-loop, introducing terms that conspire with four-point contacts
 is unavoidable. At one-loop, we were able to avoid internal
@@ -1335,7 +1333,7 @@ construction, we instead employ an ansatz based approach.
 
 \section{Two-loop bootstrap}
 \label{2loopBoot}
-\ace{Lets bulk this section intro up a bit} \nhp{Is this sufficient?}
+\ace{Lets bulk this section intro up a bit} \nhp{@Alex will bulk this up}
 
 We now employ the color-dual bootstrap method described in
 \cref{sec:bootstrap}. We will start with an ansatz constructed from
@@ -1528,7 +1526,7 @@ With a cubic color-dual pion representation in hand, we can perform
 double copies with many theories to extract colorless gravity-like
 amplitudes.  In particular, we produce numerators for special
 Gallileons, Born-Infeld theory, and DBIVA by double-copying against
-pions, $\mathcal{N}=0$ YM, and $\mathcal{N}=4$ sYM respectively
+pions, pure YM, and $\mathcal{N}=4$ sYM respectively
 \cite{Cachazo:2014xea,Cheung:2015ota,Cheung:2016drk}.  Such double-copy constructions are important nontrivial
 checks on the underlying single-copy theories as the Jacobi relations
 in the single copy conspire to produce the double-copy theory's
@@ -1542,7 +1540,7 @@ physical cut topologies in 4D: the two diagrams shown in
 \cref{fig:emu}, which are only composed of four-point amplitudes.
 
 To construct the double-copy theories, we source the cubic
-$\mathcal{N}=0$ YM numerators from Ref.~\cite{Bern:2015ooa} (which
+pure YM numerators from Ref.~\cite{Bern:2015ooa} (which
 additionally satisfies a relaxed form of color-kinematics duality),
 and the cubic $\mathcal{N}=4$ sYM representation from the well-known
 $n_{2\text{box}} = n_{\text{cross-box}} = s^2t\, \atree$ \cite{Bern:1997nh}.
@@ -1691,12 +1689,12 @@ After imposing this cut, we find that the original Jacobi relation,
 Thus we have identified the minimal failure state for a
 globally-color-dual two-loop Yang-Mills representation: locality,
 symmetry, and the kinematic Jacobi relations for just three diagrams
-are incompatible with the ``bowtie'' cut. \jm{Insert clip of Gordon Ramsay saying ``delicious'' here.}
+are incompatible with the ``bowtie'' cut.
 
 
 \section{Conclusions and Outlook}\label{conclusions}
 There is overwhelming evidence that YM and NLSM obey color-kinematics
-duality at loop level even though naive Lagrangians for these theories
+duality at loop level, even though naive Lagrangians for these theories
 do not manifest the duality.  At tree level, the duality can be
 manifested by breaking manifest Bose symmetry at the Lagrangian level,
 either by explicitly picking different gluon states (as in SDYM) or by
@@ -1775,9 +1773,7 @@ for all particles. As an organizational principle, pulling out overall
 gauge-invariant factors comes with the added advantage of simplifying
 a loop-level construction of color-dual numerators for Yang-Mills.
 
-\subsection{Non-local construction of color-dual integrands}
-\label{nonLocalLoops}
-\ace{This subsection needs either more substance, or just get cut}
+\subsection{Future Directions}\label{sec:Discussion}
 
 Much of the complexity for $D$-dimensional vector theories at
 loop-level arises due to the mixing between external polarization and
@@ -1791,13 +1787,7 @@ than building an ansatz from the irreducible scalar products of
 \end{equation}
 where $\mathcal{O}_i$ are the basis tensors of
 \cite{Bern:2017tuc,Carrasco:2019yyn}, and $ \mathcal{R}_i$ is a
-rational function of momenta of the form;
-\begin{equation}
-\mathcal{R}_{m,L} = \frac{P_{b+a}(k^2,kl,l^2)}{Q_a(k^2,kl,l^2)}, \qquad b=m+2(l-1)
-\end{equation}
-where $P_{a}$ and $Q_a$ are degree-$a$ polynomials exclusively of $D$-dimensional scalar kinematics. 
-\subsection{Future Directions}\label{sec:Discussion}
-
+rational function of scalar products.
 
 %\paragraph{Acknowledgments}
 \subsection*{Acknowledgments}
@@ -1831,11 +1821,6 @@ theories, Bose symmetry is broken or obscured at the Lagrangian level.
 Because of the broken Bose symmetry (and the inherited kinetic mixing
 of semi-abelian YM), these theories cannot produce color-dual
 numerators at two-loop or higher.
-
-\jm{I've deleted the boxes around equations.  I actually really like
-  them normally but if we're boxing something in the appendix then it
-  feels like that's a major enough result that it should be in the
-  main body of the paper.}
 
 \ace{There are some cyclic references in the catalog that are gonna be
   a bit annoying to clean up: ZM refers to J, YZ refers to ZM and
@@ -2181,7 +2166,7 @@ k_a \cdot \varepsilon_b^{(-)} = -\frac{[qa]\langle ab\rangle}{\sqrt{2}[qb]}\,,
 \varepsilon_a^{(\pm)}\cdot \varepsilon_b^{(\pm)} = 0 \,,
 \end{aligned}
 \end{equation}
-Note that given the above definition, the spinor helicity variables carry the same mass dimension for both the angle and square brackets. In terms of light-cone coordinates that we employed in the text, the angles and squares can be rewritten as follows:
+Note that given the above definition, the spinor helicity variables carry the same mass dimension for both the angle and square brackets. In terms of light-cone coordinates that we employed above in \cref{sec:CKLagrangians}, the angles and squares can be rewritten as follows:
 \begin{align}
 \langle ab \rangle &= \frac{a_w b_u-a_u b_w}{\sqrt{a_ub_u}}\,,
 \\
