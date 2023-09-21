@@ -607,7 +607,9 @@ spin modes, and break manifest Lorentz invariance \cite{Square,
   Johansson:2017bfl, Ben-Shahar:2022ixa, Cheung:2016prv,
   Cheung:2021zvb}.  These developments suggest that relaxing locality
 is a viable alternative when the condition proves too stringent for an
-ansatz. As such, requiring instead that locality is only realized \textit{on-shell} may suffice.
+ansatz.  In particular, the most natural way to guarantee locality is
+to require the off-shell numerators to be polynomial functions of
+kinematics.  However, simply requiring on-shell locality may suffice.
 This alternative will be discussed in \cref{nonLocalScattering}.
 
 
@@ -623,6 +625,7 @@ multiplying and dividing by propagators.  In the case of the four-point
 two-loop example promised above, there are 14 cubic graph topologies
 (shown in \cref{fig:MaxCuts}) ignoring tadpoles and bubble on external
 leg (BEL) graphs.
+
 \begin{figure}
 \centering
 {\MCutC, \MCutD, \sumoCut, \MCutJ,  
@@ -635,6 +638,7 @@ leg (BEL) graphs.
 }
 \caption{The 14 non-pathological four-point two-loop cubic diagrams.} \label{fig:MaxCuts}
   \end{figure}
+
 With the integrand expressed in terms of cubic graphs, it is possible
 to discuss the main ingredient in color-kinematics duality -- the
 Jacobi relations.  The color factors in an integrand obey a set of
@@ -854,7 +858,9 @@ topologically distinct color-ordered expansions
       \right]
   \end{cases}
 \end{equation}
-which serve as a complete basis for the full cut. Even though unitarity methods aim to generate loop-level data from
+which serve as a complete basis for the full cut.
+
+Even though unitarity methods aim to generate loop-level data from
 well-defined on-shell information, the procedure can encounter
 subtleties.  Beginning at one loop, there are classes of cuts that are
 difficult to properly define due to hidden non-physical singularities.
@@ -1322,11 +1328,10 @@ internal edges. By a simple weight counting argument, one can see that
 including this wrong sign interactions is unavoidable at two-loop and
 higher.
 
-Thus, to construct two-loop numerators prescriptively, as we have done
-at one-loop, would require knowledge of the full kinematic algebra for
-Yang-Mills off-shell. Since this is presently unavailable, to approach
-the problem of two-loop construction, we instead employ an ansatz
-based approach.
+Thus, to construct two-loop numerators prescriptively, as we have done at one-loop, would require knowledge of
+the full kinematic algebra for Yang-Mills off-shell. Since this is
+presently unavailable, to approach the problem of two-loop
+construction, we instead employ an ansatz based approach.
 
 
 \section{Two-loop four-point bootstrap}
@@ -1453,8 +1458,8 @@ since this at least manifests antisymmetry for the vertices involving
 external legs.  However, a more fruitful direction is to match onto
 the one known theory with pion power counting that manifests
 color-kinematics duality to all loop orders, namely,
-Zakharov-Mikhailov (ZM) theory \cite{Zakharov:1973pp,
-  Cheung:2022mix}. ZM theory is governed by the Lagrangian
+Zakharov-Mikhailov (ZM) theory \cite{Zakharov:1973pp, Cheung:2022mix}.
+ZM theory is governed by the Lagrangian
 \begin{equation}
 \label{eq:ZMLagrangian}
 \mathcal{L}^{\text{ZM}} = \frac{1}{2}(\partial \varphi)^2
@@ -1465,7 +1470,7 @@ color-stripped Feynman rule for the vertex is
 $V(k_1, k_2, k_3) \propto \varepsilon_{\mu\nu}k_1^\mu k_2^\nu$ where
 off-shell color-kinematics duality to all orders in perturbation
 theory simply follows from the Schouten identity in 2D.  Since the theory
-only has a cubic vertex and manifest off-shell color-kinematics
+is purely cubic and manifests off-shell color-kinematics
 duality, it is trivial to read off the color-dual numerator for any
 graph.  From the presence of the Levi-Civita tensor
 $\varepsilon^{\mu\nu}$, the theory clearly resides in two spacetime
@@ -1483,35 +1488,11 @@ a right mover and $L$ corresponds to a left mover.  In every other
 configuration of right and left movers, such as $A[RRRR]$, one of the
 internal propagators is accidentally on-shell since $k_R^2=k_L^2=0$.
 
-%\ace{Lets tighten up this paragraph a bit, especially the second half}
-
-It is tempting to try to match the pion four-point two-loop integrand
-to ZM on the cuts, but given that the cuts only probe the on-shell
-four-point amplitude, which is either subtle or vanishes for ZM, it is
-better to compare the off-shell numerators directly.  As local
-functions, the numerators never suffer from any of the subtleties of
-on-shell 2D kinematics.  Since the physical cuts are difficult to
-compare, ZM theory is being used here simply as a tool to eliminate
-generalized gauge freedom; ZM theory has the right power counting and
-kinematic structure in 2D to compare against.  Since ZM theory is only
-being used for the kinematical structure of its numerators, it is
-natural to introduce a proportionality constant $z$ between the NLSM
-and ZM numerators $n_\text{NLSM} \vert_{2D} = z ~ n_\text{ZM}$.  The
-parameter $z$, which would normally be fixed on cuts, effectively
-encodes the discrepancy between the coupling constants of the two
-theories.\footnote{Floating the proportionality parameter $z$ is also
-  motivated because ZM is believed to be quantum mechanically
-  different from NLSM even though they are dual classically in two
-  dimensions \cite{Nappi:1979ig}.  When the four-point
-  pion amplitude is normalized to $-k_1\cdot k_2$ and the ZM vertex is
-  normalized to $k_1^\mu \varepsilon_{\mu\nu}k_2^\nu$, the parameter
-  $z$ is fixed to $216/565$, which is clearly unrelated to the
-  difference in coupling constants.}  This introduces an extra degree of
-freedom into the problem.  Mechanically, the pion numerator is matched
-to ZM by first taking every possible assignment of right and left
-movers for the external particles and then restricting the pion
-numerator to 2D.  The loop momenta are restricted to 2D but left
-off-shell.  After performing the 2D matching to the following ZM basis numerators:
+It is tempting to try to match the pion four-point two-loop integrand to ZM
+on the cuts, but given that the cuts only probe the on-shell four-point
+amplitude, which is either subtle or vanishes for ZM, it is better to
+compare the off-shell numerators directly.
+The numerators of the two basis graphs are
 \be
 \ZMBasisDoubleBox =\left[\begin{split}
   \langle (l_1+k_4) l_1 \rangle\langle l_1l_2 \rangle\langle l_2 (l_2+k_1) \rangle  \langle (l_2+k_1)(l_2+k_1+k_2) \rangle 
@@ -1526,7 +1507,19 @@ off-shell.  After performing the 2D matching to the following ZM basis numerator
 \langle (l_1+k_3+k_4)(l_1-k_1) \rangle\langle (l_1+k_3+k_4)(l_1+k_4) \rangle
 \end{split}\right]
 \ee
-there are only 365 parameters of generalized gauge freedom. An overview of ZM theory and its color-dual construction can be found at the end of \cref{sec:CKLagrangians}. The loop momentum structure of ZM theory provides one final hint for
+where $\langle ab\rangle \equiv p_a^\mu \varepsilon_{\mu\nu} p_b^\nu$ is the color-stripped ZM vertex.
+As local functions, the
+numerators never suffer from any of the subtleties of on-shell 2D
+kinematics.
+We introduce a proportionality constant $z$ between the numerators of the two theories, $N_\text{NLSM} \vert_{2D} = z ~ N_\text{ZM}$, because we are only interested in how the kinematical structure of $N_\text{ZM}$ can be used to eliminate gauge freedom in $N_\text{NSLM}$.\footnote{Another reason for introducing the parameter $z$ is because the theories are believed to differ at loop level even though they are dual classically in 2D \cite{Nappi:1979ig}.  Once all of the constraints from this section are imposed, $z$ is fixed to $216/565$ where the four-point pion tree amplitude is normalized to $-k_1\cdot k_2$ and the ZM vertex is normalized to $k_1^\mu \varepsilon_{\mu\nu}k_2^\nu$.}
+Mechanically, the pion numerator is matched
+to ZM by first taking every possible assignment of right and left
+movers for the external particles and then restricting the pion
+numerator to 2D.  The loop momenta are restricted to 2D but left
+off-shell.  After performing the 2D matching, there are only 365
+parameters of generalized gauge freedom.
+
+The loop momentum structure of ZM theory provides one final hint for
 simplifying the pion numerators.  A generic term in the ZM numerator
 (of either basis graph) looks schematically like
 \begin{equation}
@@ -1535,10 +1528,10 @@ simplifying the pion numerators.  A generic term in the ZM numerator
 \end{equation}
 whereas a generic set of local, cubic Feynman rules could have
 produced terms with up to $m+n=12$ powers of loop momenta.  When the
-pion numerator is forced to have the loop power counting structure in
+pion numerators are forced to have the loop power counting structure in
 \cref{eq:ZMLoopPowCount} of ZM theory, the number of generalized gauge
-freedom parameters reduces to 58.  The pion numerator appearing in the
-ancillary files makes exactly this choice.
+freedom parameters reduces to 58.  The pion numerators appearing in the
+ancillary files make exactly this choice.
 
 \subsection{Double-copy verification}
 \label{doubleCopyVerify}
@@ -2084,29 +2077,12 @@ by virtue of the 2D Levi-Civita identity
 $\varepsilon_{\mu\nu}\varepsilon_{\rho\sigma} =
 \eta_{\mu\rho}\eta_{\nu\sigma}-\eta_{\mu\sigma}\eta_{\nu\rho}$.
 Amusingly, \cref{eq:ZMJacobi} is simply a manifestation of the
-Schouten identity. Below we provide the double-box and penta-triangle expressions to which we matched our NLSM integrands to in the text:
-\begin{equation}
-\ZMBasisDoubleBox =\left[\begin{split}
-  \langle (\ell_1+k_4) \ell_1 \rangle\langle \ell_1\ell_2 \rangle\langle \ell_2 (\ell_2+k_1) \rangle  \langle (\ell_2+k_1)(\ell_2+k_1+k_2) \rangle 
-\\
-\langle (\ell_1+k_3+k_4)(\ell_2+k_1+k_2) \rangle\langle (\ell_1+k_3+k_4)(\ell_1+k_4) \rangle
-\end{split}\right]
-\end{equation}
-\begin{equation}
-  \ZMBasisPentaTriangle =\left[
-    \begin{split}
-      \langle (\ell_1+k_4) \ell_1 \rangle\langle \ell_1\ell_2 \rangle\langle \ell_2 (\ell_2+k_1) \rangle  \langle (\ell_2+k_1)(\ell_1-k_1) \rangle 
-      \\
-      \langle (\ell_1+k_3+k_4)(\ell_1-k_1) \rangle\langle (\ell_1+k_3+k_4)(\ell_1+k_4) \rangle
-    \end{split}
-  \right]
-\end{equation}
-Furthermore, since ZM theory manifests color-kinematics duality
-without any reference to the on-shell condition, a mass term can be
-added to ZM theory without spoiling color-kinematics duality
-\cite{Cheung:2022mix}. In general, if the on-shell conditions are not
-used, color-kinematics duality is unaffected by the details of the
-propagator structure.
+Schouten identity.
+Since ZM theory manifests color-kinematics duality without any
+reference to the on-shell condition, a mass term can be added to ZM
+theory without spoiling color-kinematics duality \cite{Cheung:2022mix}. In general, if the
+on-shell conditions are not used, color-kinematics duality is
+unaffected by the details of the propagator structure.  
 
 Of course, dramatically altering the pole structure could spoil locality in the
 double-copied theory.  As already mentioned, the only difference
