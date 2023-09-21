@@ -389,13 +389,12 @@ with the graph $\Gamma$,\footnote{This paper is focused on theories
   copy can be applied to a far more diverse set of theories with
   particles that transform in the fundamental or more diverse
   representations, see for example \cite{Johansson:2017srf,
-    Johansson2014zca, Johansson:2015oia, Johansson:2019dnu, Carrasco:2020ywq,
+    Johansson2014zca, Johansson:2015oia, Johansson:2019dnu, Carrasco:2020ywq,Carrasco:2022jxn,
     Carrasco:2023vjg}.}  the denominator $d_\Gamma$
 is the product of propagators associated with the graph $\Gamma$, and
 the numerator $N_\Gamma$ is all of the remaining kinematic factors
-including dot products of momenta and polarization vectors.
-
-In this form the color factors $C_\Gamma$ are not independent and are related to
+including dot products of momenta and polarization vectors. In this 
+form the color factors $C_\Gamma$ are not independent and are related to
 one another via a set of Jacobi identities that look schematically
 like
 \begin{equation}
@@ -1698,7 +1697,7 @@ from the double-box
 After imposing this cut, we find that the original Jacobi relation,
 \cref{eq:TwoLoopJacobiOne}, can no longer be satisfied:
 \begin{eBox}
-\begin{equation}
+\begin{equation}\label{chefsKiss}
    \NMCutC
   \Rightarrow
   \JacobiOneDoubleBox +  \JacobiOneCrossedBox + \JacobiOnePentaTriangle \neq 0 \,.
@@ -1711,6 +1710,7 @@ are incompatible with the ``bowtie'' cut.
 
 
 \section{Conclusions and Outlook}\label{conclusions}
+
 There is overwhelming evidence that YM and NLSM obey color-kinematics
 duality at loop level, even though naive Lagrangians for these theories
 do not manifest the duality.  At tree level, the duality can be
@@ -1745,12 +1745,12 @@ at tree-level that manifest this structure.
 
 \subsection{Non-local construction of scattering amplitudes}
 \label{nonLocalScattering}
-For example, consider the simple four-point example of a color-dual
-representation of Yang-Mills theory.
+As an exemplar of an off-shell non-local construction, consider the simple four-point example of a color-dual
+representation of Yang-Mills theory. We can define a functional numerator, $N_{(12|34)}^{\text{YM}}$, as follows, 
 \begin{equation}
 N_{(12|34)}^{\text{YM}} = \frac{t_8F^4}{3} \frac{s_{13}-s_{12}}{s_{23}{s_{13}}}
 \end{equation}
-By construction, this functionally symmetric numerator is
+where $N_s = N_{(12|34)}$, $N_t = N_{(14|23)}$ and $N_u = N_{(13|42)}$. By construction, this functionally symmetric numerator is
 anti-symmetric and obeys the Jacobi identity:
 \begin{equation}
 N_{(12|34)}^{\text{YM}} + N_{(13|42)}^{\text{YM}} +N_{(14|23)}^{\text{YM}} = 0
@@ -1774,17 +1774,17 @@ tree level version of \cref{eq:gen-amp}, we find:
   =  \mathcal{A}_{(12|l)}^{\text{YM}}\mathcal{A}_{(-l|34)}^{\text{YM}} 
 \end{equation}
 where we have applied the color structure Jacobi identity,
-$c_s+c_t+c_u=0$. While we can absolutely apply a generalized gauge
-trasformation \cite{BCJ} to restore field theoretic locality to the
-cubic numerators, we can see clearly that this is an aesthetic
-choice. Moreover, by abandoning traditional notions of off-shell
+$c_s+c_t+c_u=0$. In light of our findings in \cref{chefsKiss},  While we can absolutely apply a generalized gauge
+transformation \cite{BCJ} to restore field theoretic locality to the
+cubic numerators, it is maybe aesthetic
+choice. 
+
+Moreover, by abandoning traditional notions of off-shell
 locality, we incidentally gained enough freedom to massage the
 color-dual numerators into a form that is manifestly gauge invariant
 for all particles. As an organizational principle, pulling out overall
 gauge-invariant factors comes with the added advantage of simplifying
 a loop-level construction of color-dual numerators for Yang-Mills.
-
-\subsection{Future Directions}\label{sec:Discussion}
 
 Much of the complexity for $D$-dimensional vector theories at
 loop-level arises due to the mixing between external polarization and
@@ -1799,6 +1799,8 @@ N^{\text{YM}}_{m,L} = \sum_i \mathcal{O}_i \mathcal{R}^{(i)}_{m,L}
 where $\mathcal{O}_i$ are the basis tensors of
 \cite{Bern:2017tuc,Carrasco:2019yyn}, and $ \mathcal{R}^{(i)}_{m,L}$ is a
 rational function of scalar products.
+\subsection{Future Directions}\label{sec:Discussion}
+
 
 %\paragraph{Acknowledgments}
 \subsection*{Acknowledgments}
