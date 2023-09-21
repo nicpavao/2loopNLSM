@@ -708,29 +708,29 @@ tree-level is often achieved at the expense of manifest Bose symmetry
   Edison:2020ehu}.  In an ansatz construction graph symmetries are
 imposed for \emph{every} graph, not just the basis graphs.
 For example, the symmetries of the crossed box are spanned by,
-\nhp{Alex, fix the scaling to get the boxes to fit}
-\be
-\CrossedBoxGraphSym{1}{2}{3}{4}\!\! \sim\!\! \CrossedBoxGraphSym{2}{1}{3}{4} 
+\begin{equation}
+\scalebox{0.8}{\CrossedBoxGraphSym{1}{2}{3}{4}}\!\! \sim\!\! \scalebox{0.8}{\CrossedBoxGraphSym{2}{1}{3}{4}}
 \text{ and }
-\CrossedBoxGraphSym{1}{2}{3}{4} \!\!\sim\!\! \CrossedBoxGraphSym{2}{1}{4}{3}
-\ee
-%\ace{is there a reason we commented out this diagram?} \jm{You can try
+\scalebox{0.8}{\CrossedBoxGraphSym{1}{2}{3}{4}} \!\!\sim\!\! \scalebox{0.8}{\CrossedBoxGraphSym{2}{1}{4}{3}}
+\end{equation}
+% \ace{is there a reason we commented out this diagram?} \jm{You can try
  % either one.  I liked the one I left in better.}  For example, the
 %symmetries of the crossed box
 %\begin{equation}
 %\CrossedBoxGraphSym{1}{2}{3}{4}
 %\end{equation}
-which are just functional relabelings of external legs, $\{1234\} \to \{2134\}$ and $\{1234\} \to \{1243\}$.
-In general, internal edge labels must be tracked as well.
-Furthermore, care must be taken with the signs in a symmetry relation.
-To compensate for the antisymmetric color factors, $f^{abc}$, graph
-vertices are all totally antisymmetric and hence have signs built into
-their orientations.  Once imposing symmetry relations, the crossed box can be expressed in terms of the double box
-and penta-triangle, thus imposing non-trivial constraints on the
-ansatz. 
-\nhp{Someone add in comment here about how symmetry relations imposes constraints of jacobi from equation above}.
-%\ace{I'm not quite sure why the signs are mentioned in the
-%  previous sentence?}
+which are just functional relabelings of external legs,
+$\{1234\} \to \{2134\}$ and $\{1234\} \to \{1243\}$.  In general,
+internal edge labels must be tracked as well.  Furthermore, care must
+be taken with the signs in a symmetry relation.  To compensate for the
+antisymmetric color factors, $f^{abc}$, graph vertices are all totally
+antisymmetric and hence have signs built into their orientations.
+When used in conjuction with the Jacobi relations, \eg
+\cref{eq:TwoLoopJacobiOne}, the symmetry constraints of non-basis
+graphs still impose conditions on the basis ansatz.  In fact, since
+the symmetry properites of a graph are directly linked with
+transformations of its color dressing, the resulting constraints can
+be thought of as a subclass of the \emph{boundary} Jacobi relations.
 
 \paragraph{On-shell Unitarity}
 
@@ -826,7 +826,7 @@ $(n-2)!$ elements, one generally needs to evaluate
 $(n_1-2)! (n_2-2)!...$ separate color-orderings of the same cut, where
 $n_1$, $n_2$... are the multiplicities of the amplitudes making up the
 cut. As an example, consider the ``bowtie'' cut topology -- one of the
-factorization channels of the iterated unitarity cut -- which has two
+factorization channels of the iterated unitarity cut -- that has two
 topologically distinct color-ordered expansions
 \begin{equation}
   \label{eq:kt-color-ord}
@@ -1258,8 +1258,7 @@ previous section:
 \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{}= \mathcal{X}(k_1,k_2) = (\varepsilon_1\bar{\varepsilon}_3)(\varepsilon_2 k_3) -  (\varepsilon_2\bar{\varepsilon}_3)(\varepsilon_1 k_3)
 \end{equation}
 Plugging in on-shell all-plus helicity states in light-cone gauge will
-yield precisely the 4D SDYM vertex, up to an unphysical phase \ace{Can
-  we provide an example?} \nhp{yes, provided}:
+yield precisely the 4D SDYM vertex, up to an unphysical phase:
   \be
   \mathcal{X}(k^+_1,k^+_2) = \frac{\langle 12\rangle^3}{ \langle23\rangle \langle 31\rangle} \sim \langle 12\rangle = k_{1,u} k_{2,w}-k_{1,w} k_{2,u}
  \ee
@@ -1313,34 +1312,32 @@ where we used white dots to indicate interaction vertices of weight\footnote{We 
 four-point contact needed for color-kinematics to be satisfied on all
 internal edges. By a simple weight counting argument, one can see that including this wrong sign interactions is unavoidable at two-loop and higher. 
 
-Thus, to construct two-loop numerators prescriptively, as we have done at one-loop, would require knowledge of
-the full kinematic algebra for Yang-Mills off-shell. Since this is
-presently unavailable, to approach the problem of two-loop
-construction, we instead employ an ansatz based approach.
+Thus, to construct two-loop numerators prescriptively, as we have done
+at one-loop, would require knowledge of the full kinematic algebra for
+Yang-Mills off-shell. Since this is presently unavailable, to approach
+the problem of two-loop construction, we instead employ an ansatz
+based approach.
 
 
-\section{Two-loop bootstrap}
+\section{Two-loop four-point bootstrap}
 \label{2loopBoot}
 \ace{Lets bulk this section intro up a bit} \nhp{@Alex will bulk this up}
 
-We now employ the color-dual bootstrap method described in
-\cref{sec:bootstrap}. We will start with an ansatz constructed from
-$D$-dimensionally Lorentz covariant kinematics. To fix remaining
-freedom in the NLSM bootstrap, we will match down to ZM theory in
-$D=2$. This is merely an aesthetic choice, so the final results of
-both the NLSM and Yang-Mills bootstraps are dimensionally agnostic.
+As we have just seen, it is possible to coerce tree numerators into
+1-loop numerators at any multiplicity for pions (and related
+theories), but that these methods cannot be reapplied to generate
+higher-loop numerators.  For pions in particular, the no-go statement
+is only for \emph{one particular representation of the theory} so does
+not completely preclude the existence of a two-loop color-dual
+representation.  We thus turn to the color-dual bootstrap method
+described in \cref{sec:bootstrap} to construct a color-dual
+representation of two-loop four-point NLSM.  Because of the similarity
+of the problem setup, we will also use the opportunity to revisit the
+construction of a color-dual representation of pure YM, extending the
+search space beyond what was covered in Ref.~\cite{Bern:2015ooa}.
 
-
-\subsection{Two-loop NLSM}
-\label{sec:pions}
-
-As we have seen, it is possible to coerce tree numerators into 1-loop
-numerators at any multiplicity for pions.  However, these methods
-cannot be reapplied to generate higher-loop numerators, which begs the
-question ``is it possible to find globally color-dual numerators
-beyond 1-loop?''  We will tackle this question for four-point two-loop
-scattering in NLSM before moving on to the same process in YM.
-
+Both representations share the same cubic graph basis, and thus their
+defining Jacobi relations lead to the same numerator basis.
 Ignoring tadpoles and BEL graphs, there are 14 cubic four-point two-loop
 graphs (see \cref{fig:MaxCuts}) which are related to each other via 21
 Jacobi relations.  As mentioned in \cref{sec:bootstrap},
@@ -1350,12 +1347,28 @@ be expressed in terms of a basis of the double box and penta-triangle,
 \label{eq:jacobi-basis}
 \NLSMBasisDoubleBox \text{ and } \NLSMBasisPentaTriangle .
 \end{equation}
+However, the actual numerator dressings and physical properties
+differ, so we discuss them separately below.
+
+
+\subsection{Two-loop NLSM}
+\label{sec:pions}
+
 For a scalar theory like NLSM the numerator only depends on dot
-products of momenta.  The basis of momentum invariants for the numerators assigned to both of
-these graphs can be taken to be
+products of momenta.  The basis of momentum invariants for both of the
+graphs can be taken to be
 \begin{equation}
 \label{eq:scalar-basis}
-\{ k_{13}, k_{23}, k_{15}, k_{16}, k_{25}, k_{26}, k_{35}, k_{36}, k_{55}, k_{56}, k_{66} \},
+N^{\text{NLSM}}\left[
+  \scalebox{0.75}{\NLSMBasisDoubleBox} \right]
+\text{ and }
+N^{\text{NLSM}}\left[\scalebox{0.75}{\NLSMBasisPentaTriangle} \right]\in
+\left\{\begin{array}{cccc}
+    k_{13},& k_{23},& k_{15},& k_{16}, \\
+    k_{25},& k_{26},& k_{35},& k_{36}, \\
+    k_{55},& k_{56},& k_{66}
+  \end{array}
+  \right\},
 \end{equation}
 where $k_{ij}$ means $k_i \cdot k_j$, $k_5=\ell_1$, and $k_6 = \ell_2$.
 %%%%
@@ -1366,31 +1379,24 @@ Every vertex in NLSM scales as $k^2$ so the numerator of each diagram
 scales as $k^{12}$.  At this mass dimension there are 8,008
 independent dot products of momenta.  With two basis graphs there is a
 total of 16,016 ansatz parameters.\footnote{\texttt{Mathematica} is
-  not suited to equations with sixteen thousand parameters so a
-  different method is desirable.  One possibility is to use a solver
-  designed for integral reduction.  However, these solvers typically
-  assume that the matrix has a very low density which is not the case
-  for equations coming from NLSM which typically have a density of a
-  few percent.  While the equations in YM naturally separate into
+  not suited to solving large sets of equations with sixteen thousand
+  parameters, so a different method is desirable.  One possibility is
+  to use a sprase solver, as often employed for integral reduction.
+  However, these solvers typically assume that the matrix has a very
+  low density.  While the equations in YM naturally separate into
   different ``helicity'' sectors (or $e_i \cdot e_j$ and
-  $e_i \cdot k_j$ sectors in $D$ dimensions), there is no such
-  separation of sectors in a scalar theory where any product of
-  momenta can interfere with any other.  The NLSM constraint equations
-  were solved using a custom solver, \texttt{FiniteFieldSolve},
-  designed to solve large linear systems of arbitrary density.
-  \texttt{FiniteFieldSolve} will be released publicly shortly.\ace{I
-    want to rephrase this slightly, but need to think about it a bit
-    more}} Imposing the boundary Jacobi relations eliminates all but
-4,473 of the original free parameters.  Further imposing graph
-symmetries reduces the number of free parameters to 1,243.
+  $e_i \cdot k_j$ sectors in $D$ dimensions) which limits the
+  cross-talk between equations and thus the effective density, there
+  is no such separation of sectors in a scalar theory.  Thus the NLSM
+  constraint equations were solved using a custom solver, working name
+  \texttt{FiniteFieldSolve}, designed to exactly solve large linear
+  systems of arbitrary density.  \texttt{FiniteFieldSolve} will be
+  released publicly shortly.} Imposing the boundary Jacobi relations
+eliminates all but 4,473 of the original free parameters.  Further
+imposing graph symmetries reduces the number of free parameters to
+1,243.
 
-\begin{figure}
-  \begin{center}
-	\PhysicalCutOne{}{}{}{} \PhysicalCutTwo{}{}{}{}
-  \end{center}
-  \caption{The two physical cut topologies shared by NLSM, sGal, BI, and DBIVA}
-  \label{fig:emu}
-\end{figure}
+
 
 The final essential constraint is unitarity.  The two physical cuts
 that need to be enforced, shown in \cref{fig:emu}, only involve
@@ -1404,12 +1410,20 @@ non-pathological cuts containing a three-point vertex (such as the maximal
 cut) vanishes.  Imposing all relevant cuts leaves 765 free parameters
 representing the generalized gauge freedom in the answer.
 
+\begin{figure}[h]
+  \begin{center}
+	\PhysicalCutOne{}{}{}{} \PhysicalCutTwo{}{}{}{}
+  \end{center}
+  \caption{The two physical cut topologies shared by NLSM, sGal, BI, and DBIVA}
+  \label{fig:emu}
+\end{figure}
+
 % It is possible to automatically enforce (or ``bake in'') the double
 % box and penta-triangle max cuts on the ansatz by writing the ansatz
 % in terms of inverse propagators (and remaining irreducible scalar
 % products) and then only keeping terms that involve at least one
 % inverse propagator since those terms will vanish on those max cuts,
-% just as the product of three-point scalar amplitudes will.  However, for the
+% just as the product of 3pt scalar amplitudes will.  However, for the
 % sake of simplicity we do not take this route.
 
 At this point color-kinematics duality has been satisfied, so the
@@ -1421,8 +1435,8 @@ result can be obtained through physical arguments.  $\mathcal{N}=4$
 SYM provides several hints for further conditions to impose on the
 ansatz.  For example, for maximally supersymmetric gauge theory it is
 possible to enforce the no triangle hypothesis, manifest loop power
-counting, and, for four-point and up to at least six loops, strip off a
-factor of $st \atree$ from the integrand \cite{FiveLoopN4,
+counting, and, for four-point and up to at least six loops, strip off
+a factor of $st \atree$ from the integrand \cite{FiveLoopN4,
   Bern:2012uf, Bern:2010fy, SuperSum, Carrasco:2021otn,
   JJHenrikReview, BRY, BDDPR, Neq44np}.  For the NLSM integrand it is
 desirable to make color-kinematics duality as manifest as possible.
@@ -1431,7 +1445,8 @@ since this at least manifests antisymmetry for the vertices involving
 external legs.  However, a more fruitful direction is to match onto
 the one known theory with pion power counting that manifests
 color-kinematics duality to all loop orders, namely,
-Zakharov-Mikhailov (ZM) theory \cite{Zakharov:1973pp, Cheung:2022mix}. ZM theory is governed by the Lagrangian
+Zakharov-Mikhailov (ZM) theory \cite{Zakharov:1973pp,
+  Cheung:2022mix}. ZM theory is governed by the Lagrangian
 \begin{equation}
 \label{eq:ZMLagrangian}
 \mathcal{L}^{\text{ZM}} = \frac{1}{2}(\partial \varphi)^2
@@ -1461,24 +1476,28 @@ configuration of right and left movers, such as $A[RRRR]$, one of the
 internal propagators is accidentally on-shell since $k_R^2=k_L^2=0$.
 
 \ace{Lets tighten up this paragraph a bit, especially the second half}
-It is tempting to try to match the pion four-point two-loop integrand to ZM
-on the cuts, but given that the cuts only probe the on-shell four-point
-amplitude, which is either subtle or vanishes for ZM, it is better to
-compare the off-shell numerators directly.  As local functions, the
-numerators never suffer from any of the subtleties of on-shell 2D
-kinematics.  Since the physical cuts are difficult to compare, ZM
-theory is being used here simply as a tool to eliminate generalized
-gauge freedom; ZM theory has the right power counting and kinematic
-structure in 2D to compare against.  Since ZM theory is only being
-used for the kinematical structure of its numerators, it is natural to
-introduce a proportionality constant $z$ between the NLSM and ZM
-numerators $n_\text{NLSM} \vert_{2D} = z ~ n_\text{ZM}$.  The
+It is tempting to try to match the pion four-point two-loop integrand
+to ZM on the cuts, but given that the cuts only probe the on-shell
+four-point amplitude, which is either subtle or vanishes for ZM, it is
+better to compare the off-shell numerators directly.  As local
+functions, the numerators never suffer from any of the subtleties of
+on-shell 2D kinematics.  Since the physical cuts are difficult to
+compare, ZM theory is being used here simply as a tool to eliminate
+generalized gauge freedom; ZM theory has the right power counting and
+kinematic structure in 2D to compare against.  Since ZM theory is only
+being used for the kinematical structure of its numerators, it is
+natural to introduce a proportionality constant $z$ between the NLSM
+and ZM numerators $n_\text{NLSM} \vert_{2D} = z ~ n_\text{ZM}$.  The
 parameter $z$, which would normally be fixed on cuts, effectively
 encodes the discrepancy between the coupling constants of the two
 theories.\footnote{Floating the proportionality parameter $z$ is also
   motivated because ZM is believed to be quantum mechanically
   different from NLSM even though they are dual classically in two
-  dimensions \cite{Nappi:1979ig}.}  This introduces an extra degree of
+  dimensions \cite{Nappi:1979ig}.  When the four-point
+  pion amplitude is normalized to $-k_1\cdot k_2$ and the ZM vertex is
+  normalized to $k_1^\mu \varepsilon_{\mu\nu}k_2^\nu$, the parameter
+  $z$ is fixed to $216/565$, which is clearly unrelated to the
+  difference in coupling constants.}  This introduces an extra degree of
 freedom into the problem.  Mechanically, the pion numerator is matched
 to ZM by first taking every possible assignment of right and left
 movers for the external particles and then restricting the pion
@@ -1512,12 +1531,7 @@ produced terms with up to $m+n=12$ powers of loop momenta.  When the
 pion numerator is forced to have the loop power counting structure in
 \cref{eq:ZMLoopPowCount} of ZM theory, the number of generalized gauge
 freedom parameters reduces to 58.  The pion numerator appearing in the
-ancillary files makes exactly this choice.\footnote{When the four-point
-  pion amplitude is normalized to $-k_1\cdot k_2$ and the ZM vertex is
-  normalized to $k_1^\mu \varepsilon_{\mu\nu}k_2^\nu$, the parameter
-  $z$ is fixed to $216/565$, which is clearly unrelated to the
-  difference in coupling constants.} \ace{Is this actually where we
-  want this particular footnote to appear?}
+ancillary files makes exactly this choice.
 
 \subsection{Double-copy verification}
 \label{doubleCopyVerify}
@@ -1555,21 +1569,12 @@ interested readers there for more information.
 
 \subsection{Two-loop Yang-Mills revisited}\label{2loopYM}
 
-\jm{Rather than quoting the number of parameters in the BDN ansatz, I
-  would prefer to just focus on what we did since it's more general.
-  I don't want it to sound like we just patched a minor hole in their
-  argument when I think you've done something much cooler by
-  pinpointing the failure to the bowtie graph. I know you put time and
-  effort into analyzing the BDN ansatz but I'm worried that the more
-  we talk about it, the more it will overshadow the real success
-  here.}
-
 Given the close ties between pion and gluon scattering for trees and
 at one loop, the existence of the two-loop pion numerator prompts us
 to investigate the most general local numerator for YM, without any of
 the loop power counting assumptions of Ref.~\cite{Bern:2015ooa}.  We
 follow the same general procedure as in \cref{sec:pions}, again
-identifying the double-box (2box) and penta-triangle (pt) as the
+identifying the double-box and penta-triangle as the
 Jacobi basis graphs and building a the most general ansatz for each of
 their numerators compatible with the assumptions in
 \cref{sec:bootstrap}.  Because we are now considering pure
@@ -1579,7 +1584,10 @@ monomial must be linear in each of the four external gluon
 polarizations.  Thus, the numerator ansatz for both diagrams will be
 built from terms of the form:
 \begin{equation}
-N^{\text{YM}}\left[\NLSMBasisDoubleBox \right]\text{ and }N^{\text{YM}}\left[\NLSMBasisPentaTriangle \right]\in \text{span}\left\{(\varepsilon_i \varepsilon_j) , (k_i \varepsilon_j), (k_ik_j)\right\}
+  N^{\text{YM}}\left[\scalebox{0.75}{\NLSMBasisDoubleBox} \right]
+  \text{ and }
+  N^{\text{YM}}\left[\scalebox{0.75}{\NLSMBasisPentaTriangle} \right]
+  \in \text{span}\left\{(\varepsilon_i \varepsilon_j) , (k_i \varepsilon_j), (k_ik_j)\right\}
   \label{eq:ym-basis}
 \end{equation}
 where the $k_i$ take the same definition as described near
