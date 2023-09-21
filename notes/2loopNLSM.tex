@@ -1423,14 +1423,6 @@ non-pathological cuts containing a three-point vertex (such as the maximal
 cut) vanishes.  Imposing all relevant cuts leaves 765 free parameters
 representing the generalized gauge freedom in the answer.
 
-\begin{figure}[h]
-  \begin{center}
-	\PhysicalCutOne{}{}{}{} \PhysicalCutTwo{}{}{}{}
-  \end{center}
-  \caption{The two physical cut topologies shared by NLSM, sGal, BI, and DBIVA}
-  \label{fig:emu}
-\end{figure}
-
 % It is possible to automatically enforce (or ``bake in'') the double
 % box and penta-triangle max cuts on the ansatz by writing the ansatz
 % in terms of inverse propagators (and remaining irreducible scalar
@@ -1488,6 +1480,13 @@ a right mover and $L$ corresponds to a left mover.  In every other
 configuration of right and left movers, such as $A[RRRR]$, one of the
 internal propagators is accidentally on-shell since $k_R^2=k_L^2=0$.
 
+\begin{figure}[t]
+  \begin{center}
+	\PhysicalCutOne{}{}{}{} \PhysicalCutTwo{}{}{}{}
+  \end{center}
+  \caption{The two physical cut topologies shared by NLSM, sGal, BI, and DBIVA}
+  \label{fig:emu}
+\end{figure}
 It is tempting to try to match the pion four-point two-loop integrand to ZM
 on the cuts, but given that the cuts only probe the on-shell four-point
 amplitude, which is either subtle or vanishes for ZM, it is better to
@@ -1703,35 +1702,37 @@ are incompatible with the ``bowtie'' cut.
 
 
 \section{Conclusions and Outlook}\label{conclusions}
-
-There is overwhelming evidence that YM and NLSM obey color-kinematics
-duality at loop level, even though naive Lagrangians for these theories
-do not manifest the duality.  At tree level, the duality can be
+In summary, we have found that there is a tension between color-kinematics duality and an off-shell local construction of the two-loop four-point of the pure Yang-Mills integrand in $D$-dimensions.
+At tree level, we demonstrated that the duality can be
 manifested by breaking manifest Bose symmetry at the Lagrangian level,
 either by explicitly picking different gluon states (as in SDYM) or by
 picking states that only restore Bose symmetry in the final amplitude
 (as in NLSM).  All of these theories can be encapsulated in the
 semi-abelian YM theory presented in \cref{eq:semiYM} which obscures
 the Bose symmetry of the external states due to the presence of the
-two gauge fields $A_\mu$ and $\bar{A}_\mu$.  The kinetic mixing
-between the two gauge fields permits globally color-dual 1-loop
+two gauge fields $A_\mu$ and $\bar{A}_\mu$.  
+
+In addition to the natural tree-level construction, we found that kinetic mixing
+between the two gauge fields permits globally color-dual one-loop
 integrands, but special care must be taken so that the integrands
 produced from semi-abelian YM correspond to SDYM or NLSM.  Due to the
 kinetic mixing that stems from the broken Bose symmetry, it is
 impossible to construct a two-loop integrand for semi-abelian YM theory,
 that is, the theory is one-loop exact.  Obtaining a globally color-dual
 integrand beyond one-loop then requires sacrificing more than just Bose
-symmetry and in this paper it is argued that off-shell locality must
-be abandoned.\footnote{Locality is relaxed in \cite{Mogull:2015adi} in
-  order to obtain color-dual two-loop integrands.} 
+symmetry and in this paper we have argued that off-shell locality must
+be abandoned. \footnote{An example of this can already be found in the literature, where Locality is relaxed in \cite{Mogull:2015adi} in
+  order to obtain color-dual two-loop integrands with on-shell 4D states.} 
 
-Kinematic ``numerators'' that are rational functions of the kinematics
-appear unnatural from the perspective of point-like quantum field
-theories. After all, operators that produce rational functions of
-kinematics must be non-local. Thus, in order to identify valid color-dual representation of
-Yang-Mills beyond tree-level, we must relax the constraint of
+We concede building loop-level numerators from rational functions of the kinematics
+is rather unnatural from the perspective of point-like quantum field
+theories. After all, operators that produce rational functions are typically non-local in their construction. The archetypal example of non-local quantum operators are string vertex operators with $\alpha'$ corrections. These operators promote local tree-level amplitudes to stringy extended objects by integrating over the open string world-sheet:
+\be
+\mathcal{A}^{\text{YM}} \stackrel{\alpha'}{\longrightarrow} \mathcal{A}^{\text{OS}}t_8 F^4 \int_0^1 dx \,(1-x)^{\alpha' s_{12}-1} x^{\alpha' s_{12}-1}
+\ee
+The resulting Veneziano factor of Gamma functions produces rational functions of kinematics, while preserving the color-dual structure at in the color-ordering of the Park-Taylor factor in the denominator. While introducing a string world sheet is a jump from what we have found in this work, our funding certainly suggest that we must do \textit{something} to relax the constraint of
 \textit{off-shell locality}, and realize locality only in the limit of
-\textit{on-shell} kinematics. Below we provide an overview of what one
+\textit{on-shell} kinematics. This could be acheived by either modifying the kinetic term or potentially something more exotic. Below we provide an overview of what one
 might expect for such a construction, and provide some simple examples
 at tree-level that manifest this structure.
 
@@ -1745,7 +1746,7 @@ N_{(12|34)}^{\text{YM}} = \frac{t_8F^4}{3} \frac{s_{13}-s_{12}}{s_{23}{s_{13}}}
 \end{equation}
 where $N_s = N_{(12|34)}$, $N_t = N_{(14|23)}$ and $N_u = N_{(13|42)}$. By construction, this functionally symmetric numerator is
 anti-symmetric and obeys the Jacobi identity:
-\begin{equation}
+\begin{equation}\label{nonLocalNum}
 N_{(12|34)}^{\text{YM}} + N_{(13|42)}^{\text{YM}} +N_{(14|23)}^{\text{YM}} = 0
 \end{equation}
 However, it must also factorize to kinematics that are consistent with
@@ -1767,33 +1768,36 @@ tree level version of \cref{eq:gen-amp}, we find:
   =  \mathcal{A}_{(12|l)}^{\text{YM}}\mathcal{A}_{(-l|34)}^{\text{YM}} 
 \end{equation}
 where we have applied the color structure Jacobi identity,
-$c_s+c_t+c_u=0$. In light of our findings in \cref{chefsKiss},  While we can absolutely apply a generalized gauge
+$c_s+c_t+c_u=0$. In light of our findings in \cref{chefsKiss}, building color-dual numerators in this way where locality is only realized on-shell might be a more natural approach. While we can absolutely apply a generalized gauge
 transformation \cite{BCJ} to restore field theoretic locality to the
-cubic numerators, it is maybe aesthetic
-choice. 
+cubic numerators, this could merely be an aesthetic choice that is only permissible at tree-level.
 
 Moreover, by abandoning traditional notions of off-shell
-locality, we incidentally gained enough freedom to massage the
+locality, we incidentally have gained enough functional freedom to massage the
 color-dual numerators into a form that is manifestly gauge invariant
 for all particles. As an organizational principle, pulling out overall
 gauge-invariant factors comes with the added advantage of simplifying
 a loop-level construction of color-dual numerators for Yang-Mills.
 
-Much of the complexity for $D$-dimensional vector theories at
-loop-level arises due to the mixing between external polarization and
-internal loop momenta. As noted, one advantage of expanding ansatz
-construction towards functions of rational kinematics is the prospect
-of stripping out overall factors of gauge invariant tensors. Rather
+\subsection{Future Directions}\label{sec:Discussion}
+With an eye towards generalizing this construction for future multi-loop studies, we note that the four-point half-ladder secretly makes use of the color-dual structure of NLSM. At four-point, we can construct permutation invariants from the single BCJ basis amplitude of both NLSM and pure YM theory as follows:
+\be
+s t A^{\text{YM}}_{(s,t)} = t_8F^4 \qquad s t A^{\text{NLSM}}_{(s,t)} = s_{12}s_{23}s_{13}
+\ee
+Using this, we can redefine our non-local numerator of \cref{nonLocalNum} in a form that recasts color-dual structure to NLSM, and removes all the vector structure of Yang-Mills as an overall $t_8F^4$ factor:
+\be
+N_{(12|34)}^{\text{YM}} \equiv t_8F^4 \,\frac{N_{(12|34)}^{\text{NLSM}}}{s_{12}s_{23}s_{13}} 
+\ee
+One advantage of this construction is that reduces some of the $D$-dimensional complexity vector theories that arises due to the mixing between external polarization and
+internal loop momenta. But maybe more importantly, it puts all the heavy lifting of functional jacobi relations on the scalar kinematic numerator, $N_{(12|34)}^{\text{NLSM}}$. Thus, rather
 than building an ansatz from the irreducible scalar products of
-\cref{eq:ym-basis},
+\cref{eq:ym-basis}, one might instead consider the following construction
 \begin{equation}
 N^{\text{YM}}_{m,L} = \sum_i \mathcal{O}_i \mathcal{R}^{(i)}_{m,L}
 \end{equation}
-where $\mathcal{O}_i$ are the basis tensors of
-\cite{Bern:2017tuc,Carrasco:2019yyn}, and $ \mathcal{R}^{(i)}_{m,L}$ is a
-rational function of scalar products.
-\subsection{Future Directions}\label{sec:Discussion}
-
+where $\mathcal{O}_i$ are the gauge invariant tensor basis elements of
+\cite{Bern:2017tuc,Carrasco:2019yyn}, and $ \mathcal{R}^{(i)}_{m,L}$ are
+rational functions of irreducible scalar products of \cref{eq:scalar-basis}. It would be interesting if a similar construction as our toy tree-level example could be uplifted to two-loop using the globally color-dual NLSM integrand that we have computed in this work. We see this as a natural future direction worth investigating that is made possible given the results of this work.
 
 %\paragraph{Acknowledgments}
 \subsection*{Acknowledgments}
