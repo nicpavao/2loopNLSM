@@ -1384,23 +1384,24 @@ Every vertex in NLSM scales as $k^2$ so the numerator of each diagram
 scales as $k^{12}$.  At this mass dimension there are 8,008
 independent dot products of momenta.  With two basis graphs there is a
 total of 16,016 ansatz parameters.\footnote{\texttt{Mathematica} is
-  not suited to equations with sixteen thousand parameters so a
-  different method is desirable.  One possibility is to use a solver
-  designed for integral reduction.  However, these solvers typically
-  assume that the matrix has a very low density which is not the case
-  for equations coming from NLSM which typically have a density of a
-  few percent.  While the equations in YM naturally separate into
-  different ``helicity'' sectors (or $e_i \cdot e_j$ and
-  $e_i \cdot k_j$ sectors in $D$ dimensions), there is no such
-  separation of sectors in a scalar theory where any product of
-  momenta can interfere with any other.  The NLSM constraint equations
-  were solved using a custom solver, \texttt{FiniteFieldSolve},
-  designed to solve large linear systems of arbitrary density.
-  \texttt{FiniteFieldSolve} will be released publicly shortly.\ace{I
-    want to rephrase this slightly, but need to think about it a bit
-    more}} Imposing the boundary Jacobi relations eliminates all but
-4,473 of the original free parameters.  Further imposing graph
-symmetries reduces the number of free parameters to 1,243.
+  not suited to solving large sets of equations with sixteen thousand
+  parameters, so a different method is desirable.  One possibility is
+  to use a sprase solver, as often employed for integral reduction.
+  However, these solvers typically assume that the matrix has a very
+  low density which is not the case for equations coming from NLSM
+  which typically have a density of a few percent.  While the
+  equations in YM naturally separate into different ``helicity''
+  sectors (or $e_i \cdot e_j$ and $e_i \cdot k_j$ sectors in $D$
+  dimensions), there is no such separation of sectors in a scalar
+  theory where any product of momenta can interfere with any other.
+  The NLSM constraint equations were solved using a custom solver,
+  \texttt{FiniteFieldSolve}, designed to solve large linear systems of
+  arbitrary density.  \texttt{FiniteFieldSolve} will be released
+  publicly shortly.\ace{I want to rephrase this slightly, but need to
+    think about it a bit more}} Imposing the boundary Jacobi relations
+eliminates all but 4,473 of the original free parameters.  Further
+imposing graph symmetries reduces the number of free parameters to
+1,243.
 
 
 
