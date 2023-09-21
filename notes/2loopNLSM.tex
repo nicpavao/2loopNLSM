@@ -217,7 +217,7 @@ james.mangan@northwestern.edu,
 \\
 pavao@u.northwestern.edu}
   
-\title{\center  \fontsize{18.8}{20} \selectfont  Towards Globally Color-Dual All-Loop Integrands}
+\title{\center  \fontsize{18.8}{20} \selectfont  Towards Globally Color-Dual Multi-Loop Integrands}
 
 \abstract{ We make progress in understanding how color-dual
   representations must be constructed at the multi-loop level. First
@@ -594,11 +594,12 @@ process appears prominently in this paper.
 
 The kinematic numerators must be $D$-dimensional, Lorentz invariant,
 local (polynomial) functions of the graph kinematics with the correct
-power counting and external states.  Insisting on a local numerator is
+power counting and external states. Locality is also physically motivated since Feynman
+rules by construction produce polynomial numerators. Indeed, the most natural way to guarantee locality and avoid spurious poles is to require the off-shell numerators to be polynomial functions of
+kinematics. However, insisting on a local numerator is
 partly a matter of convenience as the ansatz for a rational function
 would quickly grow out of control without a guiding principle for what
-terms to include.  Locality is also physically motivated since Feynman
-rules typically produce polynomial numerators.  While these
+terms to include.  While these
 assumptions are well motivated from a physical and complexity
 standpoint, the literature has featured numerators that violate
 locality, modify naive power counting through the inclusion of higher
@@ -607,10 +608,11 @@ spin modes, and break manifest Lorentz invariance \cite{Square,
   Johansson:2017bfl, Ben-Shahar:2022ixa, Cheung:2016prv,
   Cheung:2021zvb}.  These developments suggest that relaxing locality
 is a viable alternative when the condition proves too stringent for an
-ansatz.  In particular, the most natural way to guarantee locality is
-to require the off-shell numerators to be polynomial functions of
-kinematics.  However, simply requiring on-shell locality may suffice.
+ansatz. As such, requiring instead that locality is only realized \textit{on-shell} may suffice.
 This alternative will be discussed in \cref{nonLocalScattering}.
+
+
+\paragraph{Color-kinematics duality}
 
 Color-kinematics duality is a statement about color factors, kinematic
 numerators, and the accompanying Jacobi relations.  Adjoint-type color
@@ -668,9 +670,9 @@ zero.  However, since these graphs will not contribute to physical
 unitarity cuts, we take a different approach.  These graphs are
 allowed to have non-zero numerators but any Jacobi relations involving
 them are simply not imposed or solved.  See Refs.~\cite{Bern:2012uf,
-  Edison:2022jln} for discussions of BELs in the context of
+  Edison:2022jln} and \cref{BELref} for discussions of BELs in the context of
 color-kinematics duality.
-\paragraph{Color-kinematics duality}
+
 \begin{figure}
 \centering
 {\MCutC, \MCutD, \sumoCut, \MCutJ,  
@@ -681,10 +683,9 @@ color-kinematics duality.
 \\
  \MCutL, \MCutG,  \MCutH
 }
-\caption{The 14 non-pathological four-point two-loop cubic diagrams,
-  including all dangling tree diagrams.} \label{fig:MaxCuts}
+\caption{The 14 non-pathological four-point two-loop cubic diagrams.} \label{fig:MaxCuts}
   \end{figure}
-\ace{Awkward phrasing/transition.} \nhp{will message language} What has just been described is
+What we have just been described is
 sometimes referred to as ``global'' color-kinematics duality because
 the Jacobi identities are solved by a single (global) integrand with
 off-shell internal lines.  In order to perform the double copy it is
@@ -1192,7 +1193,7 @@ and $A_\mu$ is in Lorenz gauge.
 Here we can think of the abelian vector as a background field that
 sources on-shell $A_\mu$ currents. Indeed, as we describe in Appendix
 \cref{sec:CKLagrangians}, semi-abelian Yang-Mills theory is at the
-heart of $YZ$-theory \cite{Cheung:2016prv}, J-theory
+heart of $YZ$-theory \cite{Cheung:2016prv}, $J$-theory
 \cite{Cheung:2020djz,Cheung:2021zvb}, and self-dual Yang-Mills
 \cite{Monteiro2011pc}.  Specifically, semi-Abelian YM is simply a
 clever reinterpretation of the Lagrangian obtained by integrating an
@@ -1264,7 +1265,7 @@ yield precisely the 4D SDYM vertex, up to an unphysical phase:
  \ee
 where $\mathcal{X}(k^+_1,k^+_2) = A^{\text{YM}}(1^+,2^+,3^-)$ in light cone gauge, and in the second step applied momentum conservation to redefinition of the spinor bracket, $\langle 12\rangle \rightarrow X(p,k)$ defined in \cref{Conventions}. Of course, the form of \cref{DdimSDYM} has the advantage of
 permitting a $D$-dimensional construction of the one-loop
-integrand. Below we provide a four-point example: \nhp{change ordering on legs}
+integrand. Below we provide a four-point example:
 \begin{equation}
 \simplebox = g_{\text{YM}}^4 \langle \mathcal{X}(k_1,l_1)\mathcal{X}(k_2,l_2)\mathcal{X}(k_3,l_3)\mathcal{X}(k_4,l_4)\rangle
 \end{equation}
@@ -1321,8 +1322,6 @@ based approach.
 
 \section{Two-loop four-point bootstrap}
 \label{2loopBoot}
-\ace{Lets bulk this section intro up a bit} \nhp{@Alex will bulk this up}
-
 As we have just seen, it is possible to coerce tree numerators into
 1-loop numerators at any multiplicity for pions (and related
 theories), but that these methods cannot be reapplied to generate
@@ -1517,9 +1516,7 @@ off-shell.  After performing the 2D matching to the following ZM basis numerator
 \langle (l_1+k_3+k_4)(l_1-k_1) \rangle\langle (l_1+k_3+k_4)(l_1+k_4) \rangle
 \end{split}\right]
 \ee
-there are only 365 parameters of generalized gauge freedom. An overview of ZM theory and its color-dual construction can be found at the end of \cref{sec:CKLagrangians}.
-
-The loop momentum structure of ZM theory provides one final hint for
+there are only 365 parameters of generalized gauge freedom. An overview of ZM theory and its color-dual construction can be found at the end of \cref{sec:CKLagrangians}. The loop momentum structure of ZM theory provides one final hint for
 simplifying the pion numerators.  A generic term in the ZM numerator
 (of either basis graph) looks schematically like
 \begin{equation}
@@ -2166,9 +2163,9 @@ With this, we still obtain the same completeness relation for the SDYM spinors:
 X(a,b)Q(b,a) = \frac{1}{2}s_{ab}
 \end{equation}
 \section{Regulating BEL integrals}\label{BELreg}
-At one-loop, weight counting tells us that the $n$-gon master numerator must have $n$ on-shell $Z$-particles. Unitarity requires that there are three distinct contributions from $Y\!Z$ theory -- the first from an off-shell $Y$-loop particle and then two more from different orientations of a $\bar{Z}Z$-loop.  Thus, $Y\!Z$ theory gives us the following one-loop $n$-gon numerator:
+At one-loop, weight counting tells us that the $n$-gon master numerator must have $n$ on-shell $Z$-particles. Unitarity requires that there are three distinct contributions from $Y\!Z$ theory -- the first from an off-shell $Y$-loop particle and then two more from different orientations of a $\bar{Z}Z$-loop.  Thus, $YZ$ theory gives us the following one-loop $n$-gon numerator:
 \begin{equation}
-N^{n\text{-gon},YZ}_{(12...n)} = (T^{1}T^{2}\cdots T^{n})+2\, (F^1F^2\cdots F^n)
+N^{n\text{-gon},YZ}_{(12...n)} = (T^{1}T^{2}\cdots T^{n})+ (F^1F^2\cdots F^n)
 \end{equation}
 where $(\,\cdots)$ indicates an internal contraction over the $YY$ and $\bar{Z}Z$ loops. Plugging in the Feynman rule of \cref{eq:FeynmanRuleYYZ} and \cref{eq:FeynmanRuleXZZ}, we can readily obtain expressions in terms of the internal loop factors $l_i$ and the external momenta $k_i$ (we define the $l_i$ loop momentum as that flowing into $k_i$ and out of $k_{i-1}$):
 \begin{equation}
