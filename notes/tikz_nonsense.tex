@@ -967,8 +967,7 @@
 }
 }
 
-
-\newcommand{\IUCContrib}[4]{ {
+\newcommand{\IUCContrib}[7]{ {
     \begin{tikzpicture}
       \pgfmathsetmacro{\cutlength}{0.8}
 \begin{feynman}
@@ -1006,13 +1005,13 @@
 (a3) --[ultra thick,](mid3),
 (a2) --[ultra thick,](mid4),
 (a1) --[ultra thick,](mid5),
-(mid1) --[ultra thick,ucp-color](mid2),
+(mid1) --[ultra thick,ucp-color,edge label=\scriptsize{\(#6\)}](mid2),
 (mid3) --[ultra thick,](mid2),
 (mid1) --[ultra thick,](mid6),
 (mid1) --[ultra thick,](mid4),
 (mid5) --[ultra thick,](mid2),
-(mid5) --[ultra thick,ucp-color](mid6),
-(mid3) --[ultra thick,ucp-color](mid4),
+(mid5) --[ultra thick,ucp-color,edge label'=\scriptsize{\(#5\)}](mid6),
+(mid3) --[ultra thick,ucp-color,edge label'=\scriptsize{\(#7\)}](mid4),
 (clo)--[ultra thick,dashed,cut-color](c1),
 %(clo)--[ultra thick,dashed,cut-color](c2),
 (clo)--[ultra thick,dashed,cut-color](c3),
