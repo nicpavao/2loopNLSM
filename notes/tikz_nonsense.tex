@@ -122,18 +122,20 @@
 \vertex (mid5) at (-1,.5);
 \vertex (mid6) at (-1,-.5) ;
 \diagram{
-(mid6)--[ultra thick,nhpRed](a4),
+(mid6)--[ultra thick,fermion2](a4),
 (mid3) --[ultra thick,fermion2](a3),
 (mid4)--[ultra thick,fermion2](a2),
-(mid5) --[ultra thick,nhpRed](a1),
-(mid1) --[ultra thick,nhpRed](mid2),
-(mid3) --[ultra thick,nhpRed](mid2),
+(mid5) --[ultra thick,fermion2](a1),
+(mid1) --[ultra thick,fermion2](mid2),
+(mid2) --[ultra thick,fermion2](mid3),
 (mid1) --[ultra thick,fermion2](mid6),
-(mid1) --[ultra thick,nhpRed](mid4),
-(mid5) --[ultra thick,fermion2](mid2),
-(mid5) --[ultra thick,nhpRed](mid6),
-(mid3) --[ultra thick,nhpRed](mid4),
+(mid4) --[ultra thick,fermion2](mid1),
+(mid2) --[ultra thick,fermion2](mid5),
+(mid5) --[ultra thick,fermion2](mid6),
+(mid3) --[ultra thick,fermion2](mid4),
 };
+\vertex [dot,scale=1.8](mid2) at  (-1,-.5){};
+\vertex [dot,scale=1.3,white](mid2) at  (-1,-.5){};
 \end{feynman}
 \end{tikzpicture}
 }
@@ -159,13 +161,15 @@
 (mid4)--[ultra thick,fermion2](a2),
 (mid5) --[ultra thick,fermion2](a1),
 (mid1) --[ultra thick,fermion2](mid2),
-(mid3) --[ultra thick,nhpRed](mid2),
-(mid1) --[ultra thick,nhpRed](mid6),
-(mid1) --[ultra thick,nhpRed](mid4),
-(mid5) --[ultra thick,nhpRed](mid2),
-(mid5) --[ultra thick,nhpRed](mid6),
-(mid3) --[ultra thick,nhpRed](mid4),
+(mid2) --[ultra thick,fermion2](mid3),
+(mid1) --[ultra thick,fermion2](mid6),
+(mid4) --[ultra thick,fermion2](mid1),
+(mid5) --[ultra thick,fermion2](mid2),
+(mid6) --[ultra thick,fermion2](mid5),
+(mid3) --[ultra thick,fermion2](mid4),
 };
+\vertex [dot,scale=1.8](mid2) at (0,.5){};
+\vertex [dot,scale=1.3,white](mid2) at (0,.5){};
 \end{feynman}
 \end{tikzpicture}
 }
@@ -1035,7 +1039,7 @@
 \vertex (a6) at (3,0){$a_n$};
 \vertex (a1) at (-0.9,0){$a_1$};
 \vertex (a2) at (0,.9){$a_2$};
-\vertex (a3) at (.7,.85){$a_3$};
+\vertex (a3) at (.7,.9){$a_3$};
 \vertex (a4) at (2.1,.9){$a_{n-1}$};
 \diagram{
 (mid1) -- [ultra thick](a1),
@@ -1321,6 +1325,77 @@
 }
 
 %%% Graph sym end %%%
+
+
+%%% ZM basis start %%%
+
+\newcommand{\ZMBasisDoubleBox}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-1.5,1){1};
+\vertex (a2) at (1.5,-1){3};
+\vertex (a3) at (1.5,1){4};
+\vertex (a4) at (-1.5,-1){2};
+\vertex (mid1) at (0,-.5);
+\vertex (mid2) at (0,.5);
+\vertex (mid3) at (1,.5);
+\vertex (mid4) at (1,-.5) ;
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5) ;
+\vertex (l1) at (.5,.85){$\ell_1$};
+\vertex (l2) at (-.5,.85){$\ell_2$};
+\diagram{
+(mid6) --[ultra thick,nhpBlue](a4),
+(mid3) --[ultra thick,nhpBlue](a3),
+(mid4) --[ultra thick,nhpBlue](a2),
+(mid5) --[ultra thick,nhpBlue](a1),
+(mid1) --[ultra thick,nhpBlue](mid2),
+(mid3) --[ultra thick, fermion2,nhpBlue](mid2), %\ell1
+(mid1) --[ultra thick,nhpBlue](mid6),
+(mid1) --[ultra thick,nhpBlue](mid4),
+(mid5) --[ultra thick, fermion2,nhpBlue](mid2), %\ell2
+(mid5) --[ultra thick,nhpBlue](mid6),
+(mid3) --[ultra thick,nhpBlue](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\ZMBasisPentaTriangle}{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (-1.5,1){4};
+\vertex (a2) at (.5,-1){2};
+\vertex (a3) at (.5,1){3};
+\vertex (a4) at (-1.5,-1){1};
+\vertex (mid1) at (-.5,-.5);
+\vertex (mid2) at (-1,0);
+\vertex (mid3) at (0,.5) ;
+\vertex (mid4) at (0,-.5) ;
+\vertex (mid5) at (-1,.5);
+\vertex (mid6) at (-1,-.5) ;
+\vertex (l1) at (-1.35,.3){$\ell_1$};
+\vertex (l2) at (-1.35,-.3){$\ell_2$};
+\diagram{
+(a4) --[ultra thick,nhpBlue](mid6),
+(a3) --[ultra thick,nhpBlue](mid3),
+(a2) --[ultra thick,nhpBlue](mid4),
+(a1) --[ultra thick,nhpBlue](mid5),
+(mid1) --[ultra thick,nhpBlue](mid2),
+(mid6) --[ultra thick, fermion2,nhpBlue](mid2), %\ell2
+(mid1) --[ultra thick,nhpBlue](mid6),
+(mid1) --[ultra thick,nhpBlue](mid4),
+(mid5) --[ultra thick,nhpBlue](mid3),
+(mid5) --[ultra thick, fermion2,nhpBlue](mid2), %\ell1
+(mid3) --[ultra thick,nhpBlue](mid4),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+%%% ZM basis end %%%
 
 %%% NLSM basis start %%%
 
@@ -1717,6 +1792,37 @@
 %\vertex [dot, scale=1.1,hgrey0](mid5b) at (.35,-.35){};
 %\vertex [dot, scale=1.6](mid6a) at (-.35,-.35){};
 %\vertex [dot, scale=1.1,hgrey0](mid6b) at (-.35,-.35){};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\propFrule}[4]{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a2) at (1,0){#2};
+\vertex (a3) at (-1,0){#1};
+\vertex (mid1) at (0,.3){#3};
+\diagram{
+(a3) --[ultra thick,#4](a2),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+}
+
+\newcommand{\cubicFrule}[6]{ {
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) at (0,1){#2};
+\vertex (a2) at (1,0){#3};
+\vertex (a3) at (-1,0){#1};
+\vertex (mid1) at (0,0);
+\diagram{
+(mid1) --[ultra thick,#4](a3),
+(mid1) --[ultra thick,#5](a2),
+(a1) --[ultra thick,#6](mid1),
+};
 \end{feynman}
 \end{tikzpicture}
 }
