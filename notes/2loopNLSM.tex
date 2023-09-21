@@ -670,7 +670,7 @@ zero.  However, since these graphs will not contribute to physical
 unitarity cuts, we take a different approach.  These graphs are
 allowed to have non-zero numerators but any Jacobi relations involving
 them are simply not imposed or solved.  See Refs.~\cite{Bern:2012uf,
-  Edison:2022jln} and \cref{BELref} for discussions of BELs in the context of
+  Edison:2022jln} and \cref{BELreg} for discussions of BELs in the context of
 color-kinematics duality.
 
 \begin{figure}
@@ -1260,28 +1260,28 @@ previous section:
 \end{equation}
 Plugging in on-shell all-plus helicity states in light-cone gauge will
 yield precisely the 4D SDYM vertex, up to an unphysical phase:
-  \be
+  \begin{equation}
   \mathcal{X}(k^+_1,k^+_2) = \frac{\langle 12\rangle^3}{ \langle23\rangle \langle 31\rangle} \sim \langle 12\rangle = k_{1,u} k_{2,w}-k_{1,w} k_{2,u}
- \ee
+ \end{equation}
 where $\mathcal{X}(k^+_1,k^+_2) = A^{\text{YM}}(1^+,2^+,3^-)$ in light cone gauge, and in the second step applied momentum conservation to redefinition of the spinor bracket, $\langle 12\rangle \rightarrow X(p,k)$ defined in \cref{Conventions}. Of course, the form of \cref{DdimSDYM} has the advantage of
 permitting a $D$-dimensional construction of the one-loop
 integrand. Below we provide a four-point example:
 \begin{equation}
-\simplebox = g_{\text{YM}}^4 \langle \mathcal{X}(k_1,l_1)\mathcal{X}(k_2,l_2)\mathcal{X}(k_3,l_3)\mathcal{X}(k_4,l_4)\rangle
+\simplebox = g_{\text{YM}}^4 \langle \mathcal{X}(k_1,\ell_1)\mathcal{X}(k_2,\ell_2)\mathcal{X}(k_3,\ell_3)\mathcal{X}(k_4,\ell_4)\rangle
 \end{equation}
-where $l_i = l+k_1+k_2+\cdots+ k_i$ and the bracket $\langle \,\cdots\rangle$ indicates that we have applied the gauge fixed state projector, $\sum {\varepsilon^\mu_{(+l_i)}\varepsilon^\nu_{(-l_i)}}=\eta^{\mu\nu}$ on all internal polarizations. In general, the $n$-gon diagram would be,
+where $\ell_i = \ell-(k_1+k_2+\cdots+ k_i)$ and the bracket $\langle \,\cdots\rangle$ indicates that we have applied the gauge fixed state projector, $\sum {\varepsilon^\mu_{(+\ell_i)}\varepsilon^\nu_{(-\ell_i)}}=\eta^{\mu\nu}$ on all internal polarizations. In general, the $n$-gon diagram would be,
 \begin{equation}
-N^{\text{SDYM}}_{n\text{-gon}}= \nGonVector = g_{\text{YM}}^n \langle \mathcal{X}(k_1,l_1)\mathcal{X}(k_2,l_2)\cdots \mathcal{X}(k_n,l_n) \rangle
+N^{\text{SDYM}}_{n\text{-gon}}= \nGonVector = g_{\text{YM}}^n \langle \mathcal{X}(k_1,\ell_1)\mathcal{X}(k_2,\ell_2)\cdots \mathcal{X}(k_n,\ell_n) \rangle
 \end{equation}
 Due to the state-sum of internal loop factors,
-$\sum {\varepsilon_{(+l)}\varepsilon_{(-l)}}\sim D$, the integrand above
+$\sum {\varepsilon_{(+\ell)}\varepsilon_{(-\ell)}}\sim D$, the integrand above
 depends explicitly on the spacetime dimension, $D$. By taking a
 derivative\footnote{Another way to understand this derivative is that
   it selects the large $D$ behavior of the integrand.}, we can recover
 the integrand needed for all-plus one-loop amplitudes with an internal
 scalar:
 \begin{equation}
-\partial_D N^{\text{SDYM}}_{n\text{-gon}}=\nGonScalar  = (2 g_{\text{YM}})^n (l_1 \varepsilon_1)(l_2 \varepsilon_2)\cdots (l_n \varepsilon_n)
+\partial_D N^{\text{SDYM}}_{n\text{-gon}}=\nGonScalar  = (2 g_{\text{YM}})^n (\ell_1 \varepsilon_1)(\ell_2 \varepsilon_2)\cdots (\ell_n \varepsilon_n)
 \end{equation}
 This integrand numerator with internal scalar loop is precisely what
 one would obtain from the Feynman rules of $YZ$-theory, absent the $\bar{Z}Z$
@@ -1290,7 +1290,12 @@ internal vector loop. For more background, we refer the reader to
 \begin{equation}
 N^{\text{NLSM}}_{n\text{-gon}}=\left[\partial_D  N^{\text{SDYM}}_{n\text{-gon}}\right]^{\epsilon \rightarrow k}=\nGonScalar =  f_\pi^{-n} [12][23]\cdots [n1]
 \end{equation}
-Where we have define the antisymmetric kinematic variable, $[ij] = l_i^2 - l_j^2$, since when plugging on longitudinal modes, the $n$-gon can be re-expressed completely in terms of inverse propagators, $2(k_i \cdot l_i) = l_{i}^2-l^2_{i-1}$. We have verified through 10-point one-loop that this $n$-gon expression is a valid color-dual representation for NLSM. 
+Where we have define the antisymmetric kinematic variable,
+$[ij] = \ell_i^2 - \ell_j^2$, since when plugging on longitudinal
+modes, the $n$-gon can be re-expressed completely in terms of inverse
+propagators, $2(k_i \cdot \ell_i) = \ell_{i}^2-\ell^2_{i-1}$. We have
+verified through 10-point one-loop that this $n$-gon expression is a
+valid color-dual representation for NLSM.
 
 Before proceeding, we note that the above definition does give rise to ``pathological" bubble-on-external-leg (BEL) diagrams, discussed previously in \cref{sec:bootstrap}. However, one can show that these diagrams integrate to zero for spacetime dimension, $D>2$, and thus can be disregarded as unphysical. For the interested reader, in \cref{BELreg} we provide a detailed overview of this dimensional regularization of the BEL diagram.
 \subsection{Two-loop obstruction}\label{2LoopObstruction}
