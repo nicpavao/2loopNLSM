@@ -624,7 +624,18 @@ multiplying and dividing by propagators.  In the case of the four-point
 two-loop example promised above, there are 14 cubic graph topologies
 (shown in \cref{fig:MaxCuts}) ignoring tadpoles and bubble on external
 leg (BEL) graphs.
-
+\begin{figure}
+\centering
+{\MCutC, \MCutD, \sumoCut, \MCutJ,  
+ \\
+  \doubleBoxCut,  \crossBoxCut,\pentaTriangleCut,  \MCutF, 
+\\
+\MCutI,  \MCutE, \MCutK, 
+\\
+ \MCutL, \MCutG,  \MCutH
+}
+\caption{The 14 non-pathological four-point two-loop cubic diagrams.} \label{fig:MaxCuts}
+  \end{figure}
 With the integrand expressed in terms of cubic graphs, it is possible
 to discuss the main ingredient in color-kinematics duality -- the
 Jacobi relations.  The color factors in an integrand obey a set of
@@ -673,18 +684,6 @@ them are simply not imposed or solved.  See Refs.~\cite{Bern:2012uf,
   Edison:2022jln} and \cref{BELreg} for discussions of BELs in the context of
 color-kinematics duality.
 
-\begin{figure}
-\centering
-{\MCutC, \MCutD, \sumoCut, \MCutJ,  
- \\
-  \doubleBoxCut,  \crossBoxCut,\pentaTriangleCut,  \MCutF, 
-\\
-\MCutI,  \MCutE, \MCutK, 
-\\
- \MCutL, \MCutG,  \MCutH
-}
-\caption{The 14 non-pathological four-point two-loop cubic diagrams.} \label{fig:MaxCuts}
-  \end{figure}
 What we have just described is
 sometimes referred to as ``global'' color-kinematics duality because
 the Jacobi identities are solved by a single (global) integrand with
@@ -831,7 +830,7 @@ factorization channels of the iterated unitarity cut -- that has two
 topologically distinct color-ordered expansions
 \begin{equation}
   \label{eq:kt-color-ord}
-   \NMCutC =
+\!\!\! \!\!\! \!  \NMCutC =
   \begin{cases}
      s\text{-}t \text{ channel}
     &
@@ -856,9 +855,7 @@ topologically distinct color-ordered expansions
       \right]
   \end{cases}
 \end{equation}
-which serve as a complete basis for the full cut.
-
-Even though unitarity methods aim to generate loop-level data from
+which serve as a complete basis for the full cut. Even though unitarity methods aim to generate loop-level data from
 well-defined on-shell information, the procedure can encounter
 subtleties.  Beginning at one loop, there are classes of cuts that are
 difficult to properly define due to hidden non-physical singularities.
