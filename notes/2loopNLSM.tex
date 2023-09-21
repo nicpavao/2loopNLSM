@@ -624,7 +624,18 @@ multiplying and dividing by propagators.  In the case of the four-point
 two-loop example promised above, there are 14 cubic graph topologies
 (shown in \cref{fig:MaxCuts}) ignoring tadpoles and bubble on external
 leg (BEL) graphs.
-
+\begin{figure}
+\centering
+{\MCutC, \MCutD, \sumoCut, \MCutJ,  
+ \\
+  \doubleBoxCut,  \crossBoxCut,\pentaTriangleCut,  \MCutF, 
+\\
+\MCutI,  \MCutE, \MCutK, 
+\\
+ \MCutL, \MCutG,  \MCutH
+}
+\caption{The 14 non-pathological four-point two-loop cubic diagrams.} \label{fig:MaxCuts}
+  \end{figure}
 With the integrand expressed in terms of cubic graphs, it is possible
 to discuss the main ingredient in color-kinematics duality -- the
 Jacobi relations.  The color factors in an integrand obey a set of
@@ -673,18 +684,6 @@ them are simply not imposed or solved.  See Refs.~\cite{Bern:2012uf,
   Edison:2022jln} and \cref{BELreg} for discussions of BELs in the context of
 color-kinematics duality.
 
-\begin{figure}
-\centering
-{\MCutC, \MCutD, \sumoCut, \MCutJ,  
- \\
-  \doubleBoxCut,  \crossBoxCut,\pentaTriangleCut,  \MCutF, 
-\\
-\MCutI,  \MCutE, \MCutK, 
-\\
- \MCutL, \MCutG,  \MCutH
-}
-\caption{The 14 non-pathological four-point two-loop cubic diagrams.} \label{fig:MaxCuts}
-  \end{figure}
 What we have just described is
 sometimes referred to as ``global'' color-kinematics duality because
 the Jacobi identities are solved by a single (global) integrand with
@@ -801,7 +800,7 @@ to cuts, we will not use blobs on vertices, and will use
 \textcolor{cut-color}{dashed lines} bisecting edges to denote cut
 lines and use colored edges to highlight the
 \textcolor{ucp-color}{uncut propagators}.  From now on we will leave
-the cut $\delta(\ell^2)$s implicit. 
+the cut $\delta(\ell^2)$ factors implicit. 
 
 %% \jm{Again, I love the colors!
 %%  Would it be possible to add $\ell$ labels to the RHS of
@@ -831,7 +830,7 @@ factorization channels of the iterated unitarity cut -- that has two
 topologically distinct color-ordered expansions
 \begin{equation}
   \label{eq:kt-color-ord}
-   \NMCutC =
+\!\!\! \!\!\! \!  \NMCutC =
   \begin{cases}
      s\text{-}t \text{ channel}
     &
@@ -856,9 +855,7 @@ topologically distinct color-ordered expansions
       \right]
   \end{cases}
 \end{equation}
-which serve as a complete basis for the full cut.
-
-Even though unitarity methods aim to generate loop-level data from
+which serve as a complete basis for the full cut. Even though unitarity methods aim to generate loop-level data from
 well-defined on-shell information, the procedure can encounter
 subtleties.  Beginning at one loop, there are classes of cuts that are
 difficult to properly define due to hidden non-physical singularities.
@@ -1487,7 +1484,8 @@ a right mover and $L$ corresponds to a left mover.  In every other
 configuration of right and left movers, such as $A[RRRR]$, one of the
 internal propagators is accidentally on-shell since $k_R^2=k_L^2=0$.
 
-\ace{Lets tighten up this paragraph a bit, especially the second half}
+%\ace{Lets tighten up this paragraph a bit, especially the second half}
+
 It is tempting to try to match the pion four-point two-loop integrand
 to ZM on the cuts, but given that the cuts only probe the on-shell
 four-point amplitude, which is either subtle or vanishes for ZM, it is
@@ -1732,19 +1730,12 @@ that is, the theory is one-loop exact.  Obtaining a globally color-dual
 integrand beyond one-loop then requires sacrificing more than just Bose
 symmetry and in this paper it is argued that off-shell locality must
 be abandoned.\footnote{Locality is relaxed in \cite{Mogull:2015adi} in
-  order to obtain color-dual two-loop integrands.}  \ace{I want to
-  rephrase especially the last sentence.}
-
-\jm{I am intentionally shying away from really firm statements like
-  `you must abandon locality' because there are always loopholes and
-  we made a lot of other assumptions in fixing our \ansatze{}.}
+  order to obtain color-dual two-loop integrands.} 
 
 Kinematic ``numerators'' that are rational functions of the kinematics
 appear unnatural from the perspective of point-like quantum field
 theories. After all, operators that produce rational functions of
-kinematics must be non-local.\ace{A few more connecting sentences
-  here.  This is a bit of a big jump without some amount of summary}
-Thus, in order to identify valid color-dual representation of
+kinematics must be non-local. Thus, in order to identify valid color-dual representation of
 Yang-Mills beyond tree-level, we must relax the constraint of
 \textit{off-shell locality}, and realize locality only in the limit of
 \textit{on-shell} kinematics. Below we provide an overview of what one
