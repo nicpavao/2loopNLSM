@@ -1283,7 +1283,9 @@ integrand. Below we provide a four-point example:
 \begin{equation}
 \simplebox = g_{\text{YM}}^4 \langle \mathcal{X}(k_1,l_1)\mathcal{X}(k_2,l_2)\mathcal{X}(k_3,l_3)\mathcal{X}(k_4,l_4)\rangle
 \end{equation}
-where $l_i = l+k_1+k_2+\cdots+ k_i$ and the bracket $\langle \cdots\rangle$ indicates that we have applied the off-shell state projector, $\sum {\varepsilon^\mu_{(+l_i)}\varepsilon^\nu_{(-l_i)}}=P_{(l_i)}^{\mu\nu}$ on all internal polarizations. In general, the $n$-gon vertex would be
+where $l_i = l+k_1+k_2+\cdots+ k_i$ and the bracket $\langle \cdots\rangle$ indicates that we have applied the off-shell state projector, $\sum {\varepsilon^\mu_{(+l_i)}\varepsilon^\nu_{(-l_i)}}=P_{(l_i)}^{\mu\nu}$ on all internal polarizations.
+\jm{So $l$ runs between legs $n$ and $1$, right?  Can we show that on all of the diagrams here?  Is the projector the normal one $P \sim \eta + \{k,q\}/k.q$?  Can we say that?  I would normally call that the on-shell state projector not the off-shell one but I could easily be missing something.}
+In general, the $n$-gon vertex would be
 \begin{equation}
 \mathcal{N}^{\text{SDYM}}_{n\text{-gon}}= \nGonVector = g_{\text{YM}}^n \langle \mathcal{X}(k_1,l_1)\mathcal{X}(k_2,l_2)\cdots \mathcal{X}(k_n,l_n) \rangle
 \end{equation}
@@ -1304,7 +1306,8 @@ internal vector loop. For more background, we refer the reader to
 \begin{equation}
  \mathcal{N}^{\text{NLSM}}_{n\text{-gon}}=\left[\partial_D  \mathcal{N}^{\text{SDYM}}_{n\text{-gon}}\right]^{\epsilon \rightarrow k}=\nGonScalar =  f_\pi^{-n} [12][23]\cdots [n1]
 \end{equation}
-Where we have define the antisymmetric kinematic variable, $[LR] = l_L^2 - l_R^2$, since when plugging on longitudinal modes, the $n$-gon can be re-expressed completely in terms of inverse propagators, $2(k_i \cdot l_i) = l_{i}^2-l^2_{i-1}$. We have verified through 10-point one-loop that this $n$-gon expression is a valid color-dual representation for NLSM. 
+Where we have define the antisymmetric kinematic variable, $[LR] = l_L^2 - l_R^2$, since when plugging on longitudinal modes, the $n$-gon can be re-expressed completely in terms of inverse propagators, $2(k_i \cdot l_i) = l_{i}^2-l^2_{i-1}$. We have verified through 10-point one-loop that this $n$-gon expression is a valid color-dual representation for NLSM.
+\jm{I only checked 4, 6, 8 so unless someone checked 10pt I would say `through 8pt'.}
 
 Before proceeding, we note that the above definition does give rise to ``pathological" bubble-on-external-leg (BEL) diagrams discussed previously in \cref{sec:bootstrap}. However, one can show that these diagrams integrate to zero for spacetime dimension, $D>2$, and thus can be disregarded as unphysical. For the interested reader, in \cref{BELreg} we provide a detailed overview of this dimensional regularization of the BEL diagram.
 \subsection{Two-loop obstruction}\label{2LoopObstruction}
