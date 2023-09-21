@@ -1314,9 +1314,17 @@ contractions of $\bar{A}_\mu A^\mu$,
 \begin{equation}
 \mathcal{A}^{\text{YM}}_{\text{2-loop}}(A_\mu,A_\mu,A_\mu,A_\mu)=\doubleBoxObstructionA +\doubleBoxObstructionB+\cdots 
 \end{equation}
-where we used white dots to indicate interaction vertices of weight\footnote{We choose the convention that the abelianized gauge fields carry weight $\mathcal{W}[\bar{A}] = -1$, and non-abelian vectors are $\mathcal{W}[\bar{A}] = +1$.} $\mathcal{W}[\bar{A}\bar{A} A] = -1$, rather than the isolated semi-YM vertex which always carries weight $\mathcal{W}[\bar{A}A A] = +1$. This immediately runs into the difficulty of introducing the
+where we used white dots to indicate interaction vertices of
+weight\footnote{We choose the convention that the abelianized gauge
+  fields carry weight $\mathcal{W}[\bar{A}] = -1$, and non-abelian
+  vectors are $\mathcal{W}[\bar{A}] = +1$.}
+$\mathcal{W}[\bar{A}\bar{A} A] = -1$, rather than the isolated semi-YM
+vertex which always carries weight $\mathcal{W}[\bar{A}A A] =
++1$. This immediately runs into the difficulty of introducing the
 four-point contact needed for color-kinematics to be satisfied on all
-internal edges. By a simple weight counting argument, one can see that including this wrong sign interactions is unavoidable at two-loop and higher. 
+internal edges. By a simple weight counting argument, one can see that
+including this wrong sign interactions is unavoidable at two-loop and
+higher.
 
 Thus, to construct two-loop numerators prescriptively, as we have done
 at one-loop, would require knowledge of the full kinematic algebra for
@@ -2131,17 +2139,22 @@ our final solution.
 
 \section{Spinor-helicity and conventions}\label{Conventions}
 
-Here we apply the same conventions of Ref.~\cite{jjmcTASI2014}, which we quote now. The component definition of our spinor bracket that are consistent with the conventions above,
+Here we apply the same conventions of Ref.~\cite{jjmcTASI2014}, which
+we quote now. The component definition of our spinor bracket that are
+consistent with the conventions above,
 \begin{align}
 \langle ab \rangle &= \frac{(a_1 + i a_2)(b_0+b_3)-(b_1 + i b_2)(a_0+a_3)}{\sqrt{(a_0+a_3)(b_0+b_3)}}\,,
 \\
 [ab] &= \frac{(b_1 - i b_2)(a_0+a_3)-(a_1 - i a_2)(b_0+b_3)}{\sqrt{(a_0+a_3)(b_0+b_3)}}\,,
 \end{align}
-where the $a_i$ are component values of the four-vector, $k^\mu_a = (a_0,a_1,a_2,a_3)$. For massless momenta, $k_a$ and $k_b$, one can apply the on-shell condition, $k_a^2=k_b^2=0$, and show that:
+where the $a_i$ are component values of the four-vector,
+$k^\mu_a = (a_0,a_1,a_2,a_3)$. For massless momenta, $k_a$ and $k_b$,
+one can apply the on-shell condition, $k_a^2=k_b^2=0$, and show that:
 \begin{equation}
 s_{ab} = (k_a+k_b)^2= \langle ab \rangle[ba]\,.
 \end{equation}
-Four-dimensional polarization dot products with fixed helicity states can be mapped as follows:
+Four-dimensional polarization dot products with fixed helicity states
+can be mapped as follows:
 \begin{equation}\label{eq:4DPols}
 \begin{aligned}
 k_a \cdot \varepsilon_b^{(+)} &= \frac{\langle q a \rangle[ab]}{\sqrt{2}\langle q b\rangle}\,,
@@ -2153,13 +2166,19 @@ k_a \cdot \varepsilon_b^{(-)} = -\frac{[qa]\langle ab\rangle}{\sqrt{2}[qb]}\,,
 \varepsilon_a^{(\pm)}\cdot \varepsilon_b^{(\pm)} = 0 \,,
 \end{aligned}
 \end{equation}
-Note that given the above definition, the spinor helicity variables carry the same mass dimension for both the angle and square brackets. In terms of light-cone coordinates that we employed above in \cref{sec:CKLagrangians}, the angles and squares can be rewritten as follows:
+Note that given the above definition, the spinor helicity variables
+carry the same mass dimension for both the angle and square
+brackets. In terms of light-cone coordinates that we employed above in
+\cref{sec:CKLagrangians}, the angles and squares can be rewritten as
+follows:
 \begin{align}
 \langle ab \rangle &= \frac{a_w b_u-a_u b_w}{\sqrt{a_ub_u}}\,,
 \\
 [ab] &= \frac{b_{\bar{w}}a_u-a_{\bar{w}}b_u}{\sqrt{a_ub_u}}\,,
 \end{align}
-The conventions we use in the text where the holomorphic spinor, $X(p,k)$, carries extra mass dimension essentially amounts to shifting the bracket by the following overall factor:
+The conventions we use in the text where the holomorphic spinor,
+$X(p,k)$, carries extra mass dimension essentially amounts to shifting
+the bracket by the following overall factor:
 \begin{align}
 \langle ab \rangle &\rightarrow a_w b_u-a_u b_w \equiv X(a,b)\,,
 \\
@@ -2170,37 +2189,56 @@ With this, we still obtain the same completeness relation for the SDYM spinors:
 X(a,b)Q(b,a) = \frac{1}{2}s_{ab}
 \end{equation}
 \section{Regulating BEL integrals}\label{BELreg}
-At one-loop, weight counting tells us that the $n$-gon master numerator must have $n$ on-shell $Z$-particles. Unitarity requires that there are three distinct contributions from $Y\!Z$ theory -- the first from an off-shell $Y$-loop particle and then two more from different orientations of a $\bar{Z}Z$-loop.  Thus, $YZ$ theory gives us the following one-loop $n$-gon numerator:
+At one-loop, weight counting tells us that the $n$-gon master
+numerator must have $n$ on-shell $Z$-particles. Unitarity requires
+that there are three distinct contributions from $Y\!Z$ theory -- the
+first from an off-shell $Y$-loop particle and then two more from
+different orientations of a $\bar{Z}Z$-loop.  Thus, $YZ$ theory gives
+us the following one-loop $n$-gon numerator:
 \begin{equation}
 N^{n\text{-gon},YZ}_{(12...n)} = \langle T^{1}T^{2}\cdots T^{n}\rangle+ \rangle F^1F^2\cdots F^n\rangle
 \end{equation}
-where $(\,\cdots)$ indicates an internal contraction over the $YY$ and $\bar{Z}Z$ loops. Plugging in the Feynman rule of \cref{eq:FeynmanRuleYYZ} and \cref{eq:FeynmanRuleXZZ}, we can readily obtain expressions in terms of the internal loop factors $l_i$ and the external momenta $k_i$ (we define the $l_i$ loop momentum as that flowing into $k_i$ and out of $k_{i-1}$):
+where $(\,\cdots)$ indicates an internal contraction over the $YY$ and
+$\bar{Z}Z$ loops. Plugging in the Feynman rule of
+\cref{eq:FeynmanRuleYYZ} and \cref{eq:FeynmanRuleXZZ}, we can readily
+obtain expressions in terms of the internal loop factors $\ell_i$ and the
+external momenta $k_i$ (we define the $\ell_i$ loop momentum as that
+flowing into $k_i$ and out of $k_{i-1}$):
 \begin{equation}
-N_{(12...n)}^{\text{NLSM}}=(T^{1}T^{2}\cdots T^{n}) = (l_1 k_1)(l_2 k_2) \cdots (l_n k_n)
+N_{(12...n)}^{\text{NLSM}}=(T^{1}T^{2}\cdots T^{n}) = (\ell_1 k_1)(\ell_2 k_2) \cdots (\ell_n k_n)
 \end{equation}
 and similarly so for the internal vector contribution:
 \begin{equation}
- (F^1F^2\cdots F^n) = D (l_1 k_1)(l_2 k_2) \cdots (l_n k_n) + \mathcal{O}(D^0)
+ (F^1F^2\cdots F^n) = D (\ell_1 k_1)(\ell_2 k_2) \cdots (\ell_n k_n) + \mathcal{O}(D^0)
 \end{equation}
-The dimension dependent factor essentially counts that number of internal vector states. While this $n$-gon is manifestly color-dual, it does not produce the right cuts for NLSM. However, the scalar contribution, that comes dressed with an overall factor $D$ \textit{does} manifest the duality globally, and satisfies all the desired pion cuts. In order for the Feynman rules for $Y\!Z$ theory compute one-loop color-dual numerators consistent with NLSM cuts, we must add some additional states to cancel off he spurious poles, while preserving color-kinematics duality. We leave this as a direction of future work. 
+The dimension dependent factor essentially counts that number of
+internal vector states. While this $n$-gon is manifestly color-dual,
+it does not produce the right cuts for NLSM. However, the scalar
+contribution, that comes dressed with an overall factor $D$
+\textit{does} manifest the duality globally, and satisfies all the
+desired pion cuts. In order for the Feynman rules for $Y\!Z$ theory
+compute one-loop color-dual numerators consistent with NLSM cuts, we
+must add some additional states to cancel off he spurious poles, while
+preserving color-kinematics duality. We leave this as a direction of
+future work.
 
 While the $\bar{Z}Z$ vector loop spoils color-kinematics off-shell, the $Y\!Z$ loop alone gives us a desired expression for the $n$-gon. The important takeaway is that we now have a guess for the form of the off-shell three-point vertex that has a chance of manifesting the duality off-shell. The $n$-gon numerator above has scalar insertions of the following kinematic vertex:
 \begin{equation}
-T^{a}_{LR} = k_a(l_L-l_{R}) = (l_L+l_{R}) (l_L-l_{R})  = l_L^2-l_{R}^2 
+T^{a}_{LR} = k_a(\ell_L-\ell_{R}) = (\ell_L+\ell_{R}) (\ell_L-\ell_{R})  = \ell_L^2-\ell_{R}^2 
 \end{equation}
 Given this structure, in the next section we will attempt to construct two-loop basis diagrams from these cubic vertex assignments and try to reverse engineer the particle content that produces these master numerators.
 
 Before proceeding, we note a strange property of the $n$-gon numerator for the pions. In this form, Jacobi relations produce \textit{non-vanishing} values for bubbles on external legs (BELs). However, it is easy to see that the contribution integrates to zero after applying IBP relations/tensor reduction on the bubble. The BEL diagram can be reconstructed from the $n$-gon as follows:
 \begin{equation}
-N^{\text{BEL}}_{1|2,34} = N^{\text{NLSM}}_{(1234,l)}-N^{\text{NLSM}}_{(1243,l)}-N^{\text{NLSM}}_{(1342,l)}+N^{\text{NLSM}}_{(1432,l)}
+N^{\text{BEL}}_{1|2,34} = N^{\text{NLSM}}_{(1234,\ell)}-N^{\text{NLSM}}_{(1243,\ell)}-N^{\text{NLSM}}_{(1342,\ell)}+N^{\text{NLSM}}_{(1432,\ell)}
 \end{equation}
-where we define the loop momentum to be in between the left most and right most leg on the box. Plugging in particular values for $l_i$, we obtain the following expression for the BEL
+where we define the loop momentum to be in between the left most and right most leg on the box. Plugging in particular values for $\ell_i$, we obtain the following expression for the BEL
 \begin{equation}
-N^{\text{BEL}}_{1|2,34} = s_{12} (l+k_1)^2 l^{\mu} k_1^{\nu} k_2^{[\mu} k_{[34]}^{\nu]} 
+N^{\text{BEL}}_{1|2,34} = s_{12} (\ell+k_1)^2 \ell^{\mu} k_1^{\nu} k_2^{[\mu} k_{[34]}^{\nu]} 
 \end{equation}
 Notice there is an overall factor that cancels one of the propagators. Plugging this in, produces an integral of the following form
 \begin{equation}
-\mathcal{I}^{\text{BEL}}_{1|2,34} = s_{12} k_1^{\nu} k_2^{[\mu} k_{[34]}^{\nu]} \int \frac{d^D l}{i\pi^{D/2}} \frac{l^\mu }{l^2-\mu^2} \sim   s_{12}(s_{13}-s_{14}) (\mu^2)^{D/2}
+\mathcal{I}^{\text{BEL}}_{1|2,34} = s_{12} k_1^{\nu} k_2^{[\mu} k_{[34]}^{\nu]} \int \frac{d^D \ell}{i\pi^{D/2}} \frac{\ell^\mu }{\ell^2-\mu^2} \sim   s_{12}(s_{13}-s_{14}) (\mu^2)^{D/2}
 \end{equation}
 where we have introduced a mass regulator that will be proportional the the on-shell momentum inside the BEL, $\mu^2 \equiv k_1^2$. Thus, in large enough dimension, this integral suppresses the $\mu^{-2}$ divergence appearing in the denominator of the BEL diagram. 
 
