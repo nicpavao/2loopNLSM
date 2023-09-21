@@ -832,7 +832,7 @@ $(n-2)!$ elements, one generally needs to evaluate
 $(n_1-2)! (n_2-2)!...$ separate color-orderings of the same cut, where
 $n_1$, $n_2$... are the multiplicities of the amplitudes making up the
 cut. As an example, consider the ``bowtie'' cut topology -- one of the
-factorization channels of the iterated unitarity cut -- which has two
+factorization channels of the iterated unitarity cut -- that has two
 topologically distinct color-ordered expansions
 \begin{equation}
   \label{eq:kt-color-ord}
@@ -1264,8 +1264,7 @@ previous section:
 \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{}= \mathcal{X}(k_1,k_2) = (\varepsilon_1\bar{\varepsilon}_3)(\varepsilon_2 k_3) -  (\varepsilon_2\bar{\varepsilon}_3)(\varepsilon_1 k_3)
 \end{equation}
 Plugging in on-shell all-plus helicity states in light-cone gauge will
-yield precisely the 4D SDYM vertex, up to an unphysical phase \ace{Can
-  we provide an example?} \nhp{yes, provided}:
+yield precisely the 4D SDYM vertex, up to an unphysical phase:
   \be
   \mathcal{X}(k^+_1,k^+_2) = \frac{\langle 12\rangle^3}{ \langle23\rangle \langle 31\rangle} \sim \langle 12\rangle = k_{1,u} k_{2,w}-k_{1,w} k_{2,u}
  \ee
@@ -1319,34 +1318,31 @@ where we used white dots to indicate interaction vertices of weight\footnote{We 
 four-point contact needed for color-kinematics to be satisfied on all
 internal edges. By a simple weight counting argument, one can see that including this wrong sign interactions is unavoidable at two-loop and higher. 
 
-Thus, to construct two-loop numerators prescriptively, as we have done at one-loop, would require knowledge of
-the full kinematic algebra for Yang-Mills off-shell. Since this is
-presently unavailable, to approach the problem of two-loop
-construction, we instead employ an ansatz based approach.
+Thus, to construct two-loop numerators prescriptively, as we have done
+at one-loop, would require knowledge of the full kinematic algebra for
+Yang-Mills off-shell. Since this is presently unavailable, to approach
+the problem of two-loop construction, we instead employ an ansatz
+based approach.
 
 
-\section{Two-loop bootstrap}
+\section{Two-loop four-point bootstrap}
 \label{2loopBoot}
-\ace{Lets bulk this section intro up a bit} \nhp{@Alex will bulk this up}
 
-We now employ the color-dual bootstrap method described in
-\cref{sec:bootstrap}. We will start with an ansatz constructed from
-$D$-dimensionally Lorentz covariant kinematics. To fix remaining
-freedom in the NLSM bootstrap, we will match down to ZM theory in
-$D=2$. This is merely an aesthetic choice, so the final results of
-both the NLSM and Yang-Mills bootstraps are dimensionally agnostic.
+As we have just seen, it is possible to coerce tree numerators into
+1-loop numerators at any multiplicity for pions (and related
+theories), but that these methods cannot be reapplied to generate
+higher-loop numerators.  For pions in particular, the no-go statement
+is only for \emph{one particular representation of the theory} so does
+not completely preclude the existence of a two-loop color-dual
+representation.  We thus turn to the color-dual bootstrap method
+described in \cref{sec:bootstrap} to construct a color-dual
+representation of two-loop four-point NLSM.  Because of the similarity
+of the problem setup, we will also use the opportunity to revisit the
+construction of a color-dual representation of pure YM, extending the
+search space beyond what was covered in Ref.~\cite{Bern:2015ooa}.
 
-
-\subsection{Two-loop NLSM}
-\label{sec:pions}
-
-As we have seen, it is possible to coerce tree numerators into 1-loop
-numerators at any multiplicity for pions.  However, these methods
-cannot be reapplied to generate higher-loop numerators, which begs the
-question ``is it possible to find globally color-dual numerators
-beyond 1-loop?''  We will tackle this question for four-point two-loop
-scattering in NLSM before moving on to the same process in YM.
-
+Both representations share the same cubic graph basis, and thus their
+defining Jacobi relations lead to the same numerator basis.
 Ignoring tadpoles and BEL graphs, there are 14 cubic four-point two-loop
 graphs (see \cref{fig:MaxCuts}) which are related to each other via 21
 Jacobi relations.  As mentioned in \cref{sec:bootstrap},
@@ -1356,12 +1352,28 @@ be expressed in terms of a basis of the double box and penta-triangle,
 \label{eq:jacobi-basis}
 \NLSMBasisDoubleBox \text{ and } \NLSMBasisPentaTriangle .
 \end{equation}
+However, the actual numerator dressings and physical properties
+differ, so we discuss them separately below.
+
+
+\subsection{Two-loop NLSM}
+\label{sec:pions}
+
 For a scalar theory like NLSM the numerator only depends on dot
-products of momenta.  The basis of momentum invariants for both of
-these graphs can be taken to be
+products of momenta.  The basis of momentum invariants for both of the
+graphs can be taken to be
 \begin{equation}
 \label{eq:scalar-basis}
-\{ k_{13}, k_{23}, k_{15}, k_{16}, k_{25}, k_{26}, k_{35}, k_{36}, k_{55}, k_{56}, k_{66} \},
+N^{\text{NLSM}}\left[
+  \scalebox{0.75}{\NLSMBasisDoubleBox} \right]
+\text{ and }
+N^{\text{NLSM}}\left[\scalebox{0.75}{\NLSMBasisPentaTriangle} \right]\in
+\left\{\begin{array}{cccc}
+    k_{13},& k_{23},& k_{15},& k_{16}, \\
+    k_{25},& k_{26},& k_{35},& k_{36}, \\
+    k_{55},& k_{56},& k_{66}
+  \end{array}
+  \right\},
 \end{equation}
 where $k_{ij}$ means $k_i \cdot k_j$, $k_5=\ell_1$, and $k_6 = \ell_2$.
 %%%%
@@ -1390,13 +1402,7 @@ total of 16,016 ansatz parameters.\footnote{\texttt{Mathematica} is
 4,473 of the original free parameters.  Further imposing graph
 symmetries reduces the number of free parameters to 1,243.
 
-\begin{figure}
-  \begin{center}
-	\PhysicalCutOne{}{}{}{} \PhysicalCutTwo{}{}{}{}
-  \end{center}
-  \caption{The two physical cut topologies shared by NLSM, sGal, BI, and DBIVA}
-  \label{fig:emu}
-\end{figure}
+
 
 The final essential constraint is unitarity.  The two physical cuts
 that need to be enforced, shown in \cref{fig:emu}, only involve
@@ -1411,6 +1417,14 @@ symmetry of NLSM at the integrand level, we require that all
 non-pathological cuts containing a 3pt vertex (such as the maximal
 cut) vanishs.  Imposing all relevant cuts leaves 765 free parameters
 representing the generalized gauge freedom in the answer.
+
+\begin{figure}[h]
+  \begin{center}
+	\PhysicalCutOne{}{}{}{} \PhysicalCutTwo{}{}{}{}
+  \end{center}
+  \caption{The two physical cut topologies shared by NLSM, sGal, BI, and DBIVA}
+  \label{fig:emu}
+\end{figure}
 
 % It is possible to automatically enforce (or ``bake in'') the double
 % box and penta-triangle max cuts on the ansatz by writing the ansatz
