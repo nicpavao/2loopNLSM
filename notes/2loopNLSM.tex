@@ -368,29 +368,21 @@ algebra has not yet been identified, like Yang-Mills and NLSM.
 \subsection{Color-dual Amplitudes}\label{onShellCK}
 
 Color-kinematics duality is a statement about the off-shell graphical
-simplicity that manifest redundancy in the on-shell observables of
+simplicity that manifests redundancy in the on-shell observables of
 gauge and gravity theories. Ignoring factors of $i$ and the coupling
-constant, a generic $m$-point $L$-loop amplitude in a color-dual
-theory -- such as NLSM, YM, or bi-adjoint scalar
-theory\ace{technically this is true as written for any theory.  In
-  fact we slip that type of disclaimer in quite a lot throughout the
-  rest of the section} \jm{I removed the second time we say `YM, NLSM,
-  $\phi^3$' which was redundant.  I don't mind if we say it here
-  because I want people to tell people that these are the kinds of
-  theories we're thinking about.  We could omit it but then we'd have
-  to say that the theory has at least one color factor and is probably
-  an adjoint type theory and at that point I'd rather just give an
-  example.} \nhp{Nic will clarify between cubic vs color-dual here}-- can be written as
+constant, the starting point to realize the duality is to express generic $m$-point $L$-loop amplitudes in a cubic graph representation:
 \begin{equation}
   \mathcal{A}_m^L = \sum \limits_\Gamma \frac{1}{S_\Gamma} \int \frac{d^{LD}\ell}{(2\pi)^{LD}} \frac{c_\Gamma n_\Gamma}{d_\Gamma} .
   \label{eq:gen-amp}
 \end{equation}
 Here the spacetime dimension is $D$.  Even though the underlying
-theory may have quartic (or higher multiplicity) vertices, it is
+theory may have quartic (or higher multiplicity) vertices, like NLSM and gravity, it is
 possible to multiply and divide by propagators so that the sum runs
 over the set of purely cubic graphs, $\Gamma$.  Overcounting is removed by
 the internal symmetry factor $S_\Gamma$, which tracks the number of
-graph symmetries with external legs held fixed.  The color factor
+graph symmetries with external legs held fixed.  
+
+The color factor
 $c_\Gamma$ is the string of structure constants $f^{abc}$ associated
 with the graph $\Gamma$,\footnote{This paper is focused on theories
   with particles that transform in the adjoint.  However, the double
@@ -403,15 +395,14 @@ is the product of propagators associated with the graph $\Gamma$, and
 the numerator $n_\Gamma$ is all of the remaining kinematic factors
 including dot products of momenta and polarization vectors.
 
-The color factors $c_\Gamma$ are not independent and are related to
+In this form the color factors $c_\Gamma$ are not independent and are related to
 one another via a set of Jacobi identities that look schematically
 like
 \begin{equation}
 c_i+c_j+c_k=0,
 \end{equation}
 where $i$, $j$, and $k$ are three graphs.  Example Jacobi relations
-are presented in detail in \cref{sec:bootstrap}.  Color-kinematics
-duality states that there exists a way to rearrange factors between
+are presented in detail in \cref{sec:bootstrap}. The duality between color and kinematics is the statement that that there exists a way to rearrange factors between
 the various kinematic numerators $n_\Gamma$ such that the numerators
 obey the same Jacobi identities as the color factors
 \begin{equation}
@@ -424,7 +415,7 @@ is often the algebra of volume preserving diffeomorphisms
 \cite{Monteiro2011pc, Ben-Shahar:2021zww, Cheung:2020djz,
   Cheung:2021zvb, Cheung:2022mix}.
 When the kinematic algebra is not known explicitly, the kinematic numerators are typically constructed from an ansatz.
-As an example, the result of such a calculation for 4pt pion scattering at tree level produces the numerators
+As an example, the result of such a calculation for four-point NLSM pion scattering at tree level produces the numerators
 \begin{align}
 &n_s = s(t-u)\\
 &n_t = t(u-s)\\
@@ -440,7 +431,7 @@ amplitude.
 Once color-dual numerators $n_\Gamma$ have been found, they can be
 used to replace the color factors ($c_\Gamma \to n_\Gamma$) in a
 \emph{different} amplitude to produce the corresponding amplitude in
-the double-copy theory \be\label{DCconstruction}
+a new colorless theory: \be\label{DCconstruction}
 \tilde{\mathcal{A}}_m^L = \sum \limits_\Gamma \frac{1}{S_\Gamma} \int
 \frac{d^{LD}\ell}{(2\pi)^{LD}} \frac{c_\Gamma
   \tilde{n}_\Gamma}{d_\Gamma} ~~ \xrightarrow{(c_\Gamma \to n_\Gamma)}
@@ -448,6 +439,7 @@ the double-copy theory \be\label{DCconstruction}
 \frac{d^{LD}\ell}{(2\pi)^{LD}} \frac{n_\Gamma
   \tilde{n}_\Gamma}{d_\Gamma}.
 \end{equation}
+This is known as the double-copy construction \cite{BCJ,Bern:2010ue,BCJreview}.
 Importantly, the $\tilde{n}_\Gamma$ do not need to respect
 color-kinematics duality.  The prototypical example of the double-copy
 is that YM double copied with YM results in gravity where the gauge
