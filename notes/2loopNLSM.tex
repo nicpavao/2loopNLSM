@@ -670,7 +670,7 @@ zero.  However, since these graphs will not contribute to physical
 unitarity cuts, we take a different approach.  These graphs are
 allowed to have non-zero numerators but any Jacobi relations involving
 them are simply not imposed or solved.  See Refs.~\cite{Bern:2012uf,
-  Edison:2022jln} and \cref{BELref} for discussions of BELs in the context of
+  Edison:2022jln} and \cref{BELreg} for discussions of BELs in the context of
 color-kinematics duality.
 
 \begin{figure}
@@ -1686,11 +1686,13 @@ from the double-box
 \end{equation}
 After imposing this cut, we find that the original Jacobi relation,
 \cref{eq:TwoLoopJacobiOne}, can no longer be satisfied:
+\begin{eBox}
 \begin{equation}
    \NMCutC
   \Rightarrow
   \JacobiOneDoubleBox +  \JacobiOneCrossedBox + \JacobiOnePentaTriangle \neq 0 \,.
 \end{equation}
+\end{eBox}
 Thus we have identified the minimal failure state for a
 globally-color-dual two-loop Yang-Mills representation: locality,
 symmetry, and the kinematic Jacobi relations for just three diagrams
@@ -2165,7 +2167,7 @@ X(a,b)Q(b,a) = \frac{1}{2}s_{ab}
 \section{Regulating BEL integrals}\label{BELreg}
 At one-loop, weight counting tells us that the $n$-gon master numerator must have $n$ on-shell $Z$-particles. Unitarity requires that there are three distinct contributions from $Y\!Z$ theory -- the first from an off-shell $Y$-loop particle and then two more from different orientations of a $\bar{Z}Z$-loop.  Thus, $YZ$ theory gives us the following one-loop $n$-gon numerator:
 \begin{equation}
-N^{n\text{-gon},YZ}_{(12...n)} = (T^{1}T^{2}\cdots T^{n})+ (F^1F^2\cdots F^n)
+N^{n\text{-gon},YZ}_{(12...n)} = \langle T^{1}T^{2}\cdots T^{n}\rangle+ \rangle F^1F^2\cdots F^n\rangle
 \end{equation}
 where $(\,\cdots)$ indicates an internal contraction over the $YY$ and $\bar{Z}Z$ loops. Plugging in the Feynman rule of \cref{eq:FeynmanRuleYYZ} and \cref{eq:FeynmanRuleXZZ}, we can readily obtain expressions in terms of the internal loop factors $l_i$ and the external momenta $k_i$ (we define the $l_i$ loop momentum as that flowing into $k_i$ and out of $k_{i-1}$):
 \begin{equation}
