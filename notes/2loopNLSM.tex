@@ -1443,8 +1443,8 @@ result can be obtained through physical arguments.  $\mathcal{N}=4$
 SYM provides several hints for further conditions to impose on the
 ansatz.  For example, for maximally supersymmetric gauge theory it is
 possible to enforce the no triangle hypothesis, manifest loop power
-counting, and, for four-point and up to at least six loops, strip off a
-factor of $st \atree$ from the integrand \cite{FiveLoopN4,
+counting, and, for four-point and up to at least six loops, strip off
+a factor of $st \atree$ from the integrand \cite{FiveLoopN4,
   Bern:2012uf, Bern:2010fy, SuperSum, Carrasco:2021otn,
   JJHenrikReview, BRY, BDDPR, Neq44np}.  For the NLSM integrand it is
 desirable to make color-kinematics duality as manifest as possible.
@@ -1453,7 +1453,8 @@ since this at least manifests antisymmetry for the vertices involving
 external legs.  However, a more fruitful direction is to match onto
 the one known theory with pion power counting that manifests
 color-kinematics duality to all loop orders, namely,
-Zakharov-Mikhailov (ZM) theory \cite{Zakharov:1973pp, Cheung:2022mix}. ZM theory is governed by the Lagrangian
+Zakharov-Mikhailov (ZM) theory \cite{Zakharov:1973pp,
+  Cheung:2022mix}. ZM theory is governed by the Lagrangian
 \begin{equation}
 \label{eq:ZMLagrangian}
 \mathcal{L}^{\text{ZM}} = \frac{1}{2}(\partial \varphi)^2
@@ -1483,24 +1484,28 @@ configuration of right and left movers, such as $A[RRRR]$, one of the
 internal propagators is accidentally on-shell since $k_R^2=k_L^2=0$.
 
 \ace{Lets tighten up this paragraph a bit, especially the second half}
-It is tempting to try to match the pion four-point two-loop integrand to ZM
-on the cuts, but given that the cuts only probe the on-shell four-point
-amplitude, which is either subtle or vanishes for ZM, it is better to
-compare the off-shell numerators directly.  As local functions, the
-numerators never suffer from any of the subtleties of on-shell 2D
-kinematics.  Since the physical cuts are difficult to compare, ZM
-theory is being used here simply as a tool to eliminate generalized
-gauge freedom; ZM theory has the right power counting and kinematic
-structure in 2D to compare against.  Since ZM theory is only being
-used for the kinematical structure of its numerators, it is natural to
-introduce a proportionality constant $z$ between the NLSM and ZM
-numerators $n_\text{NLSM} \vert_{2D} = z ~ n_\text{ZM}$.  The
+It is tempting to try to match the pion four-point two-loop integrand
+to ZM on the cuts, but given that the cuts only probe the on-shell
+four-point amplitude, which is either subtle or vanishes for ZM, it is
+better to compare the off-shell numerators directly.  As local
+functions, the numerators never suffer from any of the subtleties of
+on-shell 2D kinematics.  Since the physical cuts are difficult to
+compare, ZM theory is being used here simply as a tool to eliminate
+generalized gauge freedom; ZM theory has the right power counting and
+kinematic structure in 2D to compare against.  Since ZM theory is only
+being used for the kinematical structure of its numerators, it is
+natural to introduce a proportionality constant $z$ between the NLSM
+and ZM numerators $n_\text{NLSM} \vert_{2D} = z ~ n_\text{ZM}$.  The
 parameter $z$, which would normally be fixed on cuts, effectively
 encodes the discrepancy between the coupling constants of the two
 theories.\footnote{Floating the proportionality parameter $z$ is also
   motivated because ZM is believed to be quantum mechanically
   different from NLSM even though they are dual classically in two
-  dimensions \cite{Nappi:1979ig}.}  This introduces an extra degree of
+  dimensions \cite{Nappi:1979ig}.  When the four-point
+  pion amplitude is normalized to $-k_1\cdot k_2$ and the ZM vertex is
+  normalized to $k_1^\mu \varepsilon_{\mu\nu}k_2^\nu$, the parameter
+  $z$ is fixed to $216/565$, which is clearly unrelated to the
+  difference in coupling constants.}  This introduces an extra degree of
 freedom into the problem.  Mechanically, the pion numerator is matched
 to ZM by first taking every possible assignment of right and left
 movers for the external particles and then restricting the pion
@@ -1520,11 +1525,7 @@ produced terms with up to $m+n=12$ powers of loop momenta.  When the
 pion numerator is forced to have the loop power counting structure in
 \cref{eq:ZMLoopPowCount} of ZM theory, the number of generalized gauge
 freedom parameters reduces to 58.  The pion numerator appearing in the
-ancillary files makes exactly this choice.\footnote{When the four-point
-  pion amplitude is normalized to $-k_1\cdot k_2$ and the ZM vertex is
-  normalized to $k_1^\mu \varepsilon_{\mu\nu}k_2^\nu$, the parameter
-  $z$ is fixed to $216/565$, which is clearly unrelated to the
-  difference in coupling constants.} \ace{Is this actually where we
+ancillary files makes exactly this choice. \ace{Is this actually where we
   want this particular footnote to appear?}
 
 \subsection{Double-copy verification}
