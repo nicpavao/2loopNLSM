@@ -522,19 +522,17 @@ $\mu$. The Feynman rules for this theory are simply:
 \ee
 We have introduced $P_V^{ab}$ and $P_W^{\mu\nu}$ projection operators
 to encode non-local kinetic structure that could in principle
-participate in the construction, as is the case for $DF^2$ theory \cite{Johansson:2017srf}. Generally, these quadratic dressings are simply delta functions, $P_V^{ab} = \delta^{ab}$, or flat space metrics, $P_W^{\mu\nu}=\eta^{\mu\nu}$. As written, the theory will be color dual if the off-shell cubic vertex is antisymmetric and satisfies the Jacobi identity. \jm{We're talking about kinematic numerators but using $V$s.  Should $V$ be swapped with $W$?  If we do swap them then we need to swap $a$ with $\mu$ too.}
-Specifically,
+participate in the construction, as is the case for $DF^2$ theory \cite{Johansson:2017srf}. Generally, these quadratic dressings are simply delta functions, $P_V^{ab} = \delta^{ab}$, or flat space metrics, $P_W^{\mu\nu}=\eta^{\mu\nu}$. As written, the theory will be color dual if the off-shell cubic vertex is antisymmetric and satisfies the Jacobi identity. Specifically,
 \begin{align}
-\text{anti-symmetry}:& \quad{}_{a_1}\langle V^{a_2} \rangle_{a_3}+\text{cyc}(23)=0
+\text{anti-symmetry}:& \quad{}_{\mu_1}\langle W^{\mu_2} \rangle_{\mu_3}+\text{cyc}(23)=0
 \\
-\text{Jacobi identity}:& \quad {}_{a_1}\langle V^{a_2} V^{a_3}\rangle_{a_4}+\text{cyc}(234)=0\label{jacID}
+\text{Jacobi identity}:& \quad {}_{\mu_1}\langle W^{\mu_2} W^{\mu_3}\rangle_{\mu_4}+\text{cyc}(234)=0\label{jacID}
 \end{align}
-where, using the Feynman rules of \cref{CKFrules}, the bracketed expression is the half-ladder numerator \jm{Color factor?} of the following diagram,
-\begin{align}
-{}_{a_1}\langle V^{a_2}V^{a_3}\cdots V^{a_{n-1}} \rangle_{a_n} &\equiv V^{a_1 a_2 b_1} V^{b_1 a_3 b_2} ...V^{b_{n-3} a_{n-1} a_n}\\
-&= C\left[\halfLadder\right]\,,
-\end{align}
-and likewise for the $W^{\mu \nu \rho}$ dressing.
+where, using the Feynman rules of \cref{CKFrules}, the bracketed expression is the half-ladder numerator of the following diagram,
+\be
+{}_{\mu_1}\langle W^{\mu_2}W^{\mu_3}\cdots W^{\mu_{n-1}} \rangle_{\mu_n} = N\left[\halfLadder\right]\,,
+\ee
+and likewise for the $V^{abc}$ dressing.
 Off-shell descriptions of
 color-dual theories are rare, and only a few examples are available in
 the literature \cite{Monteiro2011pc, Cheung:2016prv, Cheung:2021zvb,
