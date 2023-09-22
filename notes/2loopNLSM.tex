@@ -411,10 +411,10 @@ is often the algebra of volume preserving diffeomorphisms
   Cheung:2021zvb, Cheung:2022mix}.
 When the kinematic algebra is not known explicitly, the kinematic numerators are typically constructed from an ansatz.
 As an example, the result of such a calculation for four-point NLSM scattering at tree level produces the numerators
-\begin{align}
-&N_s = s(t-u)\\
-&N_t = t(u-s)\\
-&N_u = u(s-t)
+\begin{align}\label{pionNums}
+&N^{\text{NLSM}}_s = s(t-u)\\
+&N^{\text{NLSM}}_t = t(u-s)\\
+&N^{\text{NLSM}}_u = u(s-t)
 \end{align}
 where the coupling has been normalized away.  These numerators sum to
 zero by explicit calculation.  Note that the $s$-channel numerator
@@ -1072,7 +1072,7 @@ where we have introduced the shorthand notation, $\varepsilon_{(ij)\cdots (kl)} 
 \be
 \Delta^{(13)}_{(1234)} =\frac{(k_1 \varepsilon_2)(k_{3} \varepsilon_4)}{s_{12}}+\frac{(k_1 \varepsilon_4)(k_{3} \varepsilon_2)}{s_{14}}, \qquad \Delta^{(13)(24)}_{(1234)} =1, \qquad \Delta^{(12)(34)}_{(1234)} =\frac{s_{13}}{s_{12}}\,. 
 \ee
-We direct the reader to ref.~\cite{Pavao:2022kog} for further details. The expansion of \cref{eq:pureVecRABD} comes with the added advantage of making the unifying relations of \cite{Cheung:2017ems} absolutely manifest. By a simple mass-dimension argument \cite{ElvangHuangReview}, we know the tree-level cubic sector of Yang-Mills must be at
+We direct the reader to ref.~\cite{Pavao:2022kog} for further details. The expansion of \cref{eq:pureVecRABD} comes with the added advantage of making the transmutation relations of \cite{Cheung:2017ems} absolutely manifest. By a simple mass-dimension argument \cite{ElvangHuangReview}, we know the tree-level cubic sector of Yang-Mills must be at
 $\mathcal{O}((\varepsilon\varepsilon)^1)$,
 \begin{equation}
 A_{(\text{tree})}^{\text{cubic-YM}} = \sum_{\rho \in S^{2|1}_{\sigma}}\varepsilon_{(\rho)} \Delta_{(\sigma)}^{(\rho)}\, ,
@@ -1160,7 +1160,7 @@ and similarly so at one-loop
 \begin{equation}
 A(A_1,...,A_n)_{\text{1-loop}} = \Delta^{(\varnothing)}_{\text{1-loop}} \sim \sum_a\,[ (\varepsilon k)^{n} (kk)^{-n}]_a
 \end{equation}
-where $[\,\cdots]_a$ are terms with appropriate powers of $(\varepsilon k)$ and $(kk)$. \jm{Should we mention transmutation around here?} As we describe in detail in \cref{sec:CKLagrangians}, to recover NLSM at one-loop we need to extract the $D$-dependent part
+where $[\,\cdots]_a$ are terms with appropriate powers of $(\varepsilon k)$ and $(kk)$. As we describe in detail in \cref{sec:CKLagrangians}, to recover NLSM at one-loop we need to extract the $D$-dependent part
 that corresponds to an internal $\bar{Y}Y$-loop from extra-dimensional
 scalars
 \begin{eBox}
@@ -1199,8 +1199,7 @@ yield precisely the 4D SDYM vertex, up to an unphysical phase
   \mathcal{X}(k^+_1,k^+_2) = \frac{\langle 12\rangle^3}{ \langle23\rangle \langle 31\rangle} \sim \langle 12\rangle = k_{1,u} k_{2,w}-k_{1,w} k_{2,u}\, ,
  \end{equation}
 where $\mathcal{X}(k^+_1,k^+_2) = A^{\text{YM}}(1^+,2^+,3^-)$ in light cone gauge.
-In the second equality, momentum conservation has been applied to redefine the spinor bracket, $\langle 12\rangle \rightarrow X(p,k)$, given in \cref{Conventions}.
-\jm{Did I say this alright?}
+In the second equality, momentum conservation has been applied to the redefined the spinor bracket, $\langle 12\rangle \rightarrow X(k_1,k_2)$, whose definition is given in \cref{Conventions}.
 Of course, the form of \cref{DdimSDYM} has the advantage of
 permitting a $D$-dimensional construction of the one-loop
 integrand. As an example, the four-point numerator is
@@ -1428,7 +1427,6 @@ on the cuts, but given that the cuts only probe the on-shell four-point
 amplitude, which is either subtle or vanishes for ZM, it is better to
 compare the off-shell numerators directly.
 The numerators of the two basis graphs are
-\jm{I think I can simplify these numerators a little.  I'll work on it.  I like having them here to break up the text block a little.}
 \be
 \ZMBasisDoubleBox =\left[\begin{split}
   \langle (l_1+k_4) l_1 \rangle\langle l_1l_2 \rangle\langle l_2 (l_2+k_1) \rangle  \langle (l_2+k_1)(l_2+k_1+k_2) \rangle 
@@ -1537,10 +1535,17 @@ in \cref{fig:ym-spanning}, but we choose to work within the framework
 of the method of maximal cuts \cite{Bern:2007ct} in
 order to identify the simplest cut that is in tension with the kinematic
 Jacobi relations.
-Maximal cuts and symmetries must be imposed on the 14 non-pathological
+Maximal cuts and symmetries are then imposed on the 14 non-pathological
 cubic diagrams shown above in \cref{fig:MaxCuts}.
-Doing so, we are left with AA \jm{We need this number from Alex} total parameters in the unrestricted
-ansatz.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Doing so, we are left with AA \jm{We need this number from Alex} total parameters in the unrestricted
+%%%ansatz.
+
+%Return to this is give exactly numbers in place of AA!!!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}
   \begin{center}
@@ -1569,8 +1574,8 @@ ansatz.
 Proceeding to the next-to-maximal cuts, we continue to avoid
 pathological diagrams including the newly-appearing type discussed in
 \cref{eq:other-path}.  After discarding these types of cuts as well as
-those involving cuts of external Mandelstams, there are 8 cut
-topologies (see \cref{fig:ym-nmc}). \jm{Why did we delete the disclaimer about dangling trees?}  Seven of these next-to-maximal
+those involving cuts of external Mandelstams, there are 8 one-particle-irreducible cut
+topologies (see \cref{fig:ym-nmc}). Seven of these next-to-maximal
 cuts are consistent with the kinematic Jacobi relations and
 symmetries.  Critically, the ``bowtie'' cut,
 \begin{equation*}
@@ -1700,21 +1705,19 @@ Moreover, by abandoning traditional notions of off-shell
 locality, we incidentally have gained enough functional freedom to massage the
 color-dual numerators into a form that is manifestly gauge invariant
 for all particles. As an organizational principle, pulling out overall
-gauge-invariant factors comes with the added advantage \jm{possibility of?} of simplifying
+gauge-invariant factors comes with the added advantage of possibly simplifying
 a loop-level construction of color-dual numerators for Yang-Mills.
 
 \subsection{Future Directions}\label{sec:Discussion}
-With an eye towards generalizing the non-local construction above to future multi-loop studies, we note that the four-point half-ladder \jm{Of YM?} secretly makes use of the color-dual structure of NLSM. At four-point, we can construct permutation invariants from the single BCJ basis amplitude of both NLSM and pure YM theory as follows
+With an eye towards generalizing the non-local construction above to future multi-loop studies, we note that the four-point half-ladder of Yang-Mills secretly makes use of the color-dual structure of NLSM. At four-point, we can construct permutation invariants from the single BCJ basis amplitude of both NLSM and pure YM theory as follows
 \be
 s t A^{\text{YM}}_{(s,t)} = t_8F^4 \qquad s t A^{\text{NLSM}}_{(s,t)} = s t u\, .
 \ee
-\jm{$s$ vs $s_{12}$ in this section?  We need $N^{\text{NLSM}}$ not $A^{\text{NLSM}}$?}
-
 Using this, we can redefine the non-local numerators of \cref{nonLocalNum} so that the vector structure of YM is captured in a permutation invariant prefactor and the kinematic Jacobi identity is entirely due to the NLSM numerators
 \be
-N_{(12|34)}^{\text{YM}} \equiv t_8F^4 \,\frac{N_{(12|34)}^{\text{NLSM}}}{s_{12}s_{23}s_{13}} \, .
+N_{(12|34)}^{\text{YM}} \equiv t_8F^4 \,\frac{N_{(12|34)}^{\text{NLSM}}}{s t u } \, .
 \ee
-One advantage of this construction is that it reduces some of the $D$-dimensional complexity of vector theories that arises due to the mixing between external polarization and
+where four-point pion numerator, $N_s^{\text{NLSM}}$, is given in \cref{pionNums}. One advantage of this construction is that it reduces some of the $D$-dimensional complexity of vector theories that arises due to the mixing between external polarization and
 internal loop momenta. But maybe more importantly, it puts all the heavy lifting of functional Jacobi relations on the scalar kinematic numerator, $N_{(12|34)}^{\text{NLSM}}$. Thus, rather
 than building an ansatz from the irreducible scalar products of
 \cref{eq:ym-basis}, one might instead consider the following construction
@@ -1731,7 +1734,7 @@ The authors would like to thank ... for insightful conversations,
 related collaboration, and encouragement throughout the completion of
 this work. This work was supported by the DOE under contract
 DE-SC0015910 and by the Alfred P. Sloan
-Foundation. N.H.P. \jm{Do we all need to do this?} additionally acknowledges the Northwestern
+Foundation. N.H.P. additionally acknowledges the Northwestern
 University Amplitudes and Insight group, the Department of Physics and
 Astronomy, and Weinberg College for their generous support.  Feynman
 diagrams were typeset using TikZ-Feynman \cite{Ellis:2016jkw}.
@@ -1855,19 +1858,19 @@ The Feynman rules for this Lagrangian are simply
 \begin{equation}
 \Acubic{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{} = i (\varepsilon_3 p_2)\qquad \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} =i(\varepsilon_1 p_{3})(\varepsilon_2\bar{\varepsilon}_3) - i(\varepsilon_2 p_{3})(\varepsilon_1\bar{\varepsilon}_3) \, .
 \end{equation}
-Note that the pure vector vertex on the left is \textit{exactly} what was obtain from semi-abelian YM in \cref{eq:semiYM}. Using this, we review of the construction of NLSM numerators at tree-level. In this construction, we can define generators of the kinematic algebra as follows
+Note that the pure vector vertex on the right is \textit{exactly} what was obtain from semi-abelian YM in \cref{eq:semiYM}. We now review of the construction of NLSM numerators at tree-level from $YZ$-theory. In this construction, we can define $D$-dimensional generators of the kinematic algebra as follows,
 \be\label{eq:FeynmanRuleYYZ}
-T^a_{ij}= i \varepsilon_a(p_i-p_j)
+T^a_{ij}= i \varepsilon_a(p_i-p_j)\,,
 \end{equation}
-where momentum conservation requires
+where momentum conservation requires\,,
 \begin{equation}
 p_a + p_i + p_j =0\, .
 \end{equation}
 The kinematic half-ladder diagrams then take on the following concise form
 \begin{equation}
-n^{\text{NLSM}}_{(i|a_1a_2...a_n|j)} = (T^{a_1}T^{a_2}\cdots T^{a_n})_{ij}\, .
+n^{\text{NLSM}}_{(i|a_1a_2...a_n|j)} = {}_i\langle T^{a_1}T^{a_2}\cdots T^{a_n}\rangle_j\, .
 \end{equation}
-Since there are no pole cancelling factors of $s_{ij} = (p_i+p_j)^2$, this definition of the \jm{kinematic?} chiral current algebra is manifestly cubic. Thus, the kinematic structure constants defined in terms of these generators are invariant under generalized gauge freedom. \jm{I'm a little confused.  Why are we mentioning this?} They can be defined implicitly through
+Since there are no pole cancelling factors of $s_{ij} = (p_i+p_j)^2$, this definition of the kinematic algebra is manifestly cubic. Thus, the kinematic structure constants defined in terms of these generators are invariant under generalized gauge freedom because there are no quartic vertices. They can be defined implicitly through
 \begin{equation}
 [T^a,T^b]_{ij}= F^{a}_{\,b|c}T^c_{ij}\, .
 \end{equation}
