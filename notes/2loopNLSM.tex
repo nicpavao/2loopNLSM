@@ -1215,7 +1215,7 @@ integrand. Below we provide a four-point example:
 \end{equation}
 where $\ell_i = \ell-(k_1+k_2+\cdots+ k_i)$ and the bracket $\langle \,\cdots\rangle$ indicates that we have applied the gauge fixed state projector, $\sum {\varepsilon^\mu_{(+\ell_i)}\varepsilon^\nu_{(-\ell_i)}}=\eta^{\mu\nu}$ on all internal polarizations.
 In general, the $n$-gon diagram would be,
-\begin{equation}
+\begin{equation}\label{SDYMnGon}
 N^{\text{SDYM}}_{n\text{-gon}}= \nGonVector = g_{\text{YM}}^n \langle \mathcal{X}(k_1,\ell_1)\mathcal{X}(k_2,\ell_2)\cdots \mathcal{X}(k_n,\ell_n) \rangle
 \end{equation}
 Due to the state-sum of internal loop factors,
@@ -1232,7 +1232,7 @@ This integrand numerator with internal scalar loop is precisely what
 one would obtain from the Feynman rules of $YZ$-theory, absent the $\bar{Z}Z$
 internal vector loop. For more background, we refer the reader to
 \cref{sec:CKLagrangians}. When plugging on the on-shell states of $YZ$-theory, we thus obtain the following expression for the NLSM one-loop $n$-gon numerator:
-\begin{equation}
+\begin{equation}\label{NLSMnGon}
 N^{\text{NLSM}}_{n\text{-gon}}=\left[\partial_D  N^{\text{SDYM}}_{n\text{-gon}}\right]^{\epsilon \rightarrow k}=\nGonScalar =  f_\pi^{-n} [12][23]\cdots [n1]
 \end{equation}
 Where we have define the antisymmetric kinematic variable,
@@ -1256,7 +1256,7 @@ In order to produce non-vanishing interactions, we would need to
 reintroduce $D$-dimensional vertices from the diagonal group of
 $G_L\times G_R$ that have the wrong weight. Doing so will necessarily permit internal
 contractions of $\bar{A}_\mu A^\mu$,
-\begin{equation}
+\begin{equation}\label{2loopTension}
 \mathcal{A}^{\text{YM}}_{\text{2-loop}}(A_\mu,A_\mu,A_\mu,A_\mu)=\doubleBoxObstructionA +\doubleBoxObstructionB+\cdots 
 \end{equation}
 where we used white dots to indicate interaction vertices of
@@ -1643,8 +1643,9 @@ are incompatible with the ``bowtie'' cut.
 
 
 \section{Conclusions and Outlook}\label{conclusions}
-In summary, we have found that there is a tension between color-kinematics duality and an off-shell local construction of the two-loop four-point of the pure Yang-Mills integrand in $D$-dimensions.
-At tree level, we demonstrated that the duality can be
+
+In summary, we have found that there is a tension between color-kinematics duality and an off-shell local construction of the two-loop four-point pure Yang-Mills integrand in $D$-dimensions.
+At tree level, we found that the duality can be
 manifested by breaking manifest Bose symmetry at the Lagrangian level,
 either by explicitly picking different gluon states (as in SDYM) or by
 picking states that only restore Bose symmetry in the final amplitude
@@ -1655,32 +1656,30 @@ two gauge fields $A_\mu$ and $\bar{A}_\mu$.
 
 In addition to the natural tree-level construction, we found that kinetic mixing
 between the two gauge fields permits globally color-dual one-loop
-integrands, but special care must be taken so that the integrands
-produced from semi-abelian YM correspond to SDYM or NLSM.  Due to the
-kinetic mixing that stems from the broken Bose symmetry, it is
-impossible to construct a two-loop integrand for semi-abelian YM theory,
-that is, the theory is one-loop exact.  Obtaining a globally color-dual
+integrands, and after plugging in suitable on-shell states, the integrands
+produced by semi-abelian YM correspond are those of SDYM in \cref{SDYMnGon} 
+and NLSM in \cref{NLSMnGon}.  Due to the
+kinetic mixing that stems from the broken Bose symmetry, \cref{2loopTension} shows why it is
+impossible to construct a two-loop integrand for semi-abelian YM theory. In \cref{2loopBoot}, we overcame this obstruction by successfully constructing two-loop NLSM numerators with an ansatz based bootstrap. However, we found that the same approach fails for two-loop pure Yang-Mills, and pin-pointed the failure point to a particular unitarity cut captured by \cref{chefsKiss}. Thus, obtaining a globally color-dual
 integrand beyond one-loop then requires sacrificing more than just Bose
-symmetry and in this paper we have argued that off-shell locality must
-be abandoned. \footnote{An example of this can already be found in the literature, where Locality is relaxed in \cite{Mogull:2015adi} in
-  order to obtain color-dual two-loop integrands with on-shell 4D states.} 
+symmetry, and in this paper we have argued that off-shell locality must
+be abandoned for color-dual constructions of multi-loop Yang-Mills. \footnote{An example of this can already be found in the literature, where Locality is relaxed in \cite{Mogull:2015adi} in
+  order to obtain color-dual two-loop integrands with on-shell 4D states.} To expand the available function space, we propose that one should consider including rational functions of kinematics, rather than just polynomials.
 
 We concede building loop-level numerators from rational functions of the kinematics
 is rather unnatural from the perspective of point-like quantum field
-theories. After all, operators that produce rational functions are typically non-local in their construction. The archetypal example of non-local quantum operators are string vertex operators with $\alpha'$ corrections. These operators promote local tree-level amplitudes to stringy extended objects by integrating over the open string world-sheet:
+theories. After all, operators that produce rational functions are typically non-local in their construction. The archetypal example of non-local quantum operators are string vertex operators with $\alpha'$ corrections. These operators promote local tree-level amplitudes to stringy extended objects by integrating over disc integrals of the open string worldsheet:
 \be
-\mathcal{A}^{\text{YM}} \stackrel{\alpha'}{\longrightarrow} \mathcal{A}^{\text{OS}}t_8 F^4 \int_0^1 dx \,(1-x)^{\alpha' s_{12}-1} x^{\alpha' s_{12}-1}
+\mathcal{A}^{\text{YM}} \stackrel{\alpha'}{\longrightarrow} \mathcal{A}^{\text{OS}}\supset t_8 F^4 \int_0^1 dx \,\frac{ x^{\alpha' s_{12}}(1-x)^{\alpha' s_{23}}}{x(1-x)(s_{12}+s_{23})}
 \ee
-The resulting Veneziano factor of Gamma functions produces rational functions of kinematics, while preserving the color-dual structure at in the color-ordering of the Park-Taylor factor in the denominator. While introducing a string world sheet is a jump from what we have found in this work, our funding certainly suggest that we must do \textit{something} to relax the constraint of
-\textit{off-shell locality}, and realize locality only in the limit of
-\textit{on-shell} kinematics. This could be acheived by either modifying the kinetic term or potentially something more exotic. Below we provide an overview of what one
-might expect for such a construction, and provide some simple examples
-at tree-level that manifest this structure.
+The resulting Veneziano factor of Gamma functions produces rational functions of kinematics, while preserving the color-dual structure color and kinematic factors \cite{Carrasco:2019yyn}. While introducing some type of worldsheet formulation of color-dual numerators might seem unjustified given the results of this work, our findings certainly suggest that we must do \textit{something} to relax the constraint of off-shell locality, and realize locality only in the limit of
+\textit{on-shell} kinematics. This could be acheived by either modifying the kinetic term or potentially something new and more exotic. Below we provide some simple examples
+at tree-level of what one might consider for implementing such a construction.
 
 
 \subsection{Non-local construction of scattering amplitudes}
 \label{nonLocalScattering}
-As an exemplar of an off-shell non-local construction, consider the simple four-point example of a color-dual
+As an exemplar of an off-shell non-local structure, consider the simple four-point example of a color-dual
 representation of Yang-Mills theory. We can define a functional numerator, $N_{(12|34)}^{\text{YM}}$, as follows, 
 \begin{equation}
 N_{(12|34)}^{\text{YM}} = \frac{t_8F^4}{3} \frac{s_{13}-s_{12}}{s_{23}{s_{13}}}
@@ -1729,16 +1728,16 @@ Using this, we can redefine our non-local numerator of \cref{nonLocalNum} in a f
 \be
 N_{(12|34)}^{\text{YM}} \equiv t_8F^4 \,\frac{N_{(12|34)}^{\text{NLSM}}}{s_{12}s_{23}s_{13}} 
 \ee
-One advantage of this construction is that reduces some of the $D$-dimensional complexity vector theories that arises due to the mixing between external polarization and
-internal loop momenta. But maybe more importantly, it puts all the heavy lifting of functional jacobi relations on the scalar kinematic numerator, $N_{(12|34)}^{\text{NLSM}}$. Thus, rather
+One advantage of this construction is that it reduces some of the $D$-dimensional complexity of vector theories that arises due to the mixing between external polarization and
+internal loop momenta. But maybe more importantly, it puts all the heavy lifting of functional Jacobi relations on the scalar kinematic numerator, $N_{(12|34)}^{\text{NLSM}}$. Thus, rather
 than building an ansatz from the irreducible scalar products of
 \cref{eq:ym-basis}, one might instead consider the following construction
 \begin{equation}
 N^{\text{YM}}_{m,L} = \sum_i \mathcal{O}_i \mathcal{R}^{(i)}_{m,L}
 \end{equation}
-where $\mathcal{O}_i$ are the gauge invariant tensor basis elements of
+where $\mathcal{O}_i$ are the on-shell gauge invariant tensor basis elements of
 \cite{Bern:2017tuc,Carrasco:2019yyn}, and $ \mathcal{R}^{(i)}_{m,L}$ are
-rational functions of irreducible scalar products of \cref{eq:scalar-basis}. It would be interesting if a similar construction as our toy tree-level example could be uplifted to two-loop using the globally color-dual NLSM integrand that we have computed in this work. We see this as a natural future direction worth investigating that is made possible given the results of this work.
+rational functions of irreducible scalar products of \cref{eq:scalar-basis}. It would be interesting if a similar construction as our tree-level example could be uplifted to two-loop using the globally color-dual NLSM integrand that we have computed in this work. We see this as a natural future direction worth investigating that is made possible given our findings.
 
 %\paragraph{Acknowledgments}
 \subsection*{Acknowledgments}
