@@ -1062,7 +1062,7 @@ and in arbitrary spacetime dimensions
 {}_1\langle V^{2}_{\text{YM}}V^{3}_{\text{YM}}\rangle_4\big|^{(\varepsilon\varepsilon)^1}+\text{cyc}(234) =0\,.
 \end{equation}
 This restriction to the $(\varepsilon\varepsilon)^1$ cubic sector of Yang-Mills is closely related to the MHV decomposition of color-dual numerators \cite{TasiLance,ElvangHuangReview,Chen:2019ywi,Chen:2021chy}.
-In the MHV sector it is possible to choose the reference vectors so that all dot products of polarization vectors vanish, $(\varepsilon\varepsilon) \rightarrow 0$, except those involving one of the positive helicity polarizations, $\varepsilon^+_1 \varepsilon^-_i \neq 0$.
+In the MHV sector it is possible to choose the reference vectors so that all dot products of polarization vectors vanish, $(\varepsilon\varepsilon) \rightarrow 0$, except those involving one of the positive helicity polarizations, $(\varepsilon^+_1 \varepsilon^-_i )\neq 0$.
 We describe this in detail in \cref{Conventions}.
 By focusing on $(\varepsilon\varepsilon)$ structure rather than specific 4D helicity states, we will be able to construct dimension agnostic color dual integrands at one-loop.
 
@@ -1099,7 +1099,7 @@ resulting amplitudes with manifestly color-dual Feynman rules are
 equivalent to both SDYM and NLSM through one-loop.
 
 
-\subsection{Semi-abelian Yang-Mills theory}\label{semiYM}
+\subsection{semi-abelian Yang-Mills theory}\label{semiYM}
 As we argued above, if we include factors of
 $(\varepsilon\varepsilon)^{n\geq 1}$ at tree-level, then we need to
 keep the Yang-Mills four-point contact for color-kinematics duality to
@@ -1134,7 +1134,7 @@ sources on-shell $A_\mu$ currents. Indeed, as we describe in
 \cref{sec:CKLagrangians}, semi-abelian Yang-Mills theory is at the
 heart of $YZ$-theory \cite{Cheung:2016prv}, $J$-theory
 \cite{Cheung:2020djz,Cheung:2021zvb}, and self-dual Yang-Mills
-\cite{Monteiro2011pc}.  Specifically, semi-Abelian YM is simply a
+\cite{Monteiro2011pc}.  Specifically, semi-abelian YM is simply a
 clever reinterpretation of the Lagrangian obtained by integrating an
 auxiliary field into the $J$-theory equations of motion.  The Feynman
 rule for the cubic vertex is
@@ -1156,19 +1156,13 @@ sector of semi-abelian Yang-Mills from the full theory of \cref{eq:ym-lag} by se
 $YZ$-theory \cite{Cheung:2016prv}. Indeed, semi-YM is just the following blocks
 in the expansion of Yang-Mills given in Ref.~\cite{Pavao:2022kog}
 \begin{equation}
-A(...,\bar{A}_k,...)_{\text{tree}} = \sum_{j\neq k}\Delta^{(jk)}_{\text{tree}}
+A(A_1,...,\bar{A}_i,...,A_n)_{\text{tree}} = \sum_{i\neq j} (\varepsilon_i \varepsilon_j) \Delta^{(ij)}_{\text{tree}} \sim \sum_{i\neq j} (\varepsilon_i \varepsilon_j)  \sum_a \,[(\varepsilon k)^{n-2} (kk)^{3-n}]_a\,,
 \end{equation}
 and similarly so at one-loop
 \begin{equation}
-A(...)_{\text{1-loop}} = \Delta^{(\varnothing)}_{\text{1-loop}}\, .
+A(A_1,...,A_n)_{\text{1-loop}} = \Delta^{(\varnothing)}_{\text{1-loop}} \sim \sum_a\,[ (\varepsilon k)^{n} (kk)^{-n}]_a\, .
 \end{equation}
-\jm{For the tree amplitude how about we use something like}
-\begin{equation}
-A(1,2...,i,...n)_{\text{tree}} = \sum_{i\neq j}\Delta^{(ij)}_{\text{tree}} \sim \sum (\varepsilon_i \varepsilon) (\varepsilon k)^{n-2} (kk)^{3-n}
-\end{equation}
-where $i$ is the $\bar{A}_\mu$ particle.
-\jm{And something similar for 1-loop?  This is one of the more important results of the paper so I'd like to add some schematic version of the $\Delta$s to make this paragraph as self-contained and clear as possible even if it introduces some redundancy.}
-To recover NLSM at one-loop, we need to extract the $D$-dependent part
+where $[\,\cdots]_a$ are terms with appropriate powers of $(\varepsilon k)$ and $(kk)$. As we describe in detail in \cref{sec:CKLagrangians}, to recover NLSM at one-loop we need to extract the $D$-dependent part
 that corresponds to an internal $\bar{Y}Y$-loop from extra-dimensional
 scalars
 \begin{eBox}
@@ -1184,12 +1178,11 @@ produce NLSM amplitudes. Thus, the unitarity cuts of $J$ theory at
 one-loop will not produce NLSM amplitudes. However, the internal
 $YY$-loop is a valid forward limit for producing NLSM amplitudes,
 since as constructed $YZ$-theory matches to NLSM for off-shell
-Y-particles. We provide explicit expressions for these one-loop amplitudes in the next section.
+Y-particles. We now provide explicit expressions for these one-loop amplitudes in the next section.
 
 \subsection{One-loop color-dual integrands}\label{oneLoopCK}
-\jm{Would it be alright to omit the coupling constants in this section?  I think we've done so elsewhere.}
 Our first application of this theory for color-dual construction at
-loop level is for self-dual Yang-Mills (SDYM). At tree-level, the
+loop level is for self-dual Yang-Mills (SDYM). As we have done throughout the text, we will set all coupling constants to unity. At tree-level, the
 off-shell cubic vertices can be written in terms of light cone
 coordinates \cite{Monteiro2011pc}:
 \begin{equation}
@@ -1211,12 +1204,12 @@ where $\mathcal{X}(k^+_1,k^+_2) = A^{\text{YM}}(1^+,2^+,3^-)$ in light cone gaug
 permitting a $D$-dimensional construction of the one-loop
 integrand. Below we provide a four-point example:
 \begin{equation}
-\simplebox = g_{\text{YM}}^4 \langle \mathcal{X}(k_1,\ell_1)\mathcal{X}(k_2,\ell_2)\mathcal{X}(k_3,\ell_3)\mathcal{X}(k_4,\ell_4)\rangle
+\simplebox = \langle \mathcal{X}(k_1,\ell_1)\mathcal{X}(k_2,\ell_2)\mathcal{X}(k_3,\ell_3)\mathcal{X}(k_4,\ell_4)\rangle
 \end{equation}
 where $\ell_i = \ell-(k_1+k_2+\cdots+ k_i)$ and the bracket $\langle \,\cdots\rangle$ indicates that we have applied the gauge fixed state projector, $\sum {\varepsilon^\mu_{(+\ell_i)}\varepsilon^\nu_{(-\ell_i)}}=\eta^{\mu\nu}$ on all internal polarizations.
 In general, the $n$-gon diagram would be,
 \begin{equation}\label{SDYMnGon}
-N^{\text{SDYM}}_{n\text{-gon}}= \nGonVector = g_{\text{YM}}^n \langle \mathcal{X}(k_1,\ell_1)\mathcal{X}(k_2,\ell_2)\cdots \mathcal{X}(k_n,\ell_n) \rangle
+N^{\text{SDYM}}_{n\text{-gon}}= \nGonVector = \langle \mathcal{X}(k_1,\ell_1)\mathcal{X}(k_2,\ell_2)\cdots \mathcal{X}(k_n,\ell_n) \rangle
 \end{equation}
 Due to the state-sum of internal loop factors,
 $\sum {\varepsilon_{(+\ell)}\varepsilon_{(-\ell)}}\sim D$, the integrand above
@@ -1226,14 +1219,14 @@ derivative\footnote{Another way to understand this derivative is that
 the integrand needed for all-plus one-loop amplitudes with an internal
 scalar:
 \begin{equation}
-\partial_D N^{\text{SDYM}}_{n\text{-gon}}=\nGonScalar  = (2 g_{\text{YM}})^n (\ell_1 \varepsilon_1)(\ell_2 \varepsilon_2)\cdots (\ell_n \varepsilon_n)
+\partial_D N^{\text{SDYM}}_{n\text{-gon}}=\nGonScalar  = 2^n (\ell_1 \varepsilon_1)(\ell_2 \varepsilon_2)\cdots (\ell_n \varepsilon_n)
 \end{equation}
 This integrand numerator with internal scalar loop is precisely what
 one would obtain from the Feynman rules of $YZ$-theory, absent the $\bar{Z}Z$
 internal vector loop. For more background, we refer the reader to
 \cref{sec:CKLagrangians}. When plugging on the on-shell states of $YZ$-theory, we thus obtain the following expression for the NLSM one-loop $n$-gon numerator:
 \begin{equation}\label{NLSMnGon}
-N^{\text{NLSM}}_{n\text{-gon}}=\left[\partial_D  N^{\text{SDYM}}_{n\text{-gon}}\right]^{\epsilon \rightarrow k}=\nGonScalar =  f_\pi^{-n} [12][23]\cdots [n1]
+N^{\text{NLSM}}_{n\text{-gon}}=\left[\partial_D  N^{\text{SDYM}}_{n\text{-gon}}\right]^{\epsilon \rightarrow k}=\nGonScalar =   [12][23]\cdots [n1]
 \end{equation}
 Where we have define the antisymmetric kinematic variable,
 $[ij] = \ell_i^2 - \ell_j^2$, since when plugging on longitudinal
@@ -1662,9 +1655,9 @@ and NLSM in \cref{NLSMnGon}.  Due to the
 kinetic mixing that stems from the broken Bose symmetry, \cref{2loopTension} shows why it is
 impossible to construct a two-loop integrand for semi-abelian YM theory. In \cref{2loopBoot}, we overcame this obstruction by successfully constructing two-loop NLSM numerators with an ansatz based bootstrap. However, we found that the same approach fails for two-loop pure Yang-Mills, and pin-pointed the failure point to a particular unitarity cut captured by \cref{chefsKiss}. Thus, obtaining a globally color-dual
 integrand beyond one-loop then requires sacrificing more than just Bose
-symmetry, and in this paper we have argued that off-shell locality must
-be abandoned for color-dual constructions of multi-loop Yang-Mills. \footnote{An example of this can already be found in the literature, where Locality is relaxed in \cite{Mogull:2015adi} in
-  order to obtain color-dual two-loop integrands with on-shell 4D states.} To expand the available function space, we propose that one should consider including rational functions of kinematics, rather than just polynomials.
+symmetry, and in this paper we have argued that off-shell locality\footnote{An example of this can already be found in the literature, where locality is relaxed in \cite{Mogull:2015adi} in
+  order to obtain color-dual two-loop integrands with on-shell 4D states.} must
+be abandoned for color-dual constructions of multi-loop Yang-Mills. To expand the available function space, we propose that one should consider including rational functions of kinematics, rather than just polynomials.
 
 We concede building loop-level numerators from rational functions of the kinematics
 is rather unnatural from the perspective of point-like quantum field
