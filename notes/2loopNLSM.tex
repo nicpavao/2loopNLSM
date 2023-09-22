@@ -1924,10 +1924,10 @@ Similarly, we find the following ordered amplitude when plugging in these numera
 A^{\bar{Z}Z}_{(s,t)} = \frac{n^{\bar{Z}Z}_s}{s_{12}}+\frac{ n^{\bar{Z}Z}_t }{s_{14}} = -s_{13}(p_2+p_3+p_4)^{\mu_1} = s_{13} \,p_1^{\mu_1}
 \end{equation}
 Plugging in the on-shell polarizatoin of the conjugate field in \cref{eq:onShellZStates} produces precisely the desired result of \cref{eq:NLSMYZ4point}. Indeed, this construction is valid to all orders at tree-level. One can see this by considering the only two possible factorization channels the contribute the each of these amplitudes, the $YY$ cut and the $\bar{Z}Z$ cut:
-\begin{align}
+\begin{align} \label{YZCut1}
 A(...,Y,...,Y,...) &\rightarrow A(...,Y,...,Y)A(Y,...,Y,...)
 \\
-&\rightarrow A(...,Y,...,Y,...,Z)A(\bar{Z},...)
+&\rightarrow A(...,Y,...,Y,...,Z)A(\bar{Z},...) \label{YZCut2}
 \end{align}
 Both factorization channels are valid descriptions of NLSM amplitudes when plugging in the $Z$ and $\bar{Z}$ on-shell states. As constructed, the $Y$ and $\bar{Z}$ particles may be off-shell, while the $Z$ particles must be placed on shell, $\varepsilon^Z_\mu(k)\rightarrow k_\mu$ in order for these numerators to produce NLSM ordered amplitudes. Given this special property of $YZ$-theory (namely that the $Z\bar{Z}$ and $YY$ constrctions are equivalent), the $Y$ particle need not be considered when constructing NLSM amplitudes on shell. This is essentially what $J$-theory does, as we will show below.
 
@@ -2105,45 +2105,38 @@ first from an off-shell $Y$-loop particle and then two more from
 different orientations of a $\bar{Z}Z$-loop.  Thus, $YZ$ theory gives
 us the following one-loop $n$-gon numerator:
 \begin{equation}
-N^{n\text{-gon},YZ}_{(12...n)} = \langle T^{1}T^{2}\cdots T^{n}\rangle+ \rangle F^1F^2\cdots F^n\rangle
+N^{n\text{-gon},YZ}_{(12...n)} = \langle T^{1}T^{2}\cdots T^{n}\rangle+ \langle F^1F^2\cdots F^n\rangle
 \end{equation}
-where $(\,\cdots)$ indicates an internal contraction over the $YY$ and
+where $\langle\,\cdots\rangle$ indicates an internal contraction over the $YY$ and
 $\bar{Z}Z$ loops. Plugging in the Feynman rule of
 \cref{eq:FeynmanRuleYYZ} and \cref{eq:FeynmanRuleXZZ}, we can readily
 obtain expressions in terms of the internal loop factors $\ell_i$ and the
 external momenta $k_i$ (we define the $\ell_i$ loop momentum as that
 flowing into $k_i$ and out of $k_{i-1}$):
 \begin{equation}
-N_{(12...n)}^{\text{NLSM}}=(T^{1}T^{2}\cdots T^{n}) = (\ell_1 k_1)(\ell_2 k_2) \cdots (\ell_n k_n)
+N_{(12...n)}^{\text{NLSM}}=\langle T^{1}T^{2}\cdots T^{n}\rangle =2^n (\ell_1 k_1)(\ell_2 k_2) \cdots (\ell_n k_n)
 \end{equation}
-and similarly so for the internal vector contribution:
+which is what we found in the text. Similarly, there is a pure vector contribution that is identical to the semi-abelian YM $n$-gon numerator that we constructed in \cref{SDYMnGon} after projecting external states along longitudinal modes $\varepsilon \rightarrow k$:
 \begin{equation}
- (F^1F^2\cdots F^n) = D (\ell_1 k_1)(\ell_2 k_2) \cdots (\ell_n k_n) + \mathcal{O}(D^0)
+ \langle F^1F^2\cdots F^n \rangle= D (\ell_1 k_1)(\ell_2 k_2) \cdots (\ell_n k_n) + \mathcal{O}(D^0)
 \end{equation}
 The dimension dependent factor essentially counts that number of
 internal vector states. While this $n$-gon is manifestly color-dual,
 it does not produce the right cuts for NLSM. However, the scalar
 contribution, that comes dressed with an overall factor $D$
 \textit{does} manifest the duality globally, and satisfies all the
-desired pion cuts. In order for the Feynman rules for $Y\!Z$ theory
-compute one-loop color-dual numerators consistent with NLSM cuts, we
-must add some additional states to cancel off he spurious poles, while
+desired pion cuts due to the factorization of \cref{YZCut1} and \cref{YZCut2}. In order for the Feynman rules for $Y\!Z$ theory
+compute one-loop color-dual numerators consistent with NLSM cuts, one would have to add some additional states to cancel off he spurious poles, while
 preserving color-kinematics duality. We leave this as a direction of
 future work.
 
-While the $\bar{Z}Z$ vector loop spoils color-kinematics off-shell, the $Y\!Z$ loop alone gives us a desired expression for the $n$-gon. The important takeaway is that we now have a guess for the form of the off-shell three-point vertex that has a chance of manifesting the duality off-shell. The $n$-gon numerator above has scalar insertions of the following kinematic vertex:
+While the $\bar{Z}Z$ vector loop spoils color-kinematics off-shell, the $\bar{Y}Y$ loop alone gives us a desired expression for the $n$-gon. However, as we noted in the text, the $n$-gon numerator have the strange property that they produce \textit{non-vanishing} values for bubbles on external legs (BELs). However through direct integration of the BEL integrand, it is easy to see that the contribution integrates to zero after applying IBP relations/tensor reduction on the bubble. The BEL diagram can be reconstructed from the $n$-gon as follows:
 \begin{equation}
-T^{a}_{LR} = k_a(\ell_L-\ell_{R}) = (\ell_L+\ell_{R}) (\ell_L-\ell_{R})  = \ell_L^2-\ell_{R}^2 
+N^{\text{BEL}}_{1|2,34} = N^{\text{NLSM}}_{(1234|\ell)}-N^{\text{NLSM}}_{(1243|\ell)}-N^{\text{NLSM}}_{(1342|\ell)}+N^{\text{NLSM}}_{(1432|\ell)}
 \end{equation}
-Given this structure, in the next section we will attempt to construct two-loop basis diagrams from these cubic vertex assignments and try to reverse engineer the particle content that produces these master numerators.
-
-Before proceeding, we note a strange property of the $n$-gon numerator for the pions. In this form, Jacobi relations produce \textit{non-vanishing} values for bubbles on external legs (BELs). However, it is easy to see that the contribution integrates to zero after applying IBP relations/tensor reduction on the bubble. The BEL diagram can be reconstructed from the $n$-gon as follows:
+where we define the loop momentum to be in between the left most and right most leg on the box. Plugging in particular values for $\ell_i$, we obtain the following expression for the BEL:
 \begin{equation}
-N^{\text{BEL}}_{1|2,34} = N^{\text{NLSM}}_{(1234,\ell)}-N^{\text{NLSM}}_{(1243,\ell)}-N^{\text{NLSM}}_{(1342,\ell)}+N^{\text{NLSM}}_{(1432,\ell)}
-\end{equation}
-where we define the loop momentum to be in between the left most and right most leg on the box. Plugging in particular values for $\ell_i$, we obtain the following expression for the BEL
-\begin{equation}
-N^{\text{BEL}}_{1|2,34} = s_{12} (\ell+k_1)^2 \ell^{\mu} k_1^{\nu} k_2^{[\mu} k_{[34]}^{\nu]} 
+N^{\text{BEL}}_{1|2,34} = s_{12} (\ell+k_1)^2 \ell^{\mu} k_1^{\nu} k_2^{[\mu} k_{[34]}^{\nu]} \,.
 \end{equation}
 Notice there is an overall factor that cancels one of the propagators. Plugging this in, produces an integral of the following form
 \begin{equation}
