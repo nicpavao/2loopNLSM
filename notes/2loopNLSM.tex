@@ -1429,21 +1429,31 @@ on the cuts, but given that the cuts only probe the on-shell four-point
 amplitude, which is either subtle or vanishes for ZM, it is better to
 compare the off-shell numerators directly.
 The numerators of the two basis graphs are
-\be
-\ZMBasisDoubleBox =\left[\begin{split}
-  \langle (l_1+k_4) l_1 \rangle\langle l_1l_2 \rangle\langle l_2 (l_2+k_1) \rangle  \langle (l_2+k_1)(l_2+k_1+k_2) \rangle 
-\\
-\langle (l_1+k_3+k_4)(l_2+k_1+k_2) \rangle\langle (l_1+k_3+k_4)(l_1+k_4) \rangle
-\end{split}\right]
-\ee
-\be
-\ZMBasisPentaTriangle =\left[\begin{split}
-  \langle (l_1+k_4) l_1 \rangle\langle l_1l_2 \rangle\langle l_2 (l_2+k_1) \rangle  \langle (l_2+k_1)(l_1-k_1) \rangle 
-\\
-\langle (l_1+k_3+k_4)(l_1-k_1) \rangle\langle (l_1+k_3+k_4)(l_1+k_4) \rangle
-\end{split}\right]
-\ee
-where, again, $\langle ab\rangle \equiv p_a^\mu \varepsilon_{\mu\nu} p_b^\nu$ is the color-stripped ZM vertex.
+%\left[\begin{split}
+%  \langle (l_1+k_4) l_1 \rangle\langle l_1l_2 \rangle\langle l_2 (l_2+k_1) \rangle  \langle (l_2+k_1)(l_2+k_1+k_2) \rangle 
+%\\
+%\langle (l_1+k_3+k_4)(l_2+k_1+k_2) \rangle\langle (l_1+k_3+k_4)(l_1+k_4) \rangle
+%\end{split}\right]
+%
+%\left[\begin{split}
+%  \langle (l_1+k_4) l_1 \rangle\langle l_1l_2 \rangle\langle l_2 (l_2+k_1) \rangle  \langle (l_2+k_1)(l_1-k_1) \rangle 
+%\\
+%\langle (l_1+k_3+k_4)(l_1-k_1) \rangle\langle (l_1+k_3+k_4)(l_1+k_4) \rangle
+%\end{split}\right]
+%
+\begin{align}
+N^{\text{ZM}}\left[ \scalebox{0.75}{\ZMBasisDoubleBox} \right] &=
+\begin{aligned}
+&\langle \ell_1 \ell_2 \rangle \langle k_4 \ell_1 \rangle \langle \ell_2 k_1 \rangle \langle k_3 (\ell_1+k_4)\rangle \\
+& \langle (k_1+\ell_2) k_2 \rangle \langle (\ell_2+k_{12})(\ell_1-k_{12})\rangle
+\end{aligned} \\
+N^{\text{ZM}}\left[ \scalebox{0.75}{\ZMBasisPentaTriangle} \right] &=
+\begin{aligned}
+&\langle \ell_1 \ell_2 \rangle \langle k_4 \ell_1 \rangle \langle \ell_2 k_1 \rangle \langle k_3 (\ell_1+k_4) \rangle \\
+& \langle (k_1-\ell_1) k_2 \rangle \langle (\ell_2+k_1) (\ell_1-k_1)\rangle
+\end{aligned}
+\end{align}
+where $k_{12} = k_1+k_2$ and, again, $\langle ab\rangle \equiv p_a^\mu \varepsilon_{\mu\nu} p_b^\nu$ is the color-stripped ZM vertex.
 As local functions, the
 numerators never suffer from any of the subtleties of on-shell 2D
 kinematics.
