@@ -217,28 +217,25 @@ james.mangan@northwestern.edu,
 \\
 pavao@u.northwestern.edu}
   
-\title{\center  \fontsize{18.8}{20} \selectfont  Towards Globally Color-Dual Multi-Loop Integrands}
+\title{\center  \fontsize{18.8}{20} \selectfont  Globally Color-Dual Multi-Loop Integrands}
 
 \abstract{We report on progress in understanding how to construct color-dual multi-loop amplitudes.
 First we identify a cubic theory, semi-abelian Yang-Mills, that unifies
   many of the color-dual theories studied in the literature, and
   provides a prescriptive approach for constructing $D$-dimensional color-dual
-  numerators through one-loop directly from Feynman rules. Consideration of
-  this theory highlights that the lifting from one-loop
-  color-kinematics dual numerators to two loops is just as challenging
-  as the progression from tree-level to one-loop.  As a first step in
-  understanding the two-loop challenge, we construct color-dual
-  two-loop four-point nonlinear sigma model (NLSM) numerators using a
-  $D$-dimensional color-dual bootstrap.  The double-copy of the
-  constructed NLSM numerators with themselves, pure Yang-Mills, and
-  $\mathcal{N}=4$ super-Yang-Mills correctly reproduce the known
-  physical unitarity cuts of special Gallileons, Born-Infeld theory,
-  and Dirac-Born-Infeld-Volkov-Akulov theory, respectively.  These
-  NLSM numerators are in tension with generalizations of our one-loop construction. Using our loop-level bootstrap, we also find that the most general \emph{local} ansatz
-  for two-loop four-point pure Yang-Mills fails to satisfy
-  global color-kinematics duality. We pinpoint the failure to the
+  numerators through one-loop directly from Feynman rules. By a simple weight counting argument, this approach does not further generalize to two-loops.  As a first step in
+  understanding the two-loop challenge, we use a $D$-dimensional color-dual bootstrap to 
+  successfully construct globally color-dual
+  \emph{local} two-loop four-point nonlinear sigma model (NLSM) numerators.  The double-copy of the
+these NLSM numerators with themselves, pure Yang-Mills, and
+  $\mathcal{N}=4$ super-Yang-Mills correctly reproduce the known unitarity constructed integrands 
+  of special Gallileons, Born-Infeld theory,
+  and Dirac-Born-Infeld-Volkov-Akulov theory, respectively. 
+  Applying our loop-level bootstrap, we exhaustively search the space of integrands consistent with point-like interactions and find that two-loop four-point pure Yang-Mills fails to satisfy global color-kinematics duality, completing a search previously initiated in the literature. 
+  We pinpoint the failure to the
   bowtie unitarity cut, and discuss a path forward towards \emph{non-local}
   construction of color-dual integrands at generic loop order.
+  
 
 %TODO:\\
 %For now, let's put the things we need to check/compute here in the abstract. 
@@ -302,7 +299,8 @@ to permit color-dual representations at tree-level
 understanding of the kinematic algebra toward the multi-loop level.
 
 We begin with an overview of color-kinematics duality in
-\cref{background}. We then construct a manifestly color-dual theory in
+\cref{background}, and define the notion of ``globally'' color-dual integrands in \cref{sec:bootstrap}. 
+We then construct a manifestly color-dual theory in
 \cref{sec:cubic}, which generates $D$-dimensional color-dual $n$-point
 numerators for both NLSM and the self-dual sector of Yang-Mills
 through one-loop. The construction of this theory, which we dub
@@ -324,8 +322,8 @@ suited for algorithmically extracting rational terms from the
 $D$-dependence of dimensionally regulated loop momenta.
 The ansatz approach to constructing numerators generally results in an explosion of terms, but in the case of scalar theories there is an added difficulty because the linear equations become dense.
 We were able overcome this barrier by employing a custom
-solver, \texttt{FiniteFieldSolve}, which will be made
-public soon.
+solver, \texttt{FiniteFieldSolve}, which will soon be made
+public.
 
 With this solver, we are able to compute a two-loop integrand for NLSM
 that globally manifests the duality off-shell. This represents a new
@@ -515,7 +513,7 @@ operators $\mathcal{O}^{a}_\mu$ indexed by quantum numbers $a$ and
 $\mu$. The Feynman rules for this theory are simply:
 \be\label{CKFrules}
 \begin{split}
-\propFrule{$a,\mu$}{$b,\nu$}{$k \rightarrow $}{} &= \frac{i}{k^2} P_V^{ab}P_W^{\mu\nu}
+\propFrule{$a,\mu$}{$b,\nu$}{$k \rightarrow $}{} &= \frac{i}{k^2} (P_V^{-1})^{ab}(P_W^{-1})^{\mu\nu}
 \\
 \cubicFrule{$a,\mu$}{$b,\nu$}{$c,\rho$}{}{}{} &= i V^{abc}W^{\mu \nu \rho}
 \end{split}
@@ -568,7 +566,7 @@ choice of coefficients does not affect the physical integrand or its double copy
 \item \textbf{Color-kinematics duality}: The numerators obey the same
   Jacobi identities as the color factors.  This implicitly requires
   that the integrand is expressed in terms of purely cubic diagrams.
-\item \textbf{Graph symmetries}: A diagram's numerators is only a
+\item \textbf{Graph symmetries}: A diagram's numerator is only a
   function of the diagram's topology and labeling.  Furthermore, the
   diagram numerators are invariant under the automorphisms of the
   diagrams including signs that compensate for color-factor sign
@@ -913,7 +911,7 @@ in which one of the \textcolor{ucp-color}{uncut propagators} is set
 equal to an \textcolor{cut-color}{external on-shell propagator}.
 Discussions about how to resolve these types of singularities can be
 found in Refs.~\cite{Minahan:1987ha, Bern:2012uf, 
-  Geyer:2015bja,Geyer:2015jch,Edison:2020uzf, Edison:2022jln, Edison:2022smn}. In addition to the
+  Geyer:2015bja,Geyer:2015jch,Edison:2020uzf, Edison:2022jln, Edison:2022smn} and \cref{BELreg}. In addition to the
 BEL cuts, there is a related class of cuts in which
 an uncut propagator is set to zero by an \emph{internal cut
   condition}, for instance,
@@ -1229,13 +1227,13 @@ one would obtain from the Feynman rules of $YZ$-theory, absent the $\bar{Z}Z$
 internal vector loop. For more background, we refer the reader to
 \cref{sec:CKLagrangians}. When plugging on the on-shell states of $YZ$-theory, we thus obtain the following expression for the NLSM one-loop $n$-gon numerator
 \begin{equation}\label{NLSMnGon}
-N^{\text{NLSM}}_{n\text{-gon}}=\left[\partial_D  N^{\text{SDYM}}_{n\text{-gon}}\right]^{\epsilon \rightarrow k}=\nGonScalar =   [12][23]\cdots [n1]\, ,
+N^{\text{NLSM}}_{n\text{-gon}}=\left[\partial_D  N^{\text{SDYM}}_{n\text{-gon}}\right]^{\epsilon \rightarrow k}=\nGonScalar =   [\![ 12]\!][\![23]\!]\cdots [\![n1]\!]\, ,
 \end{equation}
-where we have define the antisymmetric kinematic variable,
-$[ij] = \ell_i^2 - \ell_j^2 = 2(k_i \cdot \ell_i)$.
+where we have defined the antisymmetric kinematic variable,
+$[\![ij]\!] = \ell_i^2 - \ell_j^2 = 2(k_i \cdot \ell_i)$.
 We have
 verified through 10-point one-loop that this $n$-gon expression is a
-valid color-dual representation for NLSM.
+valid color-dual representation for NLSM. Thus, composing the $n$-gon numerators of \cref{SDYMnGon} and \cref{NLSMnGon} would yield $D$-dimensional integrands that project down to the 4D all-plus Born-Infeld one-loop amplitudes studied in Ref.~\cite{Elvang:2020kuj}.
 
 Before proceeding, we note that the above definition does give rise to ``pathological" bubble-on-external-leg (BEL) diagrams, discussed previously in \cref{sec:bootstrap}. However, one can show that these diagrams integrate to zero for spacetime dimension, $D>2$, and thus can be disregarded as unphysical. For the interested reader, in \cref{BELreg} we provide a detailed overview of this dimensional regularization of the relevant BEL diagram.
 \subsection{Two-loop obstruction}\label{2LoopObstruction}
@@ -1445,12 +1443,12 @@ The numerators of the two basis graphs are
 N^{\text{ZM}}\left[ \scalebox{0.75}{\ZMBasisDoubleBox} \right] &=
 \begin{aligned}
 &\langle \ell_1 \ell_2 \rangle \langle k_4 \ell_1 \rangle \langle \ell_2 k_1 \rangle \langle k_3 (\ell_1+k_4)\rangle \\
-& \langle (k_1+\ell_2) k_2 \rangle \langle (\ell_2+k_{12})(\ell_1-k_{12})\rangle
+& \times \langle (k_1+\ell_2) k_2 \rangle \langle (\ell_2+k_{12})(\ell_1-k_{12})\rangle
 \end{aligned} \\
 N^{\text{ZM}}\left[ \scalebox{0.75}{\ZMBasisPentaTriangle} \right] &=
 \begin{aligned}
 &\langle \ell_1 \ell_2 \rangle \langle k_4 \ell_1 \rangle \langle \ell_2 k_1 \rangle \langle k_3 (\ell_1+k_4) \rangle \\
-& \langle (k_1-\ell_1) k_2 \rangle \langle (\ell_2+k_1) (\ell_1-k_1)\rangle
+& \times  \langle (k_1-\ell_1) k_2 \rangle \langle (\ell_2+k_1) (\ell_1-k_1)\rangle
 \end{aligned}
 \end{align}
 where $k_{12} = k_1+k_2$ and, again, $\langle ab\rangle \equiv p_a^\mu \varepsilon_{\mu\nu} p_b^\nu$ is the color-stripped ZM vertex.
@@ -1552,7 +1550,7 @@ cubic diagrams shown above in \cref{fig:MaxCuts}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%Doing so, we are left with AA \jm{We need this number from Alex} total parameters in the unrestricted
+%%Doing so, we are left with AA total parameters in the unrestricted
 %%%ansatz.
 
 %Return to this is give exactly numbers in place of AA!!!
@@ -1605,17 +1603,16 @@ symmetries are applied.
   \label{fig:ym-nmc}
 \end{figure}
 
-In fact, we can make the failure extremely precise.  Start with the
-diagrams shown in the Jacobi relation from \cref{eq:TwoLoopJacobiOne}:
-the double-box, crossed-box, and penta-triangle.  For each of the
-three diagrams, write down the most generic parity-even local ansatz
+In fact, we can make the failure extremely precise. First, start with the
+diagrams shown in the Jacobi relation from \cref{eq:TwoLoopJacobiOne}, which includes
+the double-box, crossed-box, and penta-triangle. Then \emph{without} defining the crossed-box in terms of the other two diagrams, write down the most generic parity-even local ansatz
 involving four polarizations and six momenta (any combination of
-external or loop).  Each ansatz will have 10,010 terms initially.  Next
+external or loop) for each of the three diagrams.  Each ansatz will have 10,010 terms initially.  Next
 impose the symmetry constraints on each of the three diagrams, leaving
 2,761 free parameters on the double-box, 2,576 free parameters on the
-crossed-box, and 5,040 free paramters on the penta-triangle.  Then
+crossed-box, and 5,040 free parameters on the penta-triangle.  Finally
 impose the ``bowtie'' next-to-maximal cut, which in the
-\emph{non-planar} $t$-$u$ color channel only recieves contributions
+\emph{non-planar} $t$-$u$ color channel only receives contributions
 from the double-box
 \begin{equation}
    \NMCutC
@@ -1629,7 +1626,7 @@ from the double-box
   N\left[\KTDBContrib{1}{3}{2}{4}\right] \,.
 \end{equation}
 After imposing this cut, we find that the original Jacobi relation,
-\cref{eq:TwoLoopJacobiOne}, can no longer be satisfied:
+\cref{eq:TwoLoopJacobiOne}, can no longer be satisfied. In other words, the constraints imposed by the single Jacobi relation and the three sets of diagram symmetries conspire in a way that is inconsistent with the ``bowtie'' cut. The contrapositive to this surprising result can be summarized in the following diagrammatic statement, which prioritizes the physical unitarity cut:
 \begin{eBox}
 \begin{equation}\label{chefsKiss}
    \NMCutC
@@ -1742,11 +1739,11 @@ rational functions of irreducible scalar products of \cref{eq:scalar-basis}. It 
 
 %\paragraph{Acknowledgments}
 \subsection*{Acknowledgments}
-The authors would like to thank ... for insightful conversations,
-related collaboration, and encouragement throughout the completion of
+The authors would like to thank John Joseph Carrasco, Sasank Chava, Clifford Cheung, Kezhu Guo, Nia Robles, Aslan Seifi, Fei Teng, and Suna Zekio\u{g}lu for insightful conversations,
+feedback on earlier drafts, and encouragement throughout the completion of
 this work. This work was supported by the DOE under contract
 DE-SC0015910 and by the Alfred P. Sloan
-Foundation. N.H.P. additionally acknowledges the Northwestern
+Foundation. Additionally we would like to acknowledge the Northwestern
 University Amplitudes and Insight group, the Department of Physics and
 Astronomy, and Weinberg College for their generous support.  Feynman
 diagrams were typeset using TikZ-Feynman \cite{Ellis:2016jkw}.
