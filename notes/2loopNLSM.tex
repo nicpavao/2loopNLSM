@@ -3,7 +3,6 @@
 \usepackage{jheppub}
 \usepackage{amsmath,amssymb}
 \usepackage[dvipsnames]{xcolor}
-%\usepackage{hyperref}
 \usepackage{xspace}
 \usepackage{ifdraft}
 \usepackage{epstopdf}
@@ -42,8 +41,6 @@
 %]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-%\usepackage[notcite]{showkeys}
 \usepackage{tikz-feynman} 
 \usepackage{xcolor}
 \hypersetup{
@@ -85,11 +82,6 @@
 \colorlet{jacobi-color}{nhp4}
 \colorlet{refl-color}{nhp4}
 
-
-%Comment commands
-\newcommand{\ace}[1]{\textcolor{darkgreen}{\textbf{AE:}{ #1}}}
-\newcommand{\nhp}[1]{\textcolor{nhpRed}{\textbf{NHP:}{#1}}}
-\newcommand{\jm}[1]{\textcolor{blue}{\textbf{JM: }{#1}}}
 
 
 \usepackage[framemethod=default]{mdframed}
@@ -188,13 +180,8 @@ linewidth=4pt]{eBox}
  \newcommand{\cblue}{\color{blue}}
 \newcommand{\andd}{\ , \quad \text{and}  \quad}
 \newcommand{\forr}{\ , \quad \text{for}  \quad}
-\newcommand{\ansatze}{ans\"atze} %Because words are hard
+\newcommand{\ansatze}{ans\"atze} 
 
-
-
-%TODO-type commands
-\newcommand{\citepls}[1]{{\bf\color{red}[[Cite Needed: #1]]}}
-\newcommand{\sect}{\textbf{\textcolor{red}{RefSec}}}
 
 
 \newcommand{\atree}{\ensuremath{A^{\text{tree}}}}
@@ -237,25 +224,6 @@ these NLSM numerators with themselves, pure Yang-Mills, and
   bowtie unitarity cut, and discuss a path forward towards \emph{non-local}
   construction of color-dual integrands at generic loop order.
   
-
-%TODO:\\
-%For now, let's put the things we need to check/compute here in the abstract. 
-%\begin{enumerate}
-%\item Settle on $n$ vs $N$ vs $\mathcal{N}$ as the symbol for
- % numerator 
-  
-%\item \ace{I am starting to get a bit concerned about the overuse of the
-  %phrase ``color-dual''} \nhp{We all choose capital $N$}
-%\item \ace{I have defined a \textcolor{ucp-color}{\texttt{ucp-color}}
-   % , \textcolor{cut-color}{\texttt{cut-color}},
-  %  \textcolor{refl-color}{\texttt{refl-color}}, and
-  %  \textcolor{jacobi-color}{\texttt{jacobi-color}} as aliases for
-  %  other colors so that we don't have to keep changing colors in
-   % multiple locations when we want to change diagram color schemes.
-    %I think I have updated all of the diagrams to use the
-  %  correctly-named color, but haven't changed any of the backing
-   % colors for the names.}
-%\end{enumerate}
 }
 
 \makeatletter
@@ -348,11 +316,6 @@ and discuss alternative approaches where one must relax field
 theoretic locality in order to accommodate the construction of
 globally color-dual integrands at generic loop order.
 
-%Why DC is cool:
-%1) Reduction in computational complexity.
-%Off-shell high spin is terrible.
-%Gravity has infinitely many very complex Feynman rules as a result of gauge redundancy but YM only has two relatively simple Feynman rules.
-%2) DC points to deep structure hidden in Lagrangian formulation.
 
 \section{Background}\label{background}
 To set the stage, in this section we provide an overview of
@@ -645,7 +608,8 @@ Jacobi identities can be divided into two categories: \emph{defining}
 relations and \emph{boundary} relations.  Defining Jacobi relations
 can be used to express any graph in terms of a basis.  For example,
 the double box, crossed box, and penta-triangle are related to each
-other as follows \be % [[11]]
+other as follows
+\begin{equation}
 \label{eq:TwoLoopJacobiOne}
 \JacobiOneDoubleBox + \JacobiOneCrossedBox + \JacobiOnePentaTriangle
 =0\,,
@@ -664,7 +628,8 @@ After using the defining Jacobi relations to relate every graph to the
 basis, any remaining Jacobi relations will be referred to as boundary
 relations.  In other words, boundary relations (indirectly) relate
 basis elements to themselves.  For example, the crossed box numerator
-is related to itself via the following Jacobi relation \be % [[19]]
+is related to itself via the following Jacobi relation
+\begin{equation}
 \label{eq:TwoLoopJacobiTwo}
 \JacobiTwoCrossedBoxOne + \JacobiTwoCrossedBoxTwo +  \JacobiTwoCrossedBoxThree =0,
 \end{equation}
@@ -711,12 +676,6 @@ For example, the symmetries of the crossed box are spanned by,
 \text{ and }
 \scalebox{0.8}{\CrossedBoxGraphSym{1}{2}{3}{4}} \!\!\sim\!\! \scalebox{0.8}{\CrossedBoxGraphSym{2}{1}{4}{3}}
 \end{equation}
-% \ace{is there a reason we commented out this diagram?} \jm{You can try
- % either one.  I liked the one I left in better.}  For example, the
-%symmetries of the crossed box
-%\begin{equation}
-%\CrossedBoxGraphSym{1}{2}{3}{4}
-%\end{equation}
 which are just functional relabelings of external legs,
 $\{1234\} \to \{2134\}$ and $\{1234\} \to \{1243\}$.  In general,
 internal edge labels must be tracked as well.  Furthermore, care must
@@ -799,11 +758,6 @@ to cuts, we will not use blobs on vertices, and will use
 lines and use colored edges to highlight the
 \textcolor{ucp-color}{uncut propagators}.  From now on we will leave
 the cut $\delta(\ell^2)$ factors implicit. 
-
-%% \jm{Again, I love the colors!
-%%  Would it be possible to add $\ell$ labels to the RHS of
-%5  \cref{eq:example-cut-sum} to show what $\ell_5$, $\ell_6$... are?}
-%%\ace{It is doable, will work on it once our text is a bit more happy}
 
 
 In color-charged theories, both sides of the cut can be further
@@ -900,7 +854,6 @@ n \left[
 (mid1) --[ultra thick,](a1),
 (mid1) --[ultra thick,](a2),
 (mid1) --[ultra thick,](a3),
-%(mid1) --[ultra thick,](mid3),
 (mid1) --[ultra thick,out=60,in=120,min distance=0.4cm](mid3),
 (mid1) --[ultra thick,out=-60,in=-120,min distance=0.4cm](mid3),
 (mid3) --[ultra thick](a4),
@@ -1315,10 +1268,6 @@ N^{\text{NLSM}}\left[\scalebox{0.75}{\NLSMBasisPentaTriangle} \right]\in
   \right\},
 \end{equation}
 where $k_{ij}$ means $k_i \cdot k_j$, $k_5=\ell_1$, and $k_6 = \ell_2$.
-%%%%
-% Basis for both diagrams
-% {d[p[1], p[3]], d[p[1], p[6]], d[p[1], p[7]], d[p[2], p[3]],  d[p[2], p[6]], d[p[2], p[7]], d[p[3], p[6]], d[p[3], p[7]],  d[p[6], p[6]], d[p[6], p[7]], d[p[7], p[7]]}
-%%%%
 Every vertex in NLSM scales as $k^2$ so the numerator of each diagram
 scales as $k^{12}$.  At this mass dimension there are 8,008
 independent dot products of momenta.  With two basis graphs there is a
@@ -1354,13 +1303,6 @@ non-pathological cuts containing a three-point vertex (such as the maximal
 cut) vanishe.  Imposing all relevant cuts leaves 765 free parameters
 representing the generalized gauge freedom in the answer.
 
-% It is possible to automatically enforce (or ``bake in'') the double
-% box and penta-triangle max cuts on the ansatz by writing the ansatz
-% in terms of inverse propagators (and remaining irreducible scalar
-% products) and then only keeping terms that involve at least one
-% inverse propagator since those terms will vanish on those max cuts,
-% just as the product of 3pt scalar amplitudes will.  However, for the
-% sake of simplicity we do not take this route.
 
 At this point color-kinematics duality has been satisfied, so the
 double copy will proceed without issue.  However, the plethora of
@@ -1423,18 +1365,6 @@ on the cuts, but given that the cuts only probe the on-shell four-point
 amplitude, which is either subtle or vanishes for ZM, it is better to
 compare the off-shell numerators directly.
 The numerators of the two basis graphs are
-%\left[\begin{split}
-%  \langle (l_1+k_4) l_1 \rangle\langle l_1l_2 \rangle\langle l_2 (l_2+k_1) \rangle  \langle (l_2+k_1)(l_2+k_1+k_2) \rangle 
-%\\
-%\langle (l_1+k_3+k_4)(l_2+k_1+k_2) \rangle\langle (l_1+k_3+k_4)(l_1+k_4) \rangle
-%\end{split}\right]
-%
-%\left[\begin{split}
-%  \langle (l_1+k_4) l_1 \rangle\langle l_1l_2 \rangle\langle l_2 (l_2+k_1) \rangle  \langle (l_2+k_1)(l_1-k_1) \rangle 
-%\\
-%\langle (l_1+k_3+k_4)(l_1-k_1) \rangle\langle (l_1+k_3+k_4)(l_1+k_4) \rangle
-%\end{split}\right]
-%
 \begin{align}
 N^{\text{ZM}}\left[ \scalebox{0.75}{\ZMBasisDoubleBox} \right] &=
 \begin{aligned}
@@ -1726,7 +1656,6 @@ where $\mathcal{O}_i$ are the on-shell gauge invariant tensor basis elements of
 \cite{Bern:2017tuc,Carrasco:2019yyn}, and $ \mathcal{R}^{(i)}_{m,L}$ are
 rational functions of irreducible scalar products of \cref{eq:scalar-basis}. It would be interesting if a similar construction as our tree-level example could be uplifted to two-loop using the globally color-dual NLSM integrand that we have computed in this work. We see this as a natural future direction worth investigating that is now made possible by our findings.
 
-%\paragraph{Acknowledgments}
 \subsection*{Acknowledgments}
 The authors would like to thank John Joseph Carrasco, Sasank Chava, Clifford Cheung, Kezhu Guo, Nia Robles, Aslan Seifi, Fei Teng, and Suna Zekio\u{g}lu for insightful conversations,
 feedback on earlier drafts, and encouragement throughout the completion of
@@ -1738,8 +1667,7 @@ Astronomy, and Weinberg College for their generous support.  Feynman
 diagrams were typeset using TikZ-Feynman \cite{Ellis:2016jkw}.
 
 \appendix
-% Wizardry to disable subappendix showing up in TOC
-\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}% This turns off subsections
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 \section{Catalog of color-dual theories}
 \label{sec:CKLagrangians}
 
@@ -1757,9 +1685,6 @@ Since Bose symmetry is broken, the ensuing kinetic mixing prevents color-dual re
 of color-dual Feynman rules is that of Yang-Mills theory in the
 self-dual sector (SDYM).  We summarize the appoach of
 Ref.~\cite{Monteiro2011pc} for extracting the kinematic algebra.
-% \begin{equation}
-% \mathcal{L}^{\text{YM}} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
-% \end{equation}
 To obtain the Lagrangian for self-dual Yang-Mills from standard Yang-Mills, we apply the
 self-duality condition that equates the non-abelian $SU(N)$ field
 strength,
@@ -2000,7 +1925,7 @@ loop order it is enough to observe that the sum of the off-shell $s$-,
 $t$-, and $u$-channel numerators sum to zero
 \begin{equation}
 \label{eq:ZMJacobi}
-\langle ab \rangle \langle cd\rangle +\langle ac \rangle \langle db\rangle +\langle ad \rangle \langle bc\rangle =0 % \delta^{[a}_c\delta^{b]}_d + \delta^{[a}_d\delta^{c]}_b+ \delta^{[a}_b\delta^{d]}_c
+\langle ab \rangle \langle cd\rangle +\langle ac \rangle \langle db\rangle +\langle ad \rangle \langle bc\rangle =0 
 \end{equation}
 by virtue of the 2D Levi-Civita identity
 $\varepsilon_{\mu\nu}\varepsilon_{\rho\sigma} =
