@@ -217,7 +217,7 @@ james.mangan@northwestern.edu,
 \\
 pavao@u.northwestern.edu}
   
-\title{\center  \fontsize{18.8}{20} \selectfont  Globally Color-Dual Multi-Loop Integrands}
+\title{\center  \fontsize{18}{20} \selectfont  Revealing the Landscape of Globally Color-Dual Multi-loop Integrands}
 
 \abstract{We report on progress in understanding how to construct color-dual multi-loop amplitudes.
 First we identify a cubic theory, semi-abelian Yang-Mills, that unifies
@@ -231,7 +231,7 @@ these NLSM numerators with themselves, pure Yang-Mills, and
   $\mathcal{N}=4$ super-Yang-Mills correctly reproduce the known unitarity constructed integrands 
   of special Gallileons, Born-Infeld theory,
   and Dirac-Born-Infeld-Volkov-Akulov theory, respectively. 
-  Applying our loop-level bootstrap, we exhaustively search the space of integrands consistent with point-like interactions and find that two-loop four-point pure Yang-Mills fails to satisfy global color-kinematics duality, completing a search previously initiated in the literature. 
+  Applying our bootstrap to two-loop four-point pure Yang-Mills, we exhaustively search the space of local numerators and find that it fails to satisfy global color-kinematics duality, completing a search previously initiated in the literature. 
   We pinpoint the failure to the
   bowtie unitarity cut, and discuss a path forward towards \emph{non-local}
   construction of color-dual integrands at generic loop order.
@@ -1101,15 +1101,7 @@ $(\varepsilon\varepsilon)^{n\geq 1}$ at tree-level, then we need to
 keep the Yang-Mills four-point contact for color-kinematics duality to
 be restored on-shell. However, the contrapositive is also true -- if
 we omit the four-point Yang-Mills vertex, then we only need terms that
-contribute to the manifestly color-dual cubic sector of the theory.
-
-We can achieve this construction by splitting the gauge group of the
-full Yang-Mills action from $G$ to $G_L \times G_R$, where the full
-non-abelian gauge symmetry is restored only when we identify
-$G_L = G_R$. However, if we break the left gauge group down to
-$G_L \rightarrow U(1)^{N^2}$ and take the right gauge group to
-$G_R \rightarrow U(N)$, then we are left with a semi-abelian theory
-that is gauge invariant in the preferred $U(1)$-directions. We call
+contribute to the manifestly color-dual cubic sector of the theory. We call
 this manifestly color-dual theory \textit{semi-abelian Yang-Mills},
 \begin{eBox}
 \begin{equation}
@@ -1124,7 +1116,10 @@ where
 \begin{equation}
 F^a_{\mu\nu} = \partial_\mu A_\nu^a - \partial_\nu A_\mu^a + f^{abc} A_\mu^b A_\nu^c
 \end{equation}
-and $A_\mu$ is in Lorenz gauge.
+and $A_\mu$ is in Lorenz gauge. We can construct this Lagrangian from \cref{eq:ym-lag} by keeping the right field strength covariant under
+$U(N)$, and making the left field strength gauge covariant under
+$U(1)^{N^2}$. Note that since $U(1)$ covariance is identical to $U(1)$ invariance, the amplitudes of this semi-abelian theory vanish under $\bar{\varepsilon}(k) \rightarrow k$, where $\bar{\varepsilon}$ is the polarization of an external $\bar{A}_\mu$ vector. 
+
 Here we can think of the abelian vector as a background field that
 sources on-shell $A_\mu$ currents. Indeed, as we describe in
 \cref{sec:CKLagrangians}, semi-abelian Yang-Mills theory is at the
