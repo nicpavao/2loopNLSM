@@ -1,0 +1,253 @@
+\documentclass[11pt,letter]{article}
+\pdfoutput=1
+\usepackage{jheppub}
+\usepackage{amsmath,amssymb}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{xspace}
+\usepackage{ifdraft}
+\usepackage{epstopdf}
+\usepackage{slashed}
+\usepackage{anyfontsize}
+\usepackage{tocloft}
+\renewcommand{\cftdot}{.}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+\usepackage{diagbox}
+\usepackage{colortbl}
+\usepackage{bbold}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{stackengine}
+\usepackage{subcaption}
+\usepackage{cleveref}
+\usepackage[normalem]{ulem}
+
+\def\RA{\rlap{\scalebox{1.6}{$\leftrightarrow$}}}
+\def\DA{\smash{\bclap{\scalebox{1.6}{$\downarrow$}}}}
+\def\mystrut{\rule[-2ex]{0ex}{6ex}}
+
+\usepackage{tikz-feynman} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Comment the following out to compile new images
+%
+%\usetikzlibrary{external}  
+%\immediate\write18{mkdir -p images}  %% Create `pgf-img` directory
+%\tikzexternalize[                     %% Activate externalization
+%prefix=images/,                    %% Avoid cluttering the directory
+%system call={                       %% Use lualatex in system call
+%  % pdflatex \tikzexternalcheckshellescape -halt-on-error -shell-escape -interaction=batchmode -jobname="\image" %"\texsource" || rm "\image.pdf"
+%},
+%]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{tikz-feynman} 
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={nhpRed},
+    citecolor={nhpBlue},
+    urlcolor={nhpBlue}
+}
+
+
+\definecolor{nhpRed}{RGB}{161,0,0}
+\definecolor{nhp4}{RGB}{203, 4, 31}
+\definecolor{nhp3}{RGB}{244,99,30}
+\definecolor{nhp2}{RGB}{255,159,0}
+\definecolor{nhp1}{RGB}{48,152,152}
+\definecolor{nhpBlue}{RGB}{0,100,144}
+\definecolor{cutred}{RGB}{219,56,49}
+\definecolor{hgreen}{RGB}{25,176,146}
+\definecolor{hgreen1}{RGB}{175,230,175}
+\definecolor{hblue}{RGB}{52,152,219}
+\definecolor{hbluedark}{RGB}{36, 106, 160}
+\definecolor{hblue1}{RGB}{255,255,166}
+\definecolor{hred}{RGB}{216,83,117}
+\definecolor{hreddark}{RGB}{151, 58, 81}
+\definecolor{hred1}{RGB}{255,155,155}
+\definecolor{cutred}{RGB}{219,56,49}
+\definecolor{hgrey4}{RGB}{75,75,75}
+\definecolor{hgrey5}{RGB}{50,50,50}
+\definecolor{hgrey3}{RGB}{100,100,100}
+\definecolor{hgrey}{RGB}{125,125,125}
+\definecolor{hgrey2}{RGB}{125,125,125}
+\definecolor{hgrey1}{RGB}{150,150,150}
+\definecolor{hgrey0}{RGB}{175,175,175}
+\definecolor{darkgreen}{RGB}{59,126,108}
+\definecolor{nu-80}{RGB}{104, 076, 150}
+\definecolor{nu-40}{RGB}{164, 149, 195}
+\colorlet{ucp-color}{nhpBlue}
+\colorlet{cut-color}{nhp4}
+\colorlet{jacobi-color}{nhp4}
+\colorlet{refl-color}{nhp4}
+
+
+
+\usepackage[framemethod=default]{mdframed}
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+rightline=false,
+leftline=false,
+topline=false,
+bottomline=false,
+backgroundcolor=gray!15,
+linecolor=gray,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+innerbottommargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=4pt]{eBox}
+
+
+\input{tikz_nonsense.tex}
+
+\newcommand{\cP}{\rm{cov.}\pi}
+
+\newcommand{\ie}{i.e.,}
+\newcommand{\eg}{e.g.,}
+\usepackage{xspace}
+\newcommand{\Poincare}{Poincar\'e\xspace}
+
+
+\newcommand{\nkmc}[1][k]{N$^{#1}$MC\xspace}
+
+\def\taua{{{\rm t}}}
+\def\bartaua{{{\bar {\rm t}}}}
+
+
+
+
+\DeclareMathOperator{\cut}{\mathcal{C}}
+
+
+\def\spa#1.#2{\left\langle#1\,#2\right\rangle}
+\def\spb#1.#2{\left[#1\,#2\right]}
+\def\spash#1.#2{\spa{\smash{#1}}.{\smash{#2}}}
+\def\spbsh#1.#2{\spb{\smash{#1}}.{\smash{#2}}}
+\def\sand#1.#2.#3{%
+\left\langle\smash{#1}{\vphantom1}^{-}\right|{#2}%
+\left|\smash{#3}{\vphantom1}^{-}\right\rangle}
+\def\sandpp#1.#2.#3{%
+\left\langle\smash{#1}{\vphantom1}^{+}\right|{#2}%
+\left|\smash{#3}{\vphantom1}^{+}\right\rangle}
+\def\sandpm#1.#2.#3{%
+\left\langle\smash{#1}{\vphantom1}^{+}\right|{#2}%
+\left|\smash{#3}{\vphantom1}^{-}\right\rangle}
+\def\sandmp#1.#2.#3{%
+\left\langle\smash{#1}{\vphantom1}^{-}\right|{#2}%
+\left|\smash{#3}{\vphantom1}^{+}\right\rangle}
+\def\Shift#1#2{{[#1,#2\rangle}}
+\def\twoloop{{2 \mbox{-} \rm loop}}
+
+\def\tree{{\rm tree}}
+\def\pol{\varepsilon}
+\def\Tr{\, {\rm Tr}}
+\def\tr{\, {\rm tr}}
+\def\eps{\varepsilon}
+\def\e{\varepsilon}
+\def\ep{\varepsilon}
+\def\SYM{MSYM}
+\def\nn{\nonumber}
+\def\Neqfour{{{\cal N}=4}}
+\def\NeqFour{{{\cal N}=4}}
+\def\Neqeight{{{\cal N}=8}}
+\def\NeqEight{{{\cal N}=8}}
+\def\NeqOne{{{\cal N}=1}}
+\def\Fact{{\cal F}}
+\def\f{\widetilde f}
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\bea{\begin{eqnarray}}
+\def\eea{\end{eqnarray}}
+\def\ba{\begin{eqnarray}}
+\def\ea{\end{eqnarray}}
+\def\Ksl{{\s K}}
+\def\ksl{\s{k}}
+\def\Perm{{\cal P}}
+\def\M{{\cal M}}
+\def\ve{\varepsilon}
+\def\tlambda{{\tilde\lambda}}
+\def\MHVbar{$\overline{\hbox{MHV}}$}
+\def\NMHVbar{$\overline{\hbox{NMHV}}$}
+\def\P{{\rm P}}
+\def\NHP{{\rm NHP}}
+\def\mud{\lambda}
+\def\bowtie{{\rm bow\mbox{-}tie}}
+\newcommand{\cred}{\bf \color{red}}
+ \newcommand{\cblue}{\color{blue}}
+\newcommand{\andd}{\ , \quad \text{and}  \quad}
+\newcommand{\forr}{\ , \quad \text{for}  \quad}
+\newcommand{\ansatze}{ans\"atze} 
+
+
+
+\newcommand{\atree}{\ensuremath{A^{\text{tree}}}}
+\newcommand{\afour}{\ensuremath{A_4^{\text{tree}}}}
+\definecolor{NUpurple}{RGB}{078,042,132}
+
+
+
+
+
+\author{\large Alex Edison,}
+\author{\large James Mangan,}
+\author{\large and Nicolas H. Pavao}
+
+\affiliation{Department of Physics and Astronomy, Northwestern
+  University, Evanston, Illinois 60208, USA}
+
+\emailAdd{alexander.edison@northwestern.edu, 
+\\
+james.mangan@northwestern.edu, 
+\\
+pavao@u.northwestern.edu }
+  
+\title{\center  \fontsize{18}{20} \selectfont  Revealing the Landscape of Globally Color-Dual Multi-loop Integrands}
+
+\abstract{We report on progress in understanding how to construct color-dual multi-loop amplitudes.
+First we identify a cubic theory, semi-abelian Yang-Mills, that unifies
+  many of the color-dual theories studied in the literature, and
+  provides a prescriptive approach for constructing $D$-dimensional color-dual
+  numerators through one-loop directly from Feynman rules. By a simple weight counting argument, this approach does not further generalize to two-loops.  As a first step in
+  understanding the two-loop challenge, we use a $D$-dimensional color-dual bootstrap to 
+  successfully construct globally color-dual
+  \emph{local} two-loop four-point nonlinear sigma model (NLSM) numerators.  The double-copy of the
+these NLSM numerators with themselves, pure Yang-Mills, and
+  $\mathcal{N}=4$ super-Yang-Mills correctly reproduce the known unitarity constructed integrands 
+  of special Gallileons, Born-Infeld theory,
+  and Dirac-Born-Infeld-Volkov-Akulov theory, respectively. 
+  Applying our bootstrap to two-loop four-point pure Yang-Mills, we exhaustively search the space of local numerators and find that it fails to satisfy global color-kinematics duality, completing a search previously initiated in the literature. 
+  We pinpoint the failure to the
+  bowtie unitarity cut, and discuss a path forward towards \emph{non-local}
+  construction of color-dual integrands at generic loop order.
+  
+}
+
+\makeatletter
+\gdef\@fpheader{\,}
+
+\begin{document}
+\maketitle
+\flushbottom
+ 
+\setstackgap{S}{6pt}
+\setstackgap{L}{7pt}
+
+\section{Chern-Simons Theory}\label{intro}
+The final theory that is unified by semi-abelian Yang-Mills is that Chern-Simons theory. As we will show below, plugging in appropriate on-shell states to the semintegrands constructed in the text will produce precisely the kinematic numerators for this theory. 
+\begin{align}
+\cubic{hgrey0}{nhpRed}{}{nhpRed}{}{nhpRed}{} = \epsilon^{\mu\nu\rho} \varepsilon^{\mu}_1\varepsilon^{\nu}_2\varepsilon^{\rho}_3 \qquad  &\Rightarrow  \qquad   \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{}= (\varepsilon_1\bar{\varepsilon}_3)(\varepsilon_2 k_3)
+  -  (\varepsilon_2\bar{\varepsilon}_3)(\varepsilon_1 k_3)
+\\
+\propFrule{$A^\nu$}{$A^\mu$}{$k \rightarrow $}{nhpRed} = \frac{i}{k^2} \epsilon^{\mu\nu\rho} k^\rho \qquad  &\Rightarrow  \qquad \propFrule{$A^\nu$}{$\bar{A}^\mu$}{$k \rightarrow $}{fermion2}= \frac{i}{k^2} \eta^{\mu\nu}
+\end{align}
+\bibliographystyle{JHEP}
+\bibliography{Refs_2loopNLSM}
+\end{document}
+
+
+%%% Local Variables: 
+%%% TeX-command-extra-options: "-shell-escape"
+%%% End:
