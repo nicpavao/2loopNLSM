@@ -20,6 +20,7 @@
 \usepackage{stackengine}
 \usepackage{subcaption}
 \usepackage{cleveref}
+\usepackage{orcidlink}
 \usepackage[normalem]{ulem}
 
 \def\RA{\rlap{\scalebox{1.6}{$\leftrightarrow$}}}
@@ -204,9 +205,9 @@ linewidth=4pt]{eBox}
 
 
 
-\author{\large Alex Edison,}
-\author{\large James Mangan,}
-\author{\large and Nicolas H. Pavao}
+\author{\large Alex Edison \orcidlink{0000-0002-5430-9500},}
+\author{\large James Mangan  \orcidlink{0000-0002-9713-7446},}
+\author{\large and Nicolas H. Pavao \orcidlink{0000-0002-9817-8266}}
 
 \affiliation{Department of Physics and Astronomy, Northwestern
   University, Evanston, Illinois 60208, USA}
@@ -215,7 +216,7 @@ linewidth=4pt]{eBox}
 \\
 james.mangan@northwestern.edu, 
 \\
-pavao@u.northwestern.edu}
+pavao@u.northwestern.edu }
   
 \title{\center  \fontsize{18}{20} \selectfont  Revealing the Landscape of Globally Color-Dual Multi-loop Integrands}
 
@@ -1624,9 +1625,11 @@ After imposing this cut, we find that the original Jacobi relation,
 \cref{eq:TwoLoopJacobiOne}, can no longer be satisfied. In other words, the constraints imposed by the single Jacobi relation and the three sets of diagram symmetries conspire in a way that is inconsistent with the ``bowtie'' cut. The contrapositive to this surprising result can be summarized in the following diagrammatic statement, which prioritizes the physical unitarity cut:
 \begin{eBox}
 \begin{equation}\label{chefsKiss}
-   \NMCutC
-  \Rightarrow
-  \JacobiOneDoubleBox +  \JacobiOneCrossedBox + \JacobiOnePentaTriangle \neq 0 \,.
+   \scalebox{0.9}{\NMCutC} \!\!
+  \Rightarrow \!\!
+  \scalebox{0.85}{\JacobiOneDoubleBox}
+  +  \scalebox{0.85}{\JacobiOneCrossedBox}
+  + \scalebox{0.85}{\JacobiOnePentaTriangle} \neq 0 \,.
 \end{equation}
 \end{eBox}
 Thus we have identified the minimal failure state for a
