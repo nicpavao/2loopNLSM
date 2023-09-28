@@ -216,14 +216,14 @@ First we identify a cubic theory, semi-abelian Yang-Mills, that unifies
   numerators through one-loop directly from Feynman rules. By a simple weight counting argument, this approach does not further generalize to two-loops.  As a first step in
   understanding the two-loop challenge, we use a $D$-dimensional color-dual bootstrap to 
   successfully construct globally color-dual
-  \emph{local} two-loop four-point nonlinear sigma model (NLSM) numerators.  The double-copy of the
+  \emph{local} two-loop four-point nonlinear sigma model (NLSM) numerators.  The double-copy of
 these NLSM numerators with themselves, pure Yang-Mills, and
   $\mathcal{N}=4$ super-Yang-Mills correctly reproduce the known unitarity constructed integrands 
-  of special Gallileons, Born-Infeld theory,
+  of special Galileons, Born-Infeld theory,
   and Dirac-Born-Infeld-Volkov-Akulov theory, respectively. 
   Applying our bootstrap to two-loop four-point pure Yang-Mills, we exhaustively search the space of local numerators and find that it fails to satisfy global color-kinematics duality, completing a search previously initiated in the literature. 
   We pinpoint the failure to the
-  bowtie unitarity cut, and discuss a path forward towards \emph{non-local}
+  bowtie unitarity cut and discuss a path forward towards \emph{non-local}
   construction of color-dual integrands at generic loop order.
   
 }
@@ -270,7 +270,7 @@ to permit color-dual representations at tree-level
 understanding of the kinematic algebra toward the multi-loop level.
 
 We begin with an overview of color-kinematics duality in
-\cref{background}, and define the notion of ``globally'' color-dual integrands in \cref{sec:bootstrap}. 
+\cref{background} and define the notion of ``globally'' color-dual integrands in \cref{sec:bootstrap}. 
 We then construct a manifestly color-dual theory in
 \cref{sec:cubic}, which generates $D$-dimensional color-dual $n$-point
 numerators for both NLSM and the self-dual sector of Yang-Mills
@@ -282,7 +282,7 @@ potency of this theory at one-loop, the construction runs into an
 obstruction at two-loop, which we describe in \cref{2LoopObstruction}.
 
 Faced with this obstruction, we study the multi-loop sector of both
-NLSM and Yang-Mills in \cref{2loopBoot} using an ansatz based
+NLSM and Yang-Mills in \cref{2loopBoot} using an ansatz-based
 color-dual bootstrap. In contrast to much of the available literature
 on color-dual integrand construction at two-loop
 \cite{Bern:2013yya,Mogull:2015adi,Johansson:2017bfl}, our results are
@@ -299,21 +299,21 @@ public.
 With this solver, we are able to compute a two-loop integrand for NLSM
 that globally manifests the duality off-shell. This represents a new
 benchmark for color-dual representations in non-supersymmetric gauge
-theories.  However in sharp contrast, we find that Yang-Mills does
+theories.  However, in sharp contrast, we find that Yang-Mills does
 \emph{not} permit a globally color-dual representation, even when
 considering the most general polynomial ansatz of Lorentz covariant
 kinematics.\footnote{Globally color-dual local numerators for two-loop
   pure YM have been studied before but only in the context of a
   limited ansatz subject to certain loop power counting constraints
   \cite{Bern:2015ooa}.}  Concretely, the failure point can be
-pinpointed to a conflict between between the ``bowtie'' cut and the
+pinpointed to a conflict between the ``bowtie'' cut and the
 following Jacobi triple:
 \begin{equation}
    \NMCutC
   \Rightarrow
   \JacobiOneDoubleBox +  \JacobiOneCrossedBox + \JacobiOnePentaTriangle \neq 0 \,.
 \end{equation}
-We comment on the implications of this finding in \cref{conclusions},
+We comment on the implications of this finding in \cref{conclusions}
 and discuss alternative approaches where one must relax field
 theoretic locality in order to accommodate the construction of
 globally color-dual integrands at generic loop order.
@@ -443,7 +443,7 @@ The fully color-dressed tree amplitude can then be re-expressed as
   \mathcal{A}_n = \sum \limits_{\sigma\in S_{n-2}} \text{DDM}[a_1, a_{\sigma_2}, a_{\sigma_3}, a_{\sigma_{n-1}}, a_n]  A_n[1, \sigma_2,...\sigma_{n-1}, n]
   \label{eq:ddm-basis}
 \end{equation}
-with legs $1$ and $n$ fixed.  Since the the sum only contains $(n-2)!$
+with legs $1$ and $n$ fixed.  Since the sum only contains $(n-2)!$
 terms, there must be additional relations -- the
 Kleiss-Kuijf (KK) relations \cite{Kleiss:1988ne} -- amongst the
 partial amplitudes appearing in the right-hand side of
@@ -488,7 +488,7 @@ We have introduced $P_V^{ab}$ and $P_W^{\mu\nu}$ projection operators
 to encode non-local kinetic structure that could in principle
 participate in the construction, as is the case for $DF^2$ theory \cite{Johansson:2017srf}. Generally, these quadratic dressings are simply delta functions, $P_V^{ab} = \delta^{ab}$, or flat space metrics, $P_W^{\mu\nu}=\eta^{\mu\nu}$. As written, the theory will be color dual if the off-shell cubic vertex is antisymmetric and satisfies the Jacobi identity. Specifically,
 \begin{align}
-\text{anti-symmetry}:& \quad{}_{\mu_1}\langle W^{\mu_2} \rangle_{\mu_3}+\text{cyc}(23)=0
+\text{antisymmetry}:& \quad{}_{\mu_1}\langle W^{\mu_2} \rangle_{\mu_3}+\text{cyc}(23)=0
 \\
 \text{Jacobi identity}:& \quad {}_{\mu_1}\langle W^{\mu_2} W^{\mu_3}\rangle_{\mu_4}+\text{cyc}(234)=0\label{jacID}
 \end{align}
@@ -502,7 +502,7 @@ color-dual theories are rare, and only a few examples are available in
 the literature \cite{Monteiro2011pc, Cheung:2016prv, Cheung:2021zvb,
   Cheung:2020djz, Ben-Shahar:2022ixa, Ben-Shahar:2021zww,
   Ben-Shahar:2021doh}.
-Typically when one goes about constructing color-dual
+Typically, when one goes about constructing color-dual
 theories directly from a set of cubic interactions, higher point
 Jacobi and antisymmetry constraints require introducing additional operators \cite{Carrasco:2022lbm,Carrasco:2022sck} or propagating fields \cite{Ben-Shahar:2022ixa}.
 Indeed, as we will show in \cref{sec:cubic}, Yang-Mills
@@ -684,10 +684,10 @@ internal edge labels must be tracked as well.  Furthermore, care must
 be taken with the signs in a symmetry relation.  To compensate for the
 antisymmetric color factors, $f^{abc}$, graph vertices are all totally
 antisymmetric and hence have signs built into their orientations.
-When used in conjuction with the Jacobi relations, \eg{}
+When used in conjunction with the Jacobi relations, \eg{}
 \cref{eq:TwoLoopJacobiOne}, the symmetry constraints of non-basis
 graphs still impose conditions on the basis ansatz.  In fact, since
-the symmetry properites of a graph are directly linked with
+the symmetry properties of a graph are directly linked with
 transformations of its color dressing, the resulting constraints can
 be thought of as a subclass of the \emph{boundary} Jacobi relations.
 
@@ -963,7 +963,7 @@ following vertex in Lorenz gauge:
 \begin{equation}
 \Acubic{hgrey0}{}{nhpRed}{}{nhpRed}{fermion2}{} =(\varepsilon_i\varepsilon_j)(\varepsilon_k p_i).
 \end{equation}
-This kinematic vertex is anti-symmetric in $1\leftrightarrow 2$
+This kinematic vertex is antisymmetric in $1\leftrightarrow 2$
 exchange, and from it we can construct the full Lorenz gauge
 Yang-Mills vertex by summing over cyclic permutations,
 \begin{equation}
@@ -1046,7 +1046,7 @@ to be gauge invariant,
 \sum_{j \in \rho^c} (k_i \varepsilon_j)\Delta_{(\sigma )}^{(\rho\cup (ij))} \,.
 \end{equation}
 With this in hand, we can construct a Lagrangian description of the of
-the cubic sector for Yang-Mills, and will demonstrate that the
+the cubic sector for Yang-Mills and will demonstrate that the
 resulting amplitudes with manifestly color-dual Feynman rules are
 equivalent to both SDYM and NLSM through one-loop.
 
@@ -1101,7 +1101,7 @@ Furthermore, a simple calculation shows that the four-point correlation function
 We also note that semi-YM does not have any ghosts from non-abelian gauge symmetry that could spoil color-kinematics at loop level. Due to the Feynman rules of this theory, the amplitudes are non-vanishing only at tree-level and one-loop. We demonstrate the implications of this property in \cref{2LoopObstruction}.
 
 As noted above, we can select out the manifestly cubic
-sector of semi-abelian Yang-Mills from the full theory of \cref{eq:ym-lag} by selecting only $(\varepsilon^+\varepsilon^+)$ in light-cone gauge (i.e. SDYM) and one-minus at tree-level or by plugging in the on-shell states of $J$-theory \cite{Cheung:2020djz,Cheung:2021zvb} and
+sector of semi-abelian Yang-Mills from the full theory of \cref{eq:ym-lag} by selecting only $(\varepsilon^+\varepsilon^+)$ in light-cone gauge (i.e., SDYM) and one-minus at tree-level or by plugging in the on-shell states of $J$-theory \cite{Cheung:2020djz,Cheung:2021zvb} and
 $YZ$-theory \cite{Cheung:2016prv}. Indeed, semi-YM is just the following sum over building blocks
 in the expansion of Yang-Mills given in Ref.~\cite{Pavao:2022kog},
 \begin{equation}
@@ -1199,7 +1199,7 @@ states, the amplitude vanishes in semi-YM theory
 that is, the theory is one-loop exact.
 In order to produce non-vanishing interactions, we would need to
 reintroduce $D$-dimensional vertices from the diagonal group of
-$G_L\times G_R$ that have the wrong weight. Doing so will necessarily permit internal
+$G_L\times G_R$ that have the wrong weight. \jm{Should we say quartic vertices with the wrong weight or something like that?  We don't have $G_L$ and $G_R$ anymore.} Doing so will necessarily permit internal
 contractions of $\bar{A}_\mu A^\mu$,
 \begin{equation}\label{2loopTension}
 \mathcal{A}^{\text{YM}}_{\text{2-loop}}(A_\mu,A_\mu,A_\mu,A_\mu)=\doubleBoxObstructionA +\doubleBoxObstructionB+\cdots 
@@ -1226,7 +1226,7 @@ As we have just seen, it is possible to coerce tree numerators into
 one-loop numerators at any multiplicity for pions and related
 theories, but that these methods cannot be reapplied to generate
 higher-loop numerators.  For pions in particular, the two-loop no-go statement
-is only for \emph{one particular representation of the theory} so it does
+is only for \emph{one particular representation of the theory}, so it does
 not completely preclude the existence of a two-loop color-dual
 integrand.  We thus turn to the color-dual bootstrap method
 described in \cref{sec:bootstrap} to construct a color-dual
@@ -1276,7 +1276,7 @@ independent dot products of momenta.  With two basis graphs there is a
 total of 16,016 ansatz parameters.\footnote{\texttt{Mathematica} is
   not suited to solving large sets of equations with sixteen thousand
   parameters, so a different method is desirable.  One possibility is
-  to use a sprase solver, as often employed for integral reduction.
+  to use a sparse solver, as often employed for integral reduction.
   However, these solvers typically assume that the matrix has a very
   low density.  While the equations in YM naturally separate into
   different ``helicity'' sectors (or $e_i \cdot e_j$ and
@@ -1302,7 +1302,7 @@ pathological or vanish because they involve a three-point point on-shell
 amplitude. In order to manifest the $\mathbb{Z}_2$
 symmetry of NLSM at the integrand level, we also require that all
 non-pathological cuts containing a three-point vertex (such as the maximal
-cut) vanishe.  Imposing all relevant cuts leaves 765 free parameters
+cut) vanish.  Imposing all relevant cuts leaves 765 free parameters
 representing the generalized gauge freedom in the answer.
 
 
@@ -1411,12 +1411,12 @@ ancillary files make exactly this choice.
 With a cubic color-dual pion representation in hand, we can perform
 double copies with many theories to extract colorless gravity-like
 amplitudes.  In particular, we produce numerators for special
-Gallileons, Born-Infeld theory, and DBIVA by double-copying against
-pions, pure YM, and $\mathcal{N}=4$ sYM respectively
+Galileons (sGal), Born-Infeld (BI) theory, and Dirac-Born-Infeld-Volkov-Akulov (DBIVA) by double-copying against
+pions, pure YM, and $\mathcal{N}=4$ super-Yang-Mills (sYM) respectively
 \cite{Cachazo:2014xea,Cheung:2015ota,Cheung:2016drk}.  Such double-copy constructions are important nontrivial
 checks on the underlying single-copy theories as the Jacobi relations
 in the single copy conspire to produce the double-copy theory's
-version of linear diffeomorphism invariance: enhanced shift symmetry for special Galilleons and gauge
+version of linear diffeomorphism invariance: enhanced shift symmetry for special Galileons and gauge
 invariance of the BI photon and DBIVA supermultiplet \cite{Hinterbichler:2015pqa}.  All
 three of these double-copy theories were recently studied extensively
 by one of the authors and Carrasco from the perspective of direct
@@ -1579,7 +1579,7 @@ integrands. After plugging in suitable on-shell states, the integrands
 produced by semi-abelian YM correspond to those of SDYM in \cref{SDYMnGon} 
 and NLSM in \cref{NLSMnGon}.  \jm{Mention CS?  Maybe something like `SDYM in (), NLSM in (), and Chern-Simons theory in \cref{sec:CSTheory}.'?}  Due to the
 kinetic mixing that stems from the broken Bose symmetry, \cref{2loopTension} shows why it is
-impossible to construct a two-loop integrand for semi-abelian YM theory. In \cref{2loopBoot}, we overcame this obstruction by successfully constructing two-loop NLSM numerators with an ansatz based bootstrap. However, we found that the same approach fails for two-loop pure Yang-Mills, and pin-pointed the failure to a particular unitarity cut captured by \cref{chefsKiss}. Thus, obtaining a globally color-dual
+impossible to construct a two-loop integrand for semi-abelian YM theory. In \cref{2loopBoot}, we overcame this obstruction by successfully constructing two-loop NLSM numerators with an ansatz-based bootstrap. However, we found that the same approach fails for two-loop pure Yang-Mills, and pin-pointed the failure to a particular unitarity cut captured by \cref{chefsKiss}. Thus, obtaining a globally color-dual
 integrand beyond one-loop then requires sacrificing more than just Bose
 symmetry, and in this paper we have argued that off-shell locality\footnote{An example of this can already be found in the literature, where locality is relaxed in Ref.~\cite{Mogull:2015adi} in
   order to obtain color-dual two-loop integrands with on-shell 4D states.} must
@@ -1592,7 +1592,7 @@ theories. After all, operators that produce rational functions are typically non
 \mathcal{A}^{\text{YM}} \stackrel{\alpha'}{\longrightarrow} \mathcal{A}^{\text{OS}}\supset t_8 F^4 \int_0^1 dx \,\frac{ x^{\alpha' s_{12}}(1-x)^{\alpha' s_{23}}}{x(1-x)(s_{12}+s_{23})}\, .
 \ee
 The resulting Veneziano factor of Gamma functions produces rational functions of kinematics, while preserving color-kinematics duality \cite{MafraBCJAmplString,Broedel:2013tta,Mafra:2016mcc,Carrasco:2019yyn}. While introducing some type of worldsheet formulation of color-dual numerators might seem unjustified given the results of this work, our findings certainly suggest that we must do \textit{something} to relax the constraint of off-shell locality, and realize locality only in the limit of
-\textit{on-shell} kinematics. This could be acheived by either modifying the kinetic term or potentially something new and more exotic. Below we provide some simple examples
+\textit{on-shell} kinematics. This could be achieved by either modifying the kinetic term or potentially something new and more exotic. Below we provide some simple examples
 at tree-level of what one might consider for implementing such a construction.
 
 
@@ -1604,7 +1604,7 @@ representation of Yang-Mills theory. We can define a functional numerator, $N_{(
 N_{(12|34)}^{\text{YM}} = \frac{t_8F^4}{3} \frac{s_{13}-s_{12}}{s_{23}{s_{13}}}
 \end{equation}
 where $N_s = N_{(12|34)}$, $N_t = N_{(14|23)}$ and $N_u = N_{(13|42)}$. By construction, this functionally symmetric numerator is
-anti-symmetric and obeys the Jacobi identity
+antisymmetric and obeys the Jacobi identity
 \begin{equation}\label{nonLocalNum}
 N_{(12|34)}^{\text{YM}} + N_{(13|42)}^{\text{YM}} +N_{(14|23)}^{\text{YM}} = 0.
 \end{equation}
@@ -1685,7 +1685,7 @@ Since Bose symmetry is broken, the ensuing kinetic mixing prevents color-dual re
 
 \subsection{Self-Dual Yang-Mills} The first example in the literature
 of color-dual Feynman rules is that of Yang-Mills theory in the
-self-dual sector (SDYM).  We summarize the appoach of
+self-dual sector (SDYM).  We summarize the approach of
 Ref.~\cite{Monteiro2011pc} for extracting the kinematic algebra.
 To obtain the Lagrangian for self-dual Yang-Mills from standard Yang-Mills, we apply the
 self-duality condition that equates the non-abelian $SU(N)$ field
@@ -1787,7 +1787,7 @@ Note that the pure vector vertex on the right is \textit{exactly} what was obtai
 \be\label{eq:FeynmanRuleYYZ}
 T^a_{ij}= i \varepsilon_a(p_i-p_j)\,,
 \end{equation}
-where momentum conservation requires\,,
+where momentum conservation requires,
 \begin{equation}
 p_a + p_i + p_j =0\, .
 \end{equation}
@@ -1874,7 +1874,7 @@ Taking a linear combination of \cref{eq:FieldStrengthJ} and \cref{eq:LorenzGauge
 \Box J^\mu +g f^{abc} J^\nu \partial_\nu J^\mu = 0.
 \end{equation}
 Integrating in an auxiliary field $\bar{J}^\mu$ as a Lagrange multiplier trivially produces the Lagrangian of semi-abelian YM \cref{eq:semiYM} but with the gauge fields renamed to $J_\mu$ and $\bar{J}_\mu$.
-Since both theories are in Lorenz gauge this means that \emph{$J$-theory and semi-abelian YM are identical}. Furthermore, this theory is one-to-one with the observables amplitudes of $YZ$-theory when only considering on-shell $Z$$\bar{Z}$ states. As such, the single vertex in this theory is the same as the pure vector vertex of $YZ$ theory in Lorenz gauge,
+Since both theories are in Lorenz gauge this means that \emph{$J$-theory and semi-abelian YM are identical}. Furthermore, this theory is one-to-one with the amplitudes of $YZ$-theory when only considering on-shell $Z$$\bar{Z}$ states. As such, the single vertex in this theory is the same as the pure vector vertex of $YZ$ theory in Lorenz gauge,
 \begin{equation}
 \cubic{hgrey0}{fermion2}{}{fermion2}{}{fermion2}{} =i(\varepsilon_1 p_{2})(\varepsilon_2\bar{\varepsilon}_3) - i(\varepsilon_2 p_{1})(\varepsilon_1\bar{\varepsilon}_3)\, .
 \end{equation}
@@ -1985,7 +1985,7 @@ The color-stripped three-point vertex and propagator can be read off from the CS
 \be\label{CSFrule}
 \cubic{hgrey0}{nhpRed}{}{nhpRed}{}{nhpRed}{} = \epsilon^{\mu\nu\rho} \varepsilon^{\mu}_1\varepsilon^{\nu}_2\varepsilon^{\rho}_3 \qquad \qquad \propFrule{$A^\nu$}{$A^\mu$}{$k \rightarrow $}{nhpRed} = \frac{i}{k^2} \epsilon^{\mu\nu\rho} k^\rho \, .
 \ee
-At first glance, this seems far removed from the semi-abelian Yang-Mills analogs in \cref{semiYMvert} and \cref{semiYMprop}. After all, semi-YM makes no reference to an anti-symmetric 3-tensor and the mass dimensions of the vertices do not agree. However, to construct the full on-shell amplitudes of CS theory, we must plug in the Fourier transforms of the on-shell currents, $\bar{\varepsilon}(p)$, as described in Ref.~\cite{Ben-Shahar:2021zww}. \jm{How about we use $\varepsilon_\mu$ and $\epsilon_\mu$ like Henrik and Maor?  I'm worried that the bar is getting overused a little.  Or how about $\varepsilon$ and $\tilde{\varepsilon}$ but this will eventually involve $\tilde{\bar{\varepsilon}}$ which is a little gross?} These are related to the polarizations, $\varepsilon_i$, of the Feynman rules above as follows:
+At first glance, this seems far removed from the semi-abelian Yang-Mills analogs in \cref{semiYMvert} and \cref{semiYMprop}. After all, semi-YM makes no reference to an antisymmetric 3-tensor and the mass dimensions of the vertices do not agree. However, to construct the full on-shell amplitudes of CS theory, we must plug in the Fourier transforms of the on-shell currents, $\bar{\varepsilon}(p)$, as described in Ref.~\cite{Ben-Shahar:2021zww}. \jm{How about we use $\varepsilon_\mu$ and $\epsilon_\mu$ like Henrik and Maor?  I'm worried that the bar is getting overused a little.  Or how about $\varepsilon$ and $\tilde{\varepsilon}$ but this will eventually involve $\tilde{\bar{\varepsilon}}$ which is a little gross?} These are related to the polarizations, $\varepsilon_i$, of the Feynman rules above as follows:
 \be
 \varepsilon^{\mu}(p) = \epsilon^{\mu\nu\rho} p^\nu \bar{\varepsilon}^\rho(p)\, .
 \ee
