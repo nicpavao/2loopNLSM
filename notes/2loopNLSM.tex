@@ -1577,7 +1577,8 @@ In addition to the tree-level construction, we found that kinetic mixing
 between the two gauge fields permits globally color-dual one-loop
 integrands. After plugging in suitable on-shell states, the integrands
 produced by semi-abelian YM correspond to those of SDYM in \cref{SDYMnGon} 
-and NLSM in \cref{NLSMnGon}.  \jm{Mention CS?  Maybe something like `SDYM in (), NLSM in (), and Chern-Simons theory in \cref{sec:CSTheory}.'?}  Due to the
+and NLSM in \cref{NLSMnGon}.  \jm{Mention CS?  Maybe something like `SDYM in \cref{SDYMnGon} 
+and NLSM in \cref{NLSMnGon}, where Chern-Simons theory is discussed in \cref{sec:CSTheory}.'?}  Due to the
 kinetic mixing that stems from the broken Bose symmetry, \cref{2loopTension} shows why it is
 impossible to construct a two-loop integrand for semi-abelian YM theory. In \cref{2loopBoot}, we overcame this obstruction by successfully constructing two-loop NLSM numerators with an ansatz-based bootstrap. However, we found that the same approach fails for two-loop pure Yang-Mills, and pin-pointed the failure to a particular unitarity cut captured by \cref{chefsKiss}. Thus, obtaining a globally color-dual
 integrand beyond one-loop then requires sacrificing more than just Bose
@@ -1985,7 +1986,7 @@ The color-stripped three-point vertex and propagator can be read off from the CS
 \be\label{CSFrule}
 \cubic{hgrey0}{nhpRed}{}{nhpRed}{}{nhpRed}{} = \epsilon^{\mu\nu\rho} \varepsilon^{\mu}_1\varepsilon^{\nu}_2\varepsilon^{\rho}_3 \qquad \qquad \propFrule{$A^\nu$}{$A^\mu$}{$k \rightarrow $}{nhpRed} = \frac{i}{k^2} \epsilon^{\mu\nu\rho} k^\rho \, .
 \ee
-At first glance, this seems far removed from the semi-abelian Yang-Mills analogs in \cref{semiYMvert} and \cref{semiYMprop}. After all, semi-YM makes no reference to an antisymmetric 3-tensor and the mass dimensions of the vertices do not agree. However, to construct the full on-shell amplitudes of CS theory, we must plug in the Fourier transforms of the on-shell currents, $\bar{\varepsilon}(p)$, as described in Ref.~\cite{Ben-Shahar:2021zww}. \jm{How about we use $\varepsilon_\mu$ and $\epsilon_\mu$ like Henrik and Maor?  I'm worried that the bar is getting overused a little.  Or how about $\varepsilon$ and $\tilde{\varepsilon}$ but this will eventually involve $\tilde{\bar{\varepsilon}}$ which is a little gross?} These are related to the polarizations, $\varepsilon_i$, of the Feynman rules above as follows:
+At first glance, this seems far removed from the semi-abelian Yang-Mills analogs in \cref{semiYMvert} and \cref{semiYMprop}. After all, semi-YM makes no reference to an antisymmetric 3-tensor and the mass dimensions of the vertices do not agree. However, to construct the full on-shell amplitudes of CS theory, we must plug in the Fourier transforms of the on-shell currents, $\bar{\varepsilon}(p)$, as described in Ref.~\cite{Ben-Shahar:2021zww}. \jm{I'm worried that the bar over epsilons is getting overused.  Howe about we use $e_\mu$ instead of $\bar{\varepsilon}_\mu$?  We could use a tilde or $\epsilon$ but those both have issues.} These are related to the polarizations, $\varepsilon_i$, of the Feynman rules above as follows:
 \be
 \varepsilon^{\mu}(p) = \epsilon^{\mu\nu\rho} p^\nu \bar{\varepsilon}^\rho(p)\, .
 \ee
@@ -2005,7 +2006,7 @@ where we have used the identity $\epsilon^{\mu\nu\rho}\epsilon^{\rho\alpha\beta}
 \ee
 Upon making this replacement, the amplitudes of $D$-dimensional semi-YM are mapped onto 3D CS theory, $\mathcal{A}^{\text{semi-YM}}\rightarrow \mathcal{A}^{\text{CS}}$. While this may seem like a marginal gain at tree-level, by using our $D$-dimensional construction at one-loop, the manifestly color-dual integrands of \cref{SDYMnGon} can resolve regularization ambiguity of CS theory due to its explicit dependence on $D=3$. For more background on CS theory, we refer the reader to Ref.~\cite{Ben-Shahar:2021zww}.
 
-\jm{Do we want to mention something about how it's not obvious in this formulation of CS that the amplitudes vanish?  This also happens for NLSM where it's not obvious why odd multiplicity semi-YM amplitudes with the NLSM external states vanish.}
+\jm{Can we mention somewhere that CS amplitudes vanish because the theory is topological?  From the point of view of semi-YM it isn't obvious why the CS amplitudes should vanish (at least it isn't obvious to me), but a similar thing happens for odd multiplicity NLSM amplitudes.}
 
 \section{Spinor-helicity and conventions}\label{Conventions}
 
