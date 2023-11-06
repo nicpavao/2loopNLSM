@@ -278,8 +278,7 @@ suited for algorithmically extracting rational terms from the
 $D$-dependence of dimensionally regulated loop momenta.
 The ansatz approach to constructing numerators generally results in an explosion of terms, but in the case of scalar theories there is an added difficulty because the linear equations become dense.
 We were able overcome this barrier by employing a custom
-solver, \texttt{FiniteFieldSolve}, which will soon be made
-public.
+solver, \texttt{FiniteFieldSolve} \cite{finitefieldsolve}.
 
 With this solver, we are able to compute a two-loop integrand for NLSM
 that globally manifests the duality off-shell. This represents a new
@@ -1279,10 +1278,9 @@ total of 16,016 ansatz parameters.\footnote{\texttt{Mathematica} is
   $e_i \cdot k_j$ sectors in $D$ dimensions) which limits the
   cross-talk between equations and thus the effective density, there
   is no such separation of sectors in a scalar theory.  Thus the NLSM
-  constraint equations were solved using a custom solver, working name
+  constraint equations were solved using a custom solver, 
   \texttt{FiniteFieldSolve}, designed to exactly solve large linear
-  systems of arbitrary density.  \texttt{FiniteFieldSolve} will be
-  released publicly shortly.} Imposing the boundary Jacobi relations
+  systems of arbitrary density \cite{finitefieldsolve}.} Imposing the boundary Jacobi relations
 eliminates all but 4,473 of the original free parameters.  Further
 imposing graph symmetries reduces the number of free parameters to
 1,243.
