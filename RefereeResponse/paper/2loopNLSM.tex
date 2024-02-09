@@ -206,7 +206,7 @@ these NLSM numerators with themselves, pure Yang-Mills, and
   and Dirac-Born-Infeld-Volkov-Akulov theory, respectively. 
   Applying our bootstrap to two-loop four-point pure Yang-Mills, we exhaustively search the space of local numerators and find that it fails to satisfy global color-kinematics duality, completing a search previously initiated in the literature. 
   We pinpoint the failure to the
-  bowtie unitarity cut, and discuss a path forward towards \emph{non-local}
+  bowtie unitarity cut, and discuss a path forward towards non-local
   construction of color-dual integrands at generic loop order.
   
 }
@@ -224,8 +224,8 @@ these NLSM numerators with themselves, pure Yang-Mills, and
 \section{Introduction}\label{intro}
 Since the turn of the century, our understanding of the $S$-matrix and
 its concealed structures has expanded dramatically. At the heart of this
-progress is the mantra that physical observables are simpler when
-studied on-shell
+progress is the mantra that \emph{physical observables are simpler when
+studied on-shell}
 \cite{Parke:1986gb,TasiLance,Cheung:2017pzi}. However, while inserting on-shell states certainly offers a path towards taming the
 factorial growth of Feynman diagrams, it also obscures the off-shell
 simplicity at the heart of many quantum field theories. A shining
@@ -410,7 +410,7 @@ The color structure of tree-level amplitudes is particularly simple.
 A fully color dressed tree amplitude $\mathcal{A}_n$ can be decomposed
 in terms of the trace basis
 \begin{equation}
-  \mathcal{A}_n = \sum \limits_{\sigma\in S_{n-1}} \text{Tr}(T^{a_{\sigma_1}} T^{a_{\sigma_2}}...T^{a_{\sigma_{n-1}}} T^{a_n}) A_n[\sigma_1, \sigma_2,...\sigma_{n-1}, n],
+  \mathcal{A}_n = \sum \limits_{\sigma\in S_{n-1}} \text{Tr}(T^{a_{\sigma_1}} T^{a_{\sigma_2}}\cdots T^{a_{\sigma_{n-1}}} T^{a_n}) A_n[\sigma_1, \sigma_2,...,\sigma_{n-1}, n],
   \label{eq:trace-basis}
 \end{equation}
 where $T^a$ are generators of the gauge group and, because of the
@@ -421,7 +421,7 @@ amplitudes $A_n[...]$.  Any tree-level color factor can be converted
 into a linear combination of Del Duca-Dixon-Maltoni (DDM) half-ladder
 color factors
 \begin{equation}
-\text{DDM}[a_1, a_2,... a_n] \equiv f^{a_1 a_2 b_1} f^{b_1 a_3 b_2} f^{b_2 a_4 b_3}...f^{b_{n-3} a_{n-1} a_n}
+\text{DDM}[a_1, a_2,..., a_n] \equiv f^{a_1 a_2 b_1} f^{b_1 a_3 b_2} f^{b_2 a_4 b_3}\cdots f^{b_{n-3} a_{n-1} a_n}
 \end{equation}
 associated with the graph
 \begin{equation}
@@ -430,7 +430,7 @@ associated with the graph
 by repeated application of the Jacobi identity \cite{DixonMaltoni}.
 The fully color-dressed tree amplitude can then be re-expressed as
 \begin{equation}
-  \mathcal{A}_n = \sum \limits_{\sigma\in S_{n-2}} \text{DDM}[a_1, a_{\sigma_2}, a_{\sigma_3}, a_{\sigma_{n-1}}, a_n]  A_n[1, \sigma_2,...\sigma_{n-1}, n]
+  \mathcal{A}_n = \sum \limits_{\sigma\in S_{n-2}} \text{DDM}[a_1, a_{\sigma_2}, ..., a_{\sigma_{n-1}}, a_n]  A_n[1, \sigma_2,...,\sigma_{n-1}, n]
   \label{eq:ddm-basis}
 \end{equation}
 with legs $1$ and $n$ fixed.  Since the sum only contains $(n-2)!$
@@ -443,7 +443,7 @@ implies that the KK basis is overcomplete and can be reduced to a
 basis of $(n-3)!$ amplitudes via the fundamental Bern-Carrasco-Johansson (BCJ) identities
 \cite{BCJ,Feng:2010my}
 \begin{equation}
-\sum \limits_{i=2}^{n-1} k_1 \cdot (k_2+...+k_i) A_n[2,...,i,1,i+1,...,n] =0.
+\sum \limits_{i=2}^{n-1} k_1 \cdot (k_2+\cdots+k_i) A_n[2,...,i,1,i+1,...,n] =0.
 \end{equation}
 In terms of constructing explicit color-dual solutions at tree level,
 it is enough to specify the numerator of the half-ladder because any
@@ -497,7 +497,7 @@ the literature \cite{Monteiro2011pc, Cheung:2016prv, Cheung:2021zvb,
   Ben-Shahar:2021doh}.
 Typically, when one goes about constructing color-dual
 theories directly from a set of cubic interactions, higher point
-Jacobi and antisymmetry constraints require introducing additional operators \cite{Carrasco:2022lbm,Carrasco:2022sck} or propagating fields \cite{Ben-Shahar:2022ixa}.
+Jacobi and antisymmetry constraints require introducing additional operators \cite{Carrasco:2022lbm,Carrasco:2022sck,Carrasco:2023wib} or propagating fields \cite{Ben-Shahar:2022ixa}.
 Indeed, as we will show in \cref{sec:cubic}, Yang-Mills
 requires introducing a cubic two-form interaction in order to manifest
 the kinematic algebra just at four-point. Absent information about the
@@ -512,10 +512,8 @@ When an off-shell color-dual Lagrangian is not known, the loop-level
 amplitude integrand must be constructed from an ansatz.  The four
 conditions we impose on an integrand ansatz are summarized here and
 elaborated on below.\footnote{The four ansatz conditions are similar
-  to those of Ref.~\cite{Bern:2015ooa} except that there the authors
-  demand that the numerators have the same loop power counting as
-  Feynman gauge Feynman rules.  This is an additional assumption that
-  is most emphatically not made here.}
+  to those of Ref.~\cite{Bern:2015ooa}. However, in that work the authors
+  demand that the numerators have the same loop power counting as Feynman rules for vector fields in Feynman gauge.  This additional assumption of theirs, which most emphatically is not made here, places more restrictive constraints on the ansatz than our conditions.}
 After imposing the four constraints below, any remaining coefficients in the ansatz encode ``generalized gauge freedom'', meaning that the
 choice of coefficients does not affect the physical integrand or its double copy.
 \begin{enumerate}
@@ -1064,12 +1062,10 @@ be restored on-shell. However, the contrapositive is also true -- if
 we omit the four-point Yang-Mills vertex, then we only need terms that
 contribute to the manifestly color-dual cubic sector of the theory. We call
 this manifestly color-dual theory \textit{semi-abelian Yang-Mills},
-\begin{eBox}
 \begin{equation}
 \label{eq:semiYM}
 \mathcal{L}^{\text{semi-YM}} = -\frac{1}{2}\text{tr}\left[\bar{F}_{\mu\nu}F^{\mu\nu}\right]
 \end{equation}
-\end{eBox}
 where
 \begin{equation}
 \bar{F}^a_{\mu\nu} = \partial_\mu \bar{A}_\nu^a - \partial_\nu \bar{A}_\mu^a
@@ -1077,7 +1073,7 @@ where
 \begin{equation}
 F^a_{\mu\nu} = \partial_\mu A_\nu^a - \partial_\nu A_\mu^a + f^{abc} A_\mu^b A_\nu^c
 \end{equation}
-and $A_\mu$ is in Lorenz gauge. We can construct this Lagrangian from \cref{eq:ym-lag} by keeping the right field strength covariant under
+and $A_\mu$ is in Lorenz gauge, so that $\partial_\mu A^\mu =0$. We can construct this Lagrangian from \cref{eq:ym-lag} by keeping the right field strength covariant under
 $U(N)$, and making the left field strength gauge covariant under
 $U(1)^{N^2}$. Note that since $U(1)$ covariance is identical to $U(1)$ invariance, the amplitudes of this semi-abelian theory vanish under $\bar{\varepsilon}(k) \rightarrow k$, where $\bar{\varepsilon}$ is the polarization of an external $\bar{A}_\mu$ vector.
 
@@ -1121,12 +1117,10 @@ where $[\,\cdots]_a$ are terms with appropriate powers of
 $(\varepsilon k)$ and $(kk)$. As we describe in detail in
 \cref{sec:CKLagrangians}, to recover NLSM at one-loop we need to
 extract the $D$-dependent part that corresponds to an internal
-$\bar{Y}Y$-loop from extra-dimensional scalars
-\begin{eBox}
+$\bar{Y}Y$-loop from extra-dimensional scalars,
 \begin{equation}
 A^{\text{NLSM}}_{\text{1-loop}} \equiv \partial_D \Delta^{(\varnothing)}_{\text{1-loop}}\big|_{\varepsilon\rightarrow k}\, .
 \end{equation}
-\end{eBox}
 Why must we take the derivative with respect to $D$? After all,
 $J$-theory and $YZ$-theory both have well defined propagators for
 internal $\bar{J}J$ and $\bar{Z}Z$ propagators. However, as we discuss
@@ -1225,11 +1219,11 @@ $\mathcal{W}[\bar{A}\bar{A} A] = -1$, rather than the isolated semi-YM
 vertex which always carries weight $\mathcal{W}[\bar{A}A A] =
 +1$. This immediately runs into the difficulty of introducing the
 four-point contact needed for color-kinematics to be satisfied on all
-internal edges. Therefore, by a simple weight counting argument, one can see that
+internal edges. Thus, by a simple weight counting argument, one can see that
 including this wrong sign interactions is unavoidable at two-loop and
 higher.
 
-Thus, to construct two-loop numerators prescriptively, as we have done at one-loop, would require knowledge of
+Therefore, to construct two-loop numerators prescriptively, as we have done at one-loop, would require knowledge of
 the full kinematic algebra for Yang-Mills off-shell.  Since this is presently unavailable, we will tackle the two-loop integrand using an ansatz approach.
 
 
@@ -1572,7 +1566,6 @@ from the double-box
 \end{equation}
 After imposing this cut, we find that the original Jacobi relation,
 \cref{eq:TwoLoopJacobiOne}, can no longer be satisfied. In other words, the constraints imposed by the single Jacobi relation and the three sets of diagram symmetries conspire in a way that is inconsistent with the ``bowtie'' cut. The contrapositive to this surprising result can be summarized in the following diagrammatic statement, which prioritizes the physical unitarity cut:
-\begin{eBox}
 \begin{equation}\label{chefsKiss}
    \scalebox{0.9}{\NMCutC} \!\!
   \Rightarrow \!\!
@@ -1580,12 +1573,13 @@ After imposing this cut, we find that the original Jacobi relation,
   +  \scalebox{0.85}{\JacobiOneCrossedBox}
   + \scalebox{0.85}{\JacobiOnePentaTriangle} \neq 0 \,.
 \end{equation}
-\end{eBox}
 Thus we have identified the minimal failure state for a
 globally-color-dual two-loop Yang-Mills representation: off-shell locality,
 symmetry, and the kinematic Jacobi relations for just three diagrams
 are incompatible with the ``bowtie'' cut.
-Note that NLSM and sYM do not suffer from this failure, suggesting that they are more privileged theories in some sense.%Referee edit
+Note that NLSM and $\mathcal{N}=4$ sYM do not suffer from this failure, suggesting that they are more privileged theories in some sense. 
+
+Concretely, in this work we have found that the power counting of NLSM offers sufficient generalized gauge freedom to manifest the duality globally, while maintaining compatibility with the ``bowtie'' cut. Whereas in the case of $\mathcal{N}=4$ sYM, by virtue of permitting a local construction consistent with \cref{chefsKiss}, the supersymmetric state sum\footnote{Due to the presence of fermionic modes that propagate off-shell in $\mathcal{N}=4$ sYM amplitudes, some of the pure vector contributions will be cancelled in the ``bow-tie'' cut, which leads to simpler cut expressions \cite{SuperSum}.} must be sufficiently simple, in such a way that it absorbs cut contributions present in the pure gluon state sum that we have shown are inconsistent with a globally color-dual polynomial ansatz. As such, the result of \cref{chefsKiss} is due to the power counting of pure YM being too restrictive to account for the complexity posed by the pure gluon ``bow-tie'' cut.  %Referee edit
 
 
 \section{Conclusions and Outlook}\label{conclusions}
@@ -1839,7 +1833,7 @@ The kinematic half-ladder diagrams then take on the following concise form
 \begin{equation}
 n^{\text{NLSM}}_{(i|a_1a_2...a_n|j)} = {}_i\langle T^{a_1}T^{a_2}\cdots T^{a_n}\rangle_j\, .
 \end{equation}
-Since there are no pole cancelling factors of $s_{ij} = (p_i+p_j)^2$, this definition of the kinematic algebra is manifestly cubic. Thus, the kinematic structure constants defined in terms of these generators are invariant under generalized gauge freedom because there are no quartic vertices. They can be defined implicitly through
+Since there are no pole cancelling factors of $s_{ij} = (p_i+p_j)^2$, this definition of the kinematic algebra is manifestly cubic. Thus, the kinematic structure constants, $F^{a}_{\,b|c}$, defined in terms of the generators, $T^a_{ij}$, are invariant under generalized gauge freedom because there are no quartic vertices. They can be defined implicitly through
 \begin{equation}
 [T^a,T^b]_{ij}= F^{a}_{\,b|c}T^c_{ij}\, .
 \end{equation}
